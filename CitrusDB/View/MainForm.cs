@@ -10,20 +10,34 @@ using System.Windows.Forms;
 
 namespace CitrusDB
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainForm
     {
         private bool isCollapsed;
+
+        public object DataSource
+        {
+            
+            get
+            {
+                return this.dataGrid.DataSource;
+            }
+            set
+            {
+                this.dataGrid.DataSource = value;
+            }
+        }
+
+        public event EventHandler LoadMainForm;
 
         public MainForm()
         {
             InitializeComponent();
-
             isCollapsed = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            LoadMainForm(sender, e);
         }
 
         private void ReplaceBacklightPanel(object sender, EventArgs e)
@@ -99,5 +113,7 @@ namespace CitrusDB
                 }
             }
         }
+
+        
     }
 }

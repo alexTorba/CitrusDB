@@ -16,7 +16,11 @@ namespace CitrusDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            MainForm mainForm = new MainForm();
+            MainPresenter mainPresenter = new MainPresenter(mainForm);
+
+            Application.Run(mainForm);
         }
     }
 }
