@@ -2,7 +2,6 @@ C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\CitrusDB.ex
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\CitrusDB.exe
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\CitrusDB.pdb
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.csprojAssemblyReference.cache
-C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.Form1.resources
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.Properties.Resources.resources
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.csproj.GenerateResource.cache
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.csproj.CoreCompileInputs.cache
@@ -10,3 +9,9 @@ C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.ex
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.pdb
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\Bunifu_UI_v1.5.3.dll
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.csproj.CopyComplete
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\EntityFramework.dll
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\EntityFramework.xml
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.MainForm.resources
