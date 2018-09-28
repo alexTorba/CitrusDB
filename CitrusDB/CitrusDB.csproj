@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ExtensionTicks.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
     <Compile Include="View\DataBoard.cs">

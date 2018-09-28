@@ -8,7 +8,7 @@ namespace CitrusDB
     {
         static StudentDB()
         {
-            Database.SetInitializer(new InitDB());
+            //Database.SetInitializer(new InitDB());
         }
 
         public StudentDB()

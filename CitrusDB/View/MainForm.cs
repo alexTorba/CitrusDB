@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace CitrusDB
 {
+    public delegate void TimerHandler(Timer timer, object sender, EventArgs e);
+
     public partial class MainForm : Form, IMainForm
     {
-        private bool isCollapsed;
+
+        #region IMainForm
 
         public object DataSource
         {
-            
             get
             {
                 return this.dataGrid.DataSource;
@@ -29,10 +31,14 @@ namespace CitrusDB
 
         public event EventHandler LoadMainForm;
 
+        #endregion
+
+        public event TimerHandler TimerTiks;
+
+
         public MainForm()
-        {
+        {   
             InitializeComponent();
-            isCollapsed = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,6 +46,7 @@ namespace CitrusDB
             LoadMainForm(sender, e);
         }
 
+        #region buttons handler
         private void ReplaceBacklightPanel(object sender, EventArgs e)
         {
             Button currentButton = sender as Button;
@@ -65,13 +72,6 @@ namespace CitrusDB
             ReplaceBacklightPanel(sender, e);
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            ReplaceBacklightPanel(sender, e);
-
-            timer.Start();
-        }
-
         private void buttonStatistics_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
@@ -92,28 +92,21 @@ namespace CitrusDB
             buttonAdd_Click(sender, e);
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (isCollapsed)
-            {
-                panelGroupAdd.Height += 10;
-                if (panelGroupAdd.Size == panelGroupAdd.MaximumSize)
-                {
-                    timer.Stop();
-                    isCollapsed = false;
-                }
-            }
-            else
-            {
-                panelGroupAdd.Height -= 10;
-                if (panelGroupAdd.Size == panelGroupAdd.MinimumSize)
-                {
-                    timer.Stop();
-                    isCollapsed = true;
-                }
-            }
+            ReplaceBacklightPanel(sender, e);
+
+            timer.Start();
+            TimerTiks = panelGroupAdd.TicksGrowsHeight;
         }
 
-        
+        #endregion
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            this.TimerTiks.Invoke(sender as Timer , null, EventArgs.Empty);
+        }
+
+        //
     }
 }
