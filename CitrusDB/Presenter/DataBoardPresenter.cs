@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace CitrusDB
 {
-    class DataBoardPresenter
+    public class DataBoardPresenter
     {
         IDataBoard dataBoard;
-        Model model = new Model();
+        Model model;
 
         public DataBoardPresenter(DataBoard dataBoard)
         {
+            model = new Model();
+
             this.dataBoard = dataBoard;
             this.dataBoard.LoadDataBoard += DataBoard_LoadDataBoard;
         }

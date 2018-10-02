@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Model\ExtensionTicks.cs" />
     <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\StudentDB.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
@@ -89,7 +90,6 @@
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\InitDB.cs" />
     <Compile Include="Model\Student.cs" />
-    <Compile Include="Model\StudentDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="View\AddStudent\AddStudentBoard.resx">

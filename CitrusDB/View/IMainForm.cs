@@ -9,6 +9,5 @@ namespace CitrusDB
     interface IMainForm
     {
         event EventHandler LoadMainForm;
-        object DataSource { get; set; }
     }
 }

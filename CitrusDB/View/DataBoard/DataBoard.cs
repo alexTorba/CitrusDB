@@ -27,8 +27,6 @@ namespace CitrusDB
         public DataBoard()
         {
             InitializeComponent();
-
-            DataBoardPresenter dataBoardPresenter = new DataBoardPresenter(this);
         }
 
         public void InitDataBoard(MainForm mainForm)
@@ -38,7 +36,9 @@ namespace CitrusDB
 
         private void DataBoard_Load(object sender, EventArgs e)
         {
-            LoadDataBoard.Invoke(sender, e);
+            //DataBoardPresenter dataBoardPresenter = new DataBoardPresenter(this);
+
+            LoadDataBoard?.Invoke(sender, e);
         }
 
         private void collapsedData_Click(object sender, EventArgs e)

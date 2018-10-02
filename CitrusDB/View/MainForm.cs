@@ -17,18 +17,6 @@ namespace CitrusDB
 
         #region IMainForm
 
-        public object DataSource
-        {
-            get
-            {
-                return this.dataGrid.DataSource;
-            }
-            set
-            {
-                this.dataGrid.DataSource = value;
-            }
-        }
-
         public event EventHandler LoadMainForm;
 
         #endregion
@@ -44,6 +32,7 @@ namespace CitrusDB
         public void InitBoard()
         {
             this.addStudentBoard1.InitFields(this);
+            this.dataBoard.InitDataBoard(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)

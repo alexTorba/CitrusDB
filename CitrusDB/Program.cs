@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
 namespace CitrusDB
 {
     static class Program
@@ -24,7 +22,7 @@ namespace CitrusDB
 
             MainPresenter mainPresenter = new MainPresenter(mainForm);
             AddStudentBoardPresenter addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard1);
-
+            DataBoardPresenter dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
 
             Application.Run(mainForm);
         }

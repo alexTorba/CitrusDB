@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataBoard));
             this.dataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.collapsedButton = new System.Windows.Forms.Button();
@@ -43,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.generPanelOptions = new System.Windows.Forms.Panel();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,30 +56,33 @@
             this.secondPhotoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panelGroup.SuspendLayout();
             this.flowGroupOptions.SuspendLayout();
             this.panelTables.SuspendLayout();
             this.generPanelOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGrid.AutoGenerateColumns = false;
             this.dataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -96,12 +98,12 @@
             this.secondPhotoDataGridViewImageColumn,
             this.groupIdDataGridViewTextBoxColumn,
             this.groupDataGridViewTextBoxColumn});
-            this.dataGrid.DataSource = this.studentBindingSource;
+            this.dataGrid.DataSource = this.studentBindingSource1;
             this.dataGrid.DoubleBuffered = true;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dataGrid.Location = new System.Drawing.Point(0, 151);
+            this.dataGrid.Location = new System.Drawing.Point(3, 156);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGrid.RowTemplate.Height = 24;
@@ -117,7 +119,7 @@
             this.collapsedButton.ForeColor = System.Drawing.Color.White;
             this.collapsedButton.Image = ((System.Drawing.Image)(resources.GetObject("collapsedButton.Image")));
             this.collapsedButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.collapsedButton.Location = new System.Drawing.Point(1, 542);
+            this.collapsedButton.Location = new System.Drawing.Point(0, 547);
             this.collapsedButton.Name = "collapsedButton";
             this.collapsedButton.Size = new System.Drawing.Size(47, 51);
             this.collapsedButton.TabIndex = 4;
@@ -146,7 +148,7 @@
             this.panelGroup.Controls.Add(this.flowGroupOptions);
             this.panelGroup.Location = new System.Drawing.Point(47, 0);
             this.panelGroup.Name = "panelGroup";
-            this.panelGroup.Size = new System.Drawing.Size(234, 593);
+            this.panelGroup.Size = new System.Drawing.Size(234, 598);
             this.panelGroup.TabIndex = 5;
             // 
             // flowGroupOptions
@@ -219,17 +221,14 @@
             // 
             this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Controls.Add(this.collapsedButton);
-            this.generPanelOptions.Location = new System.Drawing.Point(632, 0);
-            this.generPanelOptions.MaximumSize = new System.Drawing.Size(288, 593);
-            this.generPanelOptions.MinimumSize = new System.Drawing.Size(47, 593);
+            this.generPanelOptions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.generPanelOptions.Location = new System.Drawing.Point(870, 0);
+            this.generPanelOptions.MaximumSize = new System.Drawing.Size(280, 598);
+            this.generPanelOptions.MinimumSize = new System.Drawing.Size(47, 598);
             this.generPanelOptions.Name = "generPanelOptions";
-            this.generPanelOptions.Size = new System.Drawing.Size(282, 593);
+            this.generPanelOptions.Size = new System.Drawing.Size(47, 598);
             this.generPanelOptions.TabIndex = 6;
             this.generPanelOptions.Tag = false;
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(CitrusDB.Student);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -309,6 +308,14 @@
             this.groupDataGridViewTextBoxColumn.HeaderText = "Group";
             this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
             // 
+            // studentBindingSource1
+            // 
+            this.studentBindingSource1.DataSource = typeof(CitrusDB.Student);
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(CitrusDB.Student);
+            // 
             // DataBoard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -316,7 +323,7 @@
             this.Controls.Add(this.generPanelOptions);
             this.Controls.Add(this.dataGrid);
             this.Name = "DataBoard";
-            this.Size = new System.Drawing.Size(914, 593);
+            this.Size = new System.Drawing.Size(917, 598);
             this.Load += new System.EventHandler(this.DataBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.panelGroup.ResumeLayout(false);
@@ -324,6 +331,7 @@
             this.panelTables.ResumeLayout(false);
             this.panelTables.PerformLayout();
             this.generPanelOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -342,6 +350,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel generPanelOptions;
+        private System.Windows.Forms.BindingSource studentBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -355,6 +364,6 @@
         private System.Windows.Forms.DataGridViewImageColumn secondPhotoDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource studentBindingSource;
+        private System.Windows.Forms.BindingSource studentBindingSource1;
     }
 }

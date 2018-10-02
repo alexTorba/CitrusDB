@@ -4,19 +4,18 @@ using System.Linq;
 
 namespace CitrusDB
 {
-    internal class StudentDB : DbContext
+
+    public class StudentDB : DbContext
     {
-        static StudentDB()
-        {
-            //Database.SetInitializer(new InitDB());
-        }
 
         public StudentDB()
-            : base("StudentDB")
+            : base("name=StudentDB")
         {
         }
 
-        public  DbSet<Student> Students { get; set; }
-        public  DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
     }
+
+
 }

@@ -20,7 +20,6 @@ namespace CitrusDB
 
         private void MainFormView_LoadMainForm(object sender, EventArgs e)
         {
-            mainFormView.DataSource = model.FillDataGrid();
 
         }
     }
