@@ -1,4 +1,6 @@
-﻿namespace CitrusDB
+﻿
+
+namespace CitrusDB
 {
     partial class MainForm
     {
@@ -53,7 +55,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.studentDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FirstPhoto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.addStudentBoard1 = new CitrusDB.AddStudentBoard();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -62,7 +68,7 @@
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentDBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // backlightPanel
@@ -277,6 +283,7 @@
             this.buttonStudent.Text = "      Student";
             this.buttonStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonStudent.UseVisualStyleBackColor = true;
+            this.buttonStudent.Click += new System.EventHandler(this.buttonStudent_Click);
             // 
             // buttonGroup
             // 
@@ -329,6 +336,9 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGrid.AutoGenerateColumns = false;
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -341,6 +351,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FirstPhoto,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn});
+            this.dataGrid.DataSource = this.studentBindingSource;
             this.dataGrid.DoubleBuffered = true;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
@@ -348,18 +363,53 @@
             this.dataGrid.Location = new System.Drawing.Point(194, 196);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGrid.RowTemplate.Height = 24;
+            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(522, 421);
             this.dataGrid.TabIndex = 9;
             // 
-            // studentDBBindingSource
+            // FirstPhoto
             // 
-            this.studentDBBindingSource.DataSource = typeof(CitrusDB.StudentDB);
+            this.FirstPhoto.DataPropertyName = "FirstPhoto";
+            this.FirstPhoto.FillWeight = 60.9137F;
+            this.FirstPhoto.HeaderText = "FirstPhoto";
+            this.FirstPhoto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.FirstPhoto.Name = "FirstPhoto";
+            this.FirstPhoto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.FirstPhoto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // addStudentBoard1
+            // 
+            this.addStudentBoard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addStudentBoard1.Location = new System.Drawing.Point(188, 31);
+            this.addStudentBoard1.Name = "addStudentBoard1";
+            this.addStudentBoard1.Size = new System.Drawing.Size(917, 598);
+            this.addStudentBoard1.TabIndex = 10;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.FillWeight = 119.5432F;
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.FillWeight = 119.5432F;
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(CitrusDB.Student);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1105, 629);
+            this.Controls.Add(this.addStudentBoard1);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -379,7 +429,7 @@
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentDBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -402,11 +452,16 @@
         private System.Windows.Forms.Button buttonGroup;
         private System.Windows.Forms.Button buttonStudent;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Timer timer;
+        public System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dataGrid;
-        public System.Windows.Forms.BindingSource studentDBBindingSource;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn photoDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewImageColumn FirstPhoto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        public AddStudentBoard addStudentBoard1;
     }
 }
 

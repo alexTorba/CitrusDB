@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace CitrusDB
 {
     static class Program
@@ -18,7 +20,11 @@ namespace CitrusDB
             Application.SetCompatibleTextRenderingDefault(false);
 
             MainForm mainForm = new MainForm();
+            mainForm.InitBoard();
+
             MainPresenter mainPresenter = new MainPresenter(mainForm);
+            AddStudentBoardPresenter addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard1);
+
 
             Application.Run(mainForm);
         }

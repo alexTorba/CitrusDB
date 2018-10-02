@@ -62,13 +62,23 @@
   <ItemGroup>
     <Compile Include="Model\ExtensionTicks.cs" />
     <Compile Include="Model\Model.cs" />
+    <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
+    <Compile Include="Presenter\DataBoardPresenter.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
-    <Compile Include="View\DataBoard.cs">
+    <Compile Include="View\AddStudent\AddStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\DataBoard.Designer.cs">
+    <Compile Include="View\AddStudent\AddStudentBoard.Designer.cs">
+      <DependentUpon>AddStudentBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataBoard\DataBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\DataBoard\DataBoard.Designer.cs">
       <DependentUpon>DataBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AddStudent\IAddStudentBoard.cs" />
+    <Compile Include="View\DataBoard\IDataBoard.cs" />
     <Compile Include="View\IMainForm.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -82,7 +92,10 @@
     <Compile Include="Model\StudentDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\DataBoard.resx">
+    <EmbeddedResource Include="View\AddStudent\AddStudentBoard.resx">
+      <DependentUpon>AddStudentBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
@@ -98,6 +111,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Student.datasource" />
     <None Include="Properties\DataSources\StudentDB.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

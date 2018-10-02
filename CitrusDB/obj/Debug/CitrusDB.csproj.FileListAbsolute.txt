@@ -14,5 +14,5 @@ C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\EntityFrame
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.MainForm.resources
-C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.View.DataBoard.resources
-C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.csprojAssemblyReference.cache
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.AddStudentBoard.resources
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.DataBoard.resources

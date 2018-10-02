@@ -12,11 +12,11 @@ namespace CitrusDB
         }
 
         public StudentDB()
-            : base("name=StudentDB")
+            : base("StudentDB")
         {
         }
 
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Group> Groups { get; set; }
+        public  DbSet<Student> Students { get; set; }
+        public  DbSet<Group> Groups { get; set; }
     }
 }

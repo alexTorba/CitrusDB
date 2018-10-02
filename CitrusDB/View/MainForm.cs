@@ -37,8 +37,13 @@ namespace CitrusDB
 
 
         public MainForm()
-        {   
+        {
             InitializeComponent();
+        }
+
+        public void InitBoard()
+        {
+            this.addStudentBoard1.InitFields(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,20 +52,6 @@ namespace CitrusDB
         }
 
         #region buttons handler
-        private void ReplaceBacklightPanel(object sender, EventArgs e)
-        {
-            Button currentButton = sender as Button;
-            if (currentButton != null)
-            {
-                if (currentButton.Tag?.ToString() == "add")
-                    backlightPanel.Top = flowLayoutPanel1.Top + panelGroupAdd.Top;
-                else
-                {
-                    this.backlightPanel.Height = currentButton.Height;
-                    this.backlightPanel.Top = this.flowLayoutPanel1.Top + currentButton.Top;
-                }
-            }
-        }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -70,6 +61,8 @@ namespace CitrusDB
         private void buttonData_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
+            addStudentBoard1.SendToBack();
+
         }
 
         private void buttonStatistics_Click(object sender, EventArgs e)
@@ -96,15 +89,48 @@ namespace CitrusDB
         {
             ReplaceBacklightPanel(sender, e);
 
+
             timer.Start();
             TimerTiks = panelGroupAdd.TicksGrowsHeight;
+        }
+
+        private void buttonStudent_Click(object sender, EventArgs e)
+        {
+            this.addStudentBoard1.BringToFront();
         }
 
         #endregion
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.TimerTiks.Invoke(sender as Timer , null, EventArgs.Empty);
+            this.TimerTiks.Invoke(sender as Timer, null, EventArgs.Empty);
+        }
+
+
+        public void ClearEventHandlers()
+        {
+            if (TimerTiks != null)
+            {
+                foreach (Delegate d in TimerTiks.GetInvocationList())
+                {
+                    TimerTiks -= (TimerHandler)d;
+                }
+            }
+        }
+
+        private void ReplaceBacklightPanel(object sender, EventArgs e)
+        {
+            Button currentButton = sender as Button;
+            if (currentButton != null)
+            {
+                if (currentButton.Tag?.ToString() == "add")
+                    backlightPanel.Top = flowLayoutPanel1.Top + panelGroupAdd.Top;
+                else
+                {
+                    this.backlightPanel.Height = currentButton.Height;
+                    this.backlightPanel.Top = this.flowLayoutPanel1.Top + currentButton.Top;
+                }
+            }
         }
 
         //
