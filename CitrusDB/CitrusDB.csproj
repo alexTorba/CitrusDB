@@ -60,12 +60,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ExtensionLinq.cs" />
     <Compile Include="Model\ExtensionTicks.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\StudentDB.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="View\AddGroup\AddGroupBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AddGroup\AddGroupBoard.Designer.cs">
+      <DependentUpon>AddGroupBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AddStudent\AddStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +99,15 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\StudentView\StudentViewDoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentView\StudentViewDoard.Designer.cs">
+      <DependentUpon>StudentViewDoard.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\AddGroup\AddGroupBoard.resx">
+      <DependentUpon>AddGroupBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AddStudent\AddStudentBoard.resx">
       <DependentUpon>AddStudentBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +126,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\StudentView\StudentViewDoard.resx">
+      <DependentUpon>StudentViewDoard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Student.datasource" />
     <None Include="Properties\DataSources\StudentDB.datasource" />

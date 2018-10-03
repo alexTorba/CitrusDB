@@ -17,3 +17,5 @@ C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.cs
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.exe
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.pdb
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.csprojAssemblyReference.cache
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.View.AddGroup.AddGroupBoard.resources
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.View.StudentView.StudentViewDoard.resources

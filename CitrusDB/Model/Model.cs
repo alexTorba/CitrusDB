@@ -10,27 +10,40 @@ using System.Data.Entity.SqlServer;
 
 namespace CitrusDB
 {
-     class Model
+    class Model
     {
         StudentDB db = new StudentDB();
-        public Model()
-        {
-            
-            //db = new StudentDB();
-        }
 
         public List<Student> FillDataGrid()
         {
-            //db.Students.Load();
+            db.Students.Load();
 
-            //return db.Students.Local.ToList();
-            return db.Students.ToList();
+            return db.Students.Local.ToList();
         }
 
         public void AddStudent(Student student)
         {
             db.Students.Add(student);
             db.SaveChanges();
+        }
+
+
+        async public void AddStudentAsync(Student student)
+        {
+            db.Students.Add(student);
+            await db.SaveChangesAsync();
+        }
+
+        public void AddGroup(Group group)
+        {
+            db.Groups.Add(group);
+            db.SaveChanges();
+        }
+
+        async public void AddGroupAsync(Group group)
+        {
+            db.Groups.Add(group);
+            await db.SaveChangesAsync();
         }
 
         public byte[] ConvertImageToByteArr(Image image)
@@ -40,7 +53,19 @@ namespace CitrusDB
                 image.Save(memoryStream, image.RawFormat);
                 return memoryStream.ToArray();
             }
+        }
 
+        async public Task<byte[]> ConvertImageToByteArrAsync(Image image)
+        {
+             return await new Task<byte[]>(() =>
+             {
+                 using (MemoryStream memoryStream = new MemoryStream())
+                 {
+                     image.Save(memoryStream, image.RawFormat);
+                     return memoryStream.ToArray();
+                 }
+             }
+            );
         }
 
     }
