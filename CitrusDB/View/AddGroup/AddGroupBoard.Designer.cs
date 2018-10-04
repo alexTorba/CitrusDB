@@ -1,4 +1,4 @@
-﻿namespace CitrusDB.View.AddGroup
+﻿namespace CitrusDB
 {
     partial class AddGroupBoard
     {
@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelAddGroupSpace = new System.Windows.Forms.Panel();
+            this.addedStudentsDataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.currentStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.addedStudentsDataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panelAddGroupSpace.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addedStudentsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAddGroupSpace
@@ -55,6 +56,33 @@
             this.panelAddGroupSpace.Name = "panelAddGroupSpace";
             this.panelAddGroupSpace.Size = new System.Drawing.Size(292, 598);
             this.panelAddGroupSpace.TabIndex = 0;
+            // 
+            // addedStudentsDataGrid
+            // 
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.addedStudentsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.addedStudentsDataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.addedStudentsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.addedStudentsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addedStudentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.addedStudentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.addedStudentsDataGrid.DoubleBuffered = true;
+            this.addedStudentsDataGrid.EnableHeadersVisualStyles = false;
+            this.addedStudentsDataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.addedStudentsDataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
+            this.addedStudentsDataGrid.Location = new System.Drawing.Point(0, 186);
+            this.addedStudentsDataGrid.Name = "addedStudentsDataGrid";
+            this.addedStudentsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.addedStudentsDataGrid.RowTemplate.Height = 24;
+            this.addedStudentsDataGrid.Size = new System.Drawing.Size(292, 409);
+            this.addedStudentsDataGrid.TabIndex = 0;
             // 
             // label1
             // 
@@ -106,50 +134,38 @@
             // currentStudentFlowPanel
             // 
             this.currentStudentFlowPanel.AutoScroll = true;
-            this.currentStudentFlowPanel.Location = new System.Drawing.Point(298, 0);
+            this.currentStudentFlowPanel.Location = new System.Drawing.Point(307, 0);
             this.currentStudentFlowPanel.Name = "currentStudentFlowPanel";
-            this.currentStudentFlowPanel.Size = new System.Drawing.Size(448, 598);
+            this.currentStudentFlowPanel.Size = new System.Drawing.Size(421, 598);
             this.currentStudentFlowPanel.TabIndex = 1;
             // 
-            // addedStudentsDataGrid
+            // bunifuSeparator2
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.addedStudentsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.addedStudentsDataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.addedStudentsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addedStudentsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addedStudentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.addedStudentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.addedStudentsDataGrid.DoubleBuffered = true;
-            this.addedStudentsDataGrid.EnableHeadersVisualStyles = false;
-            this.addedStudentsDataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.addedStudentsDataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.addedStudentsDataGrid.Location = new System.Drawing.Point(0, 186);
-            this.addedStudentsDataGrid.Name = "addedStudentsDataGrid";
-            this.addedStudentsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.addedStudentsDataGrid.RowTemplate.Height = 24;
-            this.addedStudentsDataGrid.Size = new System.Drawing.Size(292, 409);
-            this.addedStudentsDataGrid.TabIndex = 0;
+            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator2.LineThickness = 1;
+            this.bunifuSeparator2.Location = new System.Drawing.Point(294, -4);
+            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator2.Name = "bunifuSeparator2";
+            this.bunifuSeparator2.Size = new System.Drawing.Size(17, 598);
+            this.bunifuSeparator2.TabIndex = 3;
+            this.bunifuSeparator2.Transparency = 255;
+            this.bunifuSeparator2.Vertical = true;
             // 
             // AddGroupBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bunifuSeparator2);
             this.Controls.Add(this.currentStudentFlowPanel);
             this.Controls.Add(this.panelAddGroupSpace);
             this.Name = "AddGroupBoard";
             this.Size = new System.Drawing.Size(917, 598);
+            this.Load += new System.EventHandler(this.AddGroupBoard_Load);
             this.panelAddGroupSpace.ResumeLayout(false);
             this.panelAddGroupSpace.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addedStudentsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -164,5 +180,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.FlowLayoutPanel currentStudentFlowPanel;
         private Bunifu.Framework.UI.BunifuCustomDataGrid addedStudentsDataGrid;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB.View.StudentView
+namespace CitrusDB
 {
     public partial class StudentViewDoard : UserControl
     {
@@ -16,5 +16,13 @@ namespace CitrusDB.View.StudentView
         {
             InitializeComponent();
         }
+
+        public StudentViewDoard(string firstName, string lastName, Image photo) : this()
+        {
+            this.fisrtNameTextBox.Text = firstName;
+            this.lastNameTextBox.Text = lastName;
+            this.studentViewPhoto.Image = photo;
+        }
+
     }
 }

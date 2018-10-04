@@ -38,6 +38,8 @@ namespace CitrusDB
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadMainForm(sender, e);
+
+            dataBoard.BringToFront();
         }
 
         #region buttons handler
@@ -50,8 +52,7 @@ namespace CitrusDB
         private void buttonData_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
-            addStudentBoard1.SendToBack();
-
+            dataBoard.BringToFront();
         }
 
         private void buttonStatistics_Click(object sender, EventArgs e)
@@ -120,6 +121,11 @@ namespace CitrusDB
                     this.backlightPanel.Top = this.flowLayoutPanel1.Top + currentButton.Top;
                 }
             }
+        }
+
+        private void buttonGroup_Click(object sender, EventArgs e)
+        {
+            addGroupBoard.BringToFront();
         }
 
         //

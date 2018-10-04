@@ -1,4 +1,4 @@
-﻿namespace CitrusDB.View.StudentView
+﻿namespace CitrusDB
 {
     partial class StudentViewDoard
     {
@@ -50,22 +50,26 @@
             // 
             this.fisrtNameTextBox.Location = new System.Drawing.Point(4, 146);
             this.fisrtNameTextBox.Name = "fisrtNameTextBox";
+            this.fisrtNameTextBox.ReadOnly = true;
             this.fisrtNameTextBox.Size = new System.Drawing.Size(127, 22);
             this.fisrtNameTextBox.TabIndex = 1;
+            this.fisrtNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Location = new System.Drawing.Point(4, 174);
             this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.ReadOnly = true;
             this.lastNameTextBox.Size = new System.Drawing.Size(127, 22);
             this.lastNameTextBox.TabIndex = 2;
+            this.lastNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // addStudentButton
             // 
             this.addStudentButton.FlatAppearance.BorderSize = 0;
             this.addStudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addStudentButton.Image = ((System.Drawing.Image)(resources.GetObject("addStudentButton.Image")));
-            this.addStudentButton.Location = new System.Drawing.Point(48, 202);
+            this.addStudentButton.Location = new System.Drawing.Point(46, 202);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(38, 33);
             this.addStudentButton.TabIndex = 3;
@@ -89,9 +93,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox studentViewPhoto;
-        private System.Windows.Forms.TextBox fisrtNameTextBox;
-        private System.Windows.Forms.TextBox lastNameTextBox;
-        private System.Windows.Forms.Button addStudentButton;
+        public System.Windows.Forms.PictureBox studentViewPhoto;
+        public System.Windows.Forms.TextBox fisrtNameTextBox;
+        public System.Windows.Forms.TextBox lastNameTextBox;
+        public System.Windows.Forms.Button addStudentButton;
     }
 }

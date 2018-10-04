@@ -55,6 +55,7 @@ namespace CitrusDB
             this.dataBoard = new CitrusDB.DataBoard();
             this.addStudentBoard1 = new CitrusDB.AddStudentBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addGroupBoard = new CitrusDB.AddGroupBoard();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -294,10 +295,11 @@ namespace CitrusDB
             this.buttonGroup.Text = "      Group";
             this.buttonGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonGroup.UseVisualStyleBackColor = true;
+            this.buttonGroup.Click += new System.EventHandler(this.buttonGroup_Click);
             // 
             // timer
             // 
-            this.timer.Interval = 15;
+            this.timer.Interval = 10;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // panel1
@@ -346,10 +348,20 @@ namespace CitrusDB
             // 
             this.studentBindingSource.DataSource = typeof(CitrusDB.Student);
             // 
+            // addGroupBoard
+            // 
+            this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
+            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.addGroupBoard.Name = "addGroupBoard";
+            this.addGroupBoard.Size = new System.Drawing.Size(917, 598);
+            this.addGroupBoard.TabIndex = 12;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1105, 629);
+            this.Controls.Add(this.addGroupBoard);
             this.Controls.Add(this.dataBoard);
             this.Controls.Add(this.addStudentBoard1);
             this.Controls.Add(this.panel2);
@@ -398,6 +410,7 @@ namespace CitrusDB
         private System.Windows.Forms.BindingSource studentBindingSource;
         public AddStudentBoard addStudentBoard1;
         public DataBoard dataBoard;
+        public AddGroupBoard addGroupBoard;
     }
 }
 
