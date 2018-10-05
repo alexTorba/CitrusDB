@@ -463,7 +463,8 @@
             // 
             // AddStudentBoard
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.photo2Label);
             this.Controls.Add(this.photo1Label);
             this.Controls.Add(this.bunifuCustomLabel3);

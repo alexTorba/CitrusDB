@@ -14,22 +14,37 @@ namespace CitrusDB
     {
         #region IAddGroupBoard
 
-        public ControlCollection controlCollection => this.currentStudentFlowPanel.Controls;
+        public ControlCollection currentStudentControlCollection => currentStudentFlowPanel.Controls;
+
+        public ControlCollection addedStudentControlCollection => addedStudentFlowPanel.Controls;
+
+        public string CountOfAddedStudent { get => countOfStudentsLabel.Text; set => countOfStudentsLabel.Text = value; }
 
         public event EventHandler LoadAddGroupBoard;
+        public event EventHandler changeAddedStudentPnanelControl;
 
         #endregion
 
         public AddGroupBoard()
         {
             InitializeComponent();
-
-            //currentStudentFlowPanel.Controls.Add(new StudentViewDoard());
         }
 
         private void AddGroupBoard_Load(object sender, EventArgs e)
         {
             LoadAddGroupBoard?.Invoke(sender, e);
+
+            countOfStudentsLabel.Text = addedStudentFlowPanel.Controls.Count.ToString();
+        }
+
+        private void addedStudentFlowPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            changeAddedStudentPnanelControl(sender, EventArgs.Empty);
+        }
+
+        private void addedStudentFlowPanel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            changeAddedStudentPnanelControl(sender, EventArgs.Empty);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace CitrusDB
 
         private void DataBoard_LoadDataBoard(object sender, EventArgs e)
         {
-            dataBoard.GetDataGrid.DataSource = model.FillDataGrid();
+            dataBoard.GetDataGrid.DataSource = model.GetStudents();
         }
     }
 }

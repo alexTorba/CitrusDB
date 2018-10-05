@@ -69,6 +69,12 @@
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.Designer.cs">
+      <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AddGroup\AddGroupBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -102,12 +108,15 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\StudentView\StudentViewDoard.cs">
+    <Compile Include="View\AddGroup\StudentView\StudentViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\StudentView\StudentViewDoard.Designer.cs">
-      <DependentUpon>StudentViewDoard.cs</DependentUpon>
+    <Compile Include="View\AddGroup\StudentView\StudentViewBoard.Designer.cs">
+      <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.resx">
+      <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AddGroup\AddGroupBoard.resx">
       <DependentUpon>AddGroupBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,8 +138,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\StudentView\StudentViewDoard.resx">
-      <DependentUpon>StudentViewDoard.cs</DependentUpon>
+    <EmbeddedResource Include="View\AddGroup\StudentView\StudentViewBoard.resx">
+      <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Student.datasource" />

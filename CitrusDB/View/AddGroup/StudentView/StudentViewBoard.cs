@@ -10,19 +10,28 @@ using System.Windows.Forms;
 
 namespace CitrusDB
 {
-    public partial class StudentViewDoard : UserControl
+    public partial class StudentViewBoard : UserControl
     {
-        public StudentViewDoard()
+        public int Id { get; set; }
+
+        public StudentViewBoard()
         {
             InitializeComponent();
         }
 
-        public StudentViewDoard(string firstName, string lastName, Image photo) : this()
+        public event EventHandler ClickAdd;
+
+        public StudentViewBoard(int id, string firstName, string lastName, Image photo) : this()
         {
+            this.Id = id;
             this.fisrtNameTextBox.Text = firstName;
             this.lastNameTextBox.Text = lastName;
             this.studentViewPhoto.Image = photo;
         }
 
+        private void addStudentButton_Click(object sender, EventArgs e)
+        {
+            ClickAdd?.Invoke(this, e);
+        }
     }
 }

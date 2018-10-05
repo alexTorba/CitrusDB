@@ -7,13 +7,14 @@ using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Data.Entity.SqlServer;
+using CitrusDB.DB;
 
 namespace CitrusDB
 {
     class Model
     {
 
-        public List<Student> FillDataGrid()
+        public List<Student> GetStudents()
         {
             return DataBase.GetStudents();
         }
@@ -23,6 +24,10 @@ namespace CitrusDB
             DataBase.AddStudent(student);
         }
 
+        public Student GetStudentById(int id)
+        {
+            return DataBase.GetStudentById(id);
+        }
         //async public void AddStudentAsync(Student student)
         //{
         //    db.Students.Add(student);
@@ -82,16 +87,21 @@ namespace CitrusDB
             );
         }
 
-        // can I do it ?
-        public StudentViewDoard[] FillStudentViewBoards()
+
+
+        ///////////////////////
+
+        //todo: can I do it ?
+        public StudentViewBoard[] FillStudentViewBoards()
         {
-            List<StudentViewDoard> rezult = new List<StudentViewDoard>();
+            List<StudentViewBoard> rezult = new List<StudentViewBoard>();
 
             foreach (Student student in DataBase.GetStudents())
             {
-                rezult.Add(new StudentViewDoard(student.FirstName, student.LastName, 
+                rezult.Add(new StudentViewBoard(student.Id, student.FirstName, student.LastName,
                     ConvertByteArrToImage(student.FirstPhoto)));
             }
+
             return rezult.ToArray();
         }
 

@@ -11,6 +11,9 @@ namespace CitrusDB
     interface IAddGroupBoard
     {
         event EventHandler LoadAddGroupBoard;
-        ControlCollection controlCollection { get; }
+        event EventHandler changeAddedStudentPnanelControl;
+        ControlCollection currentStudentControlCollection { get; }
+        ControlCollection addedStudentControlCollection { get; }
+        string CountOfAddedStudent { get; set; }
     }
 }

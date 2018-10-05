@@ -28,135 +28,191 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelAddGroupSpace = new System.Windows.Forms.Panel();
-            this.addedStudentsDataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.label1 = new System.Windows.Forms.Label();
+            this.countOfStudentsLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.addedStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameGroupTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.currentStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelAddGroupSpace.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addedStudentsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAddGroupSpace
             // 
-            this.panelAddGroupSpace.Controls.Add(this.addedStudentsDataGrid);
+            this.panelAddGroupSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.panelAddGroupSpace.Controls.Add(this.clearButton);
+            this.panelAddGroupSpace.Controls.Add(this.saveButton);
             this.panelAddGroupSpace.Controls.Add(this.label1);
+            this.panelAddGroupSpace.Controls.Add(this.countOfStudentsLabel);
             this.panelAddGroupSpace.Controls.Add(this.pictureBox1);
+            this.panelAddGroupSpace.Controls.Add(this.label4);
+            this.panelAddGroupSpace.Controls.Add(this.addedStudentFlowPanel);
             this.panelAddGroupSpace.Controls.Add(this.label3);
-            this.panelAddGroupSpace.Controls.Add(this.textBox1);
+            this.panelAddGroupSpace.Controls.Add(this.nameGroupTextBox);
             this.panelAddGroupSpace.Controls.Add(this.label2);
             this.panelAddGroupSpace.Location = new System.Drawing.Point(0, 0);
             this.panelAddGroupSpace.Name = "panelAddGroupSpace";
-            this.panelAddGroupSpace.Size = new System.Drawing.Size(292, 598);
+            this.panelAddGroupSpace.Size = new System.Drawing.Size(312, 598);
             this.panelAddGroupSpace.TabIndex = 0;
-            // 
-            // addedStudentsDataGrid
-            // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.addedStudentsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-            this.addedStudentsDataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.addedStudentsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addedStudentsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addedStudentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.addedStudentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.addedStudentsDataGrid.DoubleBuffered = true;
-            this.addedStudentsDataGrid.EnableHeadersVisualStyles = false;
-            this.addedStudentsDataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.addedStudentsDataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.addedStudentsDataGrid.Location = new System.Drawing.Point(0, 186);
-            this.addedStudentsDataGrid.Name = "addedStudentsDataGrid";
-            this.addedStudentsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.addedStudentsDataGrid.RowTemplate.Height = 24;
-            this.addedStudentsDataGrid.Size = new System.Drawing.Size(292, 409);
-            this.addedStudentsDataGrid.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(198, 61);
+            this.label1.Location = new System.Drawing.Point(56, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "photo";
             // 
+            // countOfStudentsLabel
+            // 
+            this.countOfStudentsLabel.AutoSize = true;
+            this.countOfStudentsLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.countOfStudentsLabel.Location = new System.Drawing.Point(226, 77);
+            this.countOfStudentsLabel.Name = "countOfStudentsLabel";
+            this.countOfStudentsLabel.Size = new System.Drawing.Size(0, 21);
+            this.countOfStudentsLabel.TabIndex = 6;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(148, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(140, 144);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.label4.Location = new System.Drawing.Point(162, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 21);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Count:";
+            // 
+            // addedStudentFlowPanel
+            // 
+            this.addedStudentFlowPanel.AutoScroll = true;
+            this.addedStudentFlowPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.addedStudentFlowPanel.Location = new System.Drawing.Point(3, 205);
+            this.addedStudentFlowPanel.Name = "addedStudentFlowPanel";
+            this.addedStudentFlowPanel.Size = new System.Drawing.Size(309, 307);
+            this.addedStudentFlowPanel.TabIndex = 4;
+            this.addedStudentFlowPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.addedStudentFlowPanel_ControlAdded);
+            this.addedStudentFlowPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.addedStudentFlowPanel_ControlRemoved);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(3, 163);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.label3.Location = new System.Drawing.Point(7, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(87, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Students:";
             // 
-            // textBox1
+            // nameGroupTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 22);
-            this.textBox1.TabIndex = 1;
+            this.nameGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.nameGroupTextBox.Location = new System.Drawing.Point(162, 39);
+            this.nameGroupTextBox.Name = "nameGroupTextBox";
+            this.nameGroupTextBox.Size = new System.Drawing.Size(124, 28);
+            this.nameGroupTextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(3, 13);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(162, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 20);
+            this.label2.Size = new System.Drawing.Size(141, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Name of group:";
             // 
             // currentStudentFlowPanel
             // 
             this.currentStudentFlowPanel.AutoScroll = true;
-            this.currentStudentFlowPanel.Location = new System.Drawing.Point(307, 0);
+            this.currentStudentFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentStudentFlowPanel.Location = new System.Drawing.Point(328, 39);
             this.currentStudentFlowPanel.Name = "currentStudentFlowPanel";
-            this.currentStudentFlowPanel.Size = new System.Drawing.Size(421, 598);
+            this.currentStudentFlowPanel.Size = new System.Drawing.Size(440, 559);
             this.currentStudentFlowPanel.TabIndex = 1;
             // 
-            // bunifuSeparator2
+            // panel1
             // 
-            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(294, -4);
-            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(17, 598);
-            this.bunifuSeparator2.TabIndex = 3;
-            this.bunifuSeparator2.Transparency = 255;
-            this.bunifuSeparator2.Vertical = true;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel1.Location = new System.Drawing.Point(316, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(3, 598);
+            this.panel1.TabIndex = 2;
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(50, 535);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(89, 43);
+            this.saveButton.TabIndex = 22;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = false;
+            // 
+            // clearButton
+            // 
+            this.clearButton.BackColor = System.Drawing.Color.Teal;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.clearButton.ForeColor = System.Drawing.Color.White;
+            this.clearButton.Location = new System.Drawing.Point(162, 535);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(89, 43);
+            this.clearButton.TabIndex = 23;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = false;
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.searchTextBox.Location = new System.Drawing.Point(331, 11);
+            this.searchTextBox.Multiline = true;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(188, 22);
+            this.searchTextBox.TabIndex = 3;
+            this.searchTextBox.Text = "Search..";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(768, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(283, 598);
+            this.flowLayoutPanel1.TabIndex = 4;
             // 
             // AddGroupBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.bunifuSeparator2);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.currentStudentFlowPanel);
             this.Controls.Add(this.panelAddGroupSpace);
             this.Name = "AddGroupBoard";
@@ -164,9 +220,9 @@
             this.Load += new System.EventHandler(this.AddGroupBoard_Load);
             this.panelAddGroupSpace.ResumeLayout(false);
             this.panelAddGroupSpace.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addedStudentsDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -177,9 +233,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameGroupTextBox;
         private System.Windows.Forms.FlowLayoutPanel currentStudentFlowPanel;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid addedStudentsDataGrid;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
+        private System.Windows.Forms.FlowLayoutPanel addedStudentFlowPanel;
+        private System.Windows.Forms.Label countOfStudentsLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

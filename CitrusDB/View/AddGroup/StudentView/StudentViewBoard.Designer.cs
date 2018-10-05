@@ -1,6 +1,6 @@
 ﻿namespace CitrusDB
 {
-    partial class StudentViewDoard
+    partial class StudentViewBoard
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentViewDoard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentViewBoard));
             this.studentViewPhoto = new System.Windows.Forms.PictureBox();
             this.fisrtNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
@@ -74,8 +74,9 @@
             this.addStudentButton.Size = new System.Drawing.Size(38, 33);
             this.addStudentButton.TabIndex = 3;
             this.addStudentButton.UseVisualStyleBackColor = true;
+            this.addStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
             // 
-            // StudentViewDoard
+            // StudentViewBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +84,7 @@
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.fisrtNameTextBox);
             this.Controls.Add(this.studentViewPhoto);
-            this.Name = "StudentViewDoard";
+            this.Name = "StudentViewBoard";
             this.Size = new System.Drawing.Size(135, 242);
             ((System.ComponentModel.ISupportInitialize)(this.studentViewPhoto)).EndInit();
             this.ResumeLayout(false);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.Entity;
 
-namespace CitrusDB
+namespace CitrusDB.DB
 {
     static class DataBase
     {
@@ -20,6 +20,11 @@ namespace CitrusDB
         public static List<Student> GetStudents()
         {
             return db.Students.Local.ToList();
+        }
+
+        public static Student GetStudentById(int id)
+        {
+            return db.Students.Local.First(s => s.Id == id);
         }
 
         public static void AddStudent(Student student)
