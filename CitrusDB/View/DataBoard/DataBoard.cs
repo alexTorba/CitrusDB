@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bunifu.Framework.UI;
+using CitrusDB.Properties;
 
 namespace CitrusDB
 {
@@ -47,6 +48,8 @@ namespace CitrusDB
 
             mainForm.ClearEventHandlers();
             mainForm.TimerTiks += generPanelOptions.TicksGrowsWidth;
+
+            (sender as Button)?.ChangeImageButton(this.generPanelOptions, Resources.left, Resources.right);
         }
 
        
@@ -58,5 +61,6 @@ namespace CitrusDB
             mainForm.TimerTiks += panelTables.TicksGrowsHeight;
         }
 
+       
     }
 }

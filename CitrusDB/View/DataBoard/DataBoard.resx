@@ -120,18 +120,6 @@
   <metadata name="studentBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>224, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="collapsedButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAASBJREFUSEvN
-        krFKw1AYRiNiXbpZweLu1K2UjsXVQfEl2rEVH0CfwMconaQovoFbh6qLpbObg3VQcDGee/2K5DaBkvwB
-        D5yl+Tg/JI3+NXEc7+IUH3BfP9uhA0+4ZI41PS6Oi+GjKwecalIMQjvoXk/INW5plh8idZy5YsAQNzXL
-        DxF34NkVA0ZocmAP0w6M0eQVZR24wYpm+SGS9S+6xVIP3OG2ZvkhUsGJKwbcY1WzYhA68MlVTjSxgWAX
-        v336jy880sQGgn0MD33ioSY2EEw79IEdTWwgOPDpJO/Y1sQGgmmHFtjSxAaCZz6d5A2bmthAMO3QKzY0
-        sYHghU8necG6JjYQvPTpJMd6bAfR89+25wo39MgWwj1036mcA+sTRT8THUqVwt7WzQAAAABJRU5ErkJg
-        gg==
-</value>
-  </data>
   <metadata name="studentBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

@@ -62,7 +62,7 @@
   <ItemGroup>
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\ExtensionLinq.cs" />
-    <Compile Include="Model\ExtensionTicks.cs" />
+    <Compile Include="Model\ExtensionControls.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\StudentDB.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />
@@ -114,6 +114,9 @@
     <Compile Include="View\AddGroup\StudentView\StudentViewBoard.Designer.cs">
       <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UsersElements\CirclusButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.resx">
       <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +140,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\AddGroup\StudentView\StudentViewBoard.resx">
       <DependentUpon>StudentViewBoard.cs</DependentUpon>
@@ -157,6 +161,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

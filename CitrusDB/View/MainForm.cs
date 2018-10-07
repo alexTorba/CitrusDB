@@ -33,6 +33,7 @@ namespace CitrusDB
         {
             this.addStudentBoard1.InitFields(this);
             this.dataBoard.InitDataBoard(this);
+            this.addGroupBoard.InitBoard(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)

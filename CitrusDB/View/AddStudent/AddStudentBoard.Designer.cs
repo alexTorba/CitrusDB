@@ -49,7 +49,7 @@
             this.knowledgeOfLanguageTextbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.flowLayoutPanelAddBoard = new System.Windows.Forms.FlowLayoutPanel();
             this.swingPanel = new System.Windows.Forms.Panel();
-            this.swingButton = new System.Windows.Forms.Button();
+            this.collapsedButton = new CitrusDB.CirclusButton();
             this.generateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
@@ -269,31 +269,30 @@
             // 
             // swingPanel
             // 
-            this.swingPanel.BackColor = System.Drawing.Color.Silver;
-            this.swingPanel.Controls.Add(this.swingButton);
+            this.swingPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.swingPanel.Controls.Add(this.collapsedButton);
             this.swingPanel.Controls.Add(this.generateButton);
             this.swingPanel.Location = new System.Drawing.Point(3, 3);
             this.swingPanel.MaximumSize = new System.Drawing.Size(154, 43);
-            this.swingPanel.MinimumSize = new System.Drawing.Size(49, 43);
+            this.swingPanel.MinimumSize = new System.Drawing.Size(47, 43);
             this.swingPanel.Name = "swingPanel";
             this.swingPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.swingPanel.Size = new System.Drawing.Size(49, 43);
+            this.swingPanel.Size = new System.Drawing.Size(47, 43);
             this.swingPanel.TabIndex = 20;
             this.swingPanel.Tag = false;
             // 
-            // swingButton
+            // collapsedButton
             // 
-            this.swingButton.BackColor = System.Drawing.SystemColors.Control;
-            this.swingButton.FlatAppearance.BorderSize = 0;
-            this.swingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.swingButton.Image = ((System.Drawing.Image)(resources.GetObject("swingButton.Image")));
-            this.swingButton.Location = new System.Drawing.Point(0, 0);
-            this.swingButton.Name = "swingButton";
-            this.swingButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.swingButton.Size = new System.Drawing.Size(49, 43);
-            this.swingButton.TabIndex = 21;
-            this.swingButton.UseVisualStyleBackColor = false;
-            this.swingButton.Click += new System.EventHandler(this.swingButton_Click);
+            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
+            this.collapsedButton.Location = new System.Drawing.Point(6, 3);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(35, 34);
+            this.collapsedButton.TabIndex = 28;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.swingButton_Click);
             // 
             // generateButton
             // 
@@ -302,10 +301,10 @@
             this.generateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.generateButton.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.generateButton.ForeColor = System.Drawing.Color.White;
-            this.generateButton.Location = new System.Drawing.Point(48, 0);
+            this.generateButton.Location = new System.Drawing.Point(47, 0);
             this.generateButton.Name = "generateButton";
             this.generateButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.generateButton.Size = new System.Drawing.Size(106, 43);
+            this.generateButton.Size = new System.Drawing.Size(107, 43);
             this.generateButton.TabIndex = 21;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = false;
@@ -317,7 +316,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(58, 3);
+            this.saveButton.Location = new System.Drawing.Point(56, 3);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(89, 43);
             this.saveButton.TabIndex = 21;
@@ -332,7 +331,7 @@
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.clearButton.ForeColor = System.Drawing.Color.White;
-            this.clearButton.Location = new System.Drawing.Point(153, 3);
+            this.clearButton.Location = new System.Drawing.Point(151, 3);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(89, 43);
             this.clearButton.TabIndex = 22;
@@ -463,8 +462,7 @@
             // 
             // AddStudentBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.photo2Label);
             this.Controls.Add(this.photo1Label);
             this.Controls.Add(this.bunifuCustomLabel3);
@@ -528,7 +526,6 @@
         private WindowsFormsControlLibrary1.BunifuCustomTextbox knowledgeOfLanguageTextbox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAddBoard;
         private System.Windows.Forms.Panel swingPanel;
-        private System.Windows.Forms.Button swingButton;
         private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button clearButton;
@@ -541,5 +538,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel photo1Label;
         private Bunifu.Framework.UI.BunifuCustomLabel photo2Label;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private CirclusButton collapsedButton;
     }
 }

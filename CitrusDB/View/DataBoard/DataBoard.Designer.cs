@@ -31,9 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataBoard));
             this.dataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.collapsedButton = new System.Windows.Forms.Button();
             this.buttonTables = new System.Windows.Forms.Button();
             this.panelGroup = new System.Windows.Forms.Panel();
             this.flowGroupOptions = new System.Windows.Forms.FlowLayoutPanel();
@@ -57,6 +55,7 @@
             this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.collapsedButton = new CitrusDB.CirclusButton();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panelGroup.SuspendLayout();
@@ -110,23 +109,6 @@
             this.dataGrid.Size = new System.Drawing.Size(566, 439);
             this.dataGrid.TabIndex = 0;
             // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.collapsedButton.ForeColor = System.Drawing.Color.White;
-            this.collapsedButton.Image = ((System.Drawing.Image)(resources.GetObject("collapsedButton.Image")));
-            this.collapsedButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.collapsedButton.Location = new System.Drawing.Point(0, 547);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(47, 51);
-            this.collapsedButton.TabIndex = 4;
-            this.collapsedButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.collapsedData_Click);
-            // 
             // buttonTables
             // 
             this.buttonTables.FlatAppearance.BorderSize = 0;
@@ -146,7 +128,7 @@
             // 
             this.panelGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panelGroup.Controls.Add(this.flowGroupOptions);
-            this.panelGroup.Location = new System.Drawing.Point(47, 0);
+            this.panelGroup.Location = new System.Drawing.Point(33, 0);
             this.panelGroup.Name = "panelGroup";
             this.panelGroup.Size = new System.Drawing.Size(234, 598);
             this.panelGroup.TabIndex = 5;
@@ -219,14 +201,14 @@
             // 
             // generPanelOptions
             // 
-            this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Controls.Add(this.collapsedButton);
+            this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Dock = System.Windows.Forms.DockStyle.Right;
-            this.generPanelOptions.Location = new System.Drawing.Point(870, 0);
-            this.generPanelOptions.MaximumSize = new System.Drawing.Size(280, 598);
-            this.generPanelOptions.MinimumSize = new System.Drawing.Size(47, 598);
+            this.generPanelOptions.Location = new System.Drawing.Point(868, 0);
+            this.generPanelOptions.MaximumSize = new System.Drawing.Size(267, 598);
+            this.generPanelOptions.MinimumSize = new System.Drawing.Size(49, 598);
             this.generPanelOptions.Name = "generPanelOptions";
-            this.generPanelOptions.Size = new System.Drawing.Size(47, 598);
+            this.generPanelOptions.Size = new System.Drawing.Size(49, 598);
             this.generPanelOptions.TabIndex = 6;
             this.generPanelOptions.Tag = false;
             // 
@@ -312,6 +294,19 @@
             // 
             this.studentBindingSource1.DataSource = typeof(CitrusDB.Student);
             // 
+            // collapsedButton
+            // 
+            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
+            this.collapsedButton.Location = new System.Drawing.Point(6, 370);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(43, 43);
+            this.collapsedButton.TabIndex = 7;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.collapsedData_Click);
+            // 
             // studentBindingSource
             // 
             this.studentBindingSource.DataSource = typeof(CitrusDB.Student);
@@ -320,8 +315,8 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.generPanelOptions);
             this.Controls.Add(this.dataGrid);
+            this.Controls.Add(this.generPanelOptions);
             this.Name = "DataBoard";
             this.Size = new System.Drawing.Size(917, 598);
             this.Load += new System.EventHandler(this.DataBoard_Load);
@@ -340,7 +335,6 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuCustomDataGrid dataGrid;
-        private System.Windows.Forms.Button collapsedButton;
         private System.Windows.Forms.Button buttonTables;
         private System.Windows.Forms.Panel panelGroup;
         private System.Windows.Forms.FlowLayoutPanel flowGroupOptions;
@@ -365,5 +359,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource studentBindingSource1;
+        private CirclusButton collapsedButton;
     }
 }

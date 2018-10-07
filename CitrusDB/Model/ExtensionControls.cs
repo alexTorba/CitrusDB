@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CitrusDB
 {
-    public static class ExtensionTicks
+    public static class ExtensionControls
     {
         public static void TicksGrowsHeight(this Panel panel, Timer timer, object sender, EventArgs e)
         {
@@ -51,6 +52,13 @@ namespace CitrusDB
                     panel.Tag = false;
                 }
             }
+        }
+
+        public static void ChangeImageButton(this Button button, Panel panel, Bitmap collapsed, Bitmap unfolded)
+        {
+            if ((bool)panel.Tag == false)
+                button.Image = unfolded;
+            else button.Image = collapsed;
         }
     }
 }

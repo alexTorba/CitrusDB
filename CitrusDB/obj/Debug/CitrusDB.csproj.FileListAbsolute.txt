@@ -19,3 +19,4 @@ C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.pd
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.AddGroupBoard.resources
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.StudentViewBoard.resources
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.AddedStudentViewBoard.resources
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.csprojAssemblyReference.cache

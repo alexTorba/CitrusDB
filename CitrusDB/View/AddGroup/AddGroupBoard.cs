@@ -25,6 +25,13 @@ namespace CitrusDB
 
         #endregion
 
+        MainForm mainForm;
+
+        public void InitBoard(MainForm mainForm)
+        {
+            this.mainForm = mainForm;
+        }
+
         public AddGroupBoard()
         {
             InitializeComponent();
@@ -45,6 +52,14 @@ namespace CitrusDB
         private void addedStudentFlowPanel_ControlRemoved(object sender, ControlEventArgs e)
         {
             changeAddedStudentPnanelControl(sender, EventArgs.Empty);
+        }
+
+        private void collapsedButton_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += groupOptionalPanel.TicksGrowsHeight;
         }
     }
 }

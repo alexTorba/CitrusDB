@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CitrusDB.Properties;
 
 namespace CitrusDB
 {
@@ -57,6 +58,8 @@ namespace CitrusDB
 
             mainForm.ClearEventHandlers();
             mainForm.TimerTiks += this.swingPanel.TicksGrowsWidth;
+
+            (sender as Button)?.ChangeImageButton(swingPanel, Resources.right, Resources.left);
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -85,5 +88,7 @@ namespace CitrusDB
             if (pictureBox.Image != null)
                 this.photo2Label.Visible = false;
         }
+
+
     }
 }
