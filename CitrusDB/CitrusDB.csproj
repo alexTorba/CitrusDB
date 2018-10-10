@@ -82,6 +82,7 @@
       <DependentUpon>AddGroupBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AddGroup\IAddGroupBoard.cs" />
+    <Compile Include="View\AddGroup\StudentView\IStudentView.cs" />
     <Compile Include="View\AddStudent\AddStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>

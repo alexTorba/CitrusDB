@@ -60,5 +60,16 @@ namespace CitrusDB
                 button.Image = unfolded;
             else button.Image = collapsed;
         }
+
+        public static List<IStudentView> CreateListIStudentView(this IStudentView studentView, int count)
+        {
+            List<IStudentView> studentViews = new List<IStudentView>();
+            for (int i = 0; i < count; i++)
+                studentViews.Add(studentView.CloneTo());
+
+            return studentViews;
+        }
+
+       
     }
 }

@@ -53,13 +53,6 @@ namespace CitrusDB
         {
             changeAddedStudentPnanelControl(sender, EventArgs.Empty);
         }
-
-        private void collapsedButton_Click(object sender, EventArgs e)
-        {
-            mainForm.timer.Start();
-
-            mainForm.ClearEventHandlers();
-            mainForm.TimerTiks += groupOptionalPanel.TicksGrowsHeight;
-        }
+      
     }
 }

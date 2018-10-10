@@ -10,11 +10,14 @@ namespace CitrusDB
     class AddGroupBoardPresenter
     {
         readonly IAddGroupBoard addGroupBoard;
+        readonly IStudentView studentView;
+
         readonly Model model = new Model();
 
-        public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard)
+        public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView)
         {
             this.addGroupBoard = addGroupBoard;
+            this.studentView = studentView;
 
             this.addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
             this.addGroupBoard.changeAddedStudentPnanelControl += changeAddedStudentPnanelControl;
@@ -23,24 +26,21 @@ namespace CitrusDB
 
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            //create view in Presenter ??
-            List<StudentViewBoard> rezult = new List<StudentViewBoard>();
+            List<Student> students = model.GetStudents();
+            List<IStudentView> rezult2 = studentView.CreateListIStudentView(students.Count);
 
-            foreach (Student student in model.GetStudents())
+            for (int i = 0; i < rezult2.Count; i++)
             {
-                StudentViewBoard studentViewBoard = new StudentViewBoard(student.Id, student.FirstName, student.LastName,
-                    model.ConvertByteArrToImage(student.FirstPhoto));
+                IStudentView view = rezult2[i].FillView(students[i], model.ConvertByteArrToImage);
+                view.ClickAdd += AddStudentButton_Click;
 
-                studentViewBoard.ClickAdd += AddStudentButton_Click;
-
-                rezult.Add(studentViewBoard);
+                addGroupBoard.currentStudentControlCollection.Add((Control)view);
             }
-
-            addGroupBoard.currentStudentControlCollection.AddRange(rezult.ToArray());
         }
 
         private void AddStudentButton_Click(object sender, EventArgs e)
         {
+            //todo: использовать интерфейсы вместо конкретных вью (презентер не знает о вью)
             StudentViewBoard studentViewBoard = sender as StudentViewBoard;
 
             AddedStudentViewBoard addedStudentView = new AddedStudentViewBoard();

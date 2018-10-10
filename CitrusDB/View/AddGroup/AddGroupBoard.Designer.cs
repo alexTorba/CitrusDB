@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddGroupBoard));
             this.panelAddGroupSpace = new System.Windows.Forms.Panel();
             this.clearButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
@@ -44,12 +43,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.optionFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupOptionalPanel = new System.Windows.Forms.Panel();
-            this.collapsedButton = new CitrusDB.CirclusButton();
-            this.bunifuCircleProgressbar = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.panelAddGroupSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupOptionalPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAddGroupSpace
@@ -207,65 +202,16 @@
             // 
             this.optionFlowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.optionFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.optionFlowPanel.Location = new System.Drawing.Point(3, 33);
+            this.optionFlowPanel.Location = new System.Drawing.Point(774, 0);
             this.optionFlowPanel.Name = "optionFlowPanel";
-            this.optionFlowPanel.Size = new System.Drawing.Size(280, 402);
+            this.optionFlowPanel.Size = new System.Drawing.Size(277, 598);
             this.optionFlowPanel.TabIndex = 4;
-            // 
-            // groupOptionalPanel
-            // 
-            this.groupOptionalPanel.Controls.Add(this.collapsedButton);
-            this.groupOptionalPanel.Controls.Add(this.optionFlowPanel);
-            this.groupOptionalPanel.Location = new System.Drawing.Point(771, 182);
-            this.groupOptionalPanel.MaximumSize = new System.Drawing.Size(280, 424);
-            this.groupOptionalPanel.MinimumSize = new System.Drawing.Size(280, 49);
-            this.groupOptionalPanel.Name = "groupOptionalPanel";
-            this.groupOptionalPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupOptionalPanel.Size = new System.Drawing.Size(280, 416);
-            this.groupOptionalPanel.TabIndex = 11;
-            this.groupOptionalPanel.Tag = false;
-            // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.down;
-            this.collapsedButton.Location = new System.Drawing.Point(130, 3);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(43, 43);
-            this.collapsedButton.TabIndex = 8;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
-            // 
-            // bunifuCircleProgressbar
-            // 
-            this.bunifuCircleProgressbar.animated = false;
-            this.bunifuCircleProgressbar.animationIterval = 5;
-            this.bunifuCircleProgressbar.animationSpeed = 300;
-            this.bunifuCircleProgressbar.BackColor = System.Drawing.SystemColors.Control;
-            this.bunifuCircleProgressbar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCircleProgressbar.BackgroundImage")));
-            this.bunifuCircleProgressbar.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCircleProgressbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.bunifuCircleProgressbar.LabelVisible = true;
-            this.bunifuCircleProgressbar.LineProgressThickness = 8;
-            this.bunifuCircleProgressbar.LineThickness = 5;
-            this.bunifuCircleProgressbar.Location = new System.Drawing.Point(835, 0);
-            this.bunifuCircleProgressbar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.bunifuCircleProgressbar.MaxValue = 100;
-            this.bunifuCircleProgressbar.Name = "bunifuCircleProgressbar";
-            this.bunifuCircleProgressbar.ProgressBackColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCircleProgressbar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
-            this.bunifuCircleProgressbar.Size = new System.Drawing.Size(154, 154);
-            this.bunifuCircleProgressbar.TabIndex = 9;
-            this.bunifuCircleProgressbar.Value = 0;
             // 
             // AddGroupBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupOptionalPanel);
-            this.Controls.Add(this.bunifuCircleProgressbar);
+            this.Controls.Add(this.optionFlowPanel);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.currentStudentFlowPanel);
@@ -276,7 +222,6 @@
             this.panelAddGroupSpace.ResumeLayout(false);
             this.panelAddGroupSpace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupOptionalPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,8 +244,5 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.FlowLayoutPanel optionFlowPanel;
-        private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbar;
-        private System.Windows.Forms.Panel groupOptionalPanel;
-        private CirclusButton collapsedButton;
     }
 }
