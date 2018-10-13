@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,23 @@ namespace CitrusDB
             return studentViews;
         }
 
-       
+        public static byte[] ConvertImageToByteArr(this Image image)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                image.Save(memoryStream, image.RawFormat);
+                return memoryStream.ToArray();
+            }
+        }
+
+        public static Image ConvertByteArrToImage(this byte[] arr)
+        {
+            using (MemoryStream stream = new MemoryStream(arr))
+            {
+                return Image.FromStream(stream);
+            }
+        }
+
+
     }
 }

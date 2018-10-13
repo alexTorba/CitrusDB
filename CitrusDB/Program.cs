@@ -23,7 +23,7 @@ namespace CitrusDB
             MainPresenter mainPresenter = new MainPresenter(mainForm);
             AddStudentBoardPresenter addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard1);
             DataBoardPresenter dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
-            AddGroupBoardPresenter addGroupBoardPresenter = new AddGroupBoardPresenter(mainForm.addGroupBoard, new StudentViewBoard());
+            AddGroupBoardPresenter addGroupBoardPresenter = new AddGroupBoardPresenter(mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
 
             Application.Run(mainForm);
         }

@@ -11,13 +11,15 @@ namespace CitrusDB
     {
         readonly IAddGroupBoard addGroupBoard;
         readonly IStudentView studentView;
-
+        readonly IStudentView addedStudentView;
         readonly Model model = new Model();
 
-        public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView)
+        public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView,
+            IStudentView addedStudentView)
         {
             this.addGroupBoard = addGroupBoard;
             this.studentView = studentView;
+            this.addedStudentView = addedStudentView;
 
             this.addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
             this.addGroupBoard.changeAddedStudentPnanelControl += changeAddedStudentPnanelControl;
@@ -27,11 +29,11 @@ namespace CitrusDB
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
             List<Student> students = model.GetStudents();
-            List<IStudentView> rezult2 = studentView.CreateListIStudentView(students.Count);
+            List<IStudentView> rezult = studentView.CreateListIStudentView(students.Count);
 
-            for (int i = 0; i < rezult2.Count; i++)
+            for (int i = 0; i < rezult.Count; i++)
             {
-                IStudentView view = rezult2[i].FillView(students[i], model.ConvertByteArrToImage);
+                IStudentView view = rezult[i].FillView(students[i]);
                 view.ClickAdd += AddStudentButton_Click;
 
                 addGroupBoard.currentStudentControlCollection.Add((Control)view);
@@ -40,31 +42,26 @@ namespace CitrusDB
 
         private void AddStudentButton_Click(object sender, EventArgs e)
         {
-            //todo: использовать интерфейсы вместо конкретных вью (презентер не знает о вью)
-            StudentViewBoard studentViewBoard = sender as StudentViewBoard;
+            IStudentView studentViewBoard = sender as IStudentView;
+            IStudentView aSV = addedStudentView.CloneTo();
 
-            AddedStudentViewBoard addedStudentView = new AddedStudentViewBoard();
-            addedStudentView.firstNameTextBox.Text = studentViewBoard.fisrtNameTextBox.Text;
-            addedStudentView.lastNameTextBox.Text = studentViewBoard.lastNameTextBox.Text;
-            addedStudentView.Id = studentViewBoard.Id;
-            addedStudentView.ClickCancel += CancelButton_Click;
-            addedStudentView.BackColor = System.Drawing.Color.White;
+            aSV.FillView(model.GetStudentById(studentViewBoard.GetStudentId));
+            aSV.ClickAdd += CancelButton_Click;
 
-            addGroupBoard.addedStudentControlCollection.Add(addedStudentView);
-            addGroupBoard.currentStudentControlCollection.Remove(studentViewBoard);
+            addGroupBoard.addedStudentControlCollection.Add((Control)aSV);
+            addGroupBoard.currentStudentControlCollection.Remove((Control)studentViewBoard);
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            AddedStudentViewBoard addedStudentView = sender as AddedStudentViewBoard;
+            IStudentView addedStudentView = sender as IStudentView;
 
-            Student student = model.GetStudentById(addedStudentView.Id);
-
-            StudentViewBoard studentView = new StudentViewBoard(student.Id, student.FirstName, student.LastName, model.ConvertByteArrToImage(student.FirstPhoto));
+            IStudentView studentView = this.studentView.CloneTo();
+            studentView.FillView(model.GetStudentById(addedStudentView.GetStudentId));
             studentView.ClickAdd += AddStudentButton_Click;
 
-            addGroupBoard.currentStudentControlCollection.Add(studentView);
-            addGroupBoard.addedStudentControlCollection.Remove(addedStudentView);
+            addGroupBoard.currentStudentControlCollection.Add((Control)studentView);
+            addGroupBoard.addedStudentControlCollection.Remove((Control)addedStudentView);
         }
 
         private void changeAddedStudentPnanelControl(object sender, EventArgs e)

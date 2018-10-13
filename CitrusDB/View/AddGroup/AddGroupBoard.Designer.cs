@@ -191,7 +191,7 @@
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.searchTextBox.Location = new System.Drawing.Point(331, 11);
+            this.searchTextBox.Location = new System.Drawing.Point(331, 9);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(188, 22);

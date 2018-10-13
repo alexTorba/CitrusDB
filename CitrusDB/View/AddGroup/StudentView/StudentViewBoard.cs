@@ -14,6 +14,7 @@ namespace CitrusDB
     {
         public int Id { get; set; }
 
+
         public StudentViewBoard()
         {
             InitializeComponent();
@@ -21,14 +22,16 @@ namespace CitrusDB
 
         #region IStudentView
 
+        public int GetStudentId => Id;
+
         public event EventHandler ClickAdd;
 
-        public IStudentView FillView(Student student, Func<byte[], Image> converter)
+        public IStudentView FillView(Student student)
         {
             Id = student.Id;
             fisrtNameTextBox.Text = student.FirstName;
             lastNameTextBox.Text = student.LastName;
-            studentViewPhoto.Image =  converter.Invoke( student.FirstPhoto);
+            studentViewPhoto.Image = student.FirstPhoto.ConvertByteArrToImage();
 
             return this;
         }
@@ -39,7 +42,7 @@ namespace CitrusDB
             studentViewBoard.fisrtNameTextBox.Text = fisrtNameTextBox.Text;
             studentViewBoard.lastNameTextBox.Text = lastNameTextBox.Text;
             studentViewBoard.studentViewPhoto.Image = studentViewPhoto.Image;
-            studentViewBoard.addStudentButton.Click += this.ClickAdd;
+            studentViewBoard.addStudentButton.Click += addStudentButton_Click;
 
             return studentViewBoard;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CitrusDB
 {
-    class AddStudentBoardPresenter 
+    class AddStudentBoardPresenter
     {
         readonly IAddStudentBoard addStudentBoard;
         Model model = new Model();
@@ -18,17 +18,17 @@ namespace CitrusDB
             this.addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
         }
 
-      
+
         private void AddStudentBoard_SaveButton(object sender, EventArgs e)
         {
             Student student = new Student
             {
-                FirstName = this.addStudentBoard.GetFirstName,
-                LastName = this.addStudentBoard.GetLastName,
-                MiddleName = this.addStudentBoard.GetMiddleName,
-                Сitizenship = this.addStudentBoard.GetCitizenship,
-                FirstPhoto = model.ConvertImageToByteArr(addStudentBoard.GetFirstPhoto),
-                SecondPhoto = model.ConvertImageToByteArr(addStudentBoard.GetSecondPhoto),
+                FirstName = addStudentBoard.GetFirstName,
+                LastName = addStudentBoard.GetLastName,
+                MiddleName = addStudentBoard.GetMiddleName,
+                Сitizenship = addStudentBoard.GetCitizenship,
+                FirstPhoto = addStudentBoard.GetFirstPhoto.ConvertImageToByteArr(),
+                SecondPhoto = addStudentBoard.GetSecondPhoto.ConvertImageToByteArr(),
                 DateOfBirth = addStudentBoard.DateOfBirth,
                 Height = addStudentBoard.GetGrowth,
                 Weight = addStudentBoard.GetWeight,

@@ -10,8 +10,10 @@ namespace CitrusDB
 {
     public interface IStudentView
     {
-        IStudentView FillView(Student student, Func<byte[], Image> converter);
+        IStudentView FillView(Student student);
         IStudentView CloneTo();
+
+        int GetStudentId { get; }
 
         event EventHandler ClickAdd;
     }
