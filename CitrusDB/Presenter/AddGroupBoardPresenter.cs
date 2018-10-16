@@ -21,9 +21,31 @@ namespace CitrusDB
             this.studentView = studentView;
             this.addedStudentView = addedStudentView;
 
+            this.addGroupBoard.SaveClick += AddGroupBoard_SaveClick;
             this.addGroupBoard.ClearClick += AddGroupBoard_ClearClick;
             this.addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
             this.addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
+            this.addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
+
+        }
+
+
+        private void AddGroupBoard_SaveClick(object sender, EventArgs e)
+        {
+            List<Student> students = new List<Student>();
+
+            foreach (IStudentView student in addGroupBoard.AddedStudentControlCollection)
+                students.Add(model.GetStudentById(student.GetStudentId));
+
+            Group group = new Group
+            {
+                Name = addGroupBoard.GetNameOfGroup,
+                Students = students
+            };
+
+            model.AddGroup(group);
+
+            MessageBox.Show("Added group was sucessfule");
         }
 
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)
@@ -48,7 +70,7 @@ namespace CitrusDB
         private void AddStudentButton_Click(object sender, EventArgs e)
         {
             //получаем studentViewBoard на котором было вызвано событие button_Click
-            IStudentView studentViewBoard =  (IStudentView)((Control)sender).Parent;
+            IStudentView studentViewBoard = (IStudentView)((Control)sender).Parent;
 
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
             IStudentView addedStudentView = this.addedStudentView.CloneTo();
@@ -75,8 +97,26 @@ namespace CitrusDB
 
         private void changeAddedStudentPnanelControl(object sender, EventArgs e)
         {
-            addGroupBoard.CountOfAddedStudent = 
+            addGroupBoard.CountOfAddedStudent =
                 addGroupBoard.AddedStudentControlCollection.Count.ToString();
         }
+
+        private void AddGroupBoard_CurrentStudentSearchTextBoxChanges(object sender, EventArgs e)
+        {
+            //todo: сделать сортировку flowPanel без удаления данных (при повторном запросе коллекция пустая)
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text.Length > 0)
+            {
+                var collection = addGroupBoard.CurrentStudentControlCollection
+                    .Cast<IStudentView>()
+                    .Where(s => s.GetFristName.Contains(textBox.Text))
+                    .Cast<Control>()
+                    .ToArray();
+
+                addGroupBoard.CurrentStudentControlCollection.Clear();
+                addGroupBoard.CurrentStudentControlCollection.AddRange(collection);
+            }
+        }
+
     }
 }

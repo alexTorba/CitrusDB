@@ -30,20 +30,15 @@ namespace CitrusDB
             set => countOfStudentsLabel.Text = value;
         }
 
-        public string GetNameOfGroup
-        {
-            get => nameGroupTextBox.Text;
-        }
+        public string GetNameOfGroup => nameGroupTextBox.Text;
 
-        public Image GetGroupPhoto
-        {
-            get => photoPictureBox.Image;
-        }
+        public Image GetGroupPhoto => photoPictureBox.Image;
 
         public event EventHandler LoadAddGroupBoard;
         public event EventHandler ChangeAddedStudentPanelControl;
         public event EventHandler ClearClick;
         public event EventHandler SaveClick;
+        public event EventHandler CurrentStudentSearchTextBoxChanges;
 
         #endregion
 
@@ -79,7 +74,38 @@ namespace CitrusDB
             SaveClick?.Invoke(sender, e);
         }
 
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CurrentStudentSearchTextBoxChanges.Invoke(sender, e);
+        }
+
         #endregion
+
+        private void addedStudentSearchTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
+        }
+
+        private void searchTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            addedStudentSearchTextBox_MouseClick(sender, e);
+        }
+
+        private void photoPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            PictureBox pictureBox = sender as PictureBox;
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            if(openFile.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox.Load(openFile.FileName);
+            }
+
+            if (pictureBox.Image != null)
+                this.photoLabel.Visible = false;
+        }
 
     }
 }

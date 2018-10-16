@@ -27,6 +27,11 @@ namespace CitrusDB.DB
             return db.Students.Local.First(s => s.Id == id);
         }
 
+        //public static IEnumerable<IStudentView> GetStudentViewsWithСondition(string property)
+        //{
+            
+        //}
+
         public static void AddStudent(Student student)
         {
             db.Students.Add(student);

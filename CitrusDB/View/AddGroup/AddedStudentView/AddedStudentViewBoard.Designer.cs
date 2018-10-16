@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddedStudentViewBoard));
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.cancelButton = new CitrusDB.CirclusButton();
             this.SuspendLayout();
             // 
             // firstNameTextBox
@@ -63,9 +63,9 @@
             this.cancelButton.FlatAppearance.BorderSize = 0;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelButton.Image")));
-            this.cancelButton.Location = new System.Drawing.Point(237, 1);
+            this.cancelButton.Location = new System.Drawing.Point(238, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(41, 34);
+            this.cancelButton.Size = new System.Drawing.Size(36, 31);
             this.cancelButton.TabIndex = 2;
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -79,7 +79,7 @@
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.firstNameTextBox);
             this.Name = "AddedStudentViewBoard";
-            this.Size = new System.Drawing.Size(285, 40);
+            this.Size = new System.Drawing.Size(285, 41);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.AddedStudentViewBoard_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -90,6 +90,6 @@
 
         public System.Windows.Forms.TextBox firstNameTextBox;
         public System.Windows.Forms.TextBox lastNameTextBox;
-        public System.Windows.Forms.Button cancelButton;
+        private CirclusButton cancelButton;
     }
 }

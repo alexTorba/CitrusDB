@@ -22,5 +22,6 @@ namespace CitrusDB
         event EventHandler ChangeAddedStudentPanelControl;
         event EventHandler ClearClick;
         event EventHandler SaveClick;
+        event EventHandler CurrentStudentSearchTextBoxChanges;
     }
 }

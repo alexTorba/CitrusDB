@@ -14,6 +14,8 @@ namespace CitrusDB
         IStudentView CloneTo();
 
         int GetStudentId { get; }
+        string GetFristName { get; }
+        string GetLastName { get; }
 
         event EventHandler Click;
     }

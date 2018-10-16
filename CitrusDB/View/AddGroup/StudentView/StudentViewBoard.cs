@@ -24,6 +24,10 @@ namespace CitrusDB
 
         public int GetStudentId => Id;
 
+        public string GetFristName => fisrtNameTextBox.Text;
+
+        public string GetLastName => lastNameTextBox.Text;
+
         new public event EventHandler Click;
 
         public IStudentView FillView(Student student)

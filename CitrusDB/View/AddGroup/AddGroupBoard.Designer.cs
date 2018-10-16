@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panelAddGroupSpace = new System.Windows.Forms.Panel();
+            this.addedStudentSearchTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.photoLabel = new System.Windows.Forms.Label();
             this.countOfStudentsLabel = new System.Windows.Forms.Label();
             this.photoPictureBox = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,9 +51,10 @@
             // panelAddGroupSpace
             // 
             this.panelAddGroupSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.panelAddGroupSpace.Controls.Add(this.addedStudentSearchTextBox);
             this.panelAddGroupSpace.Controls.Add(this.clearButton);
             this.panelAddGroupSpace.Controls.Add(this.saveButton);
-            this.panelAddGroupSpace.Controls.Add(this.label1);
+            this.panelAddGroupSpace.Controls.Add(this.photoLabel);
             this.panelAddGroupSpace.Controls.Add(this.countOfStudentsLabel);
             this.panelAddGroupSpace.Controls.Add(this.photoPictureBox);
             this.panelAddGroupSpace.Controls.Add(this.label4);
@@ -65,6 +67,18 @@
             this.panelAddGroupSpace.Size = new System.Drawing.Size(312, 598);
             this.panelAddGroupSpace.TabIndex = 0;
             // 
+            // addedStudentSearchTextBox
+            // 
+            this.addedStudentSearchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.addedStudentSearchTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.addedStudentSearchTextBox.Location = new System.Drawing.Point(100, 177);
+            this.addedStudentSearchTextBox.Multiline = true;
+            this.addedStudentSearchTextBox.Name = "addedStudentSearchTextBox";
+            this.addedStudentSearchTextBox.Size = new System.Drawing.Size(151, 22);
+            this.addedStudentSearchTextBox.TabIndex = 3;
+            this.addedStudentSearchTextBox.Text = "Search..";
+            this.addedStudentSearchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addedStudentSearchTextBox_MouseClick);
+            // 
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.Color.Teal;
@@ -72,7 +86,7 @@
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.clearButton.ForeColor = System.Drawing.Color.White;
-            this.clearButton.Location = new System.Drawing.Point(164, 535);
+            this.clearButton.Location = new System.Drawing.Point(165, 535);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(108, 43);
             this.clearButton.TabIndex = 23;
@@ -87,7 +101,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(41, 535);
+            this.saveButton.Location = new System.Drawing.Point(42, 535);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(108, 43);
             this.saveButton.TabIndex = 22;
@@ -95,16 +109,16 @@
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // label1
+            // photoLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Enabled = false;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(56, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "photo";
+            this.photoLabel.AutoSize = true;
+            this.photoLabel.Enabled = false;
+            this.photoLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.photoLabel.Location = new System.Drawing.Point(56, 70);
+            this.photoLabel.Name = "photoLabel";
+            this.photoLabel.Size = new System.Drawing.Size(51, 19);
+            this.photoLabel.TabIndex = 1;
+            this.photoLabel.Text = "photo";
             // 
             // countOfStudentsLabel
             // 
@@ -121,8 +135,10 @@
             this.photoPictureBox.Location = new System.Drawing.Point(11, 11);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(140, 144);
+            this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.photoPictureBox.TabIndex = 1;
             this.photoPictureBox.TabStop = false;
+            this.photoPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.photoPictureBox_MouseClick);
             // 
             // label4
             // 
@@ -149,7 +165,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.label3.Location = new System.Drawing.Point(7, 182);
+            this.label3.Location = new System.Drawing.Point(7, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 21);
             this.label3.TabIndex = 3;
@@ -193,12 +209,15 @@
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.searchTextBox.Location = new System.Drawing.Point(331, 9);
+            this.searchTextBox.Location = new System.Drawing.Point(332, 9);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(188, 22);
-            this.searchTextBox.TabIndex = 3;
+            this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.Tag = "";
             this.searchTextBox.Text = "Search..";
+            this.searchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchTextBox_MouseClick);
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // optionFlowPanel
             // 
@@ -233,7 +252,7 @@
 
         private System.Windows.Forms.Panel panelAddGroupSpace;
         private System.Windows.Forms.PictureBox photoPictureBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label photoLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox nameGroupTextBox;
@@ -246,5 +265,6 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.FlowLayoutPanel optionFlowPanel;
+        private System.Windows.Forms.TextBox addedStudentSearchTextBox;
     }
 }

@@ -32,7 +32,7 @@
             this.studentViewPhoto = new System.Windows.Forms.PictureBox();
             this.fisrtNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.addStudentButton = new System.Windows.Forms.Button();
+            this.addStudentButton = new CitrusDB.CirclusButton();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,12 +66,13 @@
             // 
             // addStudentButton
             // 
+            this.addStudentButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addStudentButton.FlatAppearance.BorderSize = 0;
             this.addStudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addStudentButton.Image = ((System.Drawing.Image)(resources.GetObject("addStudentButton.Image")));
-            this.addStudentButton.Location = new System.Drawing.Point(46, 202);
+            this.addStudentButton.Location = new System.Drawing.Point(47, 201);
             this.addStudentButton.Name = "addStudentButton";
-            this.addStudentButton.Size = new System.Drawing.Size(38, 33);
+            this.addStudentButton.Size = new System.Drawing.Size(34, 29);
             this.addStudentButton.TabIndex = 3;
             this.addStudentButton.UseVisualStyleBackColor = true;
             this.addStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
@@ -97,6 +98,6 @@
         public System.Windows.Forms.PictureBox studentViewPhoto;
         public System.Windows.Forms.TextBox fisrtNameTextBox;
         public System.Windows.Forms.TextBox lastNameTextBox;
-        public System.Windows.Forms.Button addStudentButton;
+        private CirclusButton addStudentButton;
     }
 }
