@@ -12,22 +12,21 @@ namespace CitrusDB
 {
     public partial class AddedStudentViewBoard : UserControl, IStudentView
     {
-        private int Id { get; set; }
 
+        private int Id { get; set; }
 
         public AddedStudentViewBoard()
         {
             InitializeComponent();
 
-            this.BackColor = Color.White;
-            
+            BackColor = Color.White;
         }
 
         #region IStudentView
 
         public int GetStudentId => Id;
 
-        public event EventHandler ClickAdd;
+        new public event EventHandler Click;
 
         public IStudentView FillView(Student student)
         {
@@ -53,13 +52,13 @@ namespace CitrusDB
 
         private void AddedStudentViewBoard_Paint(object sender, PaintEventArgs e)
         {
-            this.firstNameTextBox.BackColor = this.BackColor;
-            this.lastNameTextBox.BackColor = this.BackColor;
+            firstNameTextBox.BackColor = BackColor;
+            lastNameTextBox.BackColor = BackColor;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            ClickAdd?.Invoke(this, EventArgs.Empty);
+            Click?.Invoke(sender, EventArgs.Empty);
         }
 
     }

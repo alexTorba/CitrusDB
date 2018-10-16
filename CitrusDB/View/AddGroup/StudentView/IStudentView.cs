@@ -15,6 +15,6 @@ namespace CitrusDB
 
         int GetStudentId { get; }
 
-        event EventHandler ClickAdd;
+        event EventHandler Click;
     }
 }

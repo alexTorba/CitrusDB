@@ -12,8 +12,8 @@ namespace CitrusDB
 {
     public partial class StudentViewBoard : UserControl, IStudentView
     {
-        public int Id { get; set; }
 
+        public int Id { get; set; }
 
         public StudentViewBoard()
         {
@@ -24,7 +24,7 @@ namespace CitrusDB
 
         public int GetStudentId => Id;
 
-        public event EventHandler ClickAdd;
+        new public event EventHandler Click;
 
         public IStudentView FillView(Student student)
         {
@@ -48,20 +48,11 @@ namespace CitrusDB
         }
 
         #endregion
-       
-        public StudentViewBoard(int id, string firstName, string lastName, Image photo) : this()
-        {
-            this.Id = id;
-            this.fisrtNameTextBox.Text = firstName;
-            this.lastNameTextBox.Text = lastName;
-            this.studentViewPhoto.Image = photo;
-        }
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
-            ClickAdd?.Invoke(this, e);
+            Click?.Invoke(sender, e);
         }
 
-       
     }
 }

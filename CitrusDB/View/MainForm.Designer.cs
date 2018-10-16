@@ -53,7 +53,7 @@ namespace CitrusDB
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataBoard = new CitrusDB.DataBoard();
-            this.addStudentBoard1 = new CitrusDB.AddStudentBoard();
+            this.addStudentBoard = new CitrusDB.AddStudentBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addGroupBoard = new CitrusDB.AddGroupBoard();
             this.panel2.SuspendLayout();
@@ -337,12 +337,12 @@ namespace CitrusDB
             this.dataBoard.Size = new System.Drawing.Size(917, 598);
             this.dataBoard.TabIndex = 11;
             // 
-            // addStudentBoard1
+            // addStudentBoard
             // 
-            this.addStudentBoard1.Location = new System.Drawing.Point(188, 31);
-            this.addStudentBoard1.Name = "addStudentBoard1";
-            this.addStudentBoard1.Size = new System.Drawing.Size(917, 598);
-            this.addStudentBoard1.TabIndex = 10;
+            this.addStudentBoard.Location = new System.Drawing.Point(188, 31);
+            this.addStudentBoard.Name = "addStudentBoard";
+            this.addStudentBoard.Size = new System.Drawing.Size(917, 598);
+            this.addStudentBoard.TabIndex = 10;
             // 
             // studentBindingSource
             // 
@@ -350,6 +350,7 @@ namespace CitrusDB
             // 
             // addGroupBoard
             // 
+            this.addGroupBoard.CountOfAddedStudent = "0";
             this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
             this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -363,7 +364,7 @@ namespace CitrusDB
             this.ClientSize = new System.Drawing.Size(1105, 629);
             this.Controls.Add(this.addGroupBoard);
             this.Controls.Add(this.dataBoard);
-            this.Controls.Add(this.addStudentBoard1);
+            this.Controls.Add(this.addStudentBoard);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -408,7 +409,7 @@ namespace CitrusDB
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.BindingSource studentBindingSource;
-        public AddStudentBoard addStudentBoard1;
+        public AddStudentBoard addStudentBoard;
         public DataBoard dataBoard;
         public AddGroupBoard addGroupBoard;
     }

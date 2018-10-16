@@ -21,7 +21,7 @@ namespace CitrusDB
             mainForm.InitBoard();
 
             MainPresenter mainPresenter = new MainPresenter(mainForm);
-            AddStudentBoardPresenter addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard1);
+            AddStudentBoardPresenter addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard);
             DataBoardPresenter dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
             AddGroupBoardPresenter addGroupBoardPresenter = new AddGroupBoardPresenter(mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
 

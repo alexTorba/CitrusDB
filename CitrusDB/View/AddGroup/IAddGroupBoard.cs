@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,16 @@ namespace CitrusDB
 {
     interface IAddGroupBoard
     {
-        event EventHandler LoadAddGroupBoard;
-        event EventHandler changeAddedStudentPnanelControl;
-        ControlCollection currentStudentControlCollection { get; }
-        ControlCollection addedStudentControlCollection { get; }
         string CountOfAddedStudent { get; set; }
+        string GetNameOfGroup { get; }
+        Image GetGroupPhoto { get; }
+
+        ControlCollection CurrentStudentControlCollection { get; }
+        ControlCollection AddedStudentControlCollection { get; }
+
+        event EventHandler LoadAddGroupBoard;
+        event EventHandler ChangeAddedStudentPanelControl;
+        event EventHandler ClearClick;
+        event EventHandler SaveClick;
     }
 }

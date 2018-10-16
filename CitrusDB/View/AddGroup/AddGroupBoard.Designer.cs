@@ -33,7 +33,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.countOfStudentsLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.photoPictureBox = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.addedStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.optionFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelAddGroupSpace.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAddGroupSpace
@@ -54,7 +54,7 @@
             this.panelAddGroupSpace.Controls.Add(this.saveButton);
             this.panelAddGroupSpace.Controls.Add(this.label1);
             this.panelAddGroupSpace.Controls.Add(this.countOfStudentsLabel);
-            this.panelAddGroupSpace.Controls.Add(this.pictureBox1);
+            this.panelAddGroupSpace.Controls.Add(this.photoPictureBox);
             this.panelAddGroupSpace.Controls.Add(this.label4);
             this.panelAddGroupSpace.Controls.Add(this.addedStudentFlowPanel);
             this.panelAddGroupSpace.Controls.Add(this.label3);
@@ -72,12 +72,13 @@
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.clearButton.ForeColor = System.Drawing.Color.White;
-            this.clearButton.Location = new System.Drawing.Point(166, 535);
+            this.clearButton.Location = new System.Drawing.Point(164, 535);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(108, 43);
             this.clearButton.TabIndex = 23;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // saveButton
             // 
@@ -86,12 +87,13 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(43, 535);
+            this.saveButton.Location = new System.Drawing.Point(41, 535);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(108, 43);
             this.saveButton.TabIndex = 22;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label1
             // 
@@ -113,14 +115,14 @@
             this.countOfStudentsLabel.Size = new System.Drawing.Size(0, 21);
             this.countOfStudentsLabel.TabIndex = 6;
             // 
-            // pictureBox1
+            // photoPictureBox
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 144);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.photoPictureBox.Location = new System.Drawing.Point(11, 11);
+            this.photoPictureBox.Name = "photoPictureBox";
+            this.photoPictureBox.Size = new System.Drawing.Size(140, 144);
+            this.photoPictureBox.TabIndex = 1;
+            this.photoPictureBox.TabStop = false;
             // 
             // label4
             // 
@@ -221,7 +223,7 @@
             this.Load += new System.EventHandler(this.AddGroupBoard_Load);
             this.panelAddGroupSpace.ResumeLayout(false);
             this.panelAddGroupSpace.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,7 +232,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panelAddGroupSpace;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox photoPictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

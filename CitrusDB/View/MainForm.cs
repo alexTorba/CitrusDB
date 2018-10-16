@@ -31,9 +31,8 @@ namespace CitrusDB
 
         public void InitBoard()
         {
-            this.addStudentBoard1.InitFields(this);
-            this.dataBoard.InitDataBoard(this);
-            this.addGroupBoard.InitBoard(this);
+            addStudentBoard.InitFields(this);
+            dataBoard.InitDataBoard(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -87,16 +86,20 @@ namespace CitrusDB
 
         private void buttonStudent_Click(object sender, EventArgs e)
         {
-            this.addStudentBoard1.BringToFront();
+            addStudentBoard.BringToFront();
+        }
+
+        private void buttonGroup_Click(object sender, EventArgs e)
+        {
+            addGroupBoard.BringToFront();
         }
 
         #endregion
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.TimerTiks.Invoke(sender as Timer, null, EventArgs.Empty);
+            TimerTiks.Invoke(sender as Timer, null, EventArgs.Empty);
         }
-
 
         public void ClearEventHandlers()
         {
@@ -124,10 +127,6 @@ namespace CitrusDB
             }
         }
 
-        private void buttonGroup_Click(object sender, EventArgs e)
-        {
-            addGroupBoard.BringToFront();
-        }
 
         //
     }
