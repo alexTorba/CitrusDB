@@ -97,6 +97,12 @@
     </Compile>
     <Compile Include="View\AddStudent\IAddStudentBoard.cs" />
     <Compile Include="View\DataBoard\IDataBoard.cs" />
+    <Compile Include="View\DataBoard\StudentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\DataBoard\StudentView.Designer.cs">
+      <DependentUpon>StudentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IMainForm.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>

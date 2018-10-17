@@ -1,3 +1,7 @@
 .vs/
 TestingForm/
 CitrusDB/Resources
+.gitignore
+* .exe
+* .cache
+* .pdb

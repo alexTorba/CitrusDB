@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,6 @@ namespace CitrusDB
             this.addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
             this.addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
             this.addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
-
         }
 
 
@@ -51,6 +51,19 @@ namespace CitrusDB
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)
         {
             //todo: clear logic
+            if (addGroupBoard.AddedStudentControlCollection.Count != 0)
+            {
+                foreach (var obj in addGroupBoard.AddedStudentControlCollection)
+                {
+                    Control control = obj as Control;
+
+                    IStudentView studentView = this.studentView.CloneTo();
+                    studentView.FillView(model.GetStudentById(((IStudentView)control).GetStudentId));
+                    
+                    addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
+                }
+                addGroupBoard.AddedStudentControlCollection.Clear(); 
+            }
         }
 
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
@@ -75,7 +88,7 @@ namespace CitrusDB
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
             IStudentView addedStudentView = this.addedStudentView.CloneTo();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
-            addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));
+            addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));  
             addedStudentView.Click += CancelButton_Click;
 
             addGroupBoard.CurrentStudentControlCollection.Remove((Control)studentViewBoard);
