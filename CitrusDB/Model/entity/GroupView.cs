@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace CitrusDB
 {
-    public class Group
+    public class GroupView
     {
+
         public int Id { get; set; }
+        public byte[] Photo { get; set; }
         public string Name { get; set; }
+        public int Students { get; set; }
 
-        public ICollection<Student> Students { get; set; }
-
-        public Group()
-        {
-            this.Students = new List<Student>();
-        }
     }
 }

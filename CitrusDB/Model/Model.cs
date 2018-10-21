@@ -19,6 +19,11 @@ namespace CitrusDB
             return DataBase.GetStudents();
         }
 
+        public List<StudentView> GetStudentsView()
+        {
+            return DataBase.GetStudentsView();
+        }
+
         public void AddStudent(Student student)
         {
             DataBase.AddStudent(student);
@@ -28,6 +33,12 @@ namespace CitrusDB
         {
             return DataBase.GetStudentById(id);
         }
+
+        public List<Student> GetStudentsWithGroup()
+        {
+            return DataBase.GetStudentsWithGroup();
+        }
+
         //async public void AddStudentAsync(Student student)
         //{
         //    db.Students.Add(student);
@@ -37,6 +48,21 @@ namespace CitrusDB
         public void AddGroup(Group group)
         {
             DataBase.AddGroup(group);
+        }
+
+        public List<GroupView> GetGroupViews()
+        {
+            return DataBase.GetGroupsView();
+        }
+
+        public List<Group> GetGroups()
+        {
+            return DataBase.GetGroups();
+        }
+
+        public async Task<List<Group>> GetGroupsAsync()
+        {
+            return await DataBase.GetGroupsAsync();
         }
 
         //async public void AddGroupAsync(Group group)

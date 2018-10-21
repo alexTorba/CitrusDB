@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.buttonTables = new System.Windows.Forms.Button();
             this.panelGroup = new System.Windows.Forms.Panel();
@@ -41,20 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.generPanelOptions = new System.Windows.Forms.Panel();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.middleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.сitizenshipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.knowledgeOfLanguageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstPhotoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.secondPhotoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.groupIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collapsedButton = new CitrusDB.CirclusButton();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -62,45 +48,30 @@
             this.flowGroupOptions.SuspendLayout();
             this.panelTables.SuspendLayout();
             this.generPanelOptions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGrid.AutoGenerateColumns = false;
-            this.dataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
-            this.middleNameDataGridViewTextBoxColumn,
-            this.dateOfBirthDataGridViewTextBoxColumn,
-            this.heightDataGridViewTextBoxColumn,
-            this.weightDataGridViewTextBoxColumn,
-            this.сitizenshipDataGridViewTextBoxColumn,
-            this.knowledgeOfLanguageDataGridViewTextBoxColumn,
-            this.firstPhotoDataGridViewImageColumn,
-            this.secondPhotoDataGridViewImageColumn,
-            this.groupIdDataGridViewTextBoxColumn,
-            this.groupDataGridViewTextBoxColumn});
-            this.dataGrid.DataSource = this.studentBindingSource1;
-            this.dataGrid.DoubleBuffered = true;
+            this.dataGrid.DoubleBuffered = false;
             this.dataGrid.EnableHeadersVisualStyles = false;
-            this.dataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.dataGrid.HeaderBgColor = System.Drawing.SystemColors.Control;
             this.dataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
             this.dataGrid.Location = new System.Drawing.Point(3, 156);
             this.dataGrid.Name = "dataGrid";
@@ -153,7 +124,7 @@
             this.panelTables.MaximumSize = new System.Drawing.Size(228, 145);
             this.panelTables.MinimumSize = new System.Drawing.Size(228, 51);
             this.panelTables.Name = "panelTables";
-            this.panelTables.Size = new System.Drawing.Size(228, 51);
+            this.panelTables.Size = new System.Drawing.Size(228, 145);
             this.panelTables.TabIndex = 6;
             this.panelTables.Tag = false;
             // 
@@ -166,6 +137,7 @@
             this.radioButtonGroup.TabIndex = 9;
             this.radioButtonGroup.TabStop = true;
             this.radioButtonGroup.UseVisualStyleBackColor = true;
+            this.radioButtonGroup.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonGroup_MouseClick);
             // 
             // radioButtonStudent
             // 
@@ -176,6 +148,7 @@
             this.radioButtonStudent.TabIndex = 7;
             this.radioButtonStudent.TabStop = true;
             this.radioButtonStudent.UseVisualStyleBackColor = true;
+            this.radioButtonStudent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonStudent_MouseClick);
             // 
             // label2
             // 
@@ -204,95 +177,13 @@
             this.generPanelOptions.Controls.Add(this.collapsedButton);
             this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Dock = System.Windows.Forms.DockStyle.Right;
-            this.generPanelOptions.Location = new System.Drawing.Point(868, 0);
+            this.generPanelOptions.Location = new System.Drawing.Point(650, 0);
             this.generPanelOptions.MaximumSize = new System.Drawing.Size(267, 598);
             this.generPanelOptions.MinimumSize = new System.Drawing.Size(49, 598);
             this.generPanelOptions.Name = "generPanelOptions";
-            this.generPanelOptions.Size = new System.Drawing.Size(49, 598);
+            this.generPanelOptions.Size = new System.Drawing.Size(267, 598);
             this.generPanelOptions.TabIndex = 6;
             this.generPanelOptions.Tag = false;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // middleNameDataGridViewTextBoxColumn
-            // 
-            this.middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
-            this.middleNameDataGridViewTextBoxColumn.HeaderText = "MiddleName";
-            this.middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            // 
-            // heightDataGridViewTextBoxColumn
-            // 
-            this.heightDataGridViewTextBoxColumn.DataPropertyName = "Height";
-            this.heightDataGridViewTextBoxColumn.HeaderText = "Height";
-            this.heightDataGridViewTextBoxColumn.Name = "heightDataGridViewTextBoxColumn";
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            // 
-            // сitizenshipDataGridViewTextBoxColumn
-            // 
-            this.сitizenshipDataGridViewTextBoxColumn.DataPropertyName = "Сitizenship";
-            this.сitizenshipDataGridViewTextBoxColumn.HeaderText = "Сitizenship";
-            this.сitizenshipDataGridViewTextBoxColumn.Name = "сitizenshipDataGridViewTextBoxColumn";
-            // 
-            // knowledgeOfLanguageDataGridViewTextBoxColumn
-            // 
-            this.knowledgeOfLanguageDataGridViewTextBoxColumn.DataPropertyName = "KnowledgeOfLanguage";
-            this.knowledgeOfLanguageDataGridViewTextBoxColumn.HeaderText = "KnowledgeOfLanguage";
-            this.knowledgeOfLanguageDataGridViewTextBoxColumn.Name = "knowledgeOfLanguageDataGridViewTextBoxColumn";
-            // 
-            // firstPhotoDataGridViewImageColumn
-            // 
-            this.firstPhotoDataGridViewImageColumn.DataPropertyName = "FirstPhoto";
-            this.firstPhotoDataGridViewImageColumn.HeaderText = "FirstPhoto";
-            this.firstPhotoDataGridViewImageColumn.Name = "firstPhotoDataGridViewImageColumn";
-            // 
-            // secondPhotoDataGridViewImageColumn
-            // 
-            this.secondPhotoDataGridViewImageColumn.DataPropertyName = "SecondPhoto";
-            this.secondPhotoDataGridViewImageColumn.HeaderText = "SecondPhoto";
-            this.secondPhotoDataGridViewImageColumn.Name = "secondPhotoDataGridViewImageColumn";
-            // 
-            // groupIdDataGridViewTextBoxColumn
-            // 
-            this.groupIdDataGridViewTextBoxColumn.DataPropertyName = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn.HeaderText = "GroupId";
-            this.groupIdDataGridViewTextBoxColumn.Name = "groupIdDataGridViewTextBoxColumn";
-            // 
-            // groupDataGridViewTextBoxColumn
-            // 
-            this.groupDataGridViewTextBoxColumn.DataPropertyName = "Group";
-            this.groupDataGridViewTextBoxColumn.HeaderText = "Group";
-            this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
-            // 
-            // studentBindingSource1
-            // 
-            this.studentBindingSource1.DataSource = typeof(CitrusDB.Student);
             // 
             // collapsedButton
             // 
@@ -326,7 +217,6 @@
             this.panelTables.ResumeLayout(false);
             this.panelTables.PerformLayout();
             this.generPanelOptions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -345,20 +235,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel generPanelOptions;
         private System.Windows.Forms.BindingSource studentBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn middleNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn heightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn сitizenshipDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn knowledgeOfLanguageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn firstPhotoDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewImageColumn secondPhotoDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource studentBindingSource1;
         private CirclusButton collapsedButton;
     }
 }

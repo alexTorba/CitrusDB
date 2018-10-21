@@ -72,6 +72,8 @@ namespace CitrusDB
         private void saveButton_Click(object sender, EventArgs e)
         {
             SaveClick?.Invoke(sender, e);
+
+            ClearClick?.Invoke(null, EventArgs.Empty);
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)

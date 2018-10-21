@@ -9,9 +9,10 @@ using Bunifu.Framework.UI;
 
 namespace CitrusDB
 {
-    interface IDataBoard
+    public interface IDataBoard
     {
         event EventHandler LoadDataBoard;
-        BunifuCustomDataGrid GetDataGrid { get;}
+        event EventHandler GroupTableLoad;
+        object GetDataSource { get; set; }
     }
 }

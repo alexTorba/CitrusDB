@@ -29,7 +29,6 @@ namespace CitrusDB
             this.addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
         }
 
-
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
             List<Student> students = new List<Student>();
@@ -40,7 +39,8 @@ namespace CitrusDB
             Group group = new Group
             {
                 Name = addGroupBoard.GetNameOfGroup,
-                Students = students
+                Students = students,
+                Photo = addGroupBoard.GetGroupPhoto.ConvertImageToByteArr()
             };
 
             model.AddGroup(group);
@@ -50,7 +50,6 @@ namespace CitrusDB
 
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)
         {
-            //todo: clear logic
             if (addGroupBoard.AddedStudentControlCollection.Count != 0)
             {
                 foreach (var obj in addGroupBoard.AddedStudentControlCollection)
@@ -88,11 +87,11 @@ namespace CitrusDB
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
             IStudentView addedStudentView = this.addedStudentView.CloneTo();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
-            addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));  
+            addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));   
             addedStudentView.Click += CancelButton_Click;
 
             addGroupBoard.CurrentStudentControlCollection.Remove((Control)studentViewBoard);
-            addGroupBoard.AddedStudentControlCollection.Add((Control)addedStudentView);
+            addGroupBoard.AddedStudentControlCollection.Add((Control)addedStudentView); 
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

@@ -19,3 +19,7 @@ C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.pd
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.AddGroupBoard.resources
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.StudentViewBoard.resources
 C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.AddedStudentViewBoard.resources
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.View.DataBoard.StudentView.resources
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.Migrations.InitialCreate.resources
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.Migrations.addedStudentViews.resources
+C:\Users\Александр\source\repos\CitrusDB\CitrusDB\obj\Debug\CitrusDB.Migrations.added_GroupView.resources

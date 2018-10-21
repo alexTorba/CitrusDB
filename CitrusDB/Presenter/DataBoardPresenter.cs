@@ -11,17 +11,23 @@ namespace CitrusDB
         IDataBoard dataBoard;
         Model model;
 
-        public DataBoardPresenter(DataBoard dataBoard)
+        public DataBoardPresenter(IDataBoard dataBoard)
         {
             model = new Model();
 
             this.dataBoard = dataBoard;
             this.dataBoard.LoadDataBoard += DataBoard_LoadDataBoard;
+            this.dataBoard.GroupTableLoad += DataBoard_GroupTableLoad;
+        }
+
+        private void DataBoard_GroupTableLoad(object sender, EventArgs e)
+        {
+            dataBoard.GetDataSource = model.GetGroupViews();
         }
 
         private void DataBoard_LoadDataBoard(object sender, EventArgs e)
         {
-            dataBoard.GetDataGrid.DataSource = model.GetStudents();
+            dataBoard.GetDataSource = model.GetStudentsView();
         }
     }
 }

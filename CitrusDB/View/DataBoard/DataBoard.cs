@@ -14,14 +14,19 @@ namespace CitrusDB
 {
     public partial class DataBoard : UserControl, IDataBoard
     {
-        MainForm mainForm;
 
+        MainForm mainForm;
 
         #region IDataBoard
 
-        public BunifuCustomDataGrid GetDataGrid { get => dataGrid; }
+        public object GetDataSource
+        {
+            get => dataGrid.DataSource;
+            set => dataGrid.DataSource = value;
+        }
 
         public event EventHandler LoadDataBoard;
+        public event EventHandler GroupTableLoad;
 
         #endregion
 
@@ -37,8 +42,6 @@ namespace CitrusDB
 
         private void DataBoard_Load(object sender, EventArgs e)
         {
-            //DataBoardPresenter dataBoardPresenter = new DataBoardPresenter(this);
-
             LoadDataBoard?.Invoke(sender, e);
         }
 
@@ -49,10 +52,9 @@ namespace CitrusDB
             mainForm.ClearEventHandlers();
             mainForm.TimerTiks += generPanelOptions.TicksGrowsWidth;
 
-            (sender as Button)?.ChangeImageButton(this.generPanelOptions, Resources.left, Resources.right);
+            (sender as Button)?.ChangeImageButton(generPanelOptions, Resources.left, Resources.right);
         }
 
-       
         private void buttonTables_Click(object sender, EventArgs e)
         {
             mainForm.timer.Start();
@@ -61,6 +63,26 @@ namespace CitrusDB
             mainForm.TimerTiks += panelTables.TicksGrowsHeight;
         }
 
-       
+        private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
+        {
+            GroupTableLoad?.Invoke(sender, e);
+            dataGrid.Columns["Id"].Visible = false;
+            ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).FillWeight = 5;
+            dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            //((DataGridViewImageColumn)dataGrid.Columns["Photo"]).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            
+        }
+
+        private void radioButtonStudent_MouseClick(object sender, MouseEventArgs e)
+        {
+            LoadDataBoard?.Invoke(sender, e);
+            dataGrid.Columns["Id"].Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGrid.Refresh();
+        }
     }
 }
