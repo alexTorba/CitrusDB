@@ -18,6 +18,8 @@ namespace CitrusDB
         ControlCollection CurrentStudentControlCollection { get; }
         ControlCollection AddedStudentControlCollection { get; }
 
+        void ClearView();
+
         event EventHandler LoadAddGroupBoard;
         event EventHandler ChangeAddedStudentPanelControl;
         event EventHandler ClearClick;

@@ -34,6 +34,12 @@ namespace CitrusDB
 
         public Image GetGroupPhoto => photoPictureBox.Image;
 
+        public void ClearView()
+        {
+            nameGroupTextBox.Text = string.Empty;
+            photoPictureBox.Image = null;
+        }
+
         public event EventHandler LoadAddGroupBoard;
         public event EventHandler ChangeAddedStudentPanelControl;
         public event EventHandler ClearClick;
@@ -63,9 +69,6 @@ namespace CitrusDB
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            nameGroupTextBox.Text = string.Empty;
-            photoPictureBox.Image = null;
-
             ClearClick?.Invoke(sender, e);
         }
 
@@ -109,5 +112,6 @@ namespace CitrusDB
                 this.photoLabel.Visible = false;
         }
 
+        
     }
 }

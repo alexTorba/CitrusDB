@@ -50,6 +50,8 @@ namespace CitrusDB
 
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)
         {
+            addGroupBoard.ClearView();
+
             if (addGroupBoard.AddedStudentControlCollection.Count != 0)
             {
                 foreach (var obj in addGroupBoard.AddedStudentControlCollection)
@@ -58,10 +60,10 @@ namespace CitrusDB
 
                     IStudentView studentView = this.studentView.CloneTo();
                     studentView.FillView(model.GetStudentById(((IStudentView)control).GetStudentId));
-                    
+
                     addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
                 }
-                addGroupBoard.AddedStudentControlCollection.Clear(); 
+                addGroupBoard.AddedStudentControlCollection.Clear();
             }
         }
 
@@ -87,11 +89,11 @@ namespace CitrusDB
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
             IStudentView addedStudentView = this.addedStudentView.CloneTo();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
-            addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));   
+            addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));
             addedStudentView.Click += CancelButton_Click;
 
             addGroupBoard.CurrentStudentControlCollection.Remove((Control)studentViewBoard);
-            addGroupBoard.AddedStudentControlCollection.Add((Control)addedStudentView); 
+            addGroupBoard.AddedStudentControlCollection.Add((Control)addedStudentView);
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
