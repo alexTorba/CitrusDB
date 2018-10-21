@@ -25,6 +25,13 @@ namespace CitrusDB
             set => dataGrid.DataSource = value;
         }
 
+        public void UpdateView()
+        {
+            if (radioButtonGroup.Checked == true)
+                GroupTableLoad.Invoke(null, EventArgs.Empty);
+            else LoadDataBoard.Invoke(null, EventArgs.Empty);
+        }
+
         public event EventHandler LoadDataBoard;
         public event EventHandler GroupTableLoad;
 
@@ -43,6 +50,7 @@ namespace CitrusDB
         private void DataBoard_Load(object sender, EventArgs e)
         {
             LoadDataBoard?.Invoke(sender, e);
+            radioButtonStudent.Checked = true;
         }
 
         private void collapsedData_Click(object sender, EventArgs e)
@@ -66,12 +74,10 @@ namespace CitrusDB
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
         {
             GroupTableLoad?.Invoke(sender, e);
+
             dataGrid.Columns["Id"].Visible = false;
             ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-            ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).FillWeight = 5;
             dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            //((DataGridViewImageColumn)dataGrid.Columns["Photo"]).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            
         }
 
         private void radioButtonStudent_MouseClick(object sender, MouseEventArgs e)
@@ -80,9 +86,5 @@ namespace CitrusDB
             dataGrid.Columns["Id"].Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dataGrid.Refresh();
-        }
     }
 }

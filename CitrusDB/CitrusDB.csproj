@@ -208,5 +208,8 @@
   <ItemGroup>
     <None Include="Resources\down.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\AddStudent\GroupVIew\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

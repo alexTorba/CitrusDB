@@ -13,6 +13,8 @@ namespace CitrusDB
     {
         event EventHandler LoadDataBoard;
         event EventHandler GroupTableLoad;
+        void UpdateView();
+
         object GetDataSource { get; set; }
     }
 }

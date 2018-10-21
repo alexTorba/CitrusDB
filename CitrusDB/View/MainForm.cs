@@ -53,6 +53,9 @@ namespace CitrusDB
         {
             ReplaceBacklightPanel(sender, e);
             dataBoard.BringToFront();
+
+            //?
+            ((IDataBoard)dataBoard).UpdateView();
         }
 
         private void buttonStatistics_Click(object sender, EventArgs e)
@@ -86,11 +89,13 @@ namespace CitrusDB
 
         private void buttonStudent_Click(object sender, EventArgs e)
         {
+            ReplaceBacklightPanel(buttonAdd, e);
             addStudentBoard.BringToFront();
         }
 
         private void buttonGroup_Click(object sender, EventArgs e)
         {
+            ReplaceBacklightPanel(buttonAdd, e);
             addGroupBoard.BringToFront();
         }
 

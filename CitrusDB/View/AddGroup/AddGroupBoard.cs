@@ -27,7 +27,7 @@ namespace CitrusDB
         public string CountOfAddedStudent
         {
             get => countOfStudentsLabel.Text;
-            set => countOfStudentsLabel.Text = value;
+            set => countOfStudentsLabel.Text = value; 
         }
 
         public string GetNameOfGroup => nameGroupTextBox.Text;
@@ -38,6 +38,7 @@ namespace CitrusDB
         {
             nameGroupTextBox.Text = string.Empty;
             photoPictureBox.Image = null;
+            photoLabel.Visible = true;
         }
 
         public event EventHandler LoadAddGroupBoard;

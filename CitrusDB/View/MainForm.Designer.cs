@@ -332,6 +332,7 @@ namespace CitrusDB
             // 
             this.dataBoard.BackColor = System.Drawing.SystemColors.Control;
             this.dataBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataBoard.GetDataSource = null;
             this.dataBoard.Location = new System.Drawing.Point(188, 31);
             this.dataBoard.Name = "dataBoard";
             this.dataBoard.Size = new System.Drawing.Size(917, 598);

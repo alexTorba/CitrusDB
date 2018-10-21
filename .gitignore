@@ -1,6 +1,9 @@
 .vs/
 TestingForm/
-CitrusDB/Resources
+CitrusDB/Resources/
+
+CitrusDB/bin
+CitrusDB/obj
 
 *.exe
 *.cache

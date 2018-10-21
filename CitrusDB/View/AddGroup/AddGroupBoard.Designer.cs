@@ -71,7 +71,7 @@
             // 
             this.addedStudentSearchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.addedStudentSearchTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.addedStudentSearchTextBox.Location = new System.Drawing.Point(100, 177);
+            this.addedStudentSearchTextBox.Location = new System.Drawing.Point(101, 177);
             this.addedStudentSearchTextBox.Multiline = true;
             this.addedStudentSearchTextBox.Name = "addedStudentSearchTextBox";
             this.addedStudentSearchTextBox.Size = new System.Drawing.Size(151, 22);
@@ -86,7 +86,7 @@
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.clearButton.ForeColor = System.Drawing.Color.White;
-            this.clearButton.Location = new System.Drawing.Point(165, 535);
+            this.clearButton.Location = new System.Drawing.Point(164, 535);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(108, 43);
             this.clearButton.TabIndex = 23;
@@ -101,7 +101,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(42, 535);
+            this.saveButton.Location = new System.Drawing.Point(41, 535);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(108, 43);
             this.saveButton.TabIndex = 22;
@@ -114,7 +114,7 @@
             this.photoLabel.AutoSize = true;
             this.photoLabel.Enabled = false;
             this.photoLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.photoLabel.Location = new System.Drawing.Point(56, 70);
+            this.photoLabel.Location = new System.Drawing.Point(57, 70);
             this.photoLabel.Name = "photoLabel";
             this.photoLabel.Size = new System.Drawing.Size(51, 19);
             this.photoLabel.TabIndex = 1;
@@ -124,7 +124,7 @@
             // 
             this.countOfStudentsLabel.AutoSize = true;
             this.countOfStudentsLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.countOfStudentsLabel.Location = new System.Drawing.Point(224, 77);
+            this.countOfStudentsLabel.Location = new System.Drawing.Point(225, 77);
             this.countOfStudentsLabel.Name = "countOfStudentsLabel";
             this.countOfStudentsLabel.Size = new System.Drawing.Size(0, 21);
             this.countOfStudentsLabel.TabIndex = 6;
@@ -132,7 +132,7 @@
             // photoPictureBox
             // 
             this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.photoPictureBox.Location = new System.Drawing.Point(11, 11);
+            this.photoPictureBox.Location = new System.Drawing.Point(12, 11);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(140, 144);
             this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -144,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.label4.Location = new System.Drawing.Point(160, 77);
+            this.label4.Location = new System.Drawing.Point(161, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 21);
             this.label4.TabIndex = 5;
@@ -165,7 +165,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.label3.Location = new System.Drawing.Point(7, 180);
+            this.label3.Location = new System.Drawing.Point(8, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 21);
             this.label3.TabIndex = 3;
@@ -174,7 +174,7 @@
             // nameGroupTextBox
             // 
             this.nameGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.nameGroupTextBox.Location = new System.Drawing.Point(164, 40);
+            this.nameGroupTextBox.Location = new System.Drawing.Point(165, 40);
             this.nameGroupTextBox.Multiline = true;
             this.nameGroupTextBox.Name = "nameGroupTextBox";
             this.nameGroupTextBox.Size = new System.Drawing.Size(137, 22);
@@ -184,7 +184,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(160, 16);
+            this.label2.Location = new System.Drawing.Point(161, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 21);
             this.label2.TabIndex = 2;
