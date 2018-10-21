@@ -114,15 +114,14 @@ namespace CitrusDB
 
         private void ReplaceBacklightPanel(object sender, EventArgs e)
         {
-            Button currentButton = sender as Button;
-            if (currentButton != null)
+            if (sender is Button currentButton)
             {
-                if (currentButton.Tag?.ToString() == "add")
+                if (currentButton.Parent == panelGroupAdd)
                     backlightPanel.Top = flowLayoutPanel1.Top + panelGroupAdd.Top;
                 else
                 {
-                    this.backlightPanel.Height = currentButton.Height;
-                    this.backlightPanel.Top = this.flowLayoutPanel1.Top + currentButton.Top;
+                    backlightPanel.Height = currentButton.Height;
+                    backlightPanel.Top = flowLayoutPanel1.Top + currentButton.Top;
                 }
             }
         }
