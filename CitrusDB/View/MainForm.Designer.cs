@@ -1,6 +1,9 @@
-﻿
+﻿using CitrusDB.Model.Entity;
+using CitrusDB.View.AddGroup;
+using CitrusDB.View.AddStudent;
+using CitrusDB.View.DataBoard;
 
-namespace CitrusDB
+namespace CitrusDB.View
 {
     partial class MainForm
     {
@@ -52,10 +55,10 @@ namespace CitrusDB
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dataBoard = new CitrusDB.DataBoard();
-            this.addStudentBoard = new CitrusDB.AddStudentBoard();
+            this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
+            this.addStudentBoard = new AddStudentBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.addGroupBoard = new CitrusDB.AddGroupBoard();
+            this.addGroupBoard = new AddGroupBoard();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -347,7 +350,7 @@ namespace CitrusDB
             // 
             // studentBindingSource
             // 
-            this.studentBindingSource.DataSource = typeof(CitrusDB.Student);
+            this.studentBindingSource.DataSource = typeof(Student);
             // 
             // addGroupBoard
             // 
@@ -411,7 +414,7 @@ namespace CitrusDB
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.BindingSource studentBindingSource;
         public AddStudentBoard addStudentBoard;
-        public DataBoard dataBoard;
+        public CitrusDB.View.DataBoard.DataBoard dataBoard;
         public AddGroupBoard addGroupBoard;
     }
 }

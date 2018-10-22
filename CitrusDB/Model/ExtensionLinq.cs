@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Linq.Expressions;
 
-namespace CitrusDB
+namespace CitrusDB.Model
 {
     public static class ExtensionLinq
     {

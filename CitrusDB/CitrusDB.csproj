@@ -74,12 +74,12 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Database.cs" />
-    <Compile Include="Model\entity\GroupView.cs" />
+    <Compile Include="Model\Entity\GroupView.cs" />
     <Compile Include="Model\ExtensionLinq.cs" />
     <Compile Include="Model\ExtensionControls.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\StudentDB.cs" />
-    <Compile Include="Model\entity\StudentView.cs" />
+    <Compile Include="Model\Entity\StudentView.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
@@ -97,7 +97,7 @@
       <DependentUpon>AddGroupBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AddGroup\IAddGroupBoard.cs" />
-    <Compile Include="View\AddGroup\StudentView\IStudentView.cs" />
+    <Compile Include="View\AddGroup\IStudentView.cs" />
     <Compile Include="View\AddStudent\AddStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,9 +125,9 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\entity\Group.cs" />
+    <Compile Include="Model\Entity\Group.cs" />
     <Compile Include="Model\InitDB.cs" />
-    <Compile Include="Model\entity\Student.cs" />
+    <Compile Include="Model\Entity\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\AddGroup\StudentView\StudentViewBoard.cs">

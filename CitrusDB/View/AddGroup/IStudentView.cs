@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CitrusDB.Model.Entity;
 
-namespace CitrusDB
+namespace CitrusDB.View.AddGroup
 {
     public interface IStudentView
     {

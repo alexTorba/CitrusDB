@@ -1,4 +1,4 @@
-﻿namespace CitrusDB
+﻿namespace CitrusDB.View.AddGroup
 {
     partial class AddGroupBoard
     {

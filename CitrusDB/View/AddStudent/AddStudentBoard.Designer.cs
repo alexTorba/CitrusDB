@@ -1,4 +1,6 @@
-﻿namespace CitrusDB
+﻿using CitrusDB.View.UsersElements;
+
+namespace CitrusDB.View.AddStudent
 {
     partial class AddStudentBoard
     {
@@ -62,7 +64,7 @@
             this.photo2Label = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.collapsedButton = new CitrusDB.CirclusButton();
+            this.collapsedButton = new CirclusButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).BeginInit();
             this.flowLayoutPanelAddBoard.SuspendLayout();

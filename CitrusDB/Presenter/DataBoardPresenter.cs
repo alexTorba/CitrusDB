@@ -4,16 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CitrusDB
+using CitrusDB.Model;
+using CitrusDB.View.DataBoard;
+
+namespace CitrusDB.Presenter
 {
     public class DataBoardPresenter
     {
         IDataBoard dataBoard;
-        Model model;
+        Model.Model model;
 
         public DataBoardPresenter(IDataBoard dataBoard)
         {
-            model = new Model();
+            model = new Model.Model();
 
             this.dataBoard = dataBoard;
             this.dataBoard.LoadDataBoard += DataBoard_LoadDataBoard;

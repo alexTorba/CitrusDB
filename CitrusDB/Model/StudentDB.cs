@@ -2,8 +2,9 @@
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+using CitrusDB.Model.Entity;
 
-namespace CitrusDB
+namespace CitrusDB.Model
 {
 
     public class StudentDB : DbContext

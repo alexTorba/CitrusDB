@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CitrusDB
+namespace CitrusDB.Model.Entity
 {
     public class StudentView
     {

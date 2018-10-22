@@ -1,4 +1,7 @@
-﻿namespace CitrusDB
+﻿using CitrusDB.Model.Entity;
+using CitrusDB.View.UsersElements;
+
+namespace CitrusDB.View.DataBoard
 {
     partial class DataBoard
     {
@@ -42,7 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.generPanelOptions = new System.Windows.Forms.Panel();
-            this.collapsedButton = new CitrusDB.CirclusButton();
+            this.collapsedButton = new CirclusButton();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panelGroup.SuspendLayout();
@@ -220,7 +223,7 @@
             // 
             // studentBindingSource
             // 
-            this.studentBindingSource.DataSource = typeof(CitrusDB.Student);
+            this.studentBindingSource.DataSource = typeof(Student);
             // 
             // DataBoard
             // 

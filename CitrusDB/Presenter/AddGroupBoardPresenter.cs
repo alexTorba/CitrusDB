@@ -6,14 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB
+using CitrusDB.Model;
+using CitrusDB.Model.Entity;
+using CitrusDB.View.AddGroup;
+using CitrusDB.View.AddGroup.AddedStudentView;
+using CitrusDB.View.AddGroup.StudentView;
+
+namespace CitrusDB.Presenter
 {
     class AddGroupBoardPresenter
     {
         readonly IAddGroupBoard addGroupBoard;
         readonly IStudentView studentView;
         readonly IStudentView addedStudentView;
-        readonly Model model = new Model();
+        readonly Model.Model model = new Model.Model();
 
         public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView,
             IStudentView addedStudentView)

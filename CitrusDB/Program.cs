@@ -4,6 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CitrusDB.Presenter;
+using CitrusDB.View.AddGroup.AddedStudentView;
+using CitrusDB.View.AddGroup.StudentView;
+using CitrusDB.View;
+
 namespace CitrusDB
 {
     static class Program
@@ -20,14 +25,13 @@ namespace CitrusDB
             MainForm mainForm = new MainForm();
             mainForm.InitBoard();
 
-            MainPresenter mainPresenter = new MainPresenter(mainForm);
+            var mainPresenter = new MainPresenter(mainForm);
 
-            AddStudentBoardPresenter addStudentBoardPresenter 
-                = new AddStudentBoardPresenter(mainForm.addStudentBoard);
+            var addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard);
 
-            DataBoardPresenter dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
+            var dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
 
-            AddGroupBoardPresenter addGroupBoardPresenter = new AddGroupBoardPresenter(
+            var addGroupBoardPresenter = new AddGroupBoardPresenter(
                 mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
 
             Application.Run(mainForm);

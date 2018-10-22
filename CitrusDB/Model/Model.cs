@@ -7,9 +7,11 @@ using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Data.Entity.SqlServer;
-using CitrusDB.DB;
 
-namespace CitrusDB
+using CitrusDB.Model.Entity;
+using CitrusDB.Model.DB;
+
+namespace CitrusDB.Model
 {
     class Model
     {

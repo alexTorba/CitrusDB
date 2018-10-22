@@ -7,7 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB
+using CitrusDB.View.AddGroup.StudentView;
+using CitrusDB.View.AddGroup.AddedStudentView;
+using CitrusDB.View.AddGroup;
+
+namespace CitrusDB.Model
 {
     public static class ExtensionControls
     {

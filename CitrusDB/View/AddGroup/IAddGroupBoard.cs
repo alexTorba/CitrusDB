@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.Control;
 
-namespace CitrusDB
+namespace CitrusDB.View.AddGroup
 {
     interface IAddGroupBoard
     {

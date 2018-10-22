@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.Entity;
+using CitrusDB.Model.Entity;
 
-namespace CitrusDB.DB
+namespace CitrusDB.Model.DB
 {
     static class DataBase
     {

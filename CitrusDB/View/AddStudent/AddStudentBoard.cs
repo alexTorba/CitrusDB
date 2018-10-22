@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CitrusDB.Properties;
 
-namespace CitrusDB
+using CitrusDB.Properties;
+using CitrusDB.Model;
+
+namespace CitrusDB.View.AddStudent
 {
     public partial class AddStudentBoard : UserControl, IAddStudentBoard
     {

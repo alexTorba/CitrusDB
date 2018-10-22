@@ -1,4 +1,6 @@
-﻿namespace CitrusDB
+﻿using CitrusDB.View.UsersElements;
+
+namespace CitrusDB.View.AddGroup.StudentView
 {
     partial class StudentViewBoard
     {
@@ -32,7 +34,7 @@
             this.studentViewPhoto = new System.Windows.Forms.PictureBox();
             this.fisrtNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.addStudentButton = new CitrusDB.CirclusButton();
+            this.addStudentButton = new CirclusButton();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewPhoto)).BeginInit();
             this.SuspendLayout();
             // 

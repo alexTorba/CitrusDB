@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CitrusDB.Model;
+using CitrusDB.View;
 
-namespace CitrusDB
+namespace CitrusDB.Presenter
 {
     class MainPresenter
     {
         IMainForm mainFormView;
-        Model model = new Model();
+        Model.Model model = new Model.Model();
 
         public MainPresenter(IMainForm mainForm)
         {

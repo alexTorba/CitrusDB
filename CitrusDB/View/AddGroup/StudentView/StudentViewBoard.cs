@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB
+using CitrusDB.Model;
+using CitrusDB.Model.Entity;
+
+namespace CitrusDB.View.AddGroup.StudentView
 {
     public partial class StudentViewBoard : UserControl, IStudentView
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB
+namespace CitrusDB.View.AddGroup
 {
     public partial class AddGroupBoard : UserControl, IAddGroupBoard
     {

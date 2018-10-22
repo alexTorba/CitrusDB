@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB
+using CitrusDB.Model;
+using CitrusDB.View.DataBoard;
+
+namespace CitrusDB.View
 {
     public delegate void TimerHandler(Timer timer, object sender, EventArgs e);
 

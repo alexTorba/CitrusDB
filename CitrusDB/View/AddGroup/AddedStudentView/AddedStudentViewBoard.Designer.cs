@@ -1,4 +1,6 @@
-﻿namespace CitrusDB
+﻿using CitrusDB.View.UsersElements;
+
+namespace CitrusDB.View.AddGroup.AddedStudentView
 {
     partial class AddedStudentViewBoard
     {
@@ -31,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddedStudentViewBoard));
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.cancelButton = new CitrusDB.CirclusButton();
+            this.cancelButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.SuspendLayout();
             // 
             // firstNameTextBox

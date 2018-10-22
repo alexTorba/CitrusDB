@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bunifu.Framework.UI;
-using CitrusDB.Properties;
 
-namespace CitrusDB
+using CitrusDB.Properties;
+using CitrusDB.Model;
+
+namespace CitrusDB.View.DataBoard
 {
     public partial class DataBoard : UserControl, IDataBoard
     {

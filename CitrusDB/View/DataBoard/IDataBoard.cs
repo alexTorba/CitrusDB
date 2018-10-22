@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using Bunifu.Framework.UI;
 
 
-namespace CitrusDB
+namespace CitrusDB.View.DataBoard
 {
     public interface IDataBoard
     {

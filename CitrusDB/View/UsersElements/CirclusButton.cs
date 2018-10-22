@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB
+namespace CitrusDB.View.UsersElements
 {
     public class CirclusButton : Button
     {

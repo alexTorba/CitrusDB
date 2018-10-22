@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.IO;
+using CitrusDB.Model.Entity;
 
-namespace CitrusDB
+namespace CitrusDB.Model
 {
     class InitDB : DropCreateDatabaseAlways<StudentDB>
     {

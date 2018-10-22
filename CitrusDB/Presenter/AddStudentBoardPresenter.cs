@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CitrusDB
+using CitrusDB.Model;
+using CitrusDB.Model.Entity;
+using CitrusDB.View.AddStudent;
+
+namespace CitrusDB.Presenter
 {
     class AddStudentBoardPresenter
     {
         readonly IAddStudentBoard addStudentBoard;
-        Model model = new Model();
+        Model.Model model = new Model.Model();
 
         public AddStudentBoardPresenter(AddStudentBoard addStudentBoard)
         {
