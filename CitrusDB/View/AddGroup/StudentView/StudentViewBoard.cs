@@ -43,7 +43,7 @@ namespace CitrusDB.View.AddGroup.StudentView
             return this;
         }
 
-        public IStudentView CloneTo()
+        public object Clone()
         {
             StudentViewBoard studentViewBoard = new StudentViewBoard();
             studentViewBoard.fisrtNameTextBox.Text = fisrtNameTextBox.Text;

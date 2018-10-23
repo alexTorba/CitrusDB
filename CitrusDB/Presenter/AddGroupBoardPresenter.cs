@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.AddGroup;
-using CitrusDB.View.AddGroup.AddedStudentView;
-using CitrusDB.View.AddGroup.StudentView;
 
 namespace CitrusDB.Presenter
 {
@@ -64,7 +59,7 @@ namespace CitrusDB.Presenter
                 {
                     Control control = obj as Control;
 
-                    IStudentView studentView = this.studentView.CloneTo();
+                    IStudentView studentView = (IStudentView)this.studentView.Clone();
                     studentView.FillView(model.GetStudentById(((IStudentView)control).GetStudentId));
 
                     addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
@@ -76,7 +71,7 @@ namespace CitrusDB.Presenter
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
             List<Student> students = model.GetStudents();
-            List<IStudentView> rezult = studentView.CreateListIStudentView(students.Count);
+            List<IStudentView> rezult = studentView.CreateListViews(students.Count);
 
             for (int i = 0; i < rezult.Count; i++)
             {
@@ -93,7 +88,7 @@ namespace CitrusDB.Presenter
             IStudentView studentViewBoard = (IStudentView)((Control)sender).Parent;
 
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
-            IStudentView addedStudentView = this.addedStudentView.CloneTo();
+            IStudentView addedStudentView = (IStudentView)this.addedStudentView.Clone();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
             addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));
             addedStudentView.Click += CancelButton_Click;
@@ -107,7 +102,7 @@ namespace CitrusDB.Presenter
             //получаем addedStudentView на котором было вызвано событие button_Click
             IStudentView addedStudentView = (IStudentView)((Control)sender).Parent;
 
-            IStudentView studentView = this.studentView.CloneTo();
+            IStudentView studentView = (IStudentView)this.studentView.Clone();
             studentView.FillView(model.GetStudentById(addedStudentView.GetStudentId));
             studentView.Click += AddStudentButton_Click;
 

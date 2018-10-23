@@ -7,7 +7,6 @@ namespace CitrusDB
 {
     static class Extensions
     {
-        //todo: добавить существующие общие расширения, которые относятся только ко view
 
         public static void TicksGrowsHeight(this Panel panel, Timer timer, object sender, EventArgs e)
         {

@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="Migrations\201810040830148_InitialCreate.cs" />
     <Compile Include="Migrations\201810040830148_InitialCreate.Designer.cs">
       <DependentUpon>201810040830148_InitialCreate.cs</DependentUpon>
@@ -208,8 +209,6 @@
   <ItemGroup>
     <None Include="Resources\down.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\AddStudent\GroupVIew\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

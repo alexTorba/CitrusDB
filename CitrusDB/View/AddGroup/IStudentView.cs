@@ -9,10 +9,9 @@ using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.AddGroup
 {
-    public interface IStudentView
+    public interface IStudentView : ICloneable
     {
         IStudentView FillView(Student student);
-        IStudentView CloneTo();
 
         int GetStudentId { get; }
         string GetFristName { get; }
