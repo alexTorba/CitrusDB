@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CitrusDB.Properties;
-using CitrusDB.Model;
 
 namespace CitrusDB.View.AddStudent
 {
@@ -17,10 +10,12 @@ namespace CitrusDB.View.AddStudent
     {
         MainForm mainForm;
 
+        public AddStudentBoard()
+        {
+            InitializeComponent();
+        }
 
         #region IAddStudentBoard
-
-        public event EventHandler SaveButton;
 
         public string GetFirstName => this.firstNameTextbox.Text;
 
@@ -42,12 +37,26 @@ namespace CitrusDB.View.AddStudent
 
         public float GetWeight => float.Parse(weightComboBox.Text);
 
+        public ControlCollection GroupsCollection => groupsFlowPanel.Controls;
+
+        public event EventHandler SaveButton;
+        public event EventHandler LoadBoard;
+
         #endregion
 
-        public AddStudentBoard()
+        #region Forwarding Events
+
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            SaveButton.Invoke(sender, e);
         }
+
+        private void AddStudentBoard_Load(object sender, EventArgs e)
+        {
+            LoadBoard?.Invoke(sender, e);
+        }
+
+        #endregion
 
         public void InitFields(MainForm mainForm)
         {
@@ -59,38 +68,32 @@ namespace CitrusDB.View.AddStudent
             mainForm.timer.Start();
 
             mainForm.ClearEventHandlers();
-            mainForm.TimerTiks += this.swingPanel.TicksGrowsWidth;
+            mainForm.TimerTiks += swingPanel.TicksGrowsWidth;
 
             (sender as Button)?.ChangeImageButton(swingPanel, Resources.right, Resources.left);
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            SaveButton.Invoke(sender, e);
-        }
 
         private void pictureBoxFirstPhoto_Click(object sender, EventArgs e)
         {
-            PictureBox pictureBox = sender as PictureBox;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox.Load(openFileDialog.FileName);
-            }
-            if (pictureBox.Image != null)
-                this.photo1Label.Visible = false;
+            if (sender is PictureBox pictureBox)
+                LoadPhoto(pictureBox, photo1Label);
         }
 
         private void pictureBoxSecondPhoto_Click(object sender, EventArgs e)
         {
-            PictureBox pictureBox = sender as PictureBox;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox.Load(openFileDialog.FileName);
-            }
-            if (pictureBox.Image != null)
-                this.photo2Label.Visible = false;
+            if (sender is PictureBox pictureBox)
+                LoadPhoto(pictureBox, photo2Label);
         }
 
+        private void LoadPhoto(PictureBox pictureBox, Label photoLabel)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+                pictureBox.Load(openFileDialog.FileName);
+
+            if (pictureBox.Image != null)
+                photoLabel.Visible = false;
+        }
 
     }
 }

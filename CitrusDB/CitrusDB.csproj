@@ -85,6 +85,11 @@
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,6 +110,13 @@
     <Compile Include="View\AddStudent\AddStudentBoard.Designer.cs">
       <DependentUpon>AddStudentBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AddStudent\GroupViews\GroupView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AddStudent\GroupViews\GroupView.Designer.cs">
+      <DependentUpon>GroupView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddStudent\GroupViews\IGroupView.cs" />
     <Compile Include="View\DataBoard\DataBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +170,9 @@
     <EmbeddedResource Include="View\AddStudent\AddStudentBoard.resx">
       <DependentUpon>AddStudentBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AddStudent\GroupViews\GroupView.resx">
+      <DependentUpon>GroupView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,14 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="View\AddGroup\StudentView\StudentViewBoard.resx">
       <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +219,5 @@
   <ItemGroup>
     <None Include="Resources\down.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

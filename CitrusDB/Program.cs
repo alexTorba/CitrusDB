@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using CitrusDB.Presenter;
 using CitrusDB.View.AddGroup.AddedStudentView;
 using CitrusDB.View.AddGroup.StudentView;
+using CitrusDB.View.AddStudent.GroupViews;
 using CitrusDB.View;
 
 namespace CitrusDB
@@ -27,7 +28,7 @@ namespace CitrusDB
 
             var mainPresenter = new MainPresenter(mainForm);
 
-            var addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard);
+            var addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard, new GroupView());
 
             var dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
 

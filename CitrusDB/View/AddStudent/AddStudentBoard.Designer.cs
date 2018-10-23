@@ -37,9 +37,6 @@ namespace CitrusDB.View.AddStudent
             this.middleNameTextbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.lastNameLabel = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.middleNameLabel = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pictureBoxFirstPhoto = new System.Windows.Forms.PictureBox();
-            this.pictureBoxSecondPhoto = new System.Windows.Forms.PictureBox();
-            this.bunifuCircleProgressbar = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.growsComboBox = new System.Windows.Forms.ComboBox();
             this.weightComboBox = new System.Windows.Forms.ComboBox();
             this.growsLabel = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -63,31 +60,39 @@ namespace CitrusDB.View.AddStudent
             this.photo1Label = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.photo2Label = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.collapsedButton = new CirclusButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).BeginInit();
+            this.groupsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bunifuCircleProgressbar = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.pictureBoxSecondPhoto = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFirstPhoto = new System.Windows.Forms.PictureBox();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.searchGroupTextBox = new System.Windows.Forms.TextBox();
+            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.flowLayoutPanelAddBoard.SuspendLayout();
             this.swingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daysNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // firstNameTextbox
             // 
             this.firstNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
-            this.firstNameTextbox.Location = new System.Drawing.Point(25, 62);
+            this.firstNameTextbox.Location = new System.Drawing.Point(28, 62);
             this.firstNameTextbox.Multiline = true;
             this.firstNameTextbox.Name = "firstNameTextbox";
-            this.firstNameTextbox.Size = new System.Drawing.Size(160, 20);
+            this.firstNameTextbox.Size = new System.Drawing.Size(148, 20);
             this.firstNameTextbox.TabIndex = 0;
             // 
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameLabel.Location = new System.Drawing.Point(25, 39);
+            this.firstNameLabel.Location = new System.Drawing.Point(28, 39);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(106, 22);
             this.firstNameLabel.TabIndex = 1;
@@ -96,26 +101,26 @@ namespace CitrusDB.View.AddStudent
             // lastNameTextbox
             // 
             this.lastNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lastNameTextbox.Location = new System.Drawing.Point(215, 62);
+            this.lastNameTextbox.Location = new System.Drawing.Point(207, 62);
             this.lastNameTextbox.Multiline = true;
             this.lastNameTextbox.Name = "lastNameTextbox";
-            this.lastNameTextbox.Size = new System.Drawing.Size(160, 20);
+            this.lastNameTextbox.Size = new System.Drawing.Size(148, 20);
             this.lastNameTextbox.TabIndex = 2;
             // 
             // middleNameTextbox
             // 
             this.middleNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
-            this.middleNameTextbox.Location = new System.Drawing.Point(25, 145);
+            this.middleNameTextbox.Location = new System.Drawing.Point(28, 145);
             this.middleNameTextbox.Multiline = true;
             this.middleNameTextbox.Name = "middleNameTextbox";
-            this.middleNameTextbox.Size = new System.Drawing.Size(160, 20);
+            this.middleNameTextbox.Size = new System.Drawing.Size(148, 20);
             this.middleNameTextbox.TabIndex = 3;
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.lastNameLabel.Location = new System.Drawing.Point(215, 39);
+            this.lastNameLabel.Location = new System.Drawing.Point(207, 39);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(110, 22);
             this.lastNameLabel.TabIndex = 4;
@@ -125,60 +130,16 @@ namespace CitrusDB.View.AddStudent
             // 
             this.middleNameLabel.AutoSize = true;
             this.middleNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.middleNameLabel.Location = new System.Drawing.Point(25, 122);
+            this.middleNameLabel.Location = new System.Drawing.Point(28, 122);
             this.middleNameLabel.Name = "middleNameLabel";
             this.middleNameLabel.Size = new System.Drawing.Size(135, 22);
             this.middleNameLabel.TabIndex = 5;
             this.middleNameLabel.Text = "Middle name:";
             // 
-            // pictureBoxFirstPhoto
-            // 
-            this.pictureBoxFirstPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxFirstPhoto.Location = new System.Drawing.Point(414, 233);
-            this.pictureBoxFirstPhoto.Name = "pictureBoxFirstPhoto";
-            this.pictureBoxFirstPhoto.Size = new System.Drawing.Size(154, 164);
-            this.pictureBoxFirstPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFirstPhoto.TabIndex = 6;
-            this.pictureBoxFirstPhoto.TabStop = false;
-            this.pictureBoxFirstPhoto.Click += new System.EventHandler(this.pictureBoxFirstPhoto_Click);
-            // 
-            // pictureBoxSecondPhoto
-            // 
-            this.pictureBoxSecondPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSecondPhoto.Location = new System.Drawing.Point(414, 32);
-            this.pictureBoxSecondPhoto.Name = "pictureBoxSecondPhoto";
-            this.pictureBoxSecondPhoto.Size = new System.Drawing.Size(154, 164);
-            this.pictureBoxSecondPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSecondPhoto.TabIndex = 7;
-            this.pictureBoxSecondPhoto.TabStop = false;
-            this.pictureBoxSecondPhoto.Click += new System.EventHandler(this.pictureBoxSecondPhoto_Click);
-            // 
-            // bunifuCircleProgressbar
-            // 
-            this.bunifuCircleProgressbar.animated = false;
-            this.bunifuCircleProgressbar.animationIterval = 5;
-            this.bunifuCircleProgressbar.animationSpeed = 300;
-            this.bunifuCircleProgressbar.BackColor = System.Drawing.SystemColors.Control;
-            this.bunifuCircleProgressbar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCircleProgressbar.BackgroundImage")));
-            this.bunifuCircleProgressbar.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCircleProgressbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.bunifuCircleProgressbar.LabelVisible = true;
-            this.bunifuCircleProgressbar.LineProgressThickness = 8;
-            this.bunifuCircleProgressbar.LineThickness = 5;
-            this.bunifuCircleProgressbar.Location = new System.Drawing.Point(414, 425);
-            this.bunifuCircleProgressbar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.bunifuCircleProgressbar.MaxValue = 100;
-            this.bunifuCircleProgressbar.Name = "bunifuCircleProgressbar";
-            this.bunifuCircleProgressbar.ProgressBackColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCircleProgressbar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
-            this.bunifuCircleProgressbar.Size = new System.Drawing.Size(154, 154);
-            this.bunifuCircleProgressbar.TabIndex = 8;
-            this.bunifuCircleProgressbar.Value = 0;
-            // 
             // growsComboBox
             // 
             this.growsComboBox.FormattingEnabled = true;
-            this.growsComboBox.Location = new System.Drawing.Point(25, 229);
+            this.growsComboBox.Location = new System.Drawing.Point(28, 229);
             this.growsComboBox.Name = "growsComboBox";
             this.growsComboBox.Size = new System.Drawing.Size(121, 24);
             this.growsComboBox.TabIndex = 9;
@@ -186,7 +147,7 @@ namespace CitrusDB.View.AddStudent
             // weightComboBox
             // 
             this.weightComboBox.FormattingEnabled = true;
-            this.weightComboBox.Location = new System.Drawing.Point(171, 229);
+            this.weightComboBox.Location = new System.Drawing.Point(207, 229);
             this.weightComboBox.Name = "weightComboBox";
             this.weightComboBox.Size = new System.Drawing.Size(121, 24);
             this.weightComboBox.TabIndex = 10;
@@ -195,7 +156,7 @@ namespace CitrusDB.View.AddStudent
             // 
             this.growsLabel.AutoSize = true;
             this.growsLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.growsLabel.Location = new System.Drawing.Point(25, 206);
+            this.growsLabel.Location = new System.Drawing.Point(28, 206);
             this.growsLabel.Name = "growsLabel";
             this.growsLabel.Size = new System.Drawing.Size(85, 22);
             this.growsLabel.TabIndex = 11;
@@ -205,7 +166,7 @@ namespace CitrusDB.View.AddStudent
             // 
             this.weightLabel.AutoSize = true;
             this.weightLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.weightLabel.Location = new System.Drawing.Point(171, 206);
+            this.weightLabel.Location = new System.Drawing.Point(207, 206);
             this.weightLabel.Name = "weightLabel";
             this.weightLabel.Size = new System.Drawing.Size(79, 22);
             this.weightLabel.TabIndex = 12;
@@ -215,7 +176,7 @@ namespace CitrusDB.View.AddStudent
             // 
             this.dateOfBirthLabel.AutoSize = true;
             this.dateOfBirthLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.dateOfBirthLabel.Location = new System.Drawing.Point(39, 402);
+            this.dateOfBirthLabel.Location = new System.Drawing.Point(42, 402);
             this.dateOfBirthLabel.Name = "dateOfBirthLabel";
             this.dateOfBirthLabel.Size = new System.Drawing.Size(130, 22);
             this.dateOfBirthLabel.TabIndex = 14;
@@ -224,17 +185,17 @@ namespace CitrusDB.View.AddStudent
             // citizenshipTextbox
             // 
             this.citizenshipTextbox.BorderColor = System.Drawing.Color.SeaGreen;
-            this.citizenshipTextbox.Location = new System.Drawing.Point(215, 145);
+            this.citizenshipTextbox.Location = new System.Drawing.Point(207, 145);
             this.citizenshipTextbox.Multiline = true;
             this.citizenshipTextbox.Name = "citizenshipTextbox";
-            this.citizenshipTextbox.Size = new System.Drawing.Size(160, 20);
+            this.citizenshipTextbox.Size = new System.Drawing.Size(148, 20);
             this.citizenshipTextbox.TabIndex = 15;
             // 
             // citizenshipLabel
             // 
             this.citizenshipLabel.AutoSize = true;
             this.citizenshipLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.citizenshipLabel.Location = new System.Drawing.Point(215, 122);
+            this.citizenshipLabel.Location = new System.Drawing.Point(207, 122);
             this.citizenshipLabel.Name = "citizenshipLabel";
             this.citizenshipLabel.Size = new System.Drawing.Size(110, 22);
             this.citizenshipLabel.TabIndex = 16;
@@ -244,7 +205,7 @@ namespace CitrusDB.View.AddStudent
             // 
             this.knowledgeOfLanguageLabel.AutoSize = true;
             this.knowledgeOfLanguageLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.knowledgeOfLanguageLabel.Location = new System.Drawing.Point(25, 290);
+            this.knowledgeOfLanguageLabel.Location = new System.Drawing.Point(28, 290);
             this.knowledgeOfLanguageLabel.Name = "knowledgeOfLanguageLabel";
             this.knowledgeOfLanguageLabel.Size = new System.Drawing.Size(119, 22);
             this.knowledgeOfLanguageLabel.TabIndex = 18;
@@ -253,7 +214,7 @@ namespace CitrusDB.View.AddStudent
             // knowledgeOfLanguageTextbox
             // 
             this.knowledgeOfLanguageTextbox.BorderColor = System.Drawing.Color.SeaGreen;
-            this.knowledgeOfLanguageTextbox.Location = new System.Drawing.Point(25, 313);
+            this.knowledgeOfLanguageTextbox.Location = new System.Drawing.Point(28, 313);
             this.knowledgeOfLanguageTextbox.Multiline = true;
             this.knowledgeOfLanguageTextbox.Name = "knowledgeOfLanguageTextbox";
             this.knowledgeOfLanguageTextbox.Size = new System.Drawing.Size(267, 47);
@@ -264,7 +225,7 @@ namespace CitrusDB.View.AddStudent
             this.flowLayoutPanelAddBoard.Controls.Add(this.swingPanel);
             this.flowLayoutPanelAddBoard.Controls.Add(this.saveButton);
             this.flowLayoutPanelAddBoard.Controls.Add(this.clearButton);
-            this.flowLayoutPanelAddBoard.Location = new System.Drawing.Point(3, 524);
+            this.flowLayoutPanelAddBoard.Location = new System.Drawing.Point(10, 524);
             this.flowLayoutPanelAddBoard.Name = "flowLayoutPanelAddBoard";
             this.flowLayoutPanelAddBoard.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.flowLayoutPanelAddBoard.Size = new System.Drawing.Size(359, 43);
@@ -330,7 +291,7 @@ namespace CitrusDB.View.AddStudent
             // 
             // yearNumericUpDown
             // 
-            this.yearNumericUpDown.Location = new System.Drawing.Point(188, 441);
+            this.yearNumericUpDown.Location = new System.Drawing.Point(191, 441);
             this.yearNumericUpDown.Maximum = new decimal(new int[] {
             2018,
             0,
@@ -352,7 +313,7 @@ namespace CitrusDB.View.AddStudent
             // 
             // daysNumericUpDown
             // 
-            this.daysNumericUpDown.Location = new System.Drawing.Point(43, 441);
+            this.daysNumericUpDown.Location = new System.Drawing.Point(46, 441);
             this.daysNumericUpDown.Maximum = new decimal(new int[] {
             31,
             0,
@@ -374,7 +335,7 @@ namespace CitrusDB.View.AddStudent
             // 
             // monthNumericUpDown
             // 
-            this.monthNumericUpDown.Location = new System.Drawing.Point(117, 441);
+            this.monthNumericUpDown.Location = new System.Drawing.Point(120, 441);
             this.monthNumericUpDown.Maximum = new decimal(new int[] {
             12,
             0,
@@ -398,7 +359,7 @@ namespace CitrusDB.View.AddStudent
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(24, 443);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(29, 443);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(19, 20);
             this.bunifuCustomLabel1.TabIndex = 23;
@@ -408,7 +369,7 @@ namespace CitrusDB.View.AddStudent
             // 
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(92, 443);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(95, 443);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(22, 20);
             this.bunifuCustomLabel2.TabIndex = 24;
@@ -418,7 +379,7 @@ namespace CitrusDB.View.AddStudent
             // 
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(168, 441);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(171, 441);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(17, 20);
             this.bunifuCustomLabel3.TabIndex = 25;
@@ -428,10 +389,10 @@ namespace CitrusDB.View.AddStudent
             // 
             this.photo1Label.AutoSize = true;
             this.photo1Label.Enabled = false;
-            this.photo1Label.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.photo1Label.Location = new System.Drawing.Point(467, 307);
+            this.photo1Label.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.photo1Label.Location = new System.Drawing.Point(438, 305);
             this.photo1Label.Name = "photo1Label";
-            this.photo1Label.Size = new System.Drawing.Size(77, 22);
+            this.photo1Label.Size = new System.Drawing.Size(70, 21);
             this.photo1Label.TabIndex = 26;
             this.photo1Label.Text = "photo1";
             // 
@@ -439,10 +400,10 @@ namespace CitrusDB.View.AddStudent
             // 
             this.photo2Label.AutoSize = true;
             this.photo2Label.Enabled = false;
-            this.photo2Label.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.photo2Label.Location = new System.Drawing.Point(467, 102);
+            this.photo2Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.photo2Label.Location = new System.Drawing.Point(438, 100);
             this.photo2Label.Name = "photo2Label";
-            this.photo2Label.Size = new System.Drawing.Size(77, 22);
+            this.photo2Label.Size = new System.Drawing.Size(70, 21);
             this.photo2Label.TabIndex = 27;
             this.photo2Label.Text = "photo2";
             // 
@@ -450,15 +411,105 @@ namespace CitrusDB.View.AddStudent
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // flowLayoutPanel1
+            // groupsFlowPanel
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(613, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(301, 593);
-            this.flowLayoutPanel1.TabIndex = 28;
+            this.groupsFlowPanel.AutoScroll = true;
+            this.groupsFlowPanel.BackColor = System.Drawing.Color.LightGray;
+            this.groupsFlowPanel.Location = new System.Drawing.Point(594, 88);
+            this.groupsFlowPanel.Name = "groupsFlowPanel";
+            this.groupsFlowPanel.Size = new System.Drawing.Size(320, 505);
+            this.groupsFlowPanel.TabIndex = 28;
+            // 
+            // bunifuCircleProgressbar
+            // 
+            this.bunifuCircleProgressbar.animated = false;
+            this.bunifuCircleProgressbar.animationIterval = 5;
+            this.bunifuCircleProgressbar.animationSpeed = 300;
+            this.bunifuCircleProgressbar.BackColor = System.Drawing.SystemColors.Control;
+            this.bunifuCircleProgressbar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCircleProgressbar.BackgroundImage")));
+            this.bunifuCircleProgressbar.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuCircleProgressbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.bunifuCircleProgressbar.LabelVisible = true;
+            this.bunifuCircleProgressbar.LineProgressThickness = 8;
+            this.bunifuCircleProgressbar.LineThickness = 5;
+            this.bunifuCircleProgressbar.Location = new System.Drawing.Point(392, 425);
+            this.bunifuCircleProgressbar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.bunifuCircleProgressbar.MaxValue = 100;
+            this.bunifuCircleProgressbar.Name = "bunifuCircleProgressbar";
+            this.bunifuCircleProgressbar.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.bunifuCircleProgressbar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
+            this.bunifuCircleProgressbar.Size = new System.Drawing.Size(145, 145);
+            this.bunifuCircleProgressbar.TabIndex = 8;
+            this.bunifuCircleProgressbar.Value = 0;
+            // 
+            // pictureBoxSecondPhoto
+            // 
+            this.pictureBoxSecondPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSecondPhoto.Location = new System.Drawing.Point(392, 32);
+            this.pictureBoxSecondPhoto.Name = "pictureBoxSecondPhoto";
+            this.pictureBoxSecondPhoto.Size = new System.Drawing.Size(145, 158);
+            this.pictureBoxSecondPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSecondPhoto.TabIndex = 7;
+            this.pictureBoxSecondPhoto.TabStop = false;
+            this.pictureBoxSecondPhoto.Click += new System.EventHandler(this.pictureBoxSecondPhoto_Click);
+            // 
+            // pictureBoxFirstPhoto
+            // 
+            this.pictureBoxFirstPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxFirstPhoto.Location = new System.Drawing.Point(392, 233);
+            this.pictureBoxFirstPhoto.Name = "pictureBoxFirstPhoto";
+            this.pictureBoxFirstPhoto.Size = new System.Drawing.Size(145, 158);
+            this.pictureBoxFirstPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFirstPhoto.TabIndex = 6;
+            this.pictureBoxFirstPhoto.TabStop = false;
+            this.pictureBoxFirstPhoto.Click += new System.EventHandler(this.pictureBoxFirstPhoto_Click);
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator1.LineThickness = 15;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(579, 0);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(15, 602);
+            this.bunifuSeparator1.TabIndex = 29;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.LightGray;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.textBox1.Location = new System.Drawing.Point(5, 10);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(310, 30);
+            this.textBox1.TabIndex = 30;
+            this.textBox1.Text = "Groups";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.searchGroupTextBox);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Location = new System.Drawing.Point(594, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(320, 89);
+            this.panel1.TabIndex = 31;
+            // 
+            // searchGroupTextBox
+            // 
+            this.searchGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchGroupTextBox.Location = new System.Drawing.Point(6, 51);
+            this.searchGroupTextBox.Multiline = true;
+            this.searchGroupTextBox.Name = "searchGroupTextBox";
+            this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
+            this.searchGroupTextBox.TabIndex = 31;
+            this.searchGroupTextBox.Text = "Search..";
             // 
             // collapsedButton
             // 
@@ -476,7 +527,9 @@ namespace CitrusDB.View.AddStudent
             // AddStudentBoard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.bunifuSeparator1);
+            this.Controls.Add(this.groupsFlowPanel);
             this.Controls.Add(this.photo2Label);
             this.Controls.Add(this.photo1Label);
             this.Controls.Add(this.bunifuCustomLabel3);
@@ -506,13 +559,16 @@ namespace CitrusDB.View.AddStudent
             this.Controls.Add(this.firstNameTextbox);
             this.Name = "AddStudentBoard";
             this.Size = new System.Drawing.Size(914, 593);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).EndInit();
+            this.Load += new System.EventHandler(this.AddStudentBoard_Load);
             this.flowLayoutPanelAddBoard.ResumeLayout(false);
             this.swingPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daysNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,6 +609,10 @@ namespace CitrusDB.View.AddStudent
         private Bunifu.Framework.UI.BunifuCustomLabel photo2Label;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private CirclusButton collapsedButton;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel groupsFlowPanel;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox searchGroupTextBox;
     }
 }

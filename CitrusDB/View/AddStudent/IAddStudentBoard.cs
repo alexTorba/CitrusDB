@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static System.Windows.Forms.Control;
 
 namespace CitrusDB.View.AddStudent
 {
@@ -23,6 +20,9 @@ namespace CitrusDB.View.AddStudent
         float GetGrowth { get; }
         float GetWeight { get; }
 
+        ControlCollection GroupsCollection { get; }
+
         event EventHandler SaveButton;
+        event EventHandler LoadBoard;
     }
 }
