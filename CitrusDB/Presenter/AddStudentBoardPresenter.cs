@@ -15,6 +15,7 @@ namespace CitrusDB.Presenter
         readonly IAddStudentBoard addStudentBoard;
         readonly IGroupView groupView;
         Model.Model model = new Model.Model();
+        Validate validate = new Validate();
 
         public AddStudentBoardPresenter(IAddStudentBoard addStudentBoard, IGroupView groupView)
         {
@@ -23,6 +24,42 @@ namespace CitrusDB.Presenter
 
             this.addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
             this.addStudentBoard.LoadBoard += AddStudentBoard_LoadBoard;
+            this.addStudentBoard.IsValidate += AddStudentBoard_IsValidate;
+            this.addStudentBoard.TextBoxTextChanged += AddStudentBoard_TextBoxTextChanged;
+            this.addStudentBoard.TextBoxMouseClick += AddStudentBoard_TextBoxMouseClick; ;
+        }
+
+        private void AddStudentBoard_TextBoxMouseClick(object sender, EventArgs e)
+        {
+            if (sender is TextBox textBox)
+                validate.SetState(textBox.Text, textBox.HaveMistake());
+        }
+
+        private void AddStudentBoard_TextBoxTextChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                if (textBox.CheckText())
+                {
+                    textBox.AddMistakeToLinkedLabel();
+
+                    addStudentBoard.ProgressBarValue = 
+                        validate.DecreaseProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+                }
+                else
+                {
+                    textBox.RemoveMistakeToLinkedLabel();
+
+                    addStudentBoard.ProgressBarValue = 
+                        validate.FillingProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+                }
+            }
+        }
+
+        private bool AddStudentBoard_IsValidate(object sender)
+        {
+
+            return false;
         }
 
         private void AddStudentBoard_SaveButton(object sender, EventArgs e)

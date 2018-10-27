@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 using CitrusDB.Properties;
 
@@ -13,6 +14,9 @@ namespace CitrusDB.View.AddStudent
         public AddStudentBoard()
         {
             InitializeComponent();
+
+            SetTextBoxHandlerHandlers();
+            progressBar.Value = 0;
         }
 
         #region IAddStudentBoard
@@ -39,8 +43,17 @@ namespace CitrusDB.View.AddStudent
 
         public ControlCollection GroupsCollection => groupsFlowPanel.Controls;
 
+        public int ProgressBarValue
+        {
+            get => progressBar.Value;
+            set => progressBar.Value = value;
+        }
+
         public event EventHandler SaveButton;
         public event EventHandler LoadBoard;
+        public event EventHandler TextBoxTextChanged;
+        public event MouseEventHandler TextBoxMouseClick;
+        public event Func<object, bool> IsValidate;
 
         #endregion
 
@@ -54,6 +67,16 @@ namespace CitrusDB.View.AddStudent
         private void AddStudentBoard_Load(object sender, EventArgs e)
         {
             LoadBoard?.Invoke(sender, e);
+        }
+
+        private void TextBoxTextChangedHandler(object sender, EventArgs e)
+        {
+            TextBoxTextChanged.Invoke(sender, e);
+        }
+
+        private void TextBoxMouseClickHandler(object sender, MouseEventArgs e)
+        {
+            TextBoxMouseClick.Invoke(sender, e);
         }
 
         #endregion
@@ -72,7 +95,6 @@ namespace CitrusDB.View.AddStudent
 
             (sender as Button)?.ChangeImageButton(swingPanel, Resources.right, Resources.left);
         }
-
 
         private void pictureBoxFirstPhoto_Click(object sender, EventArgs e)
         {
@@ -93,6 +115,31 @@ namespace CitrusDB.View.AddStudent
 
             if (pictureBox.Image != null)
                 photoLabel.Visible = false;
+        }
+
+        private void progressBar_ProgressChanged(object sender, EventArgs e)
+        {
+            if (progressBar.Value == 100)
+            {
+                saveButton.Enabled = true;
+                groupsFlowPanel.Enabled = true;
+                searchPanel.Enabled = true;
+            }
+            else
+            {
+                saveButton.Enabled = false;
+                groupsFlowPanel.Enabled = false;
+                searchPanel.Enabled = false;
+            }
+        }
+
+        private void SetTextBoxHandlerHandlers()
+        {
+            foreach (TextBox textBox in Controls.OfType<TextBox>())
+            {
+                textBox.TextChanged += TextBoxTextChangedHandler;
+                textBox.MouseClick += TextBoxMouseClickHandler;
+            }
         }
 
     }

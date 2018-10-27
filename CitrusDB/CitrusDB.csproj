@@ -81,6 +81,7 @@
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\StudentDB.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
+    <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />

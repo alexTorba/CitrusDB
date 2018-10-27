@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 using static System.Windows.Forms.Control;
 
 namespace CitrusDB.View.AddStudent
@@ -21,8 +22,12 @@ namespace CitrusDB.View.AddStudent
         float GetWeight { get; }
 
         ControlCollection GroupsCollection { get; }
+        int ProgressBarValue { get; set; }
 
         event EventHandler SaveButton;
         event EventHandler LoadBoard;
+        event EventHandler TextBoxTextChanged;
+        event MouseEventHandler TextBoxMouseClick;
+        event Func<object, bool> IsValidate;
     }
 }
