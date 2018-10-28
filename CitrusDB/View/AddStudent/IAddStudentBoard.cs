@@ -27,7 +27,6 @@ namespace CitrusDB.View.AddStudent
         event EventHandler SaveButton;
         event EventHandler LoadBoard;
         event EventHandler TextBoxTextChanged;
-        event MouseEventHandler TextBoxMouseClick;
-        event Func<object, bool> IsValidate;
+        event EventHandler ControlEnter;
     }
 }

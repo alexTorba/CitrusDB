@@ -52,8 +52,7 @@ namespace CitrusDB.View.AddStudent
         public event EventHandler SaveButton;
         public event EventHandler LoadBoard;
         public event EventHandler TextBoxTextChanged;
-        public event MouseEventHandler TextBoxMouseClick;
-        public event Func<object, bool> IsValidate;
+        public event EventHandler ControlEnter;
 
         #endregion
 
@@ -73,18 +72,15 @@ namespace CitrusDB.View.AddStudent
         {
             TextBoxTextChanged.Invoke(sender, e);
         }
-
-        private void TextBoxMouseClickHandler(object sender, MouseEventArgs e)
+       
+        private void ControlEnterHandler(object sender, EventArgs e)
         {
-            TextBoxMouseClick.Invoke(sender, e);
+            ControlEnter.Invoke(sender, e);
         }
 
         #endregion
 
-        public void InitFields(MainForm mainForm)
-        {
-            this.mainForm = mainForm;
-        }
+        #region Event Handlers
 
         private void swingButton_Click(object sender, EventArgs e)
         {
@@ -108,14 +104,6 @@ namespace CitrusDB.View.AddStudent
                 LoadPhoto(pictureBox, photo2Label);
         }
 
-        private void LoadPhoto(PictureBox pictureBox, Label photoLabel)
-        {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-                pictureBox.Load(openFileDialog.FileName);
-
-            if (pictureBox.Image != null)
-                photoLabel.Visible = false;
-        }
 
         private void progressBar_ProgressChanged(object sender, EventArgs e)
         {
@@ -133,12 +121,28 @@ namespace CitrusDB.View.AddStudent
             }
         }
 
+        #endregion
+
+        public void InitFields(MainForm mainForm)
+        {
+            this.mainForm = mainForm;
+        }
+
+        private void LoadPhoto(PictureBox pictureBox, Label photoLabel)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+                pictureBox.Load(openFileDialog.FileName);
+
+            if (pictureBox.Image != null)
+                photoLabel.Visible = false;
+        }
+
         private void SetTextBoxHandlerHandlers()
         {
             foreach (TextBox textBox in Controls.OfType<TextBox>())
             {
                 textBox.TextChanged += TextBoxTextChangedHandler;
-                textBox.MouseClick += TextBoxMouseClickHandler;
+                textBox.Enter += ControlEnterHandler;
             }
         }
 

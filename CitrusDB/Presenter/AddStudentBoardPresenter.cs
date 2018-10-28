@@ -24,9 +24,14 @@ namespace CitrusDB.Presenter
 
             this.addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
             this.addStudentBoard.LoadBoard += AddStudentBoard_LoadBoard;
-            this.addStudentBoard.IsValidate += AddStudentBoard_IsValidate;
             this.addStudentBoard.TextBoxTextChanged += AddStudentBoard_TextBoxTextChanged;
-            this.addStudentBoard.TextBoxMouseClick += AddStudentBoard_TextBoxMouseClick; ;
+            this.addStudentBoard.ControlEnter += AddStudentBoard_ControlEnter;
+        }
+
+        private void AddStudentBoard_ControlEnter(object sender, EventArgs e)
+        {
+            if (sender is Control control)
+                validate.SetState(control.Text, control.HaveMistake());
         }
 
         private void AddStudentBoard_TextBoxMouseClick(object sender, EventArgs e)
@@ -43,14 +48,14 @@ namespace CitrusDB.Presenter
                 {
                     textBox.AddMistakeToLinkedLabel();
 
-                    addStudentBoard.ProgressBarValue = 
+                    addStudentBoard.ProgressBarValue =
                         validate.DecreaseProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
                 }
                 else
                 {
                     textBox.RemoveMistakeToLinkedLabel();
 
-                    addStudentBoard.ProgressBarValue = 
+                    addStudentBoard.ProgressBarValue =
                         validate.FillingProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
                 }
             }
