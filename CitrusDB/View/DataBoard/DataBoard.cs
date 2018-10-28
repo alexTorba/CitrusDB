@@ -44,16 +44,17 @@ namespace CitrusDB.View.DataBoard
             InitializeComponent();
         }
 
-        public void InitDataBoard(MainForm mainForm)
-        {
-            this.mainForm = mainForm;
-        }
+        #region Forwarding Events
 
         private void DataBoard_Load(object sender, EventArgs e)
         {
             LoadDataBoard?.Invoke(sender, e);
             radioButtonStudent.Checked = true;
         }
+
+        #endregion
+
+        #region Event Handlers
 
         private void collapsedData_Click(object sender, EventArgs e)
         {
@@ -86,6 +87,14 @@ namespace CitrusDB.View.DataBoard
         {
             LoadDataBoard?.Invoke(sender, e);
             dataGrid.Columns["Id"].Visible = false;
+        }
+
+
+        #endregion
+
+        public void InitDataBoard(MainForm mainForm)
+        {
+            this.mainForm = mainForm;
         }
 
     }

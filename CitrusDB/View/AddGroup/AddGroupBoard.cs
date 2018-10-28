@@ -87,6 +87,8 @@ namespace CitrusDB.View.AddGroup
 
         #endregion
 
+        #region Event Handlers
+
         private void addedStudentSearchTextBox_MouseClick(object sender, MouseEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -105,14 +107,13 @@ namespace CitrusDB.View.AddGroup
             OpenFileDialog openFile = new OpenFileDialog();
 
             if(openFile.ShowDialog() == DialogResult.OK)
-            {
                 pictureBox.Load(openFile.FileName);
-            }
 
             if (pictureBox.Image != null)
-                this.photoLabel.Visible = false;
+                photoLabel.Visible = false;
         }
 
-        
+        #endregion
+
     }
 }

@@ -18,25 +18,20 @@ namespace CitrusDB.View
     public partial class MainForm : Form, IMainForm
     {
 
+        public event TimerHandler TimerTiks;
+
         #region IMainForm
 
         public event EventHandler LoadMainForm;
 
         #endregion
 
-        public event TimerHandler TimerTiks;
-
-
         public MainForm()
         {
             InitializeComponent();
         }
 
-        public void InitBoard()
-        {
-            addStudentBoard.InitFields(this);
-            dataBoard.InitDataBoard(this);
-        }
+        #region Forwarding Events
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -45,7 +40,9 @@ namespace CitrusDB.View
             dataBoard.BringToFront();
         }
 
-        #region buttons handler
+        #endregion
+
+        #region Event Handlers
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -57,7 +54,6 @@ namespace CitrusDB.View
             ReplaceBacklightPanel(sender, e);
             dataBoard.BringToFront();
 
-            //?
             ((IDataBoard)dataBoard).UpdateView();
         }
 
@@ -85,7 +81,6 @@ namespace CitrusDB.View
         {
             ReplaceBacklightPanel(sender, e);
 
-
             timer.Start();
             TimerTiks = panelGroupAdd.TicksGrowsHeight;
         }
@@ -102,11 +97,17 @@ namespace CitrusDB.View
             addGroupBoard.BringToFront();
         }
 
-        #endregion
-
         private void timer_Tick(object sender, EventArgs e)
         {
             TimerTiks.Invoke(sender as Timer, null, EventArgs.Empty);
+        }
+
+        #endregion
+
+        public void InitBoard()
+        {
+            addStudentBoard.InitFields(this);
+            dataBoard.InitDataBoard(this);
         }
 
         public void ClearEventHandlers()
@@ -133,8 +134,6 @@ namespace CitrusDB.View
                 }
             }
         }
-
-
-        //
+ 
     }
 }

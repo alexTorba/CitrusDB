@@ -34,7 +34,6 @@ namespace CitrusDB.View.AddGroup.AddedStudentView
 
         public string GetLastName => lastNameTextBox.Text;
 
-        new public event EventHandler Click;
 
         public IStudentView FillView(Student student)
         {
@@ -56,7 +55,20 @@ namespace CitrusDB.View.AddGroup.AddedStudentView
             return addedStudentViewBoard;
         }
 
+        new public event EventHandler Click;
+
         #endregion
+
+        #region Forwarding Events
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Click?.Invoke(sender, EventArgs.Empty);
+        }
+
+        #endregion
+
+        #region Events Handler
 
         private void AddedStudentViewBoard_Paint(object sender, PaintEventArgs e)
         {
@@ -64,11 +76,7 @@ namespace CitrusDB.View.AddGroup.AddedStudentView
             lastNameTextBox.BackColor = BackColor;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            Click?.Invoke(sender, EventArgs.Empty);
-        }
-
+        #endregion
 
     }
 }

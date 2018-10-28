@@ -31,8 +31,6 @@ namespace CitrusDB.View.AddGroup.StudentView
 
         public string GetLastName => lastNameTextBox.Text;
 
-        new public event EventHandler Click;
-
         public IStudentView FillView(Student student)
         {
             Id = student.Id;
@@ -54,12 +52,18 @@ namespace CitrusDB.View.AddGroup.StudentView
             return studentViewBoard;
         }
 
+        public new event EventHandler Click;
+
         #endregion
+
+        #region Forwarding Events
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
             Click?.Invoke(sender, e);
         }
+
+        #endregion
 
     }
 }

@@ -129,12 +129,6 @@
     </Compile>
     <Compile Include="View\AddStudent\IAddStudentBoard.cs" />
     <Compile Include="View\DataBoard\IDataBoard.cs" />
-    <Compile Include="View\DataBoard\StudentView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\DataBoard\StudentView.Designer.cs">
-      <DependentUpon>StudentView.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\IMainForm.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -179,9 +173,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\DataBoard\StudentView.resx">
-      <DependentUpon>StudentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
