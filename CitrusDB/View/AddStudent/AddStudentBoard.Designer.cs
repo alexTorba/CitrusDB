@@ -82,10 +82,11 @@ namespace CitrusDB.View.AddStudent
             // firstNameTextbox
             // 
             this.firstNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
+            this.firstNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.firstNameTextbox.Location = new System.Drawing.Point(28, 62);
             this.firstNameTextbox.Multiline = true;
             this.firstNameTextbox.Name = "firstNameTextbox";
-            this.firstNameTextbox.Size = new System.Drawing.Size(148, 20);
+            this.firstNameTextbox.Size = new System.Drawing.Size(148, 23);
             this.firstNameTextbox.TabIndex = 0;
             this.firstNameTextbox.Tag = "firstNameLabel";
             // 
@@ -102,20 +103,22 @@ namespace CitrusDB.View.AddStudent
             // lastNameTextbox
             // 
             this.lastNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lastNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.lastNameTextbox.Location = new System.Drawing.Point(207, 62);
             this.lastNameTextbox.Multiline = true;
             this.lastNameTextbox.Name = "lastNameTextbox";
-            this.lastNameTextbox.Size = new System.Drawing.Size(148, 20);
+            this.lastNameTextbox.Size = new System.Drawing.Size(148, 23);
             this.lastNameTextbox.TabIndex = 2;
             this.lastNameTextbox.Tag = "lastNameLabel";
             // 
             // middleNameTextbox
             // 
             this.middleNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
+            this.middleNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.middleNameTextbox.Location = new System.Drawing.Point(28, 137);
             this.middleNameTextbox.Multiline = true;
             this.middleNameTextbox.Name = "middleNameTextbox";
-            this.middleNameTextbox.Size = new System.Drawing.Size(148, 20);
+            this.middleNameTextbox.Size = new System.Drawing.Size(148, 23);
             this.middleNameTextbox.TabIndex = 3;
             this.middleNameTextbox.Tag = "middleNameLabel";
             // 
@@ -142,18 +145,20 @@ namespace CitrusDB.View.AddStudent
             // 
             // growsComboBox
             // 
+            this.growsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.growsComboBox.FormattingEnabled = true;
             this.growsComboBox.Location = new System.Drawing.Point(28, 216);
             this.growsComboBox.Name = "growsComboBox";
-            this.growsComboBox.Size = new System.Drawing.Size(121, 24);
+            this.growsComboBox.Size = new System.Drawing.Size(121, 28);
             this.growsComboBox.TabIndex = 9;
             // 
             // weightComboBox
             // 
+            this.weightComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.weightComboBox.FormattingEnabled = true;
             this.weightComboBox.Location = new System.Drawing.Point(207, 216);
             this.weightComboBox.Name = "weightComboBox";
-            this.weightComboBox.Size = new System.Drawing.Size(121, 24);
+            this.weightComboBox.Size = new System.Drawing.Size(121, 28);
             this.weightComboBox.TabIndex = 10;
             // 
             // growsLabel
@@ -189,10 +194,11 @@ namespace CitrusDB.View.AddStudent
             // citizenshipTextbox
             // 
             this.citizenshipTextbox.BorderColor = System.Drawing.Color.SeaGreen;
+            this.citizenshipTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.citizenshipTextbox.Location = new System.Drawing.Point(207, 137);
             this.citizenshipTextbox.Multiline = true;
             this.citizenshipTextbox.Name = "citizenshipTextbox";
-            this.citizenshipTextbox.Size = new System.Drawing.Size(148, 20);
+            this.citizenshipTextbox.Size = new System.Drawing.Size(148, 23);
             this.citizenshipTextbox.TabIndex = 15;
             this.citizenshipTextbox.Tag = "citizenshipLabel";
             // 
@@ -219,6 +225,7 @@ namespace CitrusDB.View.AddStudent
             // knowledgeOfLanguageTextbox
             // 
             this.knowledgeOfLanguageTextbox.BorderColor = System.Drawing.Color.SeaGreen;
+            this.knowledgeOfLanguageTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.knowledgeOfLanguageTextbox.Location = new System.Drawing.Point(28, 301);
             this.knowledgeOfLanguageTextbox.Multiline = true;
             this.knowledgeOfLanguageTextbox.Name = "knowledgeOfLanguageTextbox";

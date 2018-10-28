@@ -38,7 +38,10 @@ namespace CitrusDB.Model
                 .First();
 
             if (!label.Text.Contains("*"))
+            {
                 label.Text += "*";
+                control.ForeColor = System.Drawing.Color.Red;
+            }
         }
 
         public static bool HaveMistake<T>(this T control) where T : Control
@@ -62,7 +65,10 @@ namespace CitrusDB.Model
                 .First();
 
             if (label.Text.Contains("*"))
+            {
                 label.Text = label.Text.Remove(label.Text.Length - 1, 1);
+                control.ForeColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
+            }
         }
     }
 }
