@@ -52,5 +52,11 @@ namespace CitrusDB.Model
                 backLockerPB = true;
             }
         }
+
+        public void Reset()
+        {
+            lockerForPB = false;
+            backLockerPB = false;
+        }
     }
 }

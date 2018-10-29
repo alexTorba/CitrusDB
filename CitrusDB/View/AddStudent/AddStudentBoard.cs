@@ -8,8 +8,6 @@ using CitrusDB.Properties;
 namespace CitrusDB.View.AddStudent
 {
     public partial class AddStudentBoard : UserControl, IAddStudentBoard
-
-
     {
         MainForm mainForm;
 
@@ -64,6 +62,7 @@ namespace CitrusDB.View.AddStudent
         public event EventHandler ComboBoxTextUpdate;
 
         public event EventHandler PhotoLoaded;
+        public event EventHandler ClearButton;
 
         #endregion
 
@@ -115,6 +114,25 @@ namespace CitrusDB.View.AddStudent
 
             if (LoadPhoto((sender as PictureBox), photo2Label))
                 PhotoLoaded?.Invoke(sender, e);
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox textBox)
+                    textBox.Text = string.Empty;
+
+                if (control is ComboBox comboBox)
+                    comboBox.SelectedText = string.Empty;
+            }
+
+            pictureBoxFirstPhoto.Image = null;
+            pictureBoxSecondPhoto.Image = null;
+            photo1Label.Visible = true;
+            photo2Label.Visible = true;
+
+            ClearButton?.Invoke(sender, e);
         }
 
         #endregion
@@ -187,6 +205,8 @@ namespace CitrusDB.View.AddStudent
                 comboBox.SelectionChangeCommitted += ComboBoxSelectionChangeHandler;
             }
         }
+
+
 
         //private void SetPictureBoxHandlers()
         //{

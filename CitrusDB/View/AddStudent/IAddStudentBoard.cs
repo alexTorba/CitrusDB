@@ -34,5 +34,7 @@ namespace CitrusDB.View.AddStudent
         event EventHandler ComboBoxTextUpdate;
 
         event EventHandler PhotoLoaded;
+
+        event EventHandler ClearButton;
     }
 }

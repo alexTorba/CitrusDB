@@ -33,9 +33,19 @@ namespace CitrusDB.Presenter
             this.addStudentBoard.ComboBoxSelectionChange += AddStudentBoard_ComboBoxSelectionChange;
 
             this.addStudentBoard.PhotoLoaded += AddStudentBoard_PhotoLoaded;
+
+            this.addStudentBoard.ClearButton += AddStudentBoard_ClearButton;
         }
 
+
         #region Event Handlers
+
+        private void AddStudentBoard_ClearButton(object sender, EventArgs e)
+        {
+            addStudentBoard.ProgressBarValue = 0;
+            
+            validate.Reset();
+        }
 
         private void AddStudentBoard_PhotoLoaded(object sender, EventArgs e)
         {

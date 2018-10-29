@@ -87,7 +87,6 @@ namespace CitrusDB.Model
             }
         }
 
-
         public static void RemoveMistakeToLinkedLabel<T>(this T control) where T : Control
         {
             var label = control.Parent.Controls
@@ -101,5 +100,6 @@ namespace CitrusDB.Model
                 control.ForeColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
             }
         }
+
     }
 }

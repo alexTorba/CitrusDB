@@ -553,6 +553,7 @@ namespace CitrusDB.View.AddStudent
             this.clearButton.TabIndex = 22;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // yearNumericUpDown
             // 
