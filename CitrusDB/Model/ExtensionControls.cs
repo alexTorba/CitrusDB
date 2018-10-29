@@ -30,6 +30,47 @@ namespace CitrusDB.Model
             return false;
         }
 
+        public static bool HaveMistake<T>(this T control) where T : Control
+        {
+            switch (control)
+            {
+
+                case TextBox textBox:
+                    {
+                        var label = textBox.Parent.Controls
+                            .OfType<Label>()
+                            .Where(l => l.Name == textBox.Tag.ToString())
+                            .FirstOrDefault();
+
+                        if ((label?.Text.Contains("*") ?? false) || textBox.Text.Length == 0)
+                            return true;
+
+                        break;
+                    }
+
+                case ComboBox comboBox:
+                    {
+                        if (string.IsNullOrWhiteSpace(comboBox.Text))
+                            return true;
+
+                        break;
+                    }
+
+                case PictureBox pictureBox:
+                    {
+                        if (pictureBox.Image == null)
+                            return true;
+
+                        break;
+                    }
+
+                default:
+                    break;
+            }
+
+            return false;
+        }
+
         public static void AddMistakeToLinkedLabel<T>(this T control) where T : Control
         {
             var label = control.Parent.Controls
@@ -40,31 +81,21 @@ namespace CitrusDB.Model
             if (!label.Text.Contains("*"))
             {
                 label.Text += "*";
-                control.ForeColor = System.Drawing.Color.Red;
+
+                if (control is TextBox textBox)
+                    textBox.ForeColor = System.Drawing.Color.Red;
             }
         }
 
-        public static bool HaveMistake<T>(this T control) where T : Control
-        {
-            var label = control.Parent.Controls
-                .OfType<Label>()
-                .Where(l => l.Name == control.Tag.ToString())
-                .First();
-
-            if (label.Text.Contains("*"))
-                return true;
-
-            return false;
-        }
 
         public static void RemoveMistakeToLinkedLabel<T>(this T control) where T : Control
         {
             var label = control.Parent.Controls
                 .OfType<Label>()
-                .Where(l => l.Name == control.Tag.ToString())
-                .First();
+                .Where(l => l.Name == control.Tag?.ToString())
+                .FirstOrDefault();
 
-            if (label.Text.Contains("*"))
+            if (label?.Text.Contains("*") ?? false)
             {
                 label.Text = label.Text.Remove(label.Text.Length - 1, 1);
                 control.ForeColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.ControlText);

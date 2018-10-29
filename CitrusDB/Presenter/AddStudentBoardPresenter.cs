@@ -24,20 +24,38 @@ namespace CitrusDB.Presenter
 
             this.addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
             this.addStudentBoard.LoadBoard += AddStudentBoard_LoadBoard;
-            this.addStudentBoard.TextBoxTextChanged += AddStudentBoard_TextBoxTextChanged;
+
             this.addStudentBoard.ControlEnter += AddStudentBoard_ControlEnter;
+
+            this.addStudentBoard.TextBoxTextChanged += AddStudentBoard_TextBoxTextChanged;
+
+            this.addStudentBoard.ComboBoxTextUpdate += AddStudentBoard_ComboBoxTextUpdate;
+            this.addStudentBoard.ComboBoxSelectionChange += AddStudentBoard_ComboBoxSelectionChange;
+
+            this.addStudentBoard.PhotoLoaded += AddStudentBoard_PhotoLoaded;
+        }
+
+        #region Event Handlers
+
+        private void AddStudentBoard_PhotoLoaded(object sender, EventArgs e)
+        {
+            ControlIsConfirmed(sender as PictureBox);
+        }
+
+        private void AddStudentBoard_ComboBoxSelectionChange(object sender, EventArgs e)
+        {
+            ControlIsConfirmed(sender as ComboBox);
+        }
+
+        private void AddStudentBoard_ComboBoxTextUpdate(object sender, EventArgs e)
+        {
+            ControlHaveMistake(sender as ComboBox);
         }
 
         private void AddStudentBoard_ControlEnter(object sender, EventArgs e)
         {
             if (sender is Control control)
-                validate.SetState(control.Text, control.HaveMistake());
-        }
-
-        private void AddStudentBoard_TextBoxMouseClick(object sender, EventArgs e)
-        {
-            if (sender is TextBox textBox)
-                validate.SetState(textBox.Text, textBox.HaveMistake());
+                validate.SetState(control.HaveMistake());
         }
 
         private void AddStudentBoard_TextBoxTextChanged(object sender, EventArgs e)
@@ -46,26 +64,15 @@ namespace CitrusDB.Presenter
             {
                 if (textBox.CheckText())
                 {
-                    textBox.AddMistakeToLinkedLabel();
-
-                    addStudentBoard.ProgressBarValue =
-                        validate.DecreaseProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+                    ControlHaveMistake(textBox);
                 }
                 else
                 {
-                    textBox.RemoveMistakeToLinkedLabel();
-
-                    addStudentBoard.ProgressBarValue =
-                        validate.FillingProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+                    ControlIsConfirmed(textBox);
                 }
             }
         }
 
-        private bool AddStudentBoard_IsValidate(object sender)
-        {
-
-            return false;
-        }
 
         private void AddStudentBoard_SaveButton(object sender, EventArgs e)
         {
@@ -100,6 +107,30 @@ namespace CitrusDB.Presenter
                 addStudentBoard.GroupsCollection.Add(control);
             }
 
+        }
+
+        #endregion
+
+        private void ControlIsConfirmed(Control control)
+        {
+            if (control != null)
+            {
+                addStudentBoard.ProgressBarValue =
+                            validate.FillingProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+
+                control.RemoveMistakeToLinkedLabel();
+            }
+        }
+
+        private void ControlHaveMistake(Control control)
+        {
+            if (control != null)
+            {
+                addStudentBoard.ProgressBarValue =
+                            validate.DecreaseProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+
+                control.AddMistakeToLinkedLabel();
+            }
         }
 
     }

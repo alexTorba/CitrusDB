@@ -26,7 +26,13 @@ namespace CitrusDB.View.AddStudent
 
         event EventHandler SaveButton;
         event EventHandler LoadBoard;
+
         event EventHandler TextBoxTextChanged;
         event EventHandler ControlEnter;
+
+        event EventHandler ComboBoxSelectionChange;
+        event EventHandler ComboBoxTextUpdate;
+
+        event EventHandler PhotoLoaded;
     }
 }

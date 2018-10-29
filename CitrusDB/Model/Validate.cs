@@ -39,9 +39,9 @@ namespace CitrusDB.Model
             return value;
         }
 
-        public void SetState(string text, bool haveMistake)
+        public void SetState(bool haveMistake)
         {
-            if (text.Length == 0 || haveMistake)
+            if (haveMistake)
             {
                 lockerForPB = true;
                 backLockerPB = false;
@@ -52,6 +52,5 @@ namespace CitrusDB.Model
                 backLockerPB = true;
             }
         }
-
     }
 }

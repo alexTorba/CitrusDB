@@ -8,6 +8,8 @@ using CitrusDB.Properties;
 namespace CitrusDB.View.AddStudent
 {
     public partial class AddStudentBoard : UserControl, IAddStudentBoard
+
+
     {
         MainForm mainForm;
 
@@ -15,7 +17,9 @@ namespace CitrusDB.View.AddStudent
         {
             InitializeComponent();
 
-            SetTextBoxHandlerHandlers();
+            SetTextBoxHandlers();
+            SetComboBoxHandlers();
+
             progressBar.Value = 0;
         }
 
@@ -31,7 +35,8 @@ namespace CitrusDB.View.AddStudent
 
         public string GetKnowledgeOfLanguage => knowledgeOfLanguageTextbox.Text;
 
-        public string DateOfBirth => $"{daysNumericUpDown.Value.ToString()}.{monthNumericUpDown.Value.ToString()}.{yearNumericUpDown.Value.ToString()}";
+        public string DateOfBirth =>
+            $"{daysNumericUpDown.Value.ToString()}.{monthNumericUpDown.Value.ToString()}.{yearNumericUpDown.Value.ToString()}";
 
         public Image GetFirstPhoto => pictureBoxFirstPhoto.Image;
 
@@ -51,8 +56,14 @@ namespace CitrusDB.View.AddStudent
 
         public event EventHandler SaveButton;
         public event EventHandler LoadBoard;
+
         public event EventHandler TextBoxTextChanged;
         public event EventHandler ControlEnter;
+
+        public event EventHandler ComboBoxSelectionChange;
+        public event EventHandler ComboBoxTextUpdate;
+
+        public event EventHandler PhotoLoaded;
 
         #endregion
 
@@ -60,7 +71,7 @@ namespace CitrusDB.View.AddStudent
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            SaveButton.Invoke(sender, e);
+            SaveButton?.Invoke(sender, e);
         }
 
         private void AddStudentBoard_Load(object sender, EventArgs e)
@@ -70,12 +81,40 @@ namespace CitrusDB.View.AddStudent
 
         private void TextBoxTextChangedHandler(object sender, EventArgs e)
         {
-            TextBoxTextChanged.Invoke(sender, e);
+            TextBoxTextChanged?.Invoke(sender, e);
         }
-       
+
         private void ControlEnterHandler(object sender, EventArgs e)
         {
-            ControlEnter.Invoke(sender, e);
+            ControlEnter?.Invoke(sender, e);
+        }
+
+        private void ComboBoxSelectionChangeHandler(object sender, EventArgs e)
+        {
+            ComboBoxSelectionChange?.Invoke(sender, e);
+        }
+
+        private void ComboBoxTextUpdateHandler(object sender, EventArgs e)
+        {
+            ComboBoxTextUpdate?.Invoke(sender, e);
+
+            (sender as ComboBox).Text = string.Empty;
+        }
+
+        private void pictureBoxFirstPhoto_Click(object sender, EventArgs e)
+        {
+            ControlEnter?.Invoke(sender, e);
+
+            if (LoadPhoto((sender as PictureBox), photo1Label))
+                PhotoLoaded?.Invoke(sender, e);
+        }
+
+        private void pictureBoxSecondPhoto_Click(object sender, EventArgs e)
+        {
+            ControlEnter?.Invoke(sender, e);
+
+            if (LoadPhoto((sender as PictureBox), photo2Label))
+                PhotoLoaded?.Invoke(sender, e);
         }
 
         #endregion
@@ -91,19 +130,6 @@ namespace CitrusDB.View.AddStudent
 
             (sender as Button)?.ChangeImageButton(swingPanel, Resources.right, Resources.left);
         }
-
-        private void pictureBoxFirstPhoto_Click(object sender, EventArgs e)
-        {
-            if (sender is PictureBox pictureBox)
-                LoadPhoto(pictureBox, photo1Label);
-        }
-
-        private void pictureBoxSecondPhoto_Click(object sender, EventArgs e)
-        {
-            if (sender is PictureBox pictureBox)
-                LoadPhoto(pictureBox, photo2Label);
-        }
-
 
         private void progressBar_ProgressChanged(object sender, EventArgs e)
         {
@@ -128,16 +154,22 @@ namespace CitrusDB.View.AddStudent
             this.mainForm = mainForm;
         }
 
-        private void LoadPhoto(PictureBox pictureBox, Label photoLabel)
+        private bool LoadPhoto(PictureBox pictureBox, Label photoLabel)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
                 pictureBox.Load(openFileDialog.FileName);
 
-            if (pictureBox.Image != null)
-                photoLabel.Visible = false;
+                if (pictureBox.Image != null)
+                    photoLabel.Visible = false;
+
+                return true;
+            }
+
+            return false;
         }
 
-        private void SetTextBoxHandlerHandlers()
+        private void SetTextBoxHandlers()
         {
             foreach (TextBox textBox in Controls.OfType<TextBox>())
             {
@@ -146,5 +178,22 @@ namespace CitrusDB.View.AddStudent
             }
         }
 
+        private void SetComboBoxHandlers()
+        {
+            foreach (ComboBox comboBox in Controls.OfType<ComboBox>())
+            {
+                comboBox.Enter += ControlEnterHandler;
+                comboBox.TextUpdate += ComboBoxTextUpdateHandler;
+                comboBox.SelectionChangeCommitted += ComboBoxSelectionChangeHandler;
+            }
+        }
+
+        //private void SetPictureBoxHandlers()
+        //{
+        //    foreach (PictureBox pictureBox in Controls.OfType<PictureBox>())
+        //    {
+        //        pictureBox.Click += ControlEnter;
+        //    }
+        //}
     }
 }
