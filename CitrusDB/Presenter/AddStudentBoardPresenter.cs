@@ -54,8 +54,8 @@ namespace CitrusDB.Presenter
 
         private void AddStudentBoard_ClearButton(object sender, EventArgs e)
         {
-            addStudentBoard.ProgressBarValue = 0;
             addStudentBoard.DateOfBirth = addStudentBoard.InitDateOfBirth;
+            addStudentBoard.ProgressBarValue = 0;
             validate.Reset();
         }
 
@@ -117,7 +117,7 @@ namespace CitrusDB.Presenter
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)
         {
-            List<Model.Entity.GroupView> groups = model.GetEntityView<Model.Entity.GroupView>();
+            List<Model.Entity.GroupView> groups = model.GetEntityView<GroupView>();
             List<IGroupView> listGroupViews = groupView.CreateListViews(groups.Count);
 
             for (int i = 0; i < listGroupViews.Count; i++)

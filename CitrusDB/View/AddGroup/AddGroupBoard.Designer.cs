@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelAddGroupSpace = new System.Windows.Forms.Panel();
-            this.addedStudentSearchTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.photoLabel = new System.Windows.Forms.Label();
@@ -40,10 +39,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.nameGroupTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.currentStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.optionFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.currentStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelAddGroupSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +50,6 @@
             // panelAddGroupSpace
             // 
             this.panelAddGroupSpace.BackColor = System.Drawing.SystemColors.Control;
-            this.panelAddGroupSpace.Controls.Add(this.addedStudentSearchTextBox);
             this.panelAddGroupSpace.Controls.Add(this.clearButton);
             this.panelAddGroupSpace.Controls.Add(this.saveButton);
             this.panelAddGroupSpace.Controls.Add(this.photoLabel);
@@ -66,18 +64,6 @@
             this.panelAddGroupSpace.Name = "panelAddGroupSpace";
             this.panelAddGroupSpace.Size = new System.Drawing.Size(312, 598);
             this.panelAddGroupSpace.TabIndex = 0;
-            // 
-            // addedStudentSearchTextBox
-            // 
-            this.addedStudentSearchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.addedStudentSearchTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.addedStudentSearchTextBox.Location = new System.Drawing.Point(101, 177);
-            this.addedStudentSearchTextBox.Multiline = true;
-            this.addedStudentSearchTextBox.Name = "addedStudentSearchTextBox";
-            this.addedStudentSearchTextBox.Size = new System.Drawing.Size(151, 22);
-            this.addedStudentSearchTextBox.TabIndex = 3;
-            this.addedStudentSearchTextBox.Text = "Search..";
-            this.addedStudentSearchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addedStudentSearchTextBox_MouseClick);
             // 
             // clearButton
             // 
@@ -190,14 +176,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Name of group:";
             // 
-            // currentStudentFlowPanel
-            // 
-            this.currentStudentFlowPanel.AutoScroll = true;
-            this.currentStudentFlowPanel.Location = new System.Drawing.Point(328, 39);
-            this.currentStudentFlowPanel.Name = "currentStudentFlowPanel";
-            this.currentStudentFlowPanel.Size = new System.Drawing.Size(440, 559);
-            this.currentStudentFlowPanel.TabIndex = 1;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
@@ -228,14 +206,22 @@
             this.optionFlowPanel.Size = new System.Drawing.Size(277, 598);
             this.optionFlowPanel.TabIndex = 4;
             // 
+            // currentStudentFlowPanel
+            // 
+            this.currentStudentFlowPanel.AutoScroll = true;
+            this.currentStudentFlowPanel.Location = new System.Drawing.Point(328, 39);
+            this.currentStudentFlowPanel.Name = "currentStudentFlowPanel";
+            this.currentStudentFlowPanel.Size = new System.Drawing.Size(440, 559);
+            this.currentStudentFlowPanel.TabIndex = 6;
+            // 
             // AddGroupBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.currentStudentFlowPanel);
             this.Controls.Add(this.optionFlowPanel);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.currentStudentFlowPanel);
             this.Controls.Add(this.panelAddGroupSpace);
             this.Name = "AddGroupBoard";
             this.Size = new System.Drawing.Size(1051, 598);
@@ -256,7 +242,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox nameGroupTextBox;
-        private System.Windows.Forms.FlowLayoutPanel currentStudentFlowPanel;
         private System.Windows.Forms.FlowLayoutPanel addedStudentFlowPanel;
         private System.Windows.Forms.Label countOfStudentsLabel;
         private System.Windows.Forms.Label label4;
@@ -265,6 +250,6 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.FlowLayoutPanel optionFlowPanel;
-        private System.Windows.Forms.TextBox addedStudentSearchTextBox;
+        private System.Windows.Forms.FlowLayoutPanel currentStudentFlowPanel;
     }
 }

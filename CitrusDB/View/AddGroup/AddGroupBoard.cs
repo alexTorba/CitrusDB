@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace CitrusDB.View.AddGroup
 {
@@ -27,7 +28,7 @@ namespace CitrusDB.View.AddGroup
         public string CountOfAddedStudent
         {
             get => countOfStudentsLabel.Text;
-            set => countOfStudentsLabel.Text = value; 
+            set => countOfStudentsLabel.Text = value;
         }
 
         public string GetNameOfGroup => nameGroupTextBox.Text;
@@ -39,6 +40,16 @@ namespace CitrusDB.View.AddGroup
             nameGroupTextBox.Text = string.Empty;
             photoPictureBox.Image = null;
             photoLabel.Visible = true;
+        }
+
+        public void DisableCurrentStudentPanel()
+        {
+            currentStudentFlowPanel.Enabled = false;
+        }
+
+        public void EnableCurrentStudentPanel()
+        {
+            currentStudentFlowPanel.Enabled = true;
         }
 
         public event EventHandler LoadAddGroupBoard;
@@ -84,7 +95,7 @@ namespace CitrusDB.View.AddGroup
         {
             CurrentStudentSearchTextBoxChanges.Invoke(sender, e);
         }
-
+        
         #endregion
 
         #region Event Handlers
@@ -106,7 +117,7 @@ namespace CitrusDB.View.AddGroup
             PictureBox pictureBox = sender as PictureBox;
             OpenFileDialog openFile = new OpenFileDialog();
 
-            if(openFile.ShowDialog() == DialogResult.OK)
+            if (openFile.ShowDialog() == DialogResult.OK)
                 pictureBox.Load(openFile.FileName);
 
             if (pictureBox.Image != null)

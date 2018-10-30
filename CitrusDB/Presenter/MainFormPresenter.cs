@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CitrusDB.Model;
 using CitrusDB.View;
 
 namespace CitrusDB.Presenter
@@ -16,7 +10,7 @@ namespace CitrusDB.Presenter
 
         public MainFormPresenter(IMainForm mainForm)
         {
-            this.mainFormView = mainForm;
+            mainFormView = mainForm;
             mainFormView.LoadMainForm += MainFormView_LoadMainForm;
         }
 

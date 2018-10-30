@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 using CitrusDB.Model;
@@ -15,6 +17,8 @@ namespace CitrusDB.Presenter
         readonly IStudentView studentView;
         readonly IStudentView addedStudentView;
         readonly Model.Model model = new Model.Model();
+        private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
 
         public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView,
             IStudentView addedStudentView)
@@ -26,10 +30,20 @@ namespace CitrusDB.Presenter
             SetHandlers();
         }
 
+        private void SetHandlers()
+        {
+            addGroupBoard.SaveClick += AddGroupBoard_SaveClick;
+            addGroupBoard.ClearClick += AddGroupBoard_ClearClick;
+            addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
+            addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
+            addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
+        }
+
         #region Event Handlers
 
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
+            //todo: реализовать отмену неактуальной задачи.
             List<Student> students = new List<Student>();
 
             foreach (IStudentView student in addGroupBoard.AddedStudentControlCollection)
@@ -106,47 +120,71 @@ namespace CitrusDB.Presenter
                 addGroupBoard.AddedStudentControlCollection.Count.ToString();
         }
 
-        private void AddGroupBoard_CurrentStudentSearchTextBoxChanges(object sender, EventArgs e)
+        private async void AddGroupBoard_CurrentStudentSearchTextBoxChanges(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
+            addGroupBoard.DisableCurrentStudentPanel();
 
-            var students = model.GetEntities<Student>()
-                                .Where(s => s.FirstName.ToUpperInvariant()
-                                             .Contains(textBox.Text.ToUpperInvariant()));
-
-            var addedStudent = addGroupBoard.AddedStudentControlCollection
-                                            .Cast<IStudentView>()
-                                            .Select(s => model.GetEntityById<Student>(s.GetStudentId));
-
-            var result = students.Except(addedStudent).ToList();
+            List<Student> result = await GetStudentWithFilterExceptAddedStudent((sender as TextBox).Text);
 
             addGroupBoard.CurrentStudentControlCollection.Clear();
-            FillControlCollection(result);
+
+            await FillControlCollection(result);
+
+            addGroupBoard.EnableCurrentStudentPanel();
         }
 
         #endregion
 
-        private void SetHandlers()
+        /// <summary>
+        /// Асинхронный выбор студентов, учитывая фильтр (searchTextBox.Text) и вычитание из результата уже добавленных студентов(addedStudentFlowPanel).
+        /// </summary>
+        /// <param name="condition">Условие, по которому будет формироваться выборка студентов.</param>
+        /// <returns></returns>
+        private async Task<List<Student>> GetStudentWithFilterExceptAddedStudent(string condition)
         {
-            addGroupBoard.SaveClick += AddGroupBoard_SaveClick;
-            addGroupBoard.ClearClick += AddGroupBoard_ClearClick;
-            addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
-            addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
-            addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
+            return await Task.Factory.StartNew(() =>
+             {
+                 IEnumerable<Student> students;
+
+                 if (condition == string.Empty)
+                     students = model.GetEntities<Student>();
+                 else
+                     students = model.GetEntities<Student>()
+                                     .Where(s => s.FirstName.ToUpperInvariant()
+                                                  .Contains(condition.ToUpperInvariant()));
+
+                 var addedStudent = addGroupBoard.AddedStudentControlCollection
+                                                 .Cast<IStudentView>()
+                                                 .Select(s => model.GetEntityById<Student>(s.GetStudentId));
+
+                 return students.Except(addedStudent).ToList();
+             });
         }
 
-        private void FillControlCollection(List<Student> students)
+        /// <summary>
+        /// Асинхронное заполнение CurrentStudentControlCollection.
+        /// </summary>
+        /// <param name="students">Коллекция, которая будет трансформироваться в StudentViewBoard и помещаться в CurrentStudentControlCollection</param>
+        /// <returns></returns>
+        private async Task FillControlCollection(List<Student> students)
         {
-            List<IStudentView> rezult = studentView.CreateListViews(students.Count);
-
-            for (int i = 0; i < rezult.Count; i++)
+            List<Control> controls = new List<Control>();
+            await Task.Factory.StartNew(() =>
             {
-                IStudentView view = rezult[i].FillView(students[i]);
-                view.Click += AddStudentButton_Click;
+                List<IStudentView> rezult = studentView.CreateListViews(students.Count);
 
-                addGroupBoard.CurrentStudentControlCollection.Add((Control)view);
-            }
+                for (int i = 0; i < rezult.Count; i++)
+                {
+                    IStudentView view = rezult[i].FillView(students[i]);
+                    view.Click += AddStudentButton_Click;
+
+                    controls.Add((Control)view);
+                }
+            });
+
+            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
         }
+
 
     }
 }

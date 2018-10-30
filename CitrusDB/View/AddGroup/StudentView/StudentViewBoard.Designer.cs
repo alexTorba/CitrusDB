@@ -34,7 +34,7 @@ namespace CitrusDB.View.AddGroup.StudentView
             this.studentViewPhoto = new System.Windows.Forms.PictureBox();
             this.fisrtNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.addStudentButton = new CirclusButton();
+            this.addStudentButton = new CitrusDB.View.UsersElements.CirclusButton();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@ namespace CitrusDB.View.AddGroup.StudentView
             this.addStudentButton.FlatAppearance.BorderSize = 0;
             this.addStudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addStudentButton.Image = ((System.Drawing.Image)(resources.GetObject("addStudentButton.Image")));
-            this.addStudentButton.Location = new System.Drawing.Point(47, 201);
+            this.addStudentButton.Location = new System.Drawing.Point(49, 201);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(34, 29);
             this.addStudentButton.TabIndex = 3;

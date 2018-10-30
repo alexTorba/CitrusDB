@@ -19,6 +19,8 @@ namespace CitrusDB.View.AddGroup
         ControlCollection AddedStudentControlCollection { get; }
 
         void ClearView();
+        void DisableCurrentStudentPanel();
+        void EnableCurrentStudentPanel();
 
         event EventHandler LoadAddGroupBoard;
         event EventHandler ChangeAddedStudentPanelControl;
