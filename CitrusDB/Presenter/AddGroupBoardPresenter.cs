@@ -23,12 +23,10 @@ namespace CitrusDB.Presenter
             this.studentView = studentView;
             this.addedStudentView = addedStudentView;
 
-            this.addGroupBoard.SaveClick += AddGroupBoard_SaveClick;
-            this.addGroupBoard.ClearClick += AddGroupBoard_ClearClick;
-            this.addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
-            this.addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
-            this.addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
+            SetHandlers();
         }
+
+        #region Event Handlers
 
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
@@ -71,15 +69,7 @@ namespace CitrusDB.Presenter
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
             List<Student> students = model.GetStudents();
-            List<IStudentView> rezult = studentView.CreateListViews(students.Count);
-
-            for (int i = 0; i < rezult.Count; i++)
-            {
-                IStudentView view = rezult[i].FillView(students[i]);
-                view.Click += AddStudentButton_Click;
-
-                addGroupBoard.CurrentStudentControlCollection.Add((Control)view);
-            }
+            FillControlCollection(students);
         }
 
         private void AddStudentButton_Click(object sender, EventArgs e)
@@ -118,18 +108,43 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_CurrentStudentSearchTextBoxChanges(object sender, EventArgs e)
         {
-            //todo: сделать сортировку flowPanel без удаления данных (при повторном запросе коллекция пустая)
             TextBox textBox = sender as TextBox;
-            if (textBox.Text.Length > 0)
-            {
-                var collection = addGroupBoard.CurrentStudentControlCollection
-                    .Cast<IStudentView>()
-                    .Where(s => s.GetFristName.Contains(textBox.Text))
-                    .Cast<Control>()
-                    .ToArray();
 
-                addGroupBoard.CurrentStudentControlCollection.Clear();
-                addGroupBoard.CurrentStudentControlCollection.AddRange(collection);
+            var students = model.GetStudents()
+                                .Where(s => s.FirstName.ToUpperInvariant()
+                                             .Contains(textBox.Text.ToUpperInvariant()));
+
+            var addedStudent = addGroupBoard.AddedStudentControlCollection
+                                            .Cast<IStudentView>()
+                                            .Select(s => model.GetStudentById(s.GetStudentId));
+
+            var result = students.Except(addedStudent).ToList();
+
+            addGroupBoard.CurrentStudentControlCollection.Clear();
+            FillControlCollection(result);
+        }
+
+        #endregion
+
+        private void SetHandlers()
+        {
+            addGroupBoard.SaveClick += AddGroupBoard_SaveClick;
+            addGroupBoard.ClearClick += AddGroupBoard_ClearClick;
+            addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
+            addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
+            addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
+        }
+
+        private void FillControlCollection(List<Student> students)
+        {
+            List<IStudentView> rezult = studentView.CreateListViews(students.Count);
+
+            for (int i = 0; i < rezult.Count; i++)
+            {
+                IStudentView view = rezult[i].FillView(students[i]);
+                view.Click += AddStudentButton_Click;
+
+                addGroupBoard.CurrentStudentControlCollection.Add((Control)view);
             }
         }
 
