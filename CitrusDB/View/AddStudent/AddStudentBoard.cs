@@ -17,6 +17,7 @@ namespace CitrusDB.View.AddStudent
 
             SetTextBoxHandlers();
             SetComboBoxHandlers();
+            SetNumericUpDownHandlers();
 
             progressBar.Value = 0;
         }
@@ -33,8 +34,23 @@ namespace CitrusDB.View.AddStudent
 
         public string GetKnowledgeOfLanguage => knowledgeOfLanguageTextbox.Text;
 
-        public string DateOfBirth =>
-            $"{daysNumericUpDown.Value.ToString()}.{monthNumericUpDown.Value.ToString()}.{yearNumericUpDown.Value.ToString()}";
+        public string InitDateOfBirth =>
+            $"{daysNumericUpDown.Minimum.ToString()}.{monthNumericUpDown.Minimum.ToString()}.{yearNumericUpDown.Minimum.ToString()}";
+
+        public string DateOfBirth
+        {
+            get
+            {
+                return $"{daysNumericUpDown.Value.ToString()}.{monthNumericUpDown.Value.ToString()}.{yearNumericUpDown.Value.ToString()}";
+            }
+            set
+            {
+                var data = value.Trim().Split('.');
+                daysNumericUpDown.Value = decimal.Parse(data[0]);
+                monthNumericUpDown.Value = decimal.Parse(data[1]);
+                yearNumericUpDown.Value = decimal.Parse(data[2]);
+            }
+        }
 
         public Image GetFirstPhoto => pictureBoxFirstPhoto.Image;
 
@@ -52,6 +68,7 @@ namespace CitrusDB.View.AddStudent
             set => progressBar.Value = value;
         }
 
+
         public event EventHandler SaveButton;
         public event EventHandler LoadBoard;
 
@@ -63,6 +80,9 @@ namespace CitrusDB.View.AddStudent
 
         public event EventHandler PhotoLoaded;
         public event EventHandler ClearButton;
+
+        public event EventHandler NumericUDValueChanged;
+        public event EventHandler NumericUDValueEnter;
 
         #endregion
 
@@ -133,6 +153,16 @@ namespace CitrusDB.View.AddStudent
             photo2Label.Visible = true;
 
             ClearButton?.Invoke(sender, e);
+        }
+
+        private void NumericUpDownValueChangedHandler(object sender, EventArgs e)
+        {
+            NumericUDValueChanged?.Invoke(sender, e);
+        }
+
+        private void NumericUpDownValueEnterHandler(object sender, EventArgs e)
+        {
+            NumericUDValueEnter?.Invoke(sender, e);
         }
 
         #endregion
@@ -206,14 +236,14 @@ namespace CitrusDB.View.AddStudent
             }
         }
 
+        private void SetNumericUpDownHandlers()
+        {
+            foreach (NumericUpDown numericUpDown in Controls.OfType<NumericUpDown>())
+            {
+                numericUpDown.ValueChanged += NumericUpDownValueChangedHandler;
+                numericUpDown.Enter += NumericUpDownValueEnterHandler;
+            }
+        }
 
-
-        //private void SetPictureBoxHandlers()
-        //{
-        //    foreach (PictureBox pictureBox in Controls.OfType<PictureBox>())
-        //    {
-        //        pictureBox.Click += ControlEnter;
-        //    }
-        //}
     }
 }

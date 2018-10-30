@@ -63,7 +63,6 @@ namespace CitrusDB.Model
 
                         break;
                     }
-
                 default:
                     break;
             }

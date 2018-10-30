@@ -53,6 +53,16 @@ namespace CitrusDB.Model
             }
         }
 
+        public void SetState(bool haveMistake, bool isSingle)
+        {
+            if (haveMistake)
+            {
+                lockerForPB = true;
+                backLockerPB = false;
+            }
+            else if (isSingle) Reset();
+        }
+
         public void Reset()
         {
             lockerForPB = false;

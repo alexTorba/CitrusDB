@@ -14,7 +14,9 @@ namespace CitrusDB.View.AddStudent
         string GetCitizenship { get; }
         string GetKnowledgeOfLanguage { get; }
 
-        string DateOfBirth { get; }
+        string DateOfBirth { get; set; }
+        string InitDateOfBirth { get; }
+
         Image GetFirstPhoto { get; }
         Image GetSecondPhoto { get; }
 
@@ -36,5 +38,8 @@ namespace CitrusDB.View.AddStudent
         event EventHandler PhotoLoaded;
 
         event EventHandler ClearButton;
+
+        event EventHandler NumericUDValueChanged;
+        event EventHandler NumericUDValueEnter;
     }
 }

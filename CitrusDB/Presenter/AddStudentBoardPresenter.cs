@@ -35,15 +35,27 @@ namespace CitrusDB.Presenter
             this.addStudentBoard.PhotoLoaded += AddStudentBoard_PhotoLoaded;
 
             this.addStudentBoard.ClearButton += AddStudentBoard_ClearButton;
+
+            this.addStudentBoard.NumericUDValueChanged += AddStudentBoard_NumericUDValueChanged;
+            this.addStudentBoard.NumericUDValueEnter += AddStudentBoard_NumericUDValueEnter;
         }
 
-
         #region Event Handlers
+
+        private void AddStudentBoard_NumericUDValueEnter(object sender, EventArgs e)
+        {
+            validate.SetState(addStudentBoard.DateOfBirth == addStudentBoard.InitDateOfBirth, true);
+        }
+
+        private void AddStudentBoard_NumericUDValueChanged(object sender, EventArgs e)
+        {
+            ControlIsConfirmed(sender as NumericUpDown);
+        }
 
         private void AddStudentBoard_ClearButton(object sender, EventArgs e)
         {
             addStudentBoard.ProgressBarValue = 0;
-            
+            addStudentBoard.DateOfBirth = addStudentBoard.InitDateOfBirth;
             validate.Reset();
         }
 
