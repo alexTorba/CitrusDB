@@ -9,12 +9,12 @@ using CitrusDB.View;
 
 namespace CitrusDB.Presenter
 {
-    class MainPresenter
+    class MainFormPresenter
     {
         IMainForm mainFormView;
         Model.Model model = new Model.Model();
 
-        public MainPresenter(IMainForm mainForm)
+        public MainFormPresenter(IMainForm mainForm)
         {
             this.mainFormView = mainForm;
             mainFormView.LoadMainForm += MainFormView_LoadMainForm;

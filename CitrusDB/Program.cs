@@ -26,7 +26,7 @@ namespace CitrusDB
             MainForm mainForm = new MainForm();
             mainForm.InitBoard();
 
-            var mainPresenter = new MainPresenter(mainForm);
+            var mainPresenter = new MainFormPresenter(mainForm);
 
             var addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard, new GroupView());
 

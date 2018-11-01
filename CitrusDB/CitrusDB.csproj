@@ -89,8 +89,9 @@
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
+    <Compile Include="Presenter\StudentInfoFormPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
-    <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="Presenter\MainFormPresenter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,6 +132,13 @@
     </Compile>
     <Compile Include="View\AddStudent\IAddStudentBoard.cs" />
     <Compile Include="View\DataBoard\IDataBoard.cs" />
+    <Compile Include="View\EntitiesInfo\IStudentInfoForm.cs" />
+    <Compile Include="View\EntitiesInfo\StudentInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EntitiesInfo\StudentInfoForm.Designer.cs">
+      <DependentUpon>StudentInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IMainForm.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -175,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EntitiesInfo\StudentInfoForm.resx">
+      <DependentUpon>StudentInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
