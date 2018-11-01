@@ -45,7 +45,7 @@
             this.citizenshipLabel = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.knowledgeOfLanguageLabel = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.groupLabel = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.gorupLabelValue = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.groupValue = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.citizenshipValue = new System.Windows.Forms.TextBox();
             this.knowledgeOfLanguageValue = new System.Windows.Forms.TextBox();
@@ -240,15 +240,15 @@
             this.groupLabel.TabIndex = 22;
             this.groupLabel.Text = "Group:";
             // 
-            // gorupLabelValue
+            // groupValue
             // 
-            this.gorupLabelValue.AutoSize = true;
-            this.gorupLabelValue.Font = new System.Drawing.Font("Century Gothic", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gorupLabelValue.Location = new System.Drawing.Point(205, 12);
-            this.gorupLabelValue.Name = "gorupLabelValue";
-            this.gorupLabelValue.Size = new System.Drawing.Size(89, 21);
-            this.gorupLabelValue.TabIndex = 23;
-            this.gorupLabelValue.Text = "groupLink";
+            this.groupValue.AutoSize = true;
+            this.groupValue.Font = new System.Drawing.Font("Century Gothic", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupValue.Location = new System.Drawing.Point(205, 12);
+            this.groupValue.Name = "groupValue";
+            this.groupValue.Size = new System.Drawing.Size(89, 21);
+            this.groupValue.TabIndex = 23;
+            this.groupValue.Text = "groupLink";
             // 
             // bunifuSeparator6
             // 
@@ -308,7 +308,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Controls.Add(this.excludeButton);
             this.groupBox1.Controls.Add(this.groupLabel);
-            this.groupBox1.Controls.Add(this.gorupLabelValue);
+            this.groupBox1.Controls.Add(this.groupValue);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(19, 423);
             this.groupBox1.Name = "groupBox1";
@@ -372,7 +372,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel citizenshipLabel;
         private Bunifu.Framework.UI.BunifuCustomLabel knowledgeOfLanguageLabel;
         private Bunifu.Framework.UI.BunifuCustomLabel groupLabel;
-        private Bunifu.Framework.UI.BunifuCustomLabel gorupLabelValue;
+        private Bunifu.Framework.UI.BunifuCustomLabel groupValue;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator6;
         private System.Windows.Forms.TextBox citizenshipValue;
         private System.Windows.Forms.TextBox knowledgeOfLanguageValue;
