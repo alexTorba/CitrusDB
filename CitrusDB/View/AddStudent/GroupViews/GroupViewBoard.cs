@@ -11,9 +11,9 @@ using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.AddStudent.GroupViews
 {
-    public partial class GroupView : UserControl, IGroupView
+    public partial class GroupViewBoard : UserControl, IGroupView
     {
-        public GroupView()
+        public GroupViewBoard()
         {
             InitializeComponent();
 
@@ -34,7 +34,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
 
         public object Clone()
         {
-            IGroupView groupView = new GroupView
+            IGroupView groupView = new GroupViewBoard
             {
                 Id = Id,
                 GroupName = GroupName,

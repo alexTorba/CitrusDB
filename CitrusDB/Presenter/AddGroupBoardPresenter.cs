@@ -33,7 +33,7 @@ namespace CitrusDB.Presenter
             List<Student> students = new List<Student>();
 
             foreach (IStudentView student in addGroupBoard.AddedStudentControlCollection)
-                students.Add(model.GetStudentById(student.GetStudentId));
+                students.Add(model.GetEntityById<Student>(student.GetStudentId));
 
             Group group = new Group
             {
@@ -42,7 +42,7 @@ namespace CitrusDB.Presenter
                 Photo = addGroupBoard.GetGroupPhoto.ConvertImageToByteArr()
             };
 
-            model.AddGroup(group);
+            model.Add(group);
 
             MessageBox.Show("Added group was sucessfule");
         }
@@ -58,7 +58,7 @@ namespace CitrusDB.Presenter
                     Control control = obj as Control;
 
                     IStudentView studentView = (IStudentView)this.studentView.Clone();
-                    studentView.FillView(model.GetStudentById(((IStudentView)control).GetStudentId));
+                    studentView.FillView(model.GetEntityById<Student>(((IStudentView)control).GetStudentId));
 
                     addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
                 }
@@ -68,7 +68,7 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            List<Student> students = model.GetStudents();
+            List<Student> students = model.GetEntities<Student>();
             FillControlCollection(students);
         }
 
@@ -80,7 +80,7 @@ namespace CitrusDB.Presenter
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
             IStudentView addedStudentView = (IStudentView)this.addedStudentView.Clone();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
-            addedStudentView.FillView(model.GetStudentById(studentViewBoard.GetStudentId));
+            addedStudentView.FillView(model.GetEntityById<Student>(studentViewBoard.GetStudentId));
             addedStudentView.Click += CancelButton_Click;
 
             addGroupBoard.CurrentStudentControlCollection.Remove((Control)studentViewBoard);
@@ -93,7 +93,7 @@ namespace CitrusDB.Presenter
             IStudentView addedStudentView = (IStudentView)((Control)sender).Parent;
 
             IStudentView studentView = (IStudentView)this.studentView.Clone();
-            studentView.FillView(model.GetStudentById(addedStudentView.GetStudentId));
+            studentView.FillView(model.GetEntityById<Student>(addedStudentView.GetStudentId));
             studentView.Click += AddStudentButton_Click;
 
             addGroupBoard.AddedStudentControlCollection.Remove((Control)addedStudentView);
@@ -110,13 +110,13 @@ namespace CitrusDB.Presenter
         {
             TextBox textBox = sender as TextBox;
 
-            var students = model.GetStudents()
+            var students = model.GetEntities<Student>()
                                 .Where(s => s.FirstName.ToUpperInvariant()
                                              .Contains(textBox.Text.ToUpperInvariant()));
 
             var addedStudent = addGroupBoard.AddedStudentControlCollection
                                             .Cast<IStudentView>()
-                                            .Select(s => model.GetStudentById(s.GetStudentId));
+                                            .Select(s => model.GetEntityById<Student>(s.GetStudentId));
 
             var result = students.Except(addedStudent).ToList();
 

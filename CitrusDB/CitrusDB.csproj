@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
@@ -82,8 +85,6 @@
     <Compile Include="Model\DataBaseLogic\CitrusDbContext.cs" />
     <Compile Include="Model\DataBaseLogic\DataBase.cs" />
     <Compile Include="Model\DataBaseLogic\EFGenericRepository.cs" />
-    <Compile Include="Model\DataBaseLogic\EFGenericRepositorySecondary.cs" />
-    <Compile Include="Model\DataBaseLogic\IGenericRepository.cs" />
     <Compile Include="Model\DataBaseLogic\InitDB.cs" />
     <Compile Include="Model\Entity\GroupView.cs" />
     <Compile Include="Model\ExtensionLinq.cs" />
@@ -121,11 +122,11 @@
     <Compile Include="View\AddStudent\AddStudentBoard.Designer.cs">
       <DependentUpon>AddStudentBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddStudent\GroupViews\GroupView.cs">
+    <Compile Include="View\AddStudent\GroupViews\GroupViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AddStudent\GroupViews\GroupView.Designer.cs">
-      <DependentUpon>GroupView.cs</DependentUpon>
+    <Compile Include="View\AddStudent\GroupViews\GroupViewBoard.Designer.cs">
+      <DependentUpon>GroupViewBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AddStudent\GroupViews\IGroupView.cs" />
     <Compile Include="View\DataBoard\DataBoard.cs">
@@ -181,8 +182,8 @@
     <EmbeddedResource Include="View\AddStudent\AddStudentBoard.resx">
       <DependentUpon>AddStudentBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddStudent\GroupViews\GroupView.resx">
-      <DependentUpon>GroupView.cs</DependentUpon>
+    <EmbeddedResource Include="View\AddStudent\GroupViews\GroupViewBoard.resx">
+      <DependentUpon>GroupViewBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>

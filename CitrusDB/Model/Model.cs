@@ -18,57 +18,60 @@ namespace CitrusDB.Model
 
         public List<TEntity> GetEntities<TEntity>() where TEntity : class
         {
-            return (List<TEntity>)EFGenericRepositorySecondary<TEntity>.Get();
+            return (List<TEntity>)EFGenericRepository<TEntity>.Get();
         }
 
         public List<TEntity> GetEntityView<TEntity>() where TEntity : class
         {
-            return (List<TEntity>)EFGenericRepositorySecondary<TEntity>.GetView();
+            return (List<TEntity>)EFGenericRepository<TEntity>.GetView();
         }
 
         public TEntity GetEntityById<TEntity>(int id) where TEntity : class
         {
-            return EFGenericRepositorySecondary<TEntity>.FindById(id);
+            return EFGenericRepository<TEntity>.FindById(id);
         }
 
         public void Add<TEntity>(TEntity entity) where TEntity : class
         {
-            EFGenericRepositorySecondary<TEntity>.Create(entity);
+            EFGenericRepository<TEntity>.Create(entity);
         }
 
         public void Remove<TEntity>(TEntity entity) where TEntity : class
         {
-            EFGenericRepositorySecondary<TEntity>.Delete(entity);
+            EFGenericRepository<TEntity>.Delete(entity);
         }
 
         public void Update<TEntity>(TEntity entity) where TEntity : class
         {
-            EFGenericRepositorySecondary<TEntity>.Update(entity);
+            EFGenericRepository<TEntity>.Update(entity);
         }
 
         #endregion
 
+        //delete after marge with async_logic branch.
+        #region Old db logic (DataBase.cs)
+
         public List<Student> GetStudents()
         {
-            return (List<Student>)EFGenericRepositorySecondary<Student>.Get();
+            return (List<Student>)EFGenericRepository<Student>.Get();
             //return DataBase.GetStudents();
         }
 
         public List<StudentView> GetStudentsView()
         {
-            return (List<StudentView>)EFGenericRepositorySecondary<StudentView>.GetView();
+            return (List<StudentView>)EFGenericRepository<StudentView>.GetView();
             //return DataBase.GetStudentsView();
         }
 
         public void AddStudent(Student student)
         {
-            EFGenericRepositorySecondary<Student>.Create(student);
+            EFGenericRepository<Student>.Create(student);
             //DataBase.AddStudent(student);
         }
 
         public Student GetStudentById(int id)
         {
-            return EFGenericRepositorySecondary<Student>.FindById(id);
+            return EFGenericRepository<Student>.FindById(id);
             //return DataBase.GetStudentById(id);
         }
 
@@ -86,19 +89,19 @@ namespace CitrusDB.Model
 
         public void AddGroup(Group group)
         {
-            EFGenericRepositorySecondary<Group>.Create(group);
+            EFGenericRepository<Group>.Create(group);
             //DataBase.AddGroup(group);
         }
 
         public List<GroupView> GetGroupViews()
         {
-            return (List<GroupView>)EFGenericRepositorySecondary<GroupView>.GetView();
+            return (List<GroupView>)EFGenericRepository<GroupView>.GetView();
             //return DataBase.GetGroupsView();
         }
 
         public List<Group> GetGroups()
         {
-            return (List<Group>)EFGenericRepositorySecondary<Group>.Get();
+            return (List<Group>)EFGenericRepository<Group>.Get();
             //return DataBase.GetGroups();
         }
 
@@ -112,6 +115,8 @@ namespace CitrusDB.Model
         //    db.Groups.Add(group);
         //    await db.SaveChangesAsync();
         //}
+
+        #endregion
 
     }
 }

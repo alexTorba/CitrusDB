@@ -23,7 +23,7 @@ namespace CitrusDB.Presenter
 
         private void StudentInfoForm_FormLoad(object sender, EventArgs e)
         {
-            var student = model.GetStudentById(studentInfoForm.Id);
+            var student = model.GetEntityById<Student>(studentInfoForm.Id);
 
             FillView(student);
         }

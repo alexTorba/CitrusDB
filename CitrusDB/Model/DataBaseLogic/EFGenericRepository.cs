@@ -1,59 +1,87 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CitrusDB.Model.Entity;
+
 namespace CitrusDB.Model.DataBaseLogic
 {
-    class EFGenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    static class EFGenericRepository<TEntity> where TEntity : class
     {
-        readonly DbContext context;
-        readonly DbSet<TEntity> dbSet;
+        static readonly CitrusDbContext context;
 
-        public EFGenericRepository(DbContext context)
+        static EFGenericRepository()
         {
-            this.context = context;
-            dbSet = context.Set<TEntity>();
+            context = new CitrusDbContext();
+            context.Database.Log = s => Console.WriteLine(s);
         }
 
-        public void Create(TEntity entity)
+        public static void Create(TEntity entity)
         {
-            dbSet.Add(entity);
+            context.Set<TEntity>()
+                .Add(entity);
         }
 
-        public void Delete(TEntity entity)
+        public static void Delete(TEntity entity)
         {
-            dbSet.Remove(entity);
+            context.Set<TEntity>()
+                .Remove(entity);
         }
 
-        public TEntity FindById(int id)
+        public static TEntity FindById(int id)
         {
-            return dbSet.Find(id);
+            return context.Set<TEntity>()
+                .Find(id);
         }
 
-        public IEnumerable<TEntity> Get()
+        public static IEnumerable<TEntity> Get()
         {
-            return dbSet.AsNoTracking().ToList();
+            //is fill local ? 
+            return context.Set<TEntity>()
+                .ToList();
         }
 
-        public IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
+        public static IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
         {
-            return dbSet.AsNoTracking().Where(predicate).ToList();
+            //is fill local ?
+            return context.Set<TEntity>()
+                .Where(predicate).ToList();
         }
 
-        public void Update(TEntity entity)
+        public static IEnumerable<TEntity> GetForRead()
+        {
+            return context.Set<TEntity>()
+                .AsNoTracking().ToList();
+        }
+
+        public static IEnumerable<TEntity> GetForRead(Func<TEntity, bool> predicate)
+        {
+            return context.Set<TEntity>()
+                .AsNoTracking().Where(predicate).ToList();
+        }
+
+        public static IEnumerable<TEntity> GetView()
+        {
+            string par = typeof(TEntity).Name.Trim();
+            return context.Database
+                .SqlQuery<TEntity>($"SELECT * FROM {par}").ToList();
+        }
+
+        public static void Update(TEntity entity)
         {
             context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void SaveChanges()
+        public static void SaveChanges()
         {
             context.SaveChanges();
         }
 
-        public async void SaveChangesAsync()
+        public static async void SaveChangesAsync()
         {
             await context.SaveChangesAsync();
         }

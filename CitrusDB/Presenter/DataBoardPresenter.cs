@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using CitrusDB.Model;
+using CitrusDB.Model.Entity;
 using CitrusDB.View.DataBoard;
 
 namespace CitrusDB.Presenter
 {
     public class DataBoardPresenter
     {
-        IDataBoard dataBoard;
-        Model.Model model;
+        readonly IDataBoard dataBoard;
+        readonly Model.Model model;
 
         public DataBoardPresenter(IDataBoard dataBoard)
         {
@@ -25,12 +26,12 @@ namespace CitrusDB.Presenter
 
         private void DataBoard_GroupTableLoad(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = model.GetGroupViews();
+            dataBoard.GetDataSource = model.GetEntityView<GroupView>();
         }
 
         private void DataBoard_LoadDataBoard(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = model.GetStudentsView();
+            dataBoard.GetDataSource = model.GetEntityView<StudentView>();
         }
     }
 }

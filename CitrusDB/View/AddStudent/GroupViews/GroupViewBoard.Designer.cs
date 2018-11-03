@@ -1,6 +1,6 @@
 ﻿namespace CitrusDB.View.AddStudent.GroupViews
 {
-    partial class GroupView
+    partial class GroupViewBoard
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupViewBoard));
             this.label1 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.countLabel = new System.Windows.Forms.Label();

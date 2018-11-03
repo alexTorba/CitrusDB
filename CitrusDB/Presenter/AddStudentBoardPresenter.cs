@@ -112,12 +112,12 @@ namespace CitrusDB.Presenter
                 KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage
             };
 
-            model.AddStudent(student);
+            model.Add(student);
         }
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)
         {
-            List<Model.Entity.GroupView> groups = model.GetGroupViews();
+            List<Model.Entity.GroupView> groups = model.GetEntityView<Model.Entity.GroupView>();
             List<IGroupView> listGroupViews = groupView.CreateListViews(groups.Count);
 
             for (int i = 0; i < listGroupViews.Count; i++)
