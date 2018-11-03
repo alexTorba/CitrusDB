@@ -2,12 +2,13 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using CitrusDB.Model;
+
+using CitrusDB.Model.DataBaseLogic;
 
 namespace CitrusDB.Migrations
 {
 
-    internal sealed class Configuration : DbMigrationsConfiguration<StudentDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<CitrusDbContext>
     {
         public Configuration()
         {
@@ -15,7 +16,7 @@ namespace CitrusDB.Migrations
             ContextKey = "CitrusDB.StudentDB";
         }
 
-        protected override void Seed(StudentDB context)
+        protected override void Seed(CitrusDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

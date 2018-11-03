@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Data.SqlClient;
-using System.Linq;
 using CitrusDB.Model.Entity;
 
-namespace CitrusDB.Model
+namespace CitrusDB.Model.DataBaseLogic
 {
 
-    public class StudentDB : DbContext
+    public class CitrusDbContext : DbContext
     {
 
-        static StudentDB()
-        {
-            //Database.SetInitializer(new InitDB());
-        }
-
-        public StudentDB()
+        public CitrusDbContext()
             : base("name=StudentDB")
         {
         }

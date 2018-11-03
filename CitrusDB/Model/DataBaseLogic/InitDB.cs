@@ -7,11 +7,11 @@ using System.Data.Entity;
 using System.IO;
 using CitrusDB.Model.Entity;
 
-namespace CitrusDB.Model
+namespace CitrusDB.Model.DataBaseLogic
 {
-    class InitDB : DropCreateDatabaseAlways<StudentDB>
+    class InitDB : DropCreateDatabaseAlways<CitrusDbContext>
     {
-        protected override void Seed(StudentDB context)
+        protected override void Seed(CitrusDbContext context)
         {
             using (FileStream stream = new FileStream(@"C:\Users\Александр\Documents\Visual Studio 2015\Projects\PrisonerWinF\prisonersPhoto\1\2-Ф.jpg", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite))
             {

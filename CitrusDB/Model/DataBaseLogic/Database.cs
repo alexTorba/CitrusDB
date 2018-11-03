@@ -7,14 +7,16 @@ using System.Data.SqlClient;
 using System.Data.Entity;
 using CitrusDB.Model.Entity;
 
-namespace CitrusDB.Model.DB
+namespace CitrusDB.Model.DataBaseLogic
 {
-    static class DataBase
+    //todo: переработать логику бд, добавить обобщенный репозиторий.
+    public static class DataBase
     {
-        static readonly StudentDB db;
+        static readonly CitrusDbContext db;
+
         static DataBase()
         {
-            db = new StudentDB();
+            db = new CitrusDbContext();
             db.Students.Load();
         }
 
@@ -25,9 +27,7 @@ namespace CitrusDB.Model.DB
 
         public static List<StudentView> GetStudentsView()
         {
-            var rezult =  db.Database.SqlQuery<StudentView>("SELECT * FROM StudentView");
-
-            return rezult.ToList();
+            return db.Database.SqlQuery<StudentView>("SELECT * FROM StudentView").ToList();
         }
 
         public static List<Student> GetStudentsWithGroup()
