@@ -38,7 +38,7 @@ namespace CitrusDB.Presenter
             studentInfoForm.Сitizenship = student.Сitizenship;
             studentInfoForm.KnowledgeOfLanguage = student.KnowledgeOfLanguage;
             studentInfoForm.DateOfBirth = student.DateOfBirth;
-            studentInfoForm.GroupName = student.Group.Name;
+            studentInfoForm.Group = model.GetEntityById<Group>(student.GroupId ?? -1);
 
             studentInfoForm.FirstPhoto = student.FirstPhoto.ConvertByteArrToImage();
             studentInfoForm.SecondPhoto = student.SecondPhoto.ConvertByteArrToImage();

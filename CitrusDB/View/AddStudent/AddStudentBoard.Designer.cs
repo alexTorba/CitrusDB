@@ -48,6 +48,7 @@ namespace CitrusDB.View.AddStudent
             this.knowledgeOfLanguageTextbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.flowLayoutPanelAddBoard = new System.Windows.Forms.FlowLayoutPanel();
             this.swingPanel = new System.Windows.Forms.Panel();
+            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.generateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
@@ -68,7 +69,6 @@ namespace CitrusDB.View.AddStudent
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchGroupTextBox = new System.Windows.Forms.TextBox();
-            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.flowLayoutPanelAddBoard.SuspendLayout();
             this.swingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
@@ -497,6 +497,19 @@ namespace CitrusDB.View.AddStudent
             this.swingPanel.TabIndex = 20;
             this.swingPanel.Tag = false;
             // 
+            // collapsedButton
+            // 
+            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
+            this.collapsedButton.Location = new System.Drawing.Point(6, 3);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(35, 34);
+            this.collapsedButton.TabIndex = 28;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.swingButton_Click);
+            // 
             // generateButton
             // 
             this.generateButton.BackColor = System.Drawing.Color.Firebrick;
@@ -643,7 +656,7 @@ namespace CitrusDB.View.AddStudent
             this.photo1Label.AutoSize = true;
             this.photo1Label.Enabled = false;
             this.photo1Label.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.photo1Label.Location = new System.Drawing.Point(438, 305);
+            this.photo1Label.Location = new System.Drawing.Point(439, 107);
             this.photo1Label.Name = "photo1Label";
             this.photo1Label.Size = new System.Drawing.Size(70, 21);
             this.photo1Label.TabIndex = 26;
@@ -654,7 +667,7 @@ namespace CitrusDB.View.AddStudent
             this.photo2Label.AutoSize = true;
             this.photo2Label.Enabled = false;
             this.photo2Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.photo2Label.Location = new System.Drawing.Point(438, 100);
+            this.photo2Label.Location = new System.Drawing.Point(439, 309);
             this.photo2Label.Name = "photo2Label";
             this.photo2Label.Size = new System.Drawing.Size(70, 21);
             this.photo2Label.TabIndex = 27;
@@ -699,7 +712,7 @@ namespace CitrusDB.View.AddStudent
             // pictureBoxSecondPhoto
             // 
             this.pictureBoxSecondPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSecondPhoto.Location = new System.Drawing.Point(392, 32);
+            this.pictureBoxSecondPhoto.Location = new System.Drawing.Point(393, 240);
             this.pictureBoxSecondPhoto.Name = "pictureBoxSecondPhoto";
             this.pictureBoxSecondPhoto.Size = new System.Drawing.Size(145, 158);
             this.pictureBoxSecondPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -710,7 +723,7 @@ namespace CitrusDB.View.AddStudent
             // pictureBoxFirstPhoto
             // 
             this.pictureBoxFirstPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxFirstPhoto.Location = new System.Drawing.Point(392, 233);
+            this.pictureBoxFirstPhoto.Location = new System.Drawing.Point(393, 39);
             this.pictureBoxFirstPhoto.Name = "pictureBoxFirstPhoto";
             this.pictureBoxFirstPhoto.Size = new System.Drawing.Size(145, 158);
             this.pictureBoxFirstPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -764,19 +777,6 @@ namespace CitrusDB.View.AddStudent
             this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
-            // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
-            this.collapsedButton.Location = new System.Drawing.Point(6, 3);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(35, 34);
-            this.collapsedButton.TabIndex = 28;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.swingButton_Click);
             // 
             // AddStudentBoard
             // 

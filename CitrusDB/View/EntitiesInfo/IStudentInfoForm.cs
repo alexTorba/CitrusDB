@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CitrusDB.Model.Entity;
 namespace CitrusDB.View.EntitiesInfo
 {
     interface IStudentInfoForm
@@ -18,7 +19,8 @@ namespace CitrusDB.View.EntitiesInfo
         string Weight { get; set; }
         string Сitizenship { get; set; }
         string KnowledgeOfLanguage { get; set; }
-        string GroupName { get; set; }
+
+        Group Group { get; set; }
 
         Image FirstPhoto { set; }
         Image SecondPhoto { set; }

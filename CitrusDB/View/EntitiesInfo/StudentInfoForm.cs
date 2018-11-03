@@ -1,4 +1,5 @@
-﻿using CitrusDB.Presenter;
+﻿using CitrusDB.Model.Entity;
+using CitrusDB.Presenter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace CitrusDB.View.EntitiesInfo
 
         Image firstPhoto;
         Image secondPhoto;
+        Group group;
 
         bool firstPhotoLock = false;
         bool secondPhotoLock = false;
@@ -41,10 +43,19 @@ namespace CitrusDB.View.EntitiesInfo
         string IStudentInfoForm.Height { get => heightValue.Text; set => heightValue.Text = value; }
         public string Сitizenship { get => citizenshipValue.Text; set => citizenshipValue.Text = value; }
         public string KnowledgeOfLanguage { get => knowledgeOfLanguageValue.Text; set => knowledgeOfLanguageValue.Text = value; }
-        public string GroupName { get => throw new NotImplementedException(); set => groupValue.Text = value; }
 
-        public Image FirstPhoto { set => firstPhoto = value; }
+        public Group Group
+        {
+            get => group;
+            set
+            {
+                group = value;
+                groupValue.Text = group?.ToString() ?? "without group";
+            }
+        }
+
         public Image SecondPhoto { set => secondPhoto = value; }
+        public Image FirstPhoto { set => firstPhoto = value; }
 
         public event EventHandler FormLoad;
 
@@ -54,7 +65,15 @@ namespace CitrusDB.View.EntitiesInfo
         {
             FormLoad.Invoke(sender, e);
 
-            timer = new System.Threading.Timer(ChangePhoto, null, 0, 1270);
+            SetPhoto();
+        }
+
+        private void SetPhoto()
+        {
+            if (secondPhoto == null)
+                photoPictureBox.Image = firstPhoto;
+            else
+                timer = new System.Threading.Timer(ChangePhoto, null, 0, 1270);
         }
 
         private void ChangePhoto(object state)

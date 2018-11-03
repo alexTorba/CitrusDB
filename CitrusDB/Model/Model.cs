@@ -34,6 +34,8 @@ namespace CitrusDB.Model
 
         public TEntity GetEntityById<TEntity>(int id) where TEntity : class
         {
+            if (id < 0)
+                return null;
             return EFGenericRepository<TEntity>.FindById(id);
         }
 
@@ -42,7 +44,7 @@ namespace CitrusDB.Model
             return (List<TEntity>)EFGenericRepository<TEntity>.GetWithInclude(includeProperties);
         }
 
-        public List<TEntity> GetWithInclude<TEntity>(Func<TEntity, bool> predicate, 
+        public List<TEntity> GetWithInclude<TEntity>(Func<TEntity, bool> predicate,
             params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : class
         {
             return (List<TEntity>)EFGenericRepository<TEntity>.GetWithInclude(predicate, includeProperties);
