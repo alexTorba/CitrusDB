@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -76,6 +77,7 @@ namespace CitrusDB.Model.DataBaseLogic
             context.Entry(entity).State = EntityState.Modified;
         }
 
+
         public static void SaveChanges()
         {
             context.SaveChanges();
@@ -85,5 +87,26 @@ namespace CitrusDB.Model.DataBaseLogic
         {
             await context.SaveChangesAsync();
         }
+
+        public static IEnumerable<TEntity> GetWithInclude(Func<TEntity, bool> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            return Include(includeProperties).Where(predicate).ToList();
+        }
+
+        public static IEnumerable<TEntity> GetWithInclude(params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            return Include(includeProperties).ToList();
+        }
+
+        private static IQueryable<TEntity> Include(params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = context.Set<TEntity>().AsQueryable();
+
+            return includeProperties
+                .Aggregate(query,
+                    (current, includeProperty) => current.Include(includeProperty)
+                );
+        }
+
     }
 }
