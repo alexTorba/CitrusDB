@@ -48,7 +48,6 @@ namespace CitrusDB.View.AddStudent
             this.knowledgeOfLanguageTextbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.flowLayoutPanelAddBoard = new System.Windows.Forms.FlowLayoutPanel();
             this.swingPanel = new System.Windows.Forms.Panel();
-            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.generateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
@@ -69,6 +68,7 @@ namespace CitrusDB.View.AddStudent
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchGroupTextBox = new System.Windows.Forms.TextBox();
+            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.flowLayoutPanelAddBoard.SuspendLayout();
             this.swingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
@@ -497,19 +497,6 @@ namespace CitrusDB.View.AddStudent
             this.swingPanel.TabIndex = 20;
             this.swingPanel.Tag = false;
             // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
-            this.collapsedButton.Location = new System.Drawing.Point(6, 3);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(35, 34);
-            this.collapsedButton.TabIndex = 28;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.swingButton_Click);
-            // 
             // generateButton
             // 
             this.generateButton.BackColor = System.Drawing.Color.Firebrick;
@@ -680,10 +667,10 @@ namespace CitrusDB.View.AddStudent
             // groupsFlowPanel
             // 
             this.groupsFlowPanel.AutoScroll = true;
-            this.groupsFlowPanel.BackColor = System.Drawing.Color.LightGray;
-            this.groupsFlowPanel.Location = new System.Drawing.Point(594, 88);
+            this.groupsFlowPanel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.groupsFlowPanel.Location = new System.Drawing.Point(597, 88);
             this.groupsFlowPanel.Name = "groupsFlowPanel";
-            this.groupsFlowPanel.Size = new System.Drawing.Size(320, 505);
+            this.groupsFlowPanel.Size = new System.Drawing.Size(320, 510);
             this.groupsFlowPanel.TabIndex = 28;
             // 
             // progressBar
@@ -734,23 +721,23 @@ namespace CitrusDB.View.AddStudent
             // bunifuSeparator1
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.bunifuSeparator1.LineThickness = 15;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(579, 0);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(582, 0);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(15, 602);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(15, 598);
             this.bunifuSeparator1.TabIndex = 29;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.LightGray;
+            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(5, 10);
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(5, 11);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(310, 30);
@@ -760,10 +747,10 @@ namespace CitrusDB.View.AddStudent
             // 
             // searchPanel
             // 
-            this.searchPanel.BackColor = System.Drawing.Color.LightGray;
+            this.searchPanel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.searchPanel.Controls.Add(this.searchGroupTextBox);
             this.searchPanel.Controls.Add(this.textBox1);
-            this.searchPanel.Location = new System.Drawing.Point(594, 0);
+            this.searchPanel.Location = new System.Drawing.Point(597, 0);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(320, 89);
             this.searchPanel.TabIndex = 31;
@@ -771,12 +758,25 @@ namespace CitrusDB.View.AddStudent
             // searchGroupTextBox
             // 
             this.searchGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchGroupTextBox.Location = new System.Drawing.Point(6, 51);
+            this.searchGroupTextBox.Location = new System.Drawing.Point(10, 51);
             this.searchGroupTextBox.Multiline = true;
             this.searchGroupTextBox.Name = "searchGroupTextBox";
             this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
+            // 
+            // collapsedButton
+            // 
+            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
+            this.collapsedButton.Location = new System.Drawing.Point(6, 3);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(35, 34);
+            this.collapsedButton.TabIndex = 28;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.swingButton_Click);
             // 
             // AddStudentBoard
             // 

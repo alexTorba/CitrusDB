@@ -55,10 +55,10 @@ namespace CitrusDB.View
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addGroupBoard = new CitrusDB.View.AddGroup.AddGroupBoard();
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
-            this.addStudentBoard = new AddStudentBoard();
+            this.addStudentBoard = new CitrusDB.View.AddStudent.AddStudentBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.addGroupBoard = new AddGroupBoard();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -331,36 +331,40 @@ namespace CitrusDB.View
             this.flowLayoutPanel1.Size = new System.Drawing.Size(169, 391);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
+            // addGroupBoard
+            // 
+            this.addGroupBoard.CountOfAddedStudent = "0";
+            this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
+            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 152, 3, 152);
+            this.addGroupBoard.Name = "addGroupBoard";
+            this.addGroupBoard.Size = new System.Drawing.Size(917, 598);
+            this.addGroupBoard.TabIndex = 12;
+            // 
             // dataBoard
             // 
             this.dataBoard.BackColor = System.Drawing.SystemColors.Control;
             this.dataBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataBoard.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataBoard.GetDataSource = null;
             this.dataBoard.Location = new System.Drawing.Point(188, 31);
+            this.dataBoard.Margin = new System.Windows.Forms.Padding(4);
             this.dataBoard.Name = "dataBoard";
             this.dataBoard.Size = new System.Drawing.Size(917, 598);
             this.dataBoard.TabIndex = 11;
             // 
             // addStudentBoard
             // 
+            this.addStudentBoard.DateOfBirth = "1.1.1960";
             this.addStudentBoard.Location = new System.Drawing.Point(188, 31);
             this.addStudentBoard.Name = "addStudentBoard";
+            this.addStudentBoard.ProgressBarValue = 0;
             this.addStudentBoard.Size = new System.Drawing.Size(917, 598);
             this.addStudentBoard.TabIndex = 10;
             // 
             // studentBindingSource
             // 
-            this.studentBindingSource.DataSource = typeof(Student);
-            // 
-            // addGroupBoard
-            // 
-            this.addGroupBoard.CountOfAddedStudent = "0";
-            this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
-            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.addGroupBoard.Name = "addGroupBoard";
-            this.addGroupBoard.Size = new System.Drawing.Size(917, 598);
-            this.addGroupBoard.TabIndex = 12;
+            this.studentBindingSource.DataSource = typeof(CitrusDB.Model.Entity.Student);
             // 
             // MainForm
             // 

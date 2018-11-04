@@ -13,11 +13,17 @@ namespace CitrusDB.View.AddStudent.GroupViews
 {
     public partial class GroupViewBoard : UserControl, IGroupView
     {
+
+        Color initColor;
+
         public GroupViewBoard()
         {
             InitializeComponent();
 
             SetMouseClickHandler();
+
+            initColor = colorSeparator1.LineColor;
+            FrameColor = Color.Green;
         }
 
         #region IGroupView
@@ -32,6 +38,8 @@ namespace CitrusDB.View.AddStudent.GroupViews
             set => countLabel.Text = value.ToString();
         }
 
+        public Color FrameColor { get; set; }
+
         public object Clone()
         {
             IGroupView groupView = new GroupViewBoard
@@ -44,7 +52,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
             return groupView;
         }
 
-        public IGroupView FillGroup(CitrusDB.Model.Entity.GroupView group)
+        public IGroupView FillGroup(GroupView group)
         {
             nameLabel.Text = group.Name;
             photoGroupPictureBox.Image = group.Photo.ConvertByteArrToImage();
@@ -59,17 +67,30 @@ namespace CitrusDB.View.AddStudent.GroupViews
         private void SetMouseClickHandler()
         {
             foreach (Control control in Controls)
-                control.MouseClick += MouseClickHandler;
+                control.Click += MouseClickHandler;
 
-            MouseClick += MouseClickHandler;
+            Click += MouseClickHandler;
         }
 
-        private void MouseClickHandler(object sender, MouseEventArgs e)
+        private void MouseClickHandler(object sender, EventArgs e)
         {
-            if (selectedPictureBox.Visible == false)
-                selectedPictureBox.Visible = true;
-            else selectedPictureBox.Visible = false;
+            if (colorSeparator1.LineColor == initColor)
+                ChangeColor(Color.LimeGreen);
+            else
+                ChangeColor(initColor);
         }
-        
+
+        private void ChangeColor(Color color)
+        {
+            colorSeparator1.LineColor = color;
+            colorSeparator2.LineColor = color;
+            colorSeparator3.LineColor = color;
+            colorSeparator4.LineColor = color;
+        }
+
+        private void colorSeparator4_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

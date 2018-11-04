@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.AddStudent.GroupViews
@@ -9,7 +10,8 @@ namespace CitrusDB.View.AddStudent.GroupViews
         string GroupName { get; set; }
         int CountOfStudent { get; set; }
 
-        IGroupView FillGroup(CitrusDB.Model.Entity.GroupView group);
+        IGroupView FillGroup(GroupView group);
 
+        Color FrameColor { get; set; }
     }
 }
