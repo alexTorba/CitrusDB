@@ -18,7 +18,7 @@ namespace CitrusDB.Model.DataBaseLogic
         static EFGenericRepository()
         {
             context = new CitrusDbContext();
-            context.Database.Log = s => Console.WriteLine(s);
+            //context.Database.Log = s => Console.WriteLine(s);
         }
 
         public static void Create(TEntity entity)

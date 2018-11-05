@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ using System.Windows.Forms;
 using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.AddGroup;
+using CitrusDB.View.AddGroup.StudentView;
 
 namespace CitrusDB.Presenter
 {
@@ -17,8 +19,8 @@ namespace CitrusDB.Presenter
         readonly IStudentView studentView;
         readonly IStudentView addedStudentView;
         readonly Model.Model model = new Model.Model();
-        private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
+        TaskInfo currentTask = null;
 
         public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView,
             IStudentView addedStudentView)
@@ -45,7 +47,7 @@ namespace CitrusDB.Presenter
         {
             //todo: реализовать отмену неактуальной задачи.
             List<Student> students = new List<Student>();
-            
+
             foreach (IStudentView student in addGroupBoard.AddedStudentControlCollection)
                 students.Add(model.GetEntityById<Student>(student.GetStudentId));
 
@@ -83,7 +85,8 @@ namespace CitrusDB.Presenter
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
             List<Student> students = model.GetEntities<Student>().ToList();
-            FillControlCollection(students);
+
+            FillInitControlCollection(students, new CancellationToken());
         }
 
         private void AddStudentButton_Click(object sender, EventArgs e)
@@ -120,27 +123,44 @@ namespace CitrusDB.Presenter
                 addGroupBoard.AddedStudentControlCollection.Count.ToString();
         }
 
-        private async void AddGroupBoard_CurrentStudentSearchTextBoxChanges(object sender, EventArgs e)
+        private void AddGroupBoard_CurrentStudentSearchTextBoxChanges(object sender, EventArgs e)
         {
-            addGroupBoard.DisableCurrentStudentPanel();
+            currentTask?.CancelTask();
 
-            List<Student> result = await GetStudentWithFilterExceptAddedStudent((sender as TextBox).Text);
-
-            addGroupBoard.CurrentStudentControlCollection.Clear();
-
-            await FillControlCollection(result);
-
-            addGroupBoard.EnableCurrentStudentPanel();
+            currentTask = new TaskInfo(SearchStudent, sender);
         }
 
         #endregion
+
+        private async void SearchStudent(object sender, CancellationToken token)
+        {
+            try
+            {
+                addGroupBoard.DisableCurrentStudentPanel();
+
+                List<Student> result = await GetStudentWithExceptedAddedStudent((sender as TextBox).Text, token);
+
+                await FillControlCollection(result, token);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+            finally
+            {
+                addGroupBoard.EnableCurrentStudentPanel();
+            }
+
+            Console.WriteLine($"SUCCESSFUL" + Environment.NewLine);
+        }
 
         /// <summary>
         /// Асинхронный выбор студентов, учитывая фильтр (searchTextBox.Text) и вычитание из результата уже добавленных студентов(addedStudentFlowPanel).
         /// </summary>
         /// <param name="condition">Условие, по которому будет формироваться выборка студентов.</param>
         /// <returns></returns>
-        private async Task<List<Student>> GetStudentWithFilterExceptAddedStudent(string condition)
+        private async Task<List<Student>> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
         {
             return await Task.Factory.StartNew(() =>
              {
@@ -156,7 +176,7 @@ namespace CitrusDB.Presenter
                                                  .Select(s => model.GetEntityById<Student>(s.GetStudentId));
 
                  return students.Except(addedStudent).ToList();
-             });
+             }, token);
         }
 
         /// <summary>
@@ -164,9 +184,46 @@ namespace CitrusDB.Presenter
         /// </summary>
         /// <param name="students">Коллекция, которая будет трансформироваться в StudentViewBoard и помещаться в CurrentStudentControlCollection</param>
         /// <returns></returns>
-        private async Task FillControlCollection(List<Student> students)
+        private async Task FillControlCollection(List<Student> students, CancellationToken token)
+        {
+            var controls = await CreateControlCollection(students, token);
+
+            if (await СollectionEqualityTest(controls)) return;
+
+            addGroupBoard.CurrentStudentControlCollection.Clear();
+
+            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
+        }
+
+        private async void FillInitControlCollection(List<Student> students, CancellationToken token)
+        {
+            var controls = await CreateControlCollection(students, token);
+
+            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
+        }
+
+        private async Task<bool> СollectionEqualityTest(List<Control> newControls)
+        {
+            return await Task<bool>.Factory.StartNew(() =>
+            {
+                var current = addGroupBoard.CurrentStudentControlCollection.Cast<Control>();
+
+                int countSameValues = current.Count() == newControls.Count()
+                                   ? current.Except(newControls).Count()
+                                   : -1;
+
+                Console.WriteLine($"countSameValues - {countSameValues}");
+                if (countSameValues == 0)
+                    return true;
+
+                return false;
+            });
+        }
+
+        private async Task<List<Control>> CreateControlCollection(List<Student> students, CancellationToken token)
         {
             List<Control> controls = new List<Control>();
+
             await Task.Factory.StartNew(() =>
             {
                 List<IStudentView> rezult = studentView.CreateListViews(students.Count);
@@ -178,9 +235,9 @@ namespace CitrusDB.Presenter
 
                     controls.Add((Control)view);
                 }
-            });
+            }, token);
 
-            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
+            return controls;
         }
 
 

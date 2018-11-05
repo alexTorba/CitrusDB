@@ -95,7 +95,7 @@ namespace CitrusDB.View.AddGroup
         {
             CurrentStudentSearchTextBoxChanges.Invoke(sender, e);
         }
-        
+
         #endregion
 
         #region Event Handlers

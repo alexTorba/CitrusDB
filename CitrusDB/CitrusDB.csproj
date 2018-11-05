@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FDD114AF-D72D-4EC7-A9BC-7734A9E169CD}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CitrusDB</RootNamespace>
     <AssemblyName>CitrusDB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -91,6 +91,7 @@
     <Compile Include="Model\ExtensionControls.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
+    <Compile Include="Model\TaskInfo.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
