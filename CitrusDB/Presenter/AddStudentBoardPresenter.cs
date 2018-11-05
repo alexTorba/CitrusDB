@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
+using System.Linq.Expressions;
 
 using CitrusDB.Model;
 using CitrusDB.Model.Entity;
@@ -117,7 +119,7 @@ namespace CitrusDB.Presenter
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)
         {
-            List<Model.Entity.GroupView> groups = model.GetEntityView<GroupView>();
+            List<GroupView> groups = model.GetEntityView<GroupView>().ToList();
             List<IGroupView> listGroupViews = groupView.CreateListViews(groups.Count);
 
             for (int i = 0; i < listGroupViews.Count; i++)

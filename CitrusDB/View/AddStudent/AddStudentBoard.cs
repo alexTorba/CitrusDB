@@ -181,18 +181,18 @@ namespace CitrusDB.View.AddStudent
 
         private void progressBar_ProgressChanged(object sender, EventArgs e)
         {
-            //if (progressBar.Value == 100)
-            //{
-            //    saveButton.Enabled = true;
-            //    groupsFlowPanel.Enabled = true;
-            //    searchPanel.Enabled = true;
-            //}
-            //else
-            //{
-            //    saveButton.Enabled = false;
-            //    groupsFlowPanel.Enabled = false;
-            //    searchPanel.Enabled = false;
-            //}
+            if (progressBar.Value == 100)
+            {
+                saveButton.Enabled = true;
+                groupsFlowPanel.Enabled = true;
+                searchPanel.Enabled = true;
+            }
+            else
+            {
+                saveButton.Enabled = false;
+                groupsFlowPanel.Enabled = false;
+                searchPanel.Enabled = false;
+            }
         }
 
         #endregion

@@ -45,7 +45,7 @@ namespace CitrusDB.Presenter
         {
             //todo: реализовать отмену неактуальной задачи.
             List<Student> students = new List<Student>();
-
+            
             foreach (IStudentView student in addGroupBoard.AddedStudentControlCollection)
                 students.Add(model.GetEntityById<Student>(student.GetStudentId));
 
@@ -82,7 +82,7 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            List<Student> students = model.GetEntities<Student>();
+            List<Student> students = model.GetEntities<Student>().ToList();
             FillControlCollection(students);
         }
 
@@ -144,13 +144,11 @@ namespace CitrusDB.Presenter
         {
             return await Task.Factory.StartNew(() =>
              {
-                 IEnumerable<Student> students;
+                 IEnumerable<Student> students = model.GetEntities<Student>();
 
-                 if (condition == string.Empty)
-                     students = model.GetEntities<Student>();
-                 else
-                     students = model.GetEntities<Student>()
-                                     .Where(s => s.FirstName.ToUpperInvariant()
+                 if (condition != string.Empty)
+                     students = students
+                                       .Where(s => s.FirstName.ToUpperInvariant()
                                                   .Contains(condition.ToUpperInvariant()));
 
                  var addedStudent = addGroupBoard.AddedStudentControlCollection

@@ -17,19 +17,19 @@ namespace CitrusDB.Model
 
         #region New
 
-        public List<TEntity> GetEntities<TEntity>() where TEntity : class
+        public IEnumerable<TEntity> GetEntities<TEntity>() where TEntity : class
         {
-            return (List<TEntity>)EFGenericRepository<TEntity>.Get();
+            return EFGenericRepository<TEntity>.Get();
         }
 
-        public List<TEntity> GetEntities<TEntity>(Func<TEntity, bool> predicate) where TEntity : class
+        public IEnumerable<TEntity> GetEntities<TEntity>(Func<TEntity, bool> predicate) where TEntity : class
         {
-            return (List<TEntity>)EFGenericRepository<TEntity>.Get(predicate);
+            return EFGenericRepository<TEntity>.Get(predicate);
         }
 
-        public List<TEntity> GetEntityView<TEntity>() where TEntity : class
+        public IEnumerable<TEntity> GetEntityView<TEntity>() where TEntity : class
         {
-            return (List<TEntity>)EFGenericRepository<TEntity>.GetView();
+            return EFGenericRepository<TEntity>.GetView();
         }
 
         public TEntity GetEntityById<TEntity>(int id) where TEntity : class
@@ -39,15 +39,15 @@ namespace CitrusDB.Model
             return EFGenericRepository<TEntity>.FindById(id);
         }
 
-        public List<TEntity> GetWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : class
+        public IEnumerable<TEntity> GetWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : class
         {
-            return (List<TEntity>)EFGenericRepository<TEntity>.GetWithInclude(includeProperties);
+            return EFGenericRepository<TEntity>.GetWithInclude(includeProperties);
         }
 
-        public List<TEntity> GetWithInclude<TEntity>(Func<TEntity, bool> predicate,
+        public IEnumerable<TEntity> GetWithInclude<TEntity>(Func<TEntity, bool> predicate,
             params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : class
         {
-            return (List<TEntity>)EFGenericRepository<TEntity>.GetWithInclude(predicate, includeProperties);
+            return EFGenericRepository<TEntity>.GetWithInclude(predicate, includeProperties);
         }
 
 

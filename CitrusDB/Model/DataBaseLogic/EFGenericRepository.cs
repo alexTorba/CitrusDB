@@ -43,33 +43,33 @@ namespace CitrusDB.Model.DataBaseLogic
         {
             //is fill local ? 
             return context.Set<TEntity>()
-                .ToList();
+                .AsEnumerable();
         }
 
         public static IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
         {
             //is fill local ?
             return context.Set<TEntity>()
-                .Where(predicate).ToList();
+                .Where(predicate);
         }
 
         public static IEnumerable<TEntity> GetForRead()
         {
             return context.Set<TEntity>()
-                .AsNoTracking().ToList();
+                .AsNoTracking().AsEnumerable();
         }
 
         public static IEnumerable<TEntity> GetForRead(Func<TEntity, bool> predicate)
         {
             return context.Set<TEntity>()
-                .AsNoTracking().Where(predicate).ToList();
+                .AsNoTracking().Where(predicate);
         }
 
         public static IEnumerable<TEntity> GetView()
         {
             string par = typeof(TEntity).Name.Trim();
             return context.Database
-                .SqlQuery<TEntity>($"SELECT * FROM {par}").ToList();
+                .SqlQuery<TEntity>($"SELECT * FROM {par}").AsEnumerable();
         }
 
         public static void Update(TEntity entity)
@@ -90,12 +90,12 @@ namespace CitrusDB.Model.DataBaseLogic
 
         public static IEnumerable<TEntity> GetWithInclude(Func<TEntity, bool> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            return Include(includeProperties).Where(predicate).ToList();
+            return Include(includeProperties).Where(predicate);
         }
 
         public static IEnumerable<TEntity> GetWithInclude(params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            return Include(includeProperties).ToList();
+            return Include(includeProperties).AsEnumerable();
         }
 
         private static IQueryable<TEntity> Include(params Expression<Func<TEntity, object>>[] includeProperties)
