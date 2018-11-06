@@ -6,7 +6,6 @@ namespace CitrusDB.Presenter
     class MainFormPresenter
     {
         IMainForm mainFormView;
-        Model.Model model = new Model.Model();
 
         public MainFormPresenter(IMainForm mainForm)
         {

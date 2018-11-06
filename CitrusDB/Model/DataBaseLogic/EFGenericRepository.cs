@@ -11,9 +11,9 @@ using CitrusDB.Model.Entity;
 
 namespace CitrusDB.Model.DataBaseLogic
 {
-    static class EFGenericRepository<TEntity> where TEntity : class
+    static class EFGenericRepository
     {
-        static readonly CitrusDbContext context;
+        static readonly DbContext context;
 
         static EFGenericRepository()
         {
@@ -21,62 +21,58 @@ namespace CitrusDB.Model.DataBaseLogic
             //context.Database.Log = s => Console.WriteLine(s);
         }
 
-        public static void Create(TEntity entity)
+        public static void Create<TEntity>(TEntity entity) where TEntity : class
         {
-            context.Set<TEntity>()
-                .Add(entity);
+            context.Set<TEntity>().Local.Add(entity);
         }
 
-        public static void Delete(TEntity entity)
+        public static void Delete<TEntity>(TEntity entity) where TEntity : class
         {
             context.Set<TEntity>()
                 .Remove(entity);
         }
 
-        public static TEntity FindById(int id)
+        public static TEntity FindById<TEntity>(int id) where TEntity : class
         {
             return context.Set<TEntity>()
                 .Find(id);
         }
 
-        public static IEnumerable<TEntity> Get()
+        public static IEnumerable<TEntity> Get<TEntity>() where TEntity : class
         {
-            //is fill local ? 
-            return context.Set<TEntity>()
-                .AsEnumerable();
+            context.Set<TEntity>().Load();
+            return context.Set<TEntity>().AsEnumerable();
         }
 
-        public static IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
+        public static IEnumerable<TEntity> Get<TEntity>(Func<TEntity, bool> predicate) where TEntity : class
         {
-            //is fill local ?
             return context.Set<TEntity>()
                 .Where(predicate);
         }
 
-        public static IEnumerable<TEntity> GetForRead()
+        public static IEnumerable<TEntity> GetForRead<TEntity>() where TEntity : class
         {
             return context.Set<TEntity>()
                 .AsNoTracking().AsEnumerable();
         }
 
-        public static IEnumerable<TEntity> GetForRead(Func<TEntity, bool> predicate)
+        public static IEnumerable<TEntity> GetForRead<TEntity>(Func<TEntity, bool> predicate) where TEntity : class
         {
             return context.Set<TEntity>()
                 .AsNoTracking().Where(predicate);
         }
 
-        public static IEnumerable<TEntity> GetView()
+        public static IEnumerable<TEntity> GetView<TEntity>() where TEntity : class
         {
             string par = typeof(TEntity).Name.Trim();
             return context.Database
                 .SqlQuery<TEntity>($"SELECT * FROM {par}").AsEnumerable();
         }
 
-        public static void Update(TEntity entity)
+        public static void Update<TEntity>(TEntity entity) where TEntity : class
         {
             context.Entry(entity).State = EntityState.Modified;
         }
-
 
         public static void SaveChanges()
         {
@@ -88,17 +84,21 @@ namespace CitrusDB.Model.DataBaseLogic
             await context.SaveChangesAsync();
         }
 
-        public static IEnumerable<TEntity> GetWithInclude(Func<TEntity, bool> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
+        public static IEnumerable<TEntity> GetWithInclude<TEntity>
+            (Func<TEntity, bool> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
+            where TEntity : class
         {
             return Include(includeProperties).Where(predicate);
         }
 
-        public static IEnumerable<TEntity> GetWithInclude(params Expression<Func<TEntity, object>>[] includeProperties)
+        public static IEnumerable<TEntity> GetWithInclude<TEntity>
+            (params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : class
         {
             return Include(includeProperties).AsEnumerable();
         }
 
-        private static IQueryable<TEntity> Include(params Expression<Func<TEntity, object>>[] includeProperties)
+        private static IQueryable<TEntity> Include<TEntity>
+            (params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : class
         {
             IQueryable<TEntity> query = context.Set<TEntity>().AsQueryable();
 

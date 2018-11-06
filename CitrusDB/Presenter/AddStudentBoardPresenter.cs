@@ -8,6 +8,7 @@ using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.AddStudent;
 using CitrusDB.View.AddStudent.GroupViews;
+using CitrusDB.Model.DataBaseLogic;
 
 namespace CitrusDB.Presenter
 {
@@ -16,7 +17,6 @@ namespace CitrusDB.Presenter
 
         readonly IAddStudentBoard addStudentBoard;
         readonly IGroupView groupView;
-        Model.Model model = new Model.Model();
         Validate validate = new Validate();
 
         public AddStudentBoardPresenter(IAddStudentBoard addStudentBoard, IGroupView groupView)
@@ -114,12 +114,14 @@ namespace CitrusDB.Presenter
                 KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage
             };
 
-            model.Add(student);
+            EFGenericRepository.Create(student);
+            //todo: убрать обращение к представлениям в бд
+            EFGenericRepository.SaveChanges();
         }
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)
         {
-            List<GroupView> groups = model.GetEntityView<GroupView>().ToList();
+            List<GroupView> groups = EFGenericRepository.GetView<GroupView>().ToList();
             List<IGroupView> listGroupViews = groupView.CreateListViews(groups.Count);
 
             for (int i = 0; i < listGroupViews.Count; i++)

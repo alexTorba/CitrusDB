@@ -1,4 +1,5 @@
 ﻿using System;
+using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.EntitiesInfo;
 using CitrusDB.View.EntitiesInfo.StudentInfo;
@@ -7,8 +8,6 @@ namespace CitrusDB.Presenter
 {
     class StudentInfoFormPresenter
     {
-
-        readonly Model.Model model = new Model.Model();
         readonly IStudentInfoForm studentInfoForm;
 
         public StudentInfoFormPresenter(IStudentInfoForm studentInfoForm)
@@ -20,7 +19,7 @@ namespace CitrusDB.Presenter
 
         private void StudentInfoForm_FormLoad(object sender, EventArgs e)
         {
-            var student = model.GetEntityById<Student>(studentInfoForm.Id);
+            var student = EFGenericRepository.FindById<Student>(studentInfoForm.Id);
 
             FillView(student);
         }
@@ -35,7 +34,7 @@ namespace CitrusDB.Presenter
             studentInfoForm.Сitizenship = student.Сitizenship;
             studentInfoForm.KnowledgeOfLanguage = student.KnowledgeOfLanguage;
             studentInfoForm.DateOfBirth = student.DateOfBirth;
-            studentInfoForm.Group = model.GetEntityById<Group>(student.GroupId ?? -1);
+            studentInfoForm.Group = EFGenericRepository.FindById<Group>(student.GroupId ?? -1);
 
             studentInfoForm.FirstPhoto = student.FirstPhoto.ConvertByteArrToImage();
             studentInfoForm.SecondPhoto = student.SecondPhoto.ConvertByteArrToImage();
