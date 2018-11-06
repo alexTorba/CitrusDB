@@ -95,6 +95,7 @@
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
+    <Compile Include="Presenter\GroupInfoFormPresenter.cs" />
     <Compile Include="Presenter\StudentInfoFormPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
     <Compile Include="Presenter\MainFormPresenter.cs" />
@@ -138,11 +139,18 @@
     </Compile>
     <Compile Include="View\AddStudent\IAddStudentBoard.cs" />
     <Compile Include="View\DataBoard\IDataBoard.cs" />
-    <Compile Include="View\EntitiesInfo\IStudentInfoForm.cs" />
-    <Compile Include="View\EntitiesInfo\StudentInfoForm.cs">
+    <Compile Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EntitiesInfo\StudentInfoForm.Designer.cs">
+    <Compile Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.Designer.cs">
+      <DependentUpon>GroupInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EntitiesInfo\GroupInfo\IGroupInfoForm.cs" />
+    <Compile Include="View\EntitiesInfo\StudentInfo\IStudentInfoForm.cs" />
+    <Compile Include="View\EntitiesInfo\StudentInfo\StudentInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EntitiesInfo\StudentInfo\StudentInfoForm.Designer.cs">
       <DependentUpon>StudentInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IMainForm.cs" />
@@ -189,7 +197,10 @@
     <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EntitiesInfo\StudentInfoForm.resx">
+    <EmbeddedResource Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.resx">
+      <DependentUpon>GroupInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EntitiesInfo\StudentInfo\StudentInfoForm.resx">
       <DependentUpon>StudentInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">

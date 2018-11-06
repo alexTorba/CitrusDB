@@ -1,4 +1,4 @@
-﻿namespace CitrusDB.View.EntitiesInfo
+﻿namespace CitrusDB.View.EntitiesInfo.StudentInfo
 {
     partial class StudentInfoForm
     {

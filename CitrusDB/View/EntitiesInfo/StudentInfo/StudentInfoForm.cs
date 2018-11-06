@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB.View.EntitiesInfo
+namespace CitrusDB.View.EntitiesInfo.StudentInfo
 {
     public partial class StudentInfoForm : Form, IStudentInfoForm
     {

@@ -45,7 +45,7 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
-            //todo: реализовать отмену неактуальной задачи.
+            //todo: нужно ли сихнронизировать задачи в момент добавления в currentControlCol (может быть запрос с двойным результатом)
             List<Student> students = new List<Student>();
 
             foreach (IStudentView student in addGroupBoard.AddedStudentControlCollection)
@@ -164,6 +164,7 @@ namespace CitrusDB.Presenter
         {
             return await Task.Factory.StartNew(() =>
              {
+
                  IEnumerable<Student> students = model.GetEntities<Student>();
 
                  if (condition != string.Empty)
@@ -177,6 +178,7 @@ namespace CitrusDB.Presenter
 
                  return students.Except(addedStudent).ToList();
              }, token);
+
         }
 
         /// <summary>

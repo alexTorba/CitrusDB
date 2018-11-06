@@ -1,6 +1,7 @@
 ﻿using System;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.EntitiesInfo;
+using CitrusDB.View.EntitiesInfo.StudentInfo;
 
 namespace CitrusDB.Presenter
 {
