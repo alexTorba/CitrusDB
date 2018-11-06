@@ -47,12 +47,17 @@ namespace CitrusDB.View.DataBoard
             this.generPanelOptions = new System.Windows.Forms.Panel();
             this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panelGroup.SuspendLayout();
             this.flowGroupOptions.SuspendLayout();
             this.panelTables.SuspendLayout();
             this.generPanelOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGrid
@@ -77,9 +82,11 @@ namespace CitrusDB.View.DataBoard
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.HeaderBgColor = System.Drawing.SystemColors.Control;
             this.dataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dataGrid.Location = new System.Drawing.Point(4, 205);
+            this.dataGrid.Location = new System.Drawing.Point(4, 76);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -90,8 +97,11 @@ namespace CitrusDB.View.DataBoard
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.RowTemplate.Height = 24;
+            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(748, 576);
             this.dataGrid.TabIndex = 0;
+            this.dataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentDoubleClick);
+            this.dataGrid.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.dataGrid_CellContextMenuStripNeeded);
             // 
             // buttonTables
             // 
@@ -198,12 +208,12 @@ namespace CitrusDB.View.DataBoard
             this.generPanelOptions.Controls.Add(this.collapsedButton);
             this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Dock = System.Windows.Forms.DockStyle.Right;
-            this.generPanelOptions.Location = new System.Drawing.Point(777, 0);
+            this.generPanelOptions.Location = new System.Drawing.Point(1050, 0);
             this.generPanelOptions.Margin = new System.Windows.Forms.Padding(4);
-            this.generPanelOptions.MaximumSize = new System.Drawing.Size(334, 785);
-            this.generPanelOptions.MinimumSize = new System.Drawing.Size(61, 785);
+            this.generPanelOptions.MaximumSize = new System.Drawing.Size(334, 0);
+            this.generPanelOptions.MinimumSize = new System.Drawing.Size(61, 0);
             this.generPanelOptions.Name = "generPanelOptions";
-            this.generPanelOptions.Size = new System.Drawing.Size(334, 785);
+            this.generPanelOptions.Size = new System.Drawing.Size(61, 652);
             this.generPanelOptions.TabIndex = 6;
             this.generPanelOptions.Tag = false;
             // 
@@ -225,6 +235,40 @@ namespace CitrusDB.View.DataBoard
             // 
             this.studentBindingSource.DataSource = typeof(CitrusDB.Model.Entity.Student);
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.contextMenuStrip.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoToolStripMenuItem,
+            this.changeToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(139, 76);
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            // 
+            // changeToolStripMenuItem
+            // 
+            this.changeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.changeToolStripMenuItem.Name = "changeToolStripMenuItem";
+            this.changeToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.changeToolStripMenuItem.Text = "Change";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
             // DataBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -244,6 +288,7 @@ namespace CitrusDB.View.DataBoard
             this.panelTables.PerformLayout();
             this.generPanelOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -262,5 +307,9 @@ namespace CitrusDB.View.DataBoard
         private System.Windows.Forms.Panel generPanelOptions;
         private System.Windows.Forms.BindingSource studentBindingSource;
         private CirclusButton collapsedButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

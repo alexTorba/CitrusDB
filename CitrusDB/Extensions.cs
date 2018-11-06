@@ -70,6 +70,8 @@ namespace CitrusDB
 
         public static Image ConvertByteArrToImage(this byte[] arr)
         {
+            if(arr == null)
+                return null;
             using (MemoryStream stream = new MemoryStream(arr))
             {
                 return Image.FromStream(stream);

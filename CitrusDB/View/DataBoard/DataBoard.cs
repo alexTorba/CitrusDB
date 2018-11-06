@@ -11,6 +11,9 @@ using Bunifu.Framework.UI;
 
 using CitrusDB.Properties;
 using CitrusDB.Model;
+using CitrusDB.Model.Entity;
+using CitrusDB.View.EntitiesInfo.StudentInfo;
+using CitrusDB.View.EntitiesInfo.GroupInfo;
 
 namespace CitrusDB.View.DataBoard
 {
@@ -42,6 +45,7 @@ namespace CitrusDB.View.DataBoard
         public DataBoard()
         {
             InitializeComponent();
+
         }
 
         #region Forwarding Events
@@ -97,5 +101,26 @@ namespace CitrusDB.View.DataBoard
             this.mainForm = mainForm;
         }
 
+        private void dataGrid_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
+        {
+            if (e.ColumnIndex < 0 || e.RowIndex < 0) return;
+
+            dataGrid[e.ColumnIndex, e.RowIndex].Selected = true;
+            contextMenuStrip.Show(new Point(Cursor.Position.X, Cursor.Position.Y));
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = (int)dataGrid.SelectedCells[0].Value;
+
+            if (dataGrid.DataSource is ICollection<StudentView>)
+                new StudentInfoForm(id).ShowDialog();
+            else new GroupInfoForm(id).ShowDialog();
+        }
+
+        private void dataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            infoToolStripMenuItem_Click(sender, e);
+        }
     }
 }

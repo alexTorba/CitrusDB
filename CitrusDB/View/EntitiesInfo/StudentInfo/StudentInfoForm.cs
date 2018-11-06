@@ -19,7 +19,7 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
         Image secondPhoto;
         Group group;
 
-        bool firstPhotoLock = false;
+        bool firstPhotoLock = true;
         bool secondPhotoLock = false;
 
         System.Threading.Timer timer;
@@ -54,8 +54,8 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
             }
         }
 
-        public Image SecondPhoto { set => secondPhoto = value; }
         public Image FirstPhoto { set => firstPhoto = value; }
+        public Image SecondPhoto { set => secondPhoto = value; }
 
         public event EventHandler FormLoad;
 
@@ -70,7 +70,7 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
 
         private void SetPhoto()
         {
-            if (secondPhoto == null)
+            if (secondPhoto == null || firstPhoto == null)
                 photoPictureBox.Image = firstPhoto;
             else
                 timer = new System.Threading.Timer(ChangePhoto, null, 0, 1270);
@@ -92,5 +92,9 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
             }
         }
 
+        private void StudentInfoForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timer?.Dispose();
+        }
     }
 }

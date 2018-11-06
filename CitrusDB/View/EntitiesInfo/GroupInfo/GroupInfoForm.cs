@@ -49,5 +49,9 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
 
         #endregion
 
+        private void studentsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

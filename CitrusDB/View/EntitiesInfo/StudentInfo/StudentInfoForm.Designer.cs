@@ -63,6 +63,7 @@
             this.photoPictureBox.Location = new System.Drawing.Point(38, 29);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(130, 139);
+            this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.photoPictureBox.TabIndex = 0;
             this.photoPictureBox.TabStop = false;
             // 
@@ -319,7 +320,7 @@
             this.bunifuSeparator7.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator7.LineThickness = 1;
-            this.bunifuSeparator7.Location = new System.Drawing.Point(179, 99);
+            this.bunifuSeparator7.Location = new System.Drawing.Point(179, 100);
             this.bunifuSeparator7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator7.Name = "bunifuSeparator7";
             this.bunifuSeparator7.Size = new System.Drawing.Size(215, 10);
@@ -332,7 +333,7 @@
             this.bunifuSeparator8.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator8.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator8.LineThickness = 1;
-            this.bunifuSeparator8.Location = new System.Drawing.Point(179, 140);
+            this.bunifuSeparator8.Location = new System.Drawing.Point(179, 141);
             this.bunifuSeparator8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator8.Name = "bunifuSeparator8";
             this.bunifuSeparator8.Size = new System.Drawing.Size(215, 10);
@@ -371,6 +372,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentInfoForm";
             this.Text = "StudentInfoForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentInfoForm_FormClosed);
             this.Load += new System.EventHandler(this.StudentInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
