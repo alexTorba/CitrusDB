@@ -55,8 +55,8 @@ namespace CitrusDB.View.DataBoard
 
             radioButtonStudent.Checked = true;
 
-            if (dataGrid.Columns["Id"] != null)
-                dataGrid.Columns["Id"].Visible = false;
+            //if (dataGrid.Columns["Id"] != null)
+            //    dataGrid.Columns["Id"].Visible = false;
         }
 
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
@@ -94,11 +94,6 @@ namespace CitrusDB.View.DataBoard
         {
             DataBoard_Load(sender, EventArgs.Empty);
             radioButtonStudent.Checked = true;
-
-            //LoadDataBoard?.Invoke(null, EventArgs.Empty);
-            //dataGrid.Columns["Id"].Visible = false;
-            //LoadDataBoard?.Invoke(sender, e);
-            //dataGrid.Columns["Id"].Visible = false;
         }
 
 

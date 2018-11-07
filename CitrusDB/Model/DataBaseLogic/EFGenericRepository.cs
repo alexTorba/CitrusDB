@@ -20,7 +20,7 @@ namespace CitrusDB.Model.DataBaseLogic
             context = new CitrusDbContext();
             ((CitrusDbContext)context).Students.Include(s => s.Group).Load();
 
-            //context.Database.Log = s => Console.WriteLine(s);
+            context.Database.Log = s => Console.WriteLine(s);
         }
 
         public static void Create<TEntity>(TEntity entity) where TEntity : class
@@ -30,7 +30,7 @@ namespace CitrusDB.Model.DataBaseLogic
 
         public static void Delete<TEntity>(TEntity entity) where TEntity : class
         {
-            context.Set<TEntity>()
+            context.Set<TEntity>().Local
                 .Remove(entity);
         }
 
@@ -42,6 +42,8 @@ namespace CitrusDB.Model.DataBaseLogic
 
         public static IEnumerable<TEntity> Get<TEntity>() where TEntity : class
         {
+            var parameter = new SqlParameter("result", System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output };
+            context.Database.SqlQuery<int>("GetScopeIdentity @parameter", parameter);
             return context.Set<TEntity>().Local.AsEnumerable();
         }
 

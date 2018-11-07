@@ -36,6 +36,8 @@ namespace CitrusDB
                 mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
 
             Application.Run(mainForm);
+
+            Console.ReadKey();
         }
     }
 }

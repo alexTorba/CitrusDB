@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FDD114AF-D72D-4EC7-A9BC-7734A9E169CD}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CitrusDB</RootNamespace>
     <AssemblyName>CitrusDB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -84,6 +84,14 @@
     <Compile Include="Migrations\201811071332300_changed_views.cs" />
     <Compile Include="Migrations\201811071332300_changed_views.Designer.cs">
       <DependentUpon>201811071332300_changed_views.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071744097_change standart CRUD to stored procedure logic.cs" />
+    <Compile Include="Migrations\201811071744097_change standart CRUD to stored procedure logic.Designer.cs">
+      <DependentUpon>201811071744097_change standart CRUD to stored procedure logic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071802157_added_StoredProc_GetScopeIdentity.cs" />
+    <Compile Include="Migrations\201811071802157_added_StoredProc_GetScopeIdentity.Designer.cs">
+      <DependentUpon>201811071802157_added_StoredProc_GetScopeIdentity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\DataBaseLogic\CitrusDbContext.cs" />
@@ -186,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811071332300_changed_views.resx">
       <DependentUpon>201811071332300_changed_views.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071744097_change standart CRUD to stored procedure logic.resx">
+      <DependentUpon>201811071744097_change standart CRUD to stored procedure logic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071802157_added_StoredProc_GetScopeIdentity.resx">
+      <DependentUpon>201811071802157_added_StoredProc_GetScopeIdentity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.resx">
       <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>
