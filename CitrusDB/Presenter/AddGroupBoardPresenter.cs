@@ -59,7 +59,6 @@ namespace CitrusDB.Presenter
             };
 
             EFGenericRepository.Create(group);
-            //EFGenericRepository.SaveChanges();
             MessageBox.Show("Added group was sucessfule");
         }
 

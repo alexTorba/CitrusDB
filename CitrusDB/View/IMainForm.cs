@@ -9,5 +9,6 @@ namespace CitrusDB.View
     interface IMainForm
     {
         event EventHandler LoadMainForm;
+        event EventHandler ClosingMainForm;
     }
 }

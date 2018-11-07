@@ -102,21 +102,19 @@ namespace CitrusDB.Presenter
         {
             Student student = new Student
             {
-                FirstName = addStudentBoard.GetFirstName,
-                LastName = addStudentBoard.GetLastName,
-                MiddleName = addStudentBoard.GetMiddleName,
-                Сitizenship = addStudentBoard.GetCitizenship,
+                FirstName = addStudentBoard.GetFirstName.Trim(),
+                LastName = addStudentBoard.GetLastName.Trim(),
+                MiddleName = addStudentBoard.GetMiddleName.Trim(),
+                Сitizenship = addStudentBoard.GetCitizenship.Trim(),
                 FirstPhoto = addStudentBoard.GetFirstPhoto.ConvertImageToByteArr(),
                 SecondPhoto = addStudentBoard.GetSecondPhoto.ConvertImageToByteArr(),
-                DateOfBirth = addStudentBoard.DateOfBirth,
+                DateOfBirth = addStudentBoard.DateOfBirth.Trim(),
                 Height = addStudentBoard.GetGrowth,
                 Weight = addStudentBoard.GetWeight,
-                KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage
+                KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage.Trim()
             };
 
             EFGenericRepository.Create(student);
-            //todo: убрать обращение к представлениям в бд
-            //EFGenericRepository.SaveChanges();
         }
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)

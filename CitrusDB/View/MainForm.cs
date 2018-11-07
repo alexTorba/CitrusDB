@@ -23,6 +23,7 @@ namespace CitrusDB.View
         #region IMainForm
 
         public event EventHandler LoadMainForm;
+        public event EventHandler ClosingMainForm;
 
         #endregion
 
@@ -38,6 +39,11 @@ namespace CitrusDB.View
             LoadMainForm(sender, e);
 
             dataBoard.BringToFront();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ClosingMainForm.Invoke(sender, e);
         }
 
         #endregion
@@ -134,6 +140,6 @@ namespace CitrusDB.View
                 }
             }
         }
- 
+
     }
 }

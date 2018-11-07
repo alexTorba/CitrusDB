@@ -52,8 +52,11 @@ namespace CitrusDB.View.DataBoard
         private void DataBoard_Load(object sender, EventArgs e)
         {
             LoadDataBoard?.Invoke(null, EventArgs.Empty);
+
             radioButtonStudent.Checked = true;
-            dataGrid.Columns["Id"].Visible = false;
+
+            if (dataGrid.Columns["Id"] != null)
+                dataGrid.Columns["Id"].Visible = false;
         }
 
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
@@ -90,6 +93,10 @@ namespace CitrusDB.View.DataBoard
         private void radioButtonStudent_MouseClick(object sender, MouseEventArgs e)
         {
             DataBoard_Load(sender, EventArgs.Empty);
+            radioButtonStudent.Checked = true;
+
+            //LoadDataBoard?.Invoke(null, EventArgs.Empty);
+            //dataGrid.Columns["Id"].Visible = false;
             //LoadDataBoard?.Invoke(sender, e);
             //dataGrid.Columns["Id"].Visible = false;
         }
@@ -123,6 +130,6 @@ namespace CitrusDB.View.DataBoard
         {
             infoToolStripMenuItem_Click(sender, e);
         }
-        
+
     }
 }
