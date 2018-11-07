@@ -116,7 +116,7 @@ namespace CitrusDB.Presenter
 
             EFGenericRepository.Create(student);
             //todo: убрать обращение к представлениям в бд
-            EFGenericRepository.SaveChanges();
+            //EFGenericRepository.SaveChanges();
         }
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)

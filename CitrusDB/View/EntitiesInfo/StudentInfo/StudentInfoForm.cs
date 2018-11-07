@@ -91,10 +91,6 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
                 secondPhotoLock = false;
             }
         }
-
-        private void StudentInfoForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            timer?.Dispose();
-        }
+        
     }
 }

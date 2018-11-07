@@ -3,6 +3,7 @@ using System.Linq;
 
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
+using CitrusDB.Model;
 using CitrusDB.View.DataBoard;
 
 namespace CitrusDB.Presenter
@@ -20,12 +21,12 @@ namespace CitrusDB.Presenter
 
         private void DataBoard_GroupTableLoad(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = EFGenericRepository.GetView<GroupView>().ToList();
+            dataBoard.GetDataSource = EFGenericRepository.Get<Group>().GetView<Group,GroupView>().ToList();
         }
 
         private void DataBoard_LoadDataBoard(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = EFGenericRepository.GetView<StudentView>().ToList();
+            dataBoard.GetDataSource = EFGenericRepository.Get<Student>().GetView<Student, StudentView>().ToList();
         }
     }
 }

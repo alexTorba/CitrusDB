@@ -17,8 +17,8 @@ namespace CitrusDB.Model.DataBaseLogic
         public DbSet<Student> Students { get; set; }
         public DbSet<Group> Groups { get; set; }
 
-        public DbSet<StudentView> StudentViews { get; set; }
-        public DbSet<GroupView> GroupViews { get; set; }
+        //public DbSet<StudentView> StudentViews { get; set; }
+        //public DbSet<GroupView> GroupViews { get; set; }
 
     }
 }

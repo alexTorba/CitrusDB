@@ -14,6 +14,6 @@ namespace CitrusDB.Model.Entity
         public string LastName { get; set; }
         public string MiddleName { get; set; }
 
-        public string Group { get; set; }
+        public Group Group { get; set; }
     }
 }

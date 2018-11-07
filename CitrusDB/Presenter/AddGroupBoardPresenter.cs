@@ -14,7 +14,7 @@ using CitrusDB.Model.DataBaseLogic;
 
 namespace CitrusDB.Presenter
 {
-    class AddGroupBoardPresenter
+    class AddGroupBoardPresenter : IDisposable
     {
         readonly IAddGroupBoard addGroupBoard;
         readonly IStudentView studentView;
@@ -59,13 +59,13 @@ namespace CitrusDB.Presenter
             };
 
             EFGenericRepository.Create(group);
-            EFGenericRepository.SaveChanges();
+            //EFGenericRepository.SaveChanges();
             MessageBox.Show("Added group was sucessfule");
         }
 
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)
         {
-            addGroupBoard.ClearView();
+            addGroupBoard.ClearView(); 
 
             if (addGroupBoard.AddedStudentControlCollection.Count != 0)
             {
@@ -243,6 +243,9 @@ namespace CitrusDB.Presenter
             return controls;
         }
 
-
+        public void Dispose()
+        {
+            currentTask?.Dispose();
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CitrusDB.Model
 {
-    class TaskInfo
+    class TaskInfo : IDisposable
     {
         readonly Task task;
         readonly CancellationTokenSource tokenSource;
@@ -36,5 +36,10 @@ namespace CitrusDB.Model
             task.Dispose();
         }
 
+        public void Dispose()
+        {
+            task.Dispose();
+            tokenSource.Dispose();
+        }
     }
 }

@@ -33,8 +33,8 @@ namespace CitrusDB.View.DataBoard
         public void UpdateView()
         {
             if (radioButtonGroup.Checked == true)
-                GroupTableLoad.Invoke(null, EventArgs.Empty);
-            else LoadDataBoard.Invoke(null, EventArgs.Empty);
+                GroupTableLoad?.Invoke(null, EventArgs.Empty);
+            else LoadDataBoard?.Invoke(null, EventArgs.Empty);
         }
 
         public event EventHandler LoadDataBoard;
@@ -45,15 +45,24 @@ namespace CitrusDB.View.DataBoard
         public DataBoard()
         {
             InitializeComponent();
-
         }
 
         #region Forwarding Events
 
         private void DataBoard_Load(object sender, EventArgs e)
         {
-            LoadDataBoard?.Invoke(sender, e);
+            LoadDataBoard?.Invoke(null, EventArgs.Empty);
             radioButtonStudent.Checked = true;
+            dataGrid.Columns["Id"].Visible = false;
+        }
+
+        private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
+        {
+            GroupTableLoad?.Invoke(sender, e);
+
+            dataGrid.Columns["Id"].Visible = false;
+            ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
         }
 
         #endregion
@@ -78,19 +87,11 @@ namespace CitrusDB.View.DataBoard
             mainForm.TimerTiks += panelTables.TicksGrowsHeight;
         }
 
-        private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
-        {
-            GroupTableLoad?.Invoke(sender, e);
-
-            dataGrid.Columns["Id"].Visible = false;
-            ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-        }
-
         private void radioButtonStudent_MouseClick(object sender, MouseEventArgs e)
         {
-            LoadDataBoard?.Invoke(sender, e);
-            dataGrid.Columns["Id"].Visible = false;
+            DataBoard_Load(sender, EventArgs.Empty);
+            //LoadDataBoard?.Invoke(sender, e);
+            //dataGrid.Columns["Id"].Visible = false;
         }
 
 
@@ -122,5 +123,6 @@ namespace CitrusDB.View.DataBoard
         {
             infoToolStripMenuItem_Click(sender, e);
         }
+        
     }
 }

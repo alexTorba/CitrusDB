@@ -18,6 +18,8 @@ namespace CitrusDB.Model.DataBaseLogic
         static EFGenericRepository()
         {
             context = new CitrusDbContext();
+            ((CitrusDbContext)context).Students.Include(s => s.Group).Load();
+
             //context.Database.Log = s => Console.WriteLine(s);
         }
 
@@ -40,13 +42,12 @@ namespace CitrusDB.Model.DataBaseLogic
 
         public static IEnumerable<TEntity> Get<TEntity>() where TEntity : class
         {
-            context.Set<TEntity>().Load();
-            return context.Set<TEntity>().AsEnumerable();
+            return context.Set<TEntity>().Local.AsEnumerable();
         }
 
         public static IEnumerable<TEntity> Get<TEntity>(Func<TEntity, bool> predicate) where TEntity : class
         {
-            return context.Set<TEntity>()
+            return context.Set<TEntity>().Local
                 .Where(predicate);
         }
 

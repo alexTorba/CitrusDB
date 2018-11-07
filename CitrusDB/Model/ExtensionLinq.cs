@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.Linq.Expressions;
+using CitrusDB.Model.Entity;
 
 namespace CitrusDB.Model
 {
@@ -43,6 +44,57 @@ namespace CitrusDB.Model
                 return OrderBySimpleReflection(sequance, propertyName);
             else
                 return OrderByTreeExpression(sequance, propertyName);
+        }
+
+        //public static IEnumerable<Student> GetView(this IEnumerable<Student> sequance)
+        //{
+        //    return sequance.
+        //        Select(s => new Student
+        //        {
+        //            Id = s.Id,
+        //            FirstName = s.FirstName,
+        //            LastName = s.LastName,
+        //            MiddleName = s.MiddleName,
+        //            Group = s.Group
+        //        });
+
+        //}
+
+        public static IEnumerable<R> GetView<T, R>(this IEnumerable<T> sequance) where T : class where R : class
+        {
+            switch (sequance)
+            {
+                case IEnumerable<Student> students:
+                    {
+                        return (IEnumerable<R>)students
+                                .Select(s => new StudentView
+                                {
+                                    Id = s.Id,
+                                    FirstName = s.FirstName,
+                                    LastName = s.LastName,
+                                    MiddleName = s.MiddleName,
+                                    Group = s.Group
+                                });
+                    }
+
+                case IEnumerable<Group> groups:
+                    {
+                        return (IEnumerable<R>)groups
+                                    .Select(g => new GroupView
+                                    {
+                                        Id = g.Id,
+                                        Photo = g.Photo,
+                                        Name = g.Name,
+                                        Students = g.Students.Count()
+                                    }).ToList();
+                    }
+
+                default:
+                    break;
+            }
+
+            return null;
+
         }
 
     }

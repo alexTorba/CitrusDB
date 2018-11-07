@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+            this.timer?.Dispose();
             base.Dispose(disposing);
         }
 
@@ -372,7 +373,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentInfoForm";
             this.Text = "StudentInfoForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentInfoForm_FormClosed);
             this.Load += new System.EventHandler(this.StudentInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FDD114AF-D72D-4EC7-A9BC-7734A9E169CD}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>CitrusDB</RootNamespace>
     <AssemblyName>CitrusDB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201810211336074_added_GroupView.cs" />
     <Compile Include="Migrations\201810211336074_added_GroupView.Designer.cs">
       <DependentUpon>201810211336074_added_GroupView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811071332300_changed_views.cs" />
+    <Compile Include="Migrations\201811071332300_changed_views.Designer.cs">
+      <DependentUpon>201811071332300_changed_views.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\DataBaseLogic\CitrusDbContext.cs" />
@@ -179,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810211336074_added_GroupView.resx">
       <DependentUpon>201810211336074_added_GroupView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811071332300_changed_views.resx">
+      <DependentUpon>201811071332300_changed_views.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.resx">
       <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>
