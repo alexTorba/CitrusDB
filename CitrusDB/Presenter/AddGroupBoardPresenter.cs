@@ -39,10 +39,18 @@ namespace CitrusDB.Presenter
             addGroupBoard.LoadAddGroupBoard += AddGroupBoard_LoadAddGroupBoard;
             addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
             addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
+            addGroupBoard.UpdateView += AddGroupBoard_UpdateView;
         }
 
         #region Event Handlers
 
+        private async void AddGroupBoard_UpdateView(object sender, EventArgs e)
+        {
+            var newStudents = await GetNewAddedStudent();
+
+            FillInitControlCollection(newStudents, new CancellationToken());
+        }
+        
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
             //todo: нужно ли сихнронизировать задачи в момент добавления в currentControlCol (может быть запрос с двойным результатом)
@@ -65,7 +73,7 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)
         {
-            addGroupBoard.ClearView(); 
+            addGroupBoard.ClearView();
 
             if (addGroupBoard.AddedStudentControlCollection.Count != 0)
             {
@@ -83,9 +91,14 @@ namespace CitrusDB.Presenter
             }
         }
 
-        private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
+        private async void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            List<Student> students = EFGenericRepository.Get<Student>().ToList();
+            //List<Student> students = EFGenericRepository.Get<Student>().ToList();
+            //FillInitControlCollection(students, new CancellationToken());
+
+            //todo: попробовать добавлять новые элементы в текущую коллекцию, а не перезагружать попросто заново.
+            //new way
+            var students = await GetStudentWithExceptedAddedStudent("", new CancellationToken());
 
             FillInitControlCollection(students, new CancellationToken());
         }
@@ -165,7 +178,6 @@ namespace CitrusDB.Presenter
         {
             return await Task.Factory.StartNew(() =>
              {
-
                  IEnumerable<Student> students = EFGenericRepository.Get<Student>();
 
                  if (condition != string.Empty)
@@ -173,11 +185,16 @@ namespace CitrusDB.Presenter
                                 .Where(s => s.FirstName.ToUpperInvariant()
                                 .Contains(condition.ToUpperInvariant()));
 
-                 var addedStudent = addGroupBoard.AddedStudentControlCollection
-                                    .Cast<IStudentView>()
-                                    .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
+                 if (addGroupBoard.AddedStudentControlCollection.Count == 0)
+                     return students.ToList();
+                 else
+                 {
+                     var addedStudent = addGroupBoard.AddedStudentControlCollection
+                                        .Cast<IStudentView>()
+                                        .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
 
-                 return students.Except(addedStudent).ToList();
+                     return students.Except(addedStudent).ToList();
+                 }
              }, token);
 
         }
@@ -200,6 +217,9 @@ namespace CitrusDB.Presenter
 
         private async void FillInitControlCollection(List<Student> students, CancellationToken token)
         {
+            if (students.Count == 0)
+                return;
+
             var controls = await CreateControlCollection(students, token);
 
             addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
@@ -241,6 +261,22 @@ namespace CitrusDB.Presenter
             }, token);
 
             return controls;
+        }
+
+        private async Task<List<Student>> GetNewAddedStudent()
+        {
+            return await Task.Run(() =>
+            {
+                var students = EFGenericRepository.Get<Student>();
+                var addedStudent = this.addGroupBoard.AddedStudentControlCollection
+                                                     .Cast<IStudentView>()
+                                                     .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
+                var currentStudent = addGroupBoard.CurrentStudentControlCollection
+                                                   .Cast<IStudentView>()
+                                                   .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
+
+                return students.Except(addedStudent).Except(currentStudent).ToList();
+            });
         }
 
         public void Dispose()

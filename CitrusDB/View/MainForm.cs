@@ -101,6 +101,8 @@ namespace CitrusDB.View
         {
             ReplaceBacklightPanel(buttonAdd, e);
             addGroupBoard.BringToFront();
+
+            addGroupBoard.UpdateCurrentStudentView();
         }
 
         private void timer_Tick(object sender, EventArgs e)

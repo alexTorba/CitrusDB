@@ -57,6 +57,7 @@ namespace CitrusDB.View.AddGroup
         public event EventHandler ClearClick;
         public event EventHandler SaveClick;
         public event EventHandler CurrentStudentSearchTextBoxChanges;
+        public event EventHandler UpdateView;
 
         #endregion
 
@@ -82,6 +83,7 @@ namespace CitrusDB.View.AddGroup
         private void clearButton_Click(object sender, EventArgs e)
         {
             ClearClick?.Invoke(sender, e);
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -95,6 +97,12 @@ namespace CitrusDB.View.AddGroup
         {
             CurrentStudentSearchTextBoxChanges.Invoke(sender, e);
         }
+
+        public void UpdateCurrentStudentView()
+        {
+            //todo: при нажатии на кнопку add->AddGroup обновлять текущих студентов в currentstudentView
+            UpdateView?.Invoke(null, EventArgs.Empty);
+        }        
 
         #endregion
 
@@ -123,6 +131,8 @@ namespace CitrusDB.View.AddGroup
             if (pictureBox.Image != null)
                 photoLabel.Visible = false;
         }
+
+        
 
         #endregion
 

@@ -27,5 +27,6 @@ namespace CitrusDB.View.AddGroup
         event EventHandler ClearClick;
         event EventHandler SaveClick;
         event EventHandler CurrentStudentSearchTextBoxChanges;
+        event EventHandler UpdateView;
     }
 }
