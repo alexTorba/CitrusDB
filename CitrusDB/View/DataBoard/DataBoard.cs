@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -55,8 +55,8 @@ namespace CitrusDB.View.DataBoard
 
             radioButtonStudent.Checked = true;
 
-            //if (dataGrid.Columns["Id"] != null)
-            //    dataGrid.Columns["Id"].Visible = false;
+            if (dataGrid.Columns["Id"] != null)
+                dataGrid.Columns["Id"].Visible = false;
         }
 
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)

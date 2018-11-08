@@ -53,6 +53,7 @@ namespace CitrusDB.Presenter
 
             Group group = new Group
             {
+                Id = new Random(Guid.NewGuid().GetHashCode()).Next(),
                 Name = addGroupBoard.GetNameOfGroup,
                 Students = students,
                 Photo = addGroupBoard.GetGroupPhoto.ConvertImageToByteArr()

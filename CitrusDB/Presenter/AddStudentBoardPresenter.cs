@@ -102,6 +102,7 @@ namespace CitrusDB.Presenter
         {
             Student student = new Student
             {
+                Id = new Random(Guid.NewGuid().GetHashCode()).Next(),
                 FirstName = addStudentBoard.GetFirstName.Trim(),
                 LastName = addStudentBoard.GetLastName.Trim(),
                 MiddleName = addStudentBoard.GetMiddleName.Trim(),

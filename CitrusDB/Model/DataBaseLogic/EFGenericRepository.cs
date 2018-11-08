@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
@@ -42,8 +44,6 @@ namespace CitrusDB.Model.DataBaseLogic
 
         public static IEnumerable<TEntity> Get<TEntity>() where TEntity : class
         {
-            var parameter = new SqlParameter("result", System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output };
-            context.Database.SqlQuery<int>("GetScopeIdentity @parameter", parameter);
             return context.Set<TEntity>().Local.AsEnumerable();
         }
 
