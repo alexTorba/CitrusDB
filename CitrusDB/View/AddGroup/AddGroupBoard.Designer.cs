@@ -39,10 +39,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.nameGroupTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.optionFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.currentStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panelAddGroupSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -176,14 +176,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Name of group:";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel1.Location = new System.Drawing.Point(316, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(3, 598);
-            this.panel1.TabIndex = 2;
-            // 
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
@@ -214,14 +206,27 @@
             this.currentStudentFlowPanel.Size = new System.Drawing.Size(440, 559);
             this.currentStudentFlowPanel.TabIndex = 6;
             // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.bunifuSeparator1.LineThickness = 2;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(314, 0);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 598);
+            this.bunifuSeparator1.TabIndex = 7;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = true;
+            // 
             // AddGroupBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.currentStudentFlowPanel);
             this.Controls.Add(this.optionFlowPanel);
             this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelAddGroupSpace);
             this.Name = "AddGroupBoard";
             this.Size = new System.Drawing.Size(1051, 598);
@@ -245,11 +250,11 @@
         private System.Windows.Forms.FlowLayoutPanel addedStudentFlowPanel;
         private System.Windows.Forms.Label countOfStudentsLabel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.FlowLayoutPanel optionFlowPanel;
         private System.Windows.Forms.FlowLayoutPanel currentStudentFlowPanel;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
     }
 }

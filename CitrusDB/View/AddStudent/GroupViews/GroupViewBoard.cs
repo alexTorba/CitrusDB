@@ -52,7 +52,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
             return groupView;
         }
 
-        public IGroupView FillGroup(GroupView group)
+        public IGroupView FillGroup(Group group)
         {
             nameLabel.Text = group.Name;
             photoGroupPictureBox.Image = group.Photo.ConvertByteArrToImage();

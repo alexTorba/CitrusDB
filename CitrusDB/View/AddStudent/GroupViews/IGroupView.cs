@@ -10,7 +10,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
         string GroupName { get; set; }
         int CountOfStudent { get; set; }
 
-        IGroupView FillGroup(GroupView group);
+        IGroupView FillGroup(Group group);
 
         Color FrameColor { get; set; }
     }

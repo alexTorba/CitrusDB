@@ -116,11 +116,12 @@ namespace CitrusDB.Presenter
             };
 
             EFGenericRepository.Create(student);
+            MessageBox.Show("Added student was successful !");
         }
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)
         {
-            List<GroupView> groups = EFGenericRepository.GetView<GroupView>().ToList();
+            List<Group> groups = EFGenericRepository.Get<Group>().ToList();
             List<IGroupView> listGroupViews = groupView.CreateListViews(groups.Count);
 
             for (int i = 0; i < listGroupViews.Count; i++)
@@ -131,7 +132,6 @@ namespace CitrusDB.Presenter
 
                 addStudentBoard.GroupsCollection.Add(control);
             }
-
         }
 
         #endregion

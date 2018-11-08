@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,20 +46,6 @@ namespace CitrusDB.Model
                 return OrderByTreeExpression(sequance, propertyName);
         }
 
-        //public static IEnumerable<Student> GetView(this IEnumerable<Student> sequance)
-        //{
-        //    return sequance.
-        //        Select(s => new Student
-        //        {
-        //            Id = s.Id,
-        //            FirstName = s.FirstName,
-        //            LastName = s.LastName,
-        //            MiddleName = s.MiddleName,
-        //            Group = s.Group
-        //        });
-
-        //}
-
         public static IEnumerable<R> GetView<T, R>(this IEnumerable<T> sequance) where T : class where R : class
         {
             switch (sequance)
@@ -92,9 +78,7 @@ namespace CitrusDB.Model
                 default:
                     break;
             }
-
             return null;
-
         }
 
     }
