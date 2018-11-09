@@ -11,16 +11,18 @@ using CitrusDB.Model.Entity;
 using CitrusDB.View.AddGroup;
 using CitrusDB.View.AddGroup.StudentView;
 using CitrusDB.Model.DataBaseLogic;
+using System.Data.Entity;
 
 namespace CitrusDB.Presenter
 {
     class AddGroupBoardPresenter : IDisposable
     {
+
+        TaskInfo currentTask = null;
+
         readonly IAddGroupBoard addGroupBoard;
         readonly IStudentView studentView;
         readonly IStudentView addedStudentView;
-
-        TaskInfo currentTask = null;
 
         public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView,
             IStudentView addedStudentView)
@@ -46,11 +48,19 @@ namespace CitrusDB.Presenter
 
         private async void AddGroupBoard_UpdateView(object sender, EventArgs e)
         {
-            var newStudents = await GetNewAddedStudent();
+            addGroupBoard.DisableCurrentStudentPanel();
 
-            FillInitControlCollection(newStudents, new CancellationToken());
+            await AddControlsToControlCollection(
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToList(),
+                new CancellationToken());
+
+            await DeleteControlsFromControlCollection(
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted).ToList(),
+                null);
+
+            addGroupBoard.EnableCurrentStudentPanel();
         }
-        
+
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
             //todo: нужно ли сихнронизировать задачи в момент добавления в currentControlCol (может быть запрос с двойным результатом)
@@ -91,14 +101,9 @@ namespace CitrusDB.Presenter
             }
         }
 
-        private async void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
+        private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            //List<Student> students = EFGenericRepository.Get<Student>().ToList();
-            //FillInitControlCollection(students, new CancellationToken());
-
-            //todo: попробовать добавлять новые элементы в текущую коллекцию, а не перезагружать попросто заново.
-            //new way
-            var students = await GetStudentWithExceptedAddedStudent("", new CancellationToken());
+            List<Student> students = EFGenericRepository.Get<Student>().ToList();
 
             FillInitControlCollection(students, new CancellationToken());
         }
@@ -215,6 +220,18 @@ namespace CitrusDB.Presenter
             addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
         }
 
+        private async Task AddControlsToControlCollection(List<Student> students, CancellationToken token)
+        {
+            if (students.Count == 0)
+                return;
+
+            List<Control> controls = await CreateControlCollection(students, token);
+
+            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
+
+            SetEntitiesState<Student>(EntityState.Added);
+        }
+
         private async void FillInitControlCollection(List<Student> students, CancellationToken token)
         {
             if (students.Count == 0)
@@ -223,6 +240,19 @@ namespace CitrusDB.Presenter
             var controls = await CreateControlCollection(students, token);
 
             addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
+        }
+
+        private async Task DeleteControlsFromControlCollection(List<Student> students, CancellationToken? token)
+        {
+            await addGroupBoard.CurrentStudentControlCollection.DeleteControlsFromControlCollection(
+                students,
+                EFGenericRepository.Get<Student>(),
+                token);
+
+            await addGroupBoard.AddedStudentControlCollection.DeleteControlsFromControlCollection(
+                students,
+                EFGenericRepository.Get<Student>(),
+                token);
         }
 
         private async Task<bool> СollectionEqualityTest(List<Control> newControls)
@@ -263,20 +293,58 @@ namespace CitrusDB.Presenter
             return controls;
         }
 
-        private async Task<List<Student>> GetNewAddedStudent()
+        private async Task<(List<Student> students, EntityState entityState)> GetChangedStudents()
         {
-            return await Task.Run(() =>
+            return await Task<(List<Student> students, EntityState entityState)>.Factory.StartNew(() =>
             {
+                //студенты в локале
                 var students = EFGenericRepository.Get<Student>();
-                var addedStudent = this.addGroupBoard.AddedStudentControlCollection
+
+                //студенты уже добавленные в группу во вью
+                var addedStudent = addGroupBoard.AddedStudentControlCollection
                                                      .Cast<IStudentView>()
                                                      .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
+                //текущие студенты во вью
                 var currentStudent = addGroupBoard.CurrentStudentControlCollection
                                                    .Cast<IStudentView>()
                                                    .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
 
-                return students.Except(addedStudent).Except(currentStudent).ToList();
+                if (addedStudent.Count() + currentStudent.Count() > students.Count())
+                {
+                    return (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted).ToList(), EntityState.Deleted);
+                }
+                else if (addedStudent.Count() + currentStudent.Count() < students.Count())
+                {
+                    return (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToList(), EntityState.Added);
+                }
+                else
+                {
+                    if (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).Count() > 0)
+                    {
+                        return (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).ToList(), EntityState.Modified);
+                    }
+                    else
+                        return (students.ToList(), EntityState.Unchanged);
+                }
             });
+        }
+
+        private void SetEntitiesState<TEntity>(EntityState entityState) where TEntity : class, IEntity
+        {
+            switch (entityState)
+            {
+                case EntityState.Added:
+                case EntityState.Modified:
+                    {
+                        var entities = EFGenericRepository.GetEntitiesWithState<Student>(entityState);
+                        foreach (var entity in entities)
+                            EFGenericRepository.SetUnchanged(entity);
+
+                        break;
+                    }
+                default:
+                    break;
+            }
         }
 
         public void Dispose()

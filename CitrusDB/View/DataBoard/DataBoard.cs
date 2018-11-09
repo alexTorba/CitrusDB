@@ -39,6 +39,7 @@ namespace CitrusDB.View.DataBoard
 
         public event EventHandler LoadDataBoard;
         public event EventHandler GroupTableLoad;
+        public event EventHandler DeleteEntity;
 
         #endregion
 
@@ -46,7 +47,7 @@ namespace CitrusDB.View.DataBoard
         {
             InitializeComponent();
         }
-
+       
         #region Forwarding Events
 
         private void DataBoard_Load(object sender, EventArgs e)
@@ -96,7 +97,6 @@ namespace CitrusDB.View.DataBoard
             radioButtonStudent.Checked = true;
         }
 
-
         #endregion
 
         public void InitDataBoard(MainForm mainForm)
@@ -126,5 +126,11 @@ namespace CitrusDB.View.DataBoard
             infoToolStripMenuItem_Click(sender, e);
         }
 
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sel =  dataGrid.SelectedRows[0].DataBoundItem;
+            DeleteEntity?.Invoke(null,  new EntityArgs(sel));
+            UpdateView();
+        }
     }
 }

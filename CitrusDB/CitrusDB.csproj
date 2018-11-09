@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>CitrusDB</RootNamespace>
     <AssemblyName>CitrusDB</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -94,11 +95,17 @@
     <Compile Include="Migrations\201811071802157_added_StoredProc_GetScopeIdentity.Designer.cs">
       <DependentUpon>201811071802157_added_StoredProc_GetScopeIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811091837294_add_IEntity.cs" />
+    <Compile Include="Migrations\201811091837294_add_IEntity.Designer.cs">
+      <DependentUpon>201811091837294_add_IEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\DataBaseLogic\CitrusDbContext.cs" />
     <Compile Include="Model\DataBaseLogic\EFGenericRepository.cs" />
     <Compile Include="Model\DataBaseLogic\InitDB.cs" />
+    <Compile Include="Model\Entity\EqulityEntityComparer.cs" />
     <Compile Include="Model\Entity\GroupView.cs" />
+    <Compile Include="Model\Entity\IEntity.cs" />
     <Compile Include="Model\ExtensionLinq.cs" />
     <Compile Include="Model\ExtensionControls.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
@@ -149,6 +156,7 @@
       <DependentUpon>DataBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AddStudent\IAddStudentBoard.cs" />
+    <Compile Include="View\DataBoard\EntityArgs.cs" />
     <Compile Include="View\DataBoard\IDataBoard.cs" />
     <Compile Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.cs">
       <SubType>Form</SubType>
@@ -201,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811071802157_added_StoredProc_GetScopeIdentity.resx">
       <DependentUpon>201811071802157_added_StoredProc_GetScopeIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811091837294_add_IEntity.resx">
+      <DependentUpon>201811091837294_add_IEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.resx">
       <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-
 using CitrusDB.Model.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 
 namespace CitrusDB.Model.DataBaseLogic
 {
@@ -25,6 +22,16 @@ namespace CitrusDB.Model.DataBaseLogic
             context.Database.Log = s => Console.WriteLine(s);
         }
 
+        public static void SetDetached<TEntity>(TEntity entity) where TEntity : class, IEntity
+        {
+            context.Entry(entity).State = EntityState.Detached;
+        }
+
+        public static void SetUnchanged<TEntity>(TEntity entity) where TEntity : class, IEntity
+        {
+            context.Entry(entity).State = EntityState.Unchanged;
+        }
+
         public static void Create<TEntity>(TEntity entity) where TEntity : class
         {
             context.Set<TEntity>().Local.Add(entity);
@@ -36,10 +43,10 @@ namespace CitrusDB.Model.DataBaseLogic
                 .Remove(entity);
         }
 
-        public static TEntity FindById<TEntity>(int id) where TEntity : class
+        public static TEntity FindById<TEntity>(int id) where TEntity : class, IEntity
         {
-            return context.Set<TEntity>()
-                .Find(id);
+            return context.Set<TEntity>().Local
+                .FirstOrDefault(e => e.Id == id);
         }
 
         public static IEnumerable<TEntity> Get<TEntity>() where TEntity : class
@@ -65,13 +72,6 @@ namespace CitrusDB.Model.DataBaseLogic
                 .AsNoTracking().Where(predicate);
         }
 
-        public static IEnumerable<TEntity> GetView<TEntity>() where TEntity : class
-        {
-            string par = typeof(TEntity).Name.Trim();
-            return context.Database
-                .SqlQuery<TEntity>($"SELECT * FROM {par}").AsEnumerable();
-        }
-
         public static void Update<TEntity>(TEntity entity) where TEntity : class
         {
             context.Entry(entity).State = EntityState.Modified;
@@ -85,6 +85,18 @@ namespace CitrusDB.Model.DataBaseLogic
         public static async void SaveChangesAsync()
         {
             await context.SaveChangesAsync();
+        }
+
+        public static IEnumerable<TEntity> GetEntitiesWithState<TEntity>(EntityState entityState) where TEntity : class
+        {
+
+            if (entityState == EntityState.Deleted)
+                return context.Set<TEntity>()
+                                    .AsEnumerable()
+                                    .Where(t => context.Entry(t).State == entityState).ToList();
+            else
+                return context.Set<TEntity>().Local
+                                    .Where(t => context.Entry(t).State == entityState).ToList();
         }
 
         public static IEnumerable<TEntity> GetWithInclude<TEntity>

@@ -46,7 +46,6 @@ namespace CitrusDB.View.DataBoard
             this.label1 = new System.Windows.Forms.Label();
             this.generPanelOptions = new System.Windows.Forms.Panel();
             this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +55,6 @@ namespace CitrusDB.View.DataBoard
             this.flowGroupOptions.SuspendLayout();
             this.panelTables.SuspendLayout();
             this.generPanelOptions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -231,10 +229,6 @@ namespace CitrusDB.View.DataBoard
             this.collapsedButton.UseVisualStyleBackColor = false;
             this.collapsedButton.Click += new System.EventHandler(this.collapsedData_Click);
             // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(CitrusDB.Model.Entity.Student);
-            // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
@@ -268,6 +262,7 @@ namespace CitrusDB.View.DataBoard
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // DataBoard
             // 
@@ -287,7 +282,6 @@ namespace CitrusDB.View.DataBoard
             this.panelTables.ResumeLayout(false);
             this.panelTables.PerformLayout();
             this.generPanelOptions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -305,7 +299,6 @@ namespace CitrusDB.View.DataBoard
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel generPanelOptions;
-        private System.Windows.Forms.BindingSource studentBindingSource;
         private CirclusButton collapsedButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;

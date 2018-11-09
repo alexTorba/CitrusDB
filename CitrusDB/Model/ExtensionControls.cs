@@ -1,9 +1,13 @@
-﻿using System;
+﻿using CitrusDB.Model.Entity;
+using CitrusDB.View.AddGroup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using static System.Windows.Forms.Control;
 
 namespace CitrusDB.Model
 {
@@ -98,6 +102,54 @@ namespace CitrusDB.Model
                 label.Text = label.Text.Remove(label.Text.Length - 1, 1);
                 control.ForeColor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.ControlText);
             }
+        }
+
+        /// <summary>
+        /// Delete students from ControlCollection
+        /// </summary>
+        /// <param name="controlCollection"></param>
+        /// <param name="students">Students that was changed</param>
+        /// <param name="generalStudents">Students that store in DB </param>
+        /// <param name="token">Cancalation token</param>
+        public static async Task DeleteControlsFromControlCollection(
+            this ControlCollection controlCollection, 
+            IEnumerable<Student> students, 
+            IEnumerable<Student> generalStudents, 
+            CancellationToken? token)
+        {
+            List<Control> controls = new List<Control>();
+
+            await Task.Run(() =>
+            {
+                //students that was changed in program and store in local
+                if (((List<Student>)students).Count == 0)
+                {
+                    foreach (var student in students)
+                    {
+                        var control = controlCollection
+                           .Cast<IStudentView>()
+                           .Where(c => c.GetStudentId == student.Id)
+                           .FirstOrDefault();
+                        controls.Add((Control)control);
+                    }
+                }
+
+                //student that doesnt store in db and was deleted 
+                var studentViewsId = controlCollection
+                .Cast<IStudentView>()
+                .Select(sv => sv.GetStudentId);
+
+                var studentsId = generalStudents.Select(s => s.Id);
+
+                studentViewsId.Except(studentsId)
+               .Select(id =>
+                           controlCollection
+                           .Cast<IStudentView>()
+                           .First(st => st.GetStudentId == id)).ToList()
+                                                               .ForEach(c => controls.Add((Control)c));
+            });
+
+            controls.ForEach(c => controlCollection.Remove(c));
         }
 
     }

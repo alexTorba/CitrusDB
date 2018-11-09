@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CitrusDB.Model.Entity
 {
-    public class Student
+    public class Student : IEntity
     {
 
         public int Id { get; set; }

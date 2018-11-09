@@ -13,6 +13,9 @@ namespace CitrusDB.View.DataBoard
     {
         event EventHandler LoadDataBoard;
         event EventHandler GroupTableLoad;
+
+        event EventHandler DeleteEntity;
+
         void UpdateView();
 
         object GetDataSource { get; set; }

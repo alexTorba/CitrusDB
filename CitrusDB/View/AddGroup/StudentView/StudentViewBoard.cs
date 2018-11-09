@@ -64,27 +64,56 @@ namespace CitrusDB.View.AddGroup.StudentView
             Click?.Invoke(sender, e);
         }
 
+        public bool Equals(StudentViewBoard obj)
+        {
+            return obj is StudentViewBoard board &&
+                   Id == board.Id &&
+                   GetStudentId == board.GetStudentId &&
+                   GetFristName == board.GetFristName &&
+                   GetLastName == board.GetLastName &&
+                   EqualityComparer<IContainer>.Default.Equals(components, board.components) &&
+                   EqualityComparer<PictureBox>.Default.Equals(studentViewPhoto, board.studentViewPhoto) &&
+                   EqualityComparer<TextBox>.Default.Equals(fisrtNameTextBox, board.fisrtNameTextBox) &&
+                   EqualityComparer<TextBox>.Default.Equals(lastNameTextBox, board.lastNameTextBox) &&
+                   EqualityComparer<CirclusButton>.Default.Equals(addStudentButton, board.addStudentButton);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 573123138;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + GetStudentId.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(GetFristName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(GetLastName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IContainer>.Default.GetHashCode(components);
+            hashCode = hashCode * -1521134295 + EqualityComparer<PictureBox>.Default.GetHashCode(studentViewPhoto);
+            hashCode = hashCode * -1521134295 + EqualityComparer<TextBox>.Default.GetHashCode(fisrtNameTextBox);
+            hashCode = hashCode * -1521134295 + EqualityComparer<TextBox>.Default.GetHashCode(lastNameTextBox);
+            hashCode = hashCode * -1521134295 + EqualityComparer<CirclusButton>.Default.GetHashCode(addStudentButton);
+            return hashCode;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as StudentViewBoard);
         }
 
-        public bool Equals(StudentViewBoard other)
-        {
-            return other != null &&
-                   Id == other.Id &&
-                   GetStudentId == other.GetStudentId &&
-                   GetFristName == other.GetFristName &&
-                   GetLastName == other.GetLastName;
-        }
+        //public bool Equals(StudentViewBoard other)
+        //{
+        //    return other != null &&
+        //           Id == other.Id &&
+        //           GetStudentId == other.GetStudentId &&
+        //           GetFristName == other.GetFristName &&
+        //           GetLastName == other.GetLastName;
+        //}
 
-        public override int GetHashCode()
-        {
-            var hashCode = -618884727;
-            hashCode = hashCode * -1521134295 + Id.GetHashCode();
-            hashCode = hashCode * -1521134295 + GetStudentId.GetHashCode();
-            return hashCode;
-        }
+        //public override int GetHashCode()
+        //{
+        //    var hashCode = -618884727;
+        //    hashCode = hashCode * -1521134295 + Id.GetHashCode();
+        //    hashCode = hashCode * -1521134295 + GetStudentId.GetHashCode();
+        //    return hashCode;
+        //}
 
         #endregion
 
