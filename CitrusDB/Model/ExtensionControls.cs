@@ -170,5 +170,11 @@ namespace CitrusDB.Model
             }
         }
 
+        public static bool IsContaintControl(this ControlCollection controlCollection, int id)
+        {
+            return controlCollection.Cast<IStudentView>().FirstOrDefault(c => c.GetStudentId == id) != null
+                ? true
+                : false;
+        }
     }
 }

@@ -225,11 +225,14 @@ namespace CitrusDB.Presenter
             if (students.Count == 0)
                 return;
 
+            // except exist student
+            students = students
+                .Where(s => !addGroupBoard.CurrentStudentControlCollection.IsContaintControl(s.Id))
+                .ToList();
+
             List<Control> controls = await CreateControlCollection(students, token);
 
             addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
-
-            SetEntitiesState<Student>(EntityState.Added);
         }
 
         private async void FillInitControlCollection(List<Student> students, CancellationToken token)

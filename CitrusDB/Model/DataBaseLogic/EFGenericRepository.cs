@@ -89,7 +89,6 @@ namespace CitrusDB.Model.DataBaseLogic
 
         public static IEnumerable<TEntity> GetEntitiesWithState<TEntity>(EntityState entityState) where TEntity : class
         {
-
             if (entityState == EntityState.Deleted)
                 return context.Set<TEntity>()
                                     .AsEnumerable()
