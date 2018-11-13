@@ -41,7 +41,7 @@ namespace CitrusDB.View
             this.buttonStatistics = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonData = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.dragPanel = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -59,7 +59,8 @@ namespace CitrusDB.View
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.addStudentBoard = new CitrusDB.View.AddStudent.AddStudentBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel2.SuspendLayout();
+            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.dragPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -164,18 +165,18 @@ namespace CitrusDB.View
             this.buttonData.UseVisualStyleBackColor = true;
             this.buttonData.Click += new System.EventHandler(this.buttonData_Click);
             // 
-            // panel2
+            // dragPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.buttonExit);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(188, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(917, 31);
-            this.panel2.TabIndex = 1;
+            this.dragPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
+            this.dragPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dragPanel.Controls.Add(this.buttonExit);
+            this.dragPanel.Controls.Add(this.button1);
+            this.dragPanel.Controls.Add(this.button2);
+            this.dragPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dragPanel.Location = new System.Drawing.Point(188, 0);
+            this.dragPanel.Name = "dragPanel";
+            this.dragPanel.Size = new System.Drawing.Size(917, 31);
+            this.dragPanel.TabIndex = 1;
             // 
             // buttonExit
             // 
@@ -336,7 +337,7 @@ namespace CitrusDB.View
             this.addGroupBoard.CountOfAddedStudent = "0";
             this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
-            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 152, 3, 152);
+            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 214, 3, 214);
             this.addGroupBoard.Name = "addGroupBoard";
             this.addGroupBoard.Size = new System.Drawing.Size(917, 598);
             this.addGroupBoard.TabIndex = 12;
@@ -366,6 +367,13 @@ namespace CitrusDB.View
             // 
             this.studentBindingSource.DataSource = typeof(CitrusDB.Model.Entity.Student);
             // 
+            // dragControl
+            // 
+            this.dragControl.Fixed = true;
+            this.dragControl.Horizontal = true;
+            this.dragControl.TargetControl = this.dragPanel;
+            this.dragControl.Vertical = true;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -373,7 +381,7 @@ namespace CitrusDB.View
             this.Controls.Add(this.addGroupBoard);
             this.Controls.Add(this.dataBoard);
             this.Controls.Add(this.addStudentBoard);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.dragPanel);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -383,7 +391,7 @@ namespace CitrusDB.View
             this.Text = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel2.ResumeLayout(false);
+            this.dragPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelGroupAdd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -397,7 +405,7 @@ namespace CitrusDB.View
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel dragPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonExit;
@@ -421,6 +429,7 @@ namespace CitrusDB.View
         public AddStudentBoard addStudentBoard;
         public CitrusDB.View.DataBoard.DataBoard dataBoard;
         public AddGroupBoard addGroupBoard;
+        private Bunifu.Framework.UI.BunifuDragControl dragControl;
     }
 }
 

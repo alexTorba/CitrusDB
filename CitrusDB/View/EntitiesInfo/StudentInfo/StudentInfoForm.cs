@@ -92,9 +92,10 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
         }
+
     }
 }
