@@ -25,8 +25,10 @@ namespace CitrusDB.Presenter
             this.groupView = groupView;
 
             this.addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
-            this.addStudentBoard.LoadBoard += AddStudentBoard_LoadBoard;
+            this.addStudentBoard.ClearButton += AddStudentBoard_ClearButton;
+            this.addStudentBoard.GenerateButton += AddStudentBoard_GenerateButton;
 
+            this.addStudentBoard.LoadBoard += AddStudentBoard_LoadBoard;
             this.addStudentBoard.ControlEnter += AddStudentBoard_ControlEnter;
 
             this.addStudentBoard.TextBoxTextChanged += AddStudentBoard_TextBoxTextChanged;
@@ -36,13 +38,51 @@ namespace CitrusDB.Presenter
 
             this.addStudentBoard.PhotoLoaded += AddStudentBoard_PhotoLoaded;
 
-            this.addStudentBoard.ClearButton += AddStudentBoard_ClearButton;
-
             this.addStudentBoard.NumericUDValueChanged += AddStudentBoard_NumericUDValueChanged;
             this.addStudentBoard.NumericUDValueEnter += AddStudentBoard_NumericUDValueEnter;
         }
 
         #region Event Handlers
+
+        private void AddStudentBoard_GenerateButton(object sender, EventArgs e)
+        {
+            (string p1, string p2) = Generate.GetPhotos();
+
+            //numbericUD
+            validate.SetState(addStudentBoard.DateOfBirth == addStudentBoard.InitDateOfBirth, true);
+            addStudentBoard.DateOfBirth = Generate.GetDateOfBirth();
+            addStudentBoard.ProgressBarValue =
+                            validate.FillingProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+
+            foreach (Control control in addStudentBoard.GetBoardControls)
+            {
+                if (control is TextBox textBox)
+                {
+                    AddStudentBoard_ControlEnter(textBox, EventArgs.Empty);
+                    textBox.FillControl();
+                }
+                else if (control is ComboBox comboBox)
+                {
+                    AddStudentBoard_ControlEnter(comboBox, EventArgs.Empty);
+                    comboBox.FillControl();
+                    AddStudentBoard_ComboBoxSelectionChange(comboBox, EventArgs.Empty);
+                }
+                else if (control is PictureBox pictureBox)
+                {
+                    AddStudentBoard_ControlEnter(pictureBox, EventArgs.Empty);
+
+                    if (pictureBox.Name == "pictureBoxFirstPhoto")
+                        pictureBox.Load(p1);
+                    else
+                        pictureBox.Load(p2);
+
+                    AddStudentBoard_PhotoLoaded(pictureBox, EventArgs.Empty);
+                    addStudentBoard.HidePhotoLabels();
+                }
+            }
+        }
+
+        #region NumericUP
 
         private void AddStudentBoard_NumericUDValueEnter(object sender, EventArgs e)
         {
@@ -54,17 +94,9 @@ namespace CitrusDB.Presenter
             ControlIsConfirmed(sender as NumericUpDown);
         }
 
-        private void AddStudentBoard_ClearButton(object sender, EventArgs e)
-        {
-            addStudentBoard.DateOfBirth = addStudentBoard.InitDateOfBirth;
-            addStudentBoard.ProgressBarValue = 0;
-            validate.Reset();
-        }
+        #endregion
 
-        private void AddStudentBoard_PhotoLoaded(object sender, EventArgs e)
-        {
-            ControlIsConfirmed(sender as PictureBox);
-        }
+        #region ComboBox
 
         private void AddStudentBoard_ComboBoxSelectionChange(object sender, EventArgs e)
         {
@@ -76,11 +108,9 @@ namespace CitrusDB.Presenter
             ControlHaveMistake(sender as ComboBox);
         }
 
-        private void AddStudentBoard_ControlEnter(object sender, EventArgs e)
-        {
-            if (sender is Control control)
-                validate.SetState(control.HaveMistake());
-        }
+        #endregion
+
+        #region TextBox
 
         private void AddStudentBoard_TextBoxTextChanged(object sender, EventArgs e)
         {
@@ -97,6 +127,16 @@ namespace CitrusDB.Presenter
             }
         }
 
+        #endregion
+
+        #region Buttons
+
+        private void AddStudentBoard_ClearButton(object sender, EventArgs e)
+        {
+            addStudentBoard.DateOfBirth = addStudentBoard.InitDateOfBirth;
+            addStudentBoard.ProgressBarValue = 0;
+            validate.Reset();
+        }
 
         private void AddStudentBoard_SaveButton(object sender, EventArgs e)
         {
@@ -117,6 +157,23 @@ namespace CitrusDB.Presenter
 
             EFGenericRepository.Create(student);
             MessageBox.Show("Added student was successful !");
+        }
+
+        #endregion
+
+        #region PictureBox
+
+        private void AddStudentBoard_PhotoLoaded(object sender, EventArgs e)
+        {
+            ControlIsConfirmed(sender as PictureBox);
+        }
+
+        #endregion
+
+        private void AddStudentBoard_ControlEnter(object sender, EventArgs e)
+        {
+            if (sender is Control control)
+                validate.SetState(control.HaveMistake());
         }
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)

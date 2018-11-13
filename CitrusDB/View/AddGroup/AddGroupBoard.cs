@@ -100,7 +100,6 @@ namespace CitrusDB.View.AddGroup
 
         public void UpdateCurrentStudentView()
         {
-            //todo: при нажатии на кнопку add->AddGroup обновлять текущих студентов в currentstudentView
             UpdateView?.Invoke(null, EventArgs.Empty);
         }        
 

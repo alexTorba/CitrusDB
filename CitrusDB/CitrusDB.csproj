@@ -109,6 +109,7 @@
     <Compile Include="Model\ExtensionLinq.cs" />
     <Compile Include="Model\ExtensionControls.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
+    <Compile Include="Model\Generate.cs" />
     <Compile Include="Model\TaskInfo.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />

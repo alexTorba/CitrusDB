@@ -48,7 +48,6 @@ namespace CitrusDB.View.AddStudent
             this.knowledgeOfLanguageTextbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.flowLayoutPanelAddBoard = new System.Windows.Forms.FlowLayoutPanel();
             this.swingPanel = new System.Windows.Forms.Panel();
-            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.generateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
@@ -69,6 +68,7 @@ namespace CitrusDB.View.AddStudent
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchGroupTextBox = new System.Windows.Forms.TextBox();
+            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.flowLayoutPanelAddBoard.SuspendLayout();
             this.swingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
@@ -497,19 +497,6 @@ namespace CitrusDB.View.AddStudent
             this.swingPanel.TabIndex = 20;
             this.swingPanel.Tag = false;
             // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
-            this.collapsedButton.Location = new System.Drawing.Point(6, 3);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(35, 34);
-            this.collapsedButton.TabIndex = 28;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.swingButton_Click);
-            // 
             // generateButton
             // 
             this.generateButton.BackColor = System.Drawing.Color.Firebrick;
@@ -524,6 +511,7 @@ namespace CitrusDB.View.AddStudent
             this.generateButton.TabIndex = 21;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = false;
+            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
             // saveButton
             // 
@@ -777,6 +765,19 @@ namespace CitrusDB.View.AddStudent
             this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
+            // 
+            // collapsedButton
+            // 
+            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
+            this.collapsedButton.Location = new System.Drawing.Point(6, 3);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(35, 34);
+            this.collapsedButton.TabIndex = 28;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.swingButton_Click);
             // 
             // AddStudentBoard
             // 

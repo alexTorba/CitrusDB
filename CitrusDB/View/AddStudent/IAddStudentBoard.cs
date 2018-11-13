@@ -26,20 +26,26 @@ namespace CitrusDB.View.AddStudent
         ControlCollection GroupsCollection { get; }
         int ProgressBarValue { get; set; }
 
-        event EventHandler SaveButton;
-        event EventHandler LoadBoard;
+        ControlCollection GetBoardControls { get; }
 
+        event EventHandler SaveButton;
+        event EventHandler ClearButton;
+        event EventHandler GenerateButton;
+
+        event EventHandler LoadBoard;
         event EventHandler TextBoxTextChanged;
         event EventHandler ControlEnter;
 
         event EventHandler ComboBoxSelectionChange;
         event EventHandler ComboBoxTextUpdate;
+        event EventHandler ComboBoxTextChanged;
 
         event EventHandler PhotoLoaded;
 
-        event EventHandler ClearButton;
 
         event EventHandler NumericUDValueChanged;
         event EventHandler NumericUDValueEnter;
+
+        void HidePhotoLabels();
     }
 }

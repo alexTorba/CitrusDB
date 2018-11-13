@@ -7,7 +7,6 @@ namespace CitrusDB.Presenter
 {
     class GroupInfoFormPresenter
     {
-        //todo: filling from logic
         readonly IGroupInfoForm groupInfoForm;
 
         public GroupInfoFormPresenter(IGroupInfoForm groupInfoForm)

@@ -24,7 +24,7 @@ namespace CitrusDB.View.AddStudent
 
         #region IAddStudentBoard
 
-        public string GetFirstName => this.firstNameTextbox.Text;
+        public string GetFirstName => firstNameTextbox.Text;
 
         public string GetLastName => lastNameTextbox.Text;
 
@@ -68,15 +68,18 @@ namespace CitrusDB.View.AddStudent
             set => progressBar.Value = value;
         }
 
+        public ControlCollection GetBoardControls => Controls;
 
         public event EventHandler SaveButton;
         public event EventHandler LoadBoard;
+        public event EventHandler GenerateButton;
 
         public event EventHandler TextBoxTextChanged;
         public event EventHandler ControlEnter;
 
         public event EventHandler ComboBoxSelectionChange;
         public event EventHandler ComboBoxTextUpdate;
+        public event EventHandler ComboBoxTextChanged;
 
         public event EventHandler PhotoLoaded;
         public event EventHandler ClearButton;
@@ -245,5 +248,15 @@ namespace CitrusDB.View.AddStudent
             }
         }
 
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            GenerateButton.Invoke(sender, e);
+        }
+
+        public void HidePhotoLabels()
+        {
+            photo1Label.Visible = false;
+            photo2Label.Visible = false;
+        }
     }
 }

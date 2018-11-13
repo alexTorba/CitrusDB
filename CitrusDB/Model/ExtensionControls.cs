@@ -3,6 +3,7 @@ using CitrusDB.View.AddGroup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -38,7 +39,6 @@ namespace CitrusDB.Model
         {
             switch (control)
             {
-
                 case TextBox textBox:
                     {
                         var label = textBox.Parent.Controls
@@ -112,9 +112,9 @@ namespace CitrusDB.Model
         /// <param name="generalStudents">Students that store in DB </param>
         /// <param name="token">Cancalation token</param>
         public static async Task DeleteControlsFromControlCollection(
-            this ControlCollection controlCollection, 
-            IEnumerable<Student> students, 
-            IEnumerable<Student> generalStudents, 
+            this ControlCollection controlCollection,
+            IEnumerable<Student> students,
+            IEnumerable<Student> generalStudents,
             CancellationToken? token)
         {
             List<Control> controls = new List<Control>();
@@ -150,6 +150,24 @@ namespace CitrusDB.Model
             });
 
             controls.ForEach(c => controlCollection.Remove(c));
+        }
+
+        public static void FillControl(this Control control)
+        {
+            if (control is ComboBox comboBox)
+            {
+                comboBox.SelectedItem =
+                    comboBox.Items[new Random((int)DateTime.Now.Ticks).Next(0, comboBox.Items.Count - 1)];
+
+            }
+            else
+            {
+                control.Text = (string)typeof(Generate).
+                GetMethods(BindingFlags.Public | BindingFlags.Static)
+                .Where(m => m.Name.ToUpperInvariant().Contains(control.Name.ToUpperInvariant()))
+                .FirstOrDefault()?
+                .Invoke(null, null);
+            }
         }
 
     }
