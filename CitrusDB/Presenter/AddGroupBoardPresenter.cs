@@ -49,6 +49,7 @@ namespace CitrusDB.Presenter
         private async void AddGroupBoard_UpdateView(object sender, EventArgs e)
         {
             addGroupBoard.DisableCurrentStudentPanel();
+            addGroupBoard.DisableAddedStudentPanel();
 
             await AddControlsToControlCollection(
                 EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToList(),
@@ -59,6 +60,7 @@ namespace CitrusDB.Presenter
                 null);
 
             addGroupBoard.EnableCurrentStudentPanel();
+            addGroupBoard.EnableAddedStudentPanel();
         }
 
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)

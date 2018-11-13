@@ -131,7 +131,16 @@ namespace CitrusDB.View.AddGroup
                 photoLabel.Visible = false;
         }
 
-        
+        public void DisableAddedStudentPanel()
+        {
+            addedStudentFlowPanel.Enabled = false;
+        }
+
+        public void EnableAddedStudentPanel()
+        {
+            addedStudentFlowPanel.Enabled = true;
+        }
+
 
         #endregion
 
