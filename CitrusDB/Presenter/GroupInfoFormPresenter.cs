@@ -1,7 +1,9 @@
 ﻿using CitrusDB.Model.DataBaseLogic;
+using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.EntitiesInfo.GroupInfo;
 using System;
+using System.Linq;
 
 namespace CitrusDB.Presenter
 {
@@ -19,10 +21,9 @@ namespace CitrusDB.Presenter
         private void GroupInfoForm_LoadForm(object sender, EventArgs e)
         {
             var group = EFGenericRepository.FindById<Group>(groupInfoForm.Id);
-
             groupInfoForm.Name = group.Name;
             groupInfoForm.Photo = group.Photo.ConvertByteArrToImage();
-            groupInfoForm.Students = group.Students;
+            groupInfoForm.Students = group.Students.GetViews<Student, StudentView>().ToList();
         }
     }
 }

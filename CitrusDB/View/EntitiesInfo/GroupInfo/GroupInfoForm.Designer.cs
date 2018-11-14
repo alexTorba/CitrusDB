@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupInfoForm));
             this.nameValue = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -42,6 +46,9 @@
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.studentsDataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.closeButton = new CitrusDB.View.UsersElements.CirclusButton();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +57,7 @@
             // 
             this.nameValue.AutoSize = true;
             this.nameValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameValue.Location = new System.Drawing.Point(67, 200);
+            this.nameValue.Location = new System.Drawing.Point(68, 188);
             this.nameValue.Name = "nameValue";
             this.nameValue.Size = new System.Drawing.Size(156, 23);
             this.nameValue.TabIndex = 4;
@@ -61,7 +68,7 @@
             this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator5.LineThickness = 1;
-            this.bunifuSeparator5.Location = new System.Drawing.Point(41, 226);
+            this.bunifuSeparator5.Location = new System.Drawing.Point(42, 214);
             this.bunifuSeparator5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator5.Name = "bunifuSeparator5";
             this.bunifuSeparator5.Size = new System.Drawing.Size(215, 10);
@@ -73,12 +80,12 @@
             // 
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.bunifuSeparator2.LineThickness = 20;
+            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuSeparator2.LineThickness = 14;
             this.bunifuSeparator2.Location = new System.Drawing.Point(-1, -2);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(17, 517);
+            this.bunifuSeparator2.Size = new System.Drawing.Size(14, 405);
             this.bunifuSeparator2.TabIndex = 33;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = true;
@@ -87,12 +94,12 @@
             // 
             this.bunifuSeparator4.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.bunifuSeparator4.LineThickness = 20;
-            this.bunifuSeparator4.Location = new System.Drawing.Point(-1, 386);
+            this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuSeparator4.LineThickness = 14;
+            this.bunifuSeparator4.Location = new System.Drawing.Point(-1, 388);
             this.bunifuSeparator4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator4.Name = "bunifuSeparator4";
-            this.bunifuSeparator4.Size = new System.Drawing.Size(830, 17);
+            this.bunifuSeparator4.Size = new System.Drawing.Size(804, 14);
             this.bunifuSeparator4.TabIndex = 34;
             this.bunifuSeparator4.Transparency = 255;
             this.bunifuSeparator4.Vertical = false;
@@ -101,7 +108,7 @@
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(37, 266);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(38, 254);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(164, 21);
             this.bunifuCustomLabel1.TabIndex = 35;
@@ -111,7 +118,7 @@
             // 
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(37, 318);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(38, 306);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(113, 21);
             this.bunifuCustomLabel2.TabIndex = 36;
@@ -121,7 +128,7 @@
             // 
             this.countOfAddedValue.AutoSize = true;
             this.countOfAddedValue.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countOfAddedValue.Location = new System.Drawing.Point(207, 266);
+            this.countOfAddedValue.Location = new System.Drawing.Point(208, 254);
             this.countOfAddedValue.Name = "countOfAddedValue";
             this.countOfAddedValue.Size = new System.Drawing.Size(34, 21);
             this.countOfAddedValue.TabIndex = 37;
@@ -131,7 +138,7 @@
             // 
             this.lastAddedStudentValue.AutoSize = true;
             this.lastAddedStudentValue.Font = new System.Drawing.Font("Century Gothic", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lastAddedStudentValue.Location = new System.Drawing.Point(156, 318);
+            this.lastAddedStudentValue.Location = new System.Drawing.Point(157, 306);
             this.lastAddedStudentValue.Name = "lastAddedStudentValue";
             this.lastAddedStudentValue.Size = new System.Drawing.Size(101, 21);
             this.lastAddedStudentValue.TabIndex = 38;
@@ -140,7 +147,7 @@
             // photoPictureBox
             // 
             this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.photoPictureBox.Location = new System.Drawing.Point(79, 32);
+            this.photoPictureBox.Location = new System.Drawing.Point(80, 20);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(130, 139);
             this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -150,12 +157,13 @@
             // bunifuSeparator3
             // 
             this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
-            this.bunifuSeparator3.LineThickness = 10;
-            this.bunifuSeparator3.Location = new System.Drawing.Point(-1, -2);
+            this.bunifuSeparator3.LineThickness = 7;
+            this.bunifuSeparator3.Location = new System.Drawing.Point(-1, 0);
             this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
-            this.bunifuSeparator3.Size = new System.Drawing.Size(830, 12);
+            this.bunifuSeparator3.Size = new System.Drawing.Size(802, 7);
             this.bunifuSeparator3.TabIndex = 39;
             this.bunifuSeparator3.Transparency = 255;
             this.bunifuSeparator3.Vertical = false;
@@ -163,53 +171,103 @@
             // bunifuSeparator1
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
-            this.bunifuSeparator1.LineThickness = 10;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(818, -2);
+            this.bunifuSeparator1.LineThickness = 8;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(795, -2);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 405);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(8, 405);
             this.bunifuSeparator1.TabIndex = 40;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
             // studentsDataGrid
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.studentsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.studentsDataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.GhostWhite;
+            this.studentsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.studentsDataGrid.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.studentsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.studentsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.studentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.studentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.studentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.studentsDataGrid.DefaultCellStyle = dataGridViewCellStyle7;
             this.studentsDataGrid.DoubleBuffered = true;
             this.studentsDataGrid.EnableHeadersVisualStyles = false;
-            this.studentsDataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.studentsDataGrid.GridColor = System.Drawing.Color.GhostWhite;
+            this.studentsDataGrid.HeaderBgColor = System.Drawing.Color.GhostWhite;
             this.studentsDataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.studentsDataGrid.Location = new System.Drawing.Point(295, 12);
+            this.studentsDataGrid.Location = new System.Drawing.Point(293, 59);
             this.studentsDataGrid.MultiSelect = false;
             this.studentsDataGrid.Name = "studentsDataGrid";
             this.studentsDataGrid.ReadOnly = true;
             this.studentsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.studentsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.studentsDataGrid.RowTemplate.Height = 24;
-            this.studentsDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.studentsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.studentsDataGrid.Size = new System.Drawing.Size(521, 373);
+            this.studentsDataGrid.Size = new System.Drawing.Size(482, 320);
             this.studentsDataGrid.TabIndex = 41;
             this.studentsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGrid_CellContentClick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.2F);
+            this.textBox1.Location = new System.Drawing.Point(293, 20);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 27);
+            this.textBox1.TabIndex = 42;
+            this.textBox1.Text = "Search..";
+            // 
+            // dragControl
+            // 
+            this.dragControl.Fixed = true;
+            this.dragControl.Horizontal = true;
+            this.dragControl.TargetControl = this;
+            this.dragControl.Vertical = true;
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+            this.closeButton.Location = new System.Drawing.Point(754, 10);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(36, 34);
+            this.closeButton.TabIndex = 43;
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // GroupInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 402);
+            this.BackColor = System.Drawing.Color.GhostWhite;
+            this.ClientSize = new System.Drawing.Size(803, 402);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.studentsDataGrid);
             this.Controls.Add(this.bunifuSeparator4);
             this.Controls.Add(this.bunifuSeparator1);
@@ -247,5 +305,8 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid studentsDataGrid;
+        private System.Windows.Forms.TextBox textBox1;
+        private Bunifu.Framework.UI.BunifuDragControl dragControl;
+        private UsersElements.CirclusButton closeButton;
     }
 }

@@ -46,7 +46,7 @@ namespace CitrusDB.Model
                 return OrderByTreeExpression(sequance, propertyName);
         }
 
-        public static IEnumerable<R> GetView<T, R>(this IEnumerable<T> sequance) where T : class where R : class
+        public static IEnumerable<R> GetViews<T, R>(this IEnumerable<T> sequance) where T : class where R : class
         {
             switch (sequance)
             {
@@ -81,5 +81,82 @@ namespace CitrusDB.Model
             return null;
         }
 
+        public static R GetView<T, R>(this T entity)
+        where T : class, IEntity
+        where R : class, IEntity
+        {
+            switch (entity)
+            {
+                case Student student:
+                    {
+                        var result = new StudentView
+                        {
+                            Id = student.Id,
+                            FirstName = student.FirstName,
+                            LastName = student.LastName,
+                            MiddleName = student.MiddleName,
+                            Group = student.Group
+                        };
+                        return (R)(object)result;
+                    }
+
+                case Group group:
+                    {
+                        var result = new GroupView
+                        {
+                            Id = group.Id,
+                            Photo = group.Photo,
+                            Name = group.Name,
+                            Students = group.Students.Count()
+                        };
+                        return (R)(object)result;
+                    }
+
+                default:
+                    break;
+            }
+            return null;
+        }
+
+        public static R GetViewById<T, R>(this IEnumerable<T> sequance, int id)
+            where T : class, IEntity
+            where R : class, IEntity
+        {
+            switch (sequance)
+            {
+                case IEnumerable<Student> students:
+                    {
+                        var student = students
+                           .Where(s => s.Id == id).FirstOrDefault();
+                        var result = new StudentView
+                        {
+                            Id = student.Id,
+                            FirstName = student.FirstName,
+                            LastName = student.LastName,
+                            MiddleName = student.MiddleName,
+                            Group = student.Group
+                        };
+                        return (R)(object)result;
+                    }
+
+                case IEnumerable<Group> groups:
+                    {
+                        var group = groups
+                          .Where(s => s.Id == id).FirstOrDefault();
+                        var result = new GroupView
+                        {
+                            Id = group.Id,
+                            Photo = group.Photo,
+                            Name = group.Name,
+                            Students = group.Students.Count()
+                        };
+                        return (R)(object)result;
+                    }
+
+                default:
+                    break;
+            }
+            return null;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace CitrusDB.View.EntitiesInfo.GroupInfo
 {
@@ -44,7 +45,9 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
         {
             LoadForm?.Invoke(sender, e);
 
-            countOfAddedValue.Text = (studentsDataGrid.DataSource as ICollection<Student>).Count.ToString(); 
+            countOfAddedValue.Text = (studentsDataGrid.DataSource as IEnumerable<StudentView>).Count().ToString();
+            studentsDataGrid.Columns["Id"].Visible = false;
+            studentsDataGrid.Columns["Group"].Visible = false;
         }
 
         #endregion
@@ -52,6 +55,11 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
         private void studentsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -117,8 +117,8 @@ namespace CitrusDB.View.DataBoard
             int id = (int)dataGrid.SelectedCells[0].Value;
 
             if (dataGrid.DataSource is ICollection<StudentView>)
-                new StudentInfoForm(id).ShowDialog();
-            else new GroupInfoForm(id).ShowDialog();
+                new StudentInfoForm(id).Show();
+            else new GroupInfoForm(id).Show();
         }
 
         private void dataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

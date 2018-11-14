@@ -106,11 +106,11 @@
             this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
-            this.bunifuSeparator3.LineThickness = 6;
-            this.bunifuSeparator3.Location = new System.Drawing.Point(-1, -3);
+            this.bunifuSeparator3.LineThickness = 8;
+            this.bunifuSeparator3.Location = new System.Drawing.Point(-1, 0);
             this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
-            this.bunifuSeparator3.Size = new System.Drawing.Size(414, 10);
+            this.bunifuSeparator3.Size = new System.Drawing.Size(414, 8);
             this.bunifuSeparator3.TabIndex = 7;
             this.bunifuSeparator3.Transparency = 255;
             this.bunifuSeparator3.Vertical = false;

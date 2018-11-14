@@ -31,12 +31,12 @@ namespace CitrusDB.Presenter
 
         private void DataBoard_GroupTableLoad(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = EFGenericRepository.Get<Group>().GetView<Group, GroupView>().ToList();
+            dataBoard.GetDataSource = EFGenericRepository.Get<Group>().GetViews<Group, GroupView>().ToList();
         }
 
         private void DataBoard_LoadDataBoard(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = EFGenericRepository.Get<Student>().GetView<Student, StudentView>().ToList();
+            dataBoard.GetDataSource = EFGenericRepository.Get<Student>().GetViews<Student, StudentView>().ToList();
         }
     }
 }
