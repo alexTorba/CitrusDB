@@ -1,5 +1,6 @@
 ﻿using CitrusDB.Model.Entity;
 using CitrusDB.Presenter;
+using CitrusDB.View.EntitiesInfo.GroupInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,5 +98,19 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
             Close();
         }
 
+        private void groupValue_MouseEnter(object sender, EventArgs e)
+        {
+            (sender as Label).ForeColor = Color.Blue;
+        }
+
+        private void groupValue_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Label).ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+        }
+
+        private void groupValue_Click(object sender, EventArgs e)
+        {
+            new GroupInfoForm(this.group.Id).ShowDialog();
+        }
     }
 }

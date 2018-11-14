@@ -110,7 +110,7 @@
             // 
             this.countOfStudentsLabel.AutoSize = true;
             this.countOfStudentsLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.countOfStudentsLabel.Location = new System.Drawing.Point(225, 77);
+            this.countOfStudentsLabel.Location = new System.Drawing.Point(223, 78);
             this.countOfStudentsLabel.Name = "countOfStudentsLabel";
             this.countOfStudentsLabel.Size = new System.Drawing.Size(0, 21);
             this.countOfStudentsLabel.TabIndex = 6;
@@ -130,7 +130,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.label4.Location = new System.Drawing.Point(161, 77);
+            this.label4.Location = new System.Drawing.Point(159, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 21);
             this.label4.TabIndex = 5;
@@ -160,7 +160,7 @@
             // nameGroupTextBox
             // 
             this.nameGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.nameGroupTextBox.Location = new System.Drawing.Point(165, 40);
+            this.nameGroupTextBox.Location = new System.Drawing.Point(163, 40);
             this.nameGroupTextBox.Multiline = true;
             this.nameGroupTextBox.Name = "nameGroupTextBox";
             this.nameGroupTextBox.Size = new System.Drawing.Size(137, 22);
@@ -170,7 +170,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(161, 16);
+            this.label2.Location = new System.Drawing.Point(159, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 21);
             this.label2.TabIndex = 2;

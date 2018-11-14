@@ -54,10 +54,10 @@
             this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator8 = new Bunifu.Framework.UI.BunifuSeparator();
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.closeButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.firstNameValue = new System.Windows.Forms.TextBox();
             this.lastNameValue = new System.Windows.Forms.TextBox();
             this.middleNameValue = new System.Windows.Forms.TextBox();
+            this.closeButton = new CitrusDB.View.UsersElements.CirclusButton();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -223,11 +223,14 @@
             // 
             this.groupValue.AutoSize = true;
             this.groupValue.Font = new System.Drawing.Font("Century Gothic", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupValue.Location = new System.Drawing.Point(190, 21);
+            this.groupValue.Location = new System.Drawing.Point(190, 23);
             this.groupValue.Name = "groupValue";
             this.groupValue.Size = new System.Drawing.Size(89, 21);
             this.groupValue.TabIndex = 23;
             this.groupValue.Text = "groupLink";
+            this.groupValue.Click += new System.EventHandler(this.groupValue_Click);
+            this.groupValue.MouseEnter += new System.EventHandler(this.groupValue_MouseEnter);
+            this.groupValue.MouseLeave += new System.EventHandler(this.groupValue_MouseLeave);
             // 
             // bunifuSeparator6
             // 
@@ -326,19 +329,6 @@
             this.dragControl.TargetControl = this;
             this.dragControl.Vertical = true;
             // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.Transparent;
-            this.closeButton.FlatAppearance.BorderSize = 0;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(361, 11);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(36, 34);
-            this.closeButton.TabIndex = 35;
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
             // firstNameValue
             // 
             this.firstNameValue.BackColor = System.Drawing.Color.GhostWhite;
@@ -347,6 +337,7 @@
             this.firstNameValue.Location = new System.Drawing.Point(179, 45);
             this.firstNameValue.Multiline = true;
             this.firstNameValue.Name = "firstNameValue";
+            this.firstNameValue.ReadOnly = true;
             this.firstNameValue.Size = new System.Drawing.Size(212, 25);
             this.firstNameValue.TabIndex = 36;
             this.firstNameValue.Text = "FirstName";
@@ -360,6 +351,7 @@
             this.lastNameValue.Location = new System.Drawing.Point(179, 84);
             this.lastNameValue.Multiline = true;
             this.lastNameValue.Name = "lastNameValue";
+            this.lastNameValue.ReadOnly = true;
             this.lastNameValue.Size = new System.Drawing.Size(212, 25);
             this.lastNameValue.TabIndex = 37;
             this.lastNameValue.Text = "LastName";
@@ -373,10 +365,24 @@
             this.middleNameValue.Location = new System.Drawing.Point(179, 125);
             this.middleNameValue.Multiline = true;
             this.middleNameValue.Name = "middleNameValue";
+            this.middleNameValue.ReadOnly = true;
             this.middleNameValue.Size = new System.Drawing.Size(212, 25);
             this.middleNameValue.TabIndex = 38;
             this.middleNameValue.Text = "MiddleNamepp";
             this.middleNameValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+            this.closeButton.Location = new System.Drawing.Point(361, 11);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(36, 34);
+            this.closeButton.TabIndex = 35;
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // StudentInfoForm
             // 
