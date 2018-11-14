@@ -151,7 +151,6 @@
             this.colorSeparator4.TabIndex = 9;
             this.colorSeparator4.Transparency = 255;
             this.colorSeparator4.Vertical = false;
-            this.colorSeparator4.Load += new System.EventHandler(this.colorSeparator4_Load);
             // 
             // colorSeparator1
             // 

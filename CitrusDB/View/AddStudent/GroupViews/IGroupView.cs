@@ -13,5 +13,10 @@ namespace CitrusDB.View.AddStudent.GroupViews
         IGroupView FillGroup(Group group);
 
         Color FrameColor { get; set; }
+
+        bool IsSelected { get; set; }
+        void ChangeColorToBase();
+        event EventHandler ClearOtherBoard;
+
     }
 }

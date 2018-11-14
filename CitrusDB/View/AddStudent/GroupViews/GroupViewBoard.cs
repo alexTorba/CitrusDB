@@ -16,6 +16,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
 
         Color initColor;
 
+
         public GroupViewBoard()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
         }
 
         public Color FrameColor { get; set; }
+        public bool IsSelected { get; set; }
 
         public object Clone()
         {
@@ -62,6 +64,16 @@ namespace CitrusDB.View.AddStudent.GroupViews
             return this;
         }
 
+        public void ChangeColorToBase()
+        {
+            colorSeparator1.LineColor = initColor;
+            colorSeparator2.LineColor = initColor;
+            colorSeparator3.LineColor = initColor;
+            colorSeparator4.LineColor = initColor;
+        }
+
+        public event EventHandler ClearOtherBoard;
+
         #endregion
 
         private void SetMouseClickHandler()
@@ -75,9 +87,16 @@ namespace CitrusDB.View.AddStudent.GroupViews
         private void MouseClickHandler(object sender, EventArgs e)
         {
             if (colorSeparator1.LineColor == initColor)
+            {
+                ClearOtherBoard?.Invoke(null, e);
                 ChangeColor(Color.LimeGreen);
+                IsSelected = true;
+            }
             else
-                ChangeColor(initColor);
+            {
+                ChangeColorToBase();
+                IsSelected = false;
+            }
         }
 
         private void ChangeColor(Color color)
@@ -87,10 +106,6 @@ namespace CitrusDB.View.AddStudent.GroupViews
             colorSeparator3.LineColor = color;
             colorSeparator4.LineColor = color;
         }
-
-        private void colorSeparator4_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

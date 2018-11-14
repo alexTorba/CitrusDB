@@ -44,6 +44,13 @@ namespace CitrusDB.Presenter
 
         #region Event Handlers
 
+        private void GroupView_ClearOtherBoard(object sender, EventArgs e)
+        {
+            //todo: при выборе одной из групп обнулять уже выбранные группы
+            foreach (var groupView in addStudentBoard.GroupsCollection.Cast<IGroupView>())
+                groupView.ChangeColorToBase();
+        }
+
         private void AddStudentBoard_GenerateButton(object sender, EventArgs e)
         {
             (string p1, string p2) = Generate.GetPhotos();
@@ -135,11 +142,16 @@ namespace CitrusDB.Presenter
         {
             addStudentBoard.DateOfBirth = addStudentBoard.InitDateOfBirth;
             addStudentBoard.ProgressBarValue = 0;
+            GroupView_ClearOtherBoard(null, EventArgs.Empty);
             validate.Reset();
         }
 
         private void AddStudentBoard_SaveButton(object sender, EventArgs e)
         {
+            var selectedGroup = addStudentBoard.GroupsCollection
+                .Cast<IGroupView>()
+                .FirstOrDefault(gv => gv.IsSelected == true);
+
             Student student = new Student
             {
                 Id = new Random(Guid.NewGuid().GetHashCode()).Next(),
@@ -152,10 +164,13 @@ namespace CitrusDB.Presenter
                 DateOfBirth = addStudentBoard.DateOfBirth.Trim(),
                 Height = addStudentBoard.GetGrowth,
                 Weight = addStudentBoard.GetWeight,
-                KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage.Trim()
+                KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage.Trim(),
+                Group = EFGenericRepository.FindById<Group>(selectedGroup.Id) ?? null
             };
 
             EFGenericRepository.Create(student);
+            AddStudentBoard_ClearButton(null, EventArgs.Empty);
+
             MessageBox.Show("Added student was successful !");
         }
 
@@ -184,6 +199,7 @@ namespace CitrusDB.Presenter
             for (int i = 0; i < listGroupViews.Count; i++)
             {
                 IGroupView groupView = listGroupViews[i].FillGroup(groups[i]);
+                groupView.ClearOtherBoard += GroupView_ClearOtherBoard;
                 Control control = (Control)groupView;
                 control.BackColor = System.Drawing.Color.White;
 

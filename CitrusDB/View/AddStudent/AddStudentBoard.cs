@@ -258,5 +258,6 @@ namespace CitrusDB.View.AddStudent
             photo1Label.Visible = false;
             photo2Label.Visible = false;
         }
+      
     }
 }
