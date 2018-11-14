@@ -94,6 +94,8 @@ namespace CitrusDB.View.AddStudent
         private void saveButton_Click(object sender, EventArgs e)
         {
             SaveButton?.Invoke(sender, e);
+
+            clearButton_Click(null, EventArgs.Empty);
         }
 
         private void AddStudentBoard_Load(object sender, EventArgs e)

@@ -58,7 +58,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
         {
             nameLabel.Text = group.Name;
             photoGroupPictureBox.Image = group.Photo.ConvertByteArrToImage();
-            countLabel.Text = group.Students.ToString();
+            countLabel.Text = group.Students.Count.ToString();
             Id = group.Id;
 
             return this;
