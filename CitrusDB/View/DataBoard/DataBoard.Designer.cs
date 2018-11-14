@@ -60,6 +60,8 @@ namespace CitrusDB.View.DataBoard
             // 
             // dataGrid
             // 
+            this.dataGrid.AllowUserToResizeColumns = false;
+            this.dataGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -80,7 +82,7 @@ namespace CitrusDB.View.DataBoard
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.HeaderBgColor = System.Drawing.SystemColors.Control;
             this.dataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dataGrid.Location = new System.Drawing.Point(4, 76);
+            this.dataGrid.Location = new System.Drawing.Point(16, 72);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
@@ -94,7 +96,9 @@ namespace CitrusDB.View.DataBoard
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGrid.RowHeadersWidth = 4;
             this.dataGrid.RowTemplate.Height = 24;
+            this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(748, 576);
             this.dataGrid.TabIndex = 0;

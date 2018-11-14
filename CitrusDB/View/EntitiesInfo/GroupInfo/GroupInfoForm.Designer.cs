@@ -184,8 +184,12 @@
             // 
             // studentsDataGrid
             // 
+            this.studentsDataGrid.AllowUserToResizeColumns = false;
+            this.studentsDataGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
             this.studentsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.studentsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.studentsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.studentsDataGrid.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.studentsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.studentsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -224,7 +228,9 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.studentsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.studentsDataGrid.RowHeadersWidth = 4;
             this.studentsDataGrid.RowTemplate.Height = 24;
+            this.studentsDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.studentsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentsDataGrid.Size = new System.Drawing.Size(482, 320);
             this.studentsDataGrid.TabIndex = 41;
