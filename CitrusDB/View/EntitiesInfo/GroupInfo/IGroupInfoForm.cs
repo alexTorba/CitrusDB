@@ -12,7 +12,7 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
     {
         int Id { get; }
 
-        string Name { get; set; }
+        string GroupName { get; set; }
         Image Photo { get; set; }
         object Students { get; set; }
 

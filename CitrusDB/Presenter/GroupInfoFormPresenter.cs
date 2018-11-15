@@ -21,7 +21,7 @@ namespace CitrusDB.Presenter
         private void GroupInfoForm_LoadForm(object sender, EventArgs e)
         {
             var group = EFGenericRepository.FindById<Group>(groupInfoForm.Id);
-            groupInfoForm.Name = group.Name;
+            groupInfoForm.GroupName = group.Name;
             groupInfoForm.Photo = group.Photo.ConvertByteArrToImage();
             groupInfoForm.Students = group.Students.GetViews<Student, StudentView>().ToList();
         }

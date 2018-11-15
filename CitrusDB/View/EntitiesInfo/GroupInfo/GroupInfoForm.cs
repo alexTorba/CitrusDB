@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
+using CitrusDB.View.EntitiesInfo.StudentInfo;
 
 namespace CitrusDB.View.EntitiesInfo.GroupInfo
 {
@@ -34,6 +35,11 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
             get => studentsDataGrid.DataSource;
             set => studentsDataGrid.DataSource = value;
         }
+        public string GroupName
+        {
+            get => groupNameValue.Text;
+            set => groupNameValue.Text = value;
+        }
 
         public event EventHandler LoadForm;
 
@@ -54,7 +60,9 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
 
         private void studentsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //todo: Opern studentInfoForm
+            int id = (int)studentsDataGrid.SelectedCells[0].Value;
+            new StudentInfoForm(id).ShowDialog();
         }
 
         private void closeButton_Click(object sender, EventArgs e)

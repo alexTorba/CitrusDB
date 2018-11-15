@@ -46,7 +46,6 @@ namespace CitrusDB.Presenter
 
         private void GroupView_ClearOtherBoard(object sender, EventArgs e)
         {
-            //todo: при выборе одной из групп обнулять уже выбранные группы
             foreach (var groupView in addStudentBoard.GroupsCollection.Cast<IGroupView>())
                 groupView.ChangeColorToBase();
         }
