@@ -43,6 +43,9 @@ namespace CitrusDB.Presenter
             addGroupBoard.ChangeAddedStudentPanelControl += changeAddedStudentPnanelControl;
             addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
             addGroupBoard.UpdateView += AddGroupBoard_UpdateView;
+
+            studentView.Click += AddStudentButton_Click;
+            addedStudentView.Click += CancelButton_Click;
         }
 
         #region Event Handlers
@@ -120,7 +123,6 @@ namespace CitrusDB.Presenter
             IStudentView addedStudentView = (IStudentView)this.addedStudentView.Clone();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
             addedStudentView.FillView(EFGenericRepository.FindById<Student>(studentViewBoard.GetStudentId));
-            addedStudentView.Click += CancelButton_Click;
 
             addGroupBoard.CurrentStudentControlCollection.Remove((Control)studentViewBoard);
             addGroupBoard.AddedStudentControlCollection.Add((Control)addedStudentView);
@@ -133,7 +135,6 @@ namespace CitrusDB.Presenter
 
             IStudentView studentView = (IStudentView)this.studentView.Clone();
             studentView.FillView(EFGenericRepository.FindById<Student>(addedStudentView.GetStudentId));
-            studentView.Click += AddStudentButton_Click;
 
             addGroupBoard.AddedStudentControlCollection.Remove((Control)addedStudentView);
             addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
@@ -291,7 +292,6 @@ namespace CitrusDB.Presenter
                 for (int i = 0; i < rezult.Count; i++)
                 {
                     IStudentView view = rezult[i].FillView(students[i]);
-                    view.Click += AddStudentButton_Click;
 
                     controls.Add((Control)view);
                 }
