@@ -47,6 +47,7 @@ namespace CitrusDB.View.AddGroup.StudentView
             this.studentViewPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.studentViewPhoto.TabIndex = 0;
             this.studentViewPhoto.TabStop = false;
+            this.studentViewPhoto.DoubleClick += new System.EventHandler(this.studentViewPhoto_DoubleClick);
             // 
             // fisrtNameTextBox
             // 

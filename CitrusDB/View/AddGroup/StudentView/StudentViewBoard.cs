@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.UsersElements;
+using CitrusDB.View.EntitiesInfo.StudentInfo;
 
 namespace CitrusDB.View.AddGroup.StudentView
 {
@@ -117,5 +118,11 @@ namespace CitrusDB.View.AddGroup.StudentView
 
         #endregion
 
+        private void studentViewPhoto_DoubleClick(object sender, EventArgs e)
+        {
+            var studentInfo =  new StudentInfoForm(Id);
+            studentInfo.BringToFront();
+            studentInfo.Show();
+        }
     }
 }
