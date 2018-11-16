@@ -12,6 +12,7 @@ using CitrusDB.View.AddGroup;
 using CitrusDB.View.AddGroup.StudentView;
 using CitrusDB.Model.DataBaseLogic;
 using System.Data.Entity;
+using CitrusDB.Model.Extensions;
 
 namespace CitrusDB.Presenter
 {
@@ -224,6 +225,7 @@ namespace CitrusDB.Presenter
 
         private async Task AddControlsToControlCollection(List<Student> students, CancellationToken token)
         {
+            //todo: change it  to generic method
             if (students.Count == 0)
                 return;
 

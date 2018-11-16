@@ -38,13 +38,14 @@ namespace CitrusDB.View.AddStudent
 
         event EventHandler ComboBoxSelectionChange;
         event EventHandler ComboBoxTextUpdate;
-        event EventHandler ComboBoxTextChanged;
 
         event EventHandler PhotoLoaded;
 
 
         event EventHandler NumericUDValueChanged;
         event EventHandler NumericUDValueEnter;
+
+        event EventHandler UpdateView;
 
         void HidePhotoLabels();
     }

@@ -9,6 +9,7 @@ using CitrusDB.Model.Entity;
 using CitrusDB.View.AddStudent;
 using CitrusDB.View.AddStudent.GroupViews;
 using CitrusDB.Model.DataBaseLogic;
+using CitrusDB.Model.Extensions;
 
 namespace CitrusDB.Presenter
 {
@@ -40,9 +41,16 @@ namespace CitrusDB.Presenter
 
             this.addStudentBoard.NumericUDValueChanged += AddStudentBoard_NumericUDValueChanged;
             this.addStudentBoard.NumericUDValueEnter += AddStudentBoard_NumericUDValueEnter;
+
+            this.addStudentBoard.UpdateView += AddStudentBoard_UpdateView;
         }
 
         #region Event Handlers
+
+        private void AddStudentBoard_UpdateView(object sender, EventArgs e)
+        {
+            
+        }
 
         private void GroupView_ClearOtherBoard(object sender, EventArgs e)
         {

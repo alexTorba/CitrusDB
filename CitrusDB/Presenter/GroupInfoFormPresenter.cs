@@ -4,6 +4,7 @@ using CitrusDB.Model.Entity;
 using CitrusDB.View.EntitiesInfo.GroupInfo;
 using System;
 using System.Linq;
+using CitrusDB.Model.Extensions;
 
 namespace CitrusDB.Presenter
 {

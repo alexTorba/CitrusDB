@@ -79,7 +79,6 @@ namespace CitrusDB.View.AddStudent
 
         public event EventHandler ComboBoxSelectionChange;
         public event EventHandler ComboBoxTextUpdate;
-        public event EventHandler ComboBoxTextChanged;
 
         public event EventHandler PhotoLoaded;
         public event EventHandler ClearButton;
@@ -87,9 +86,16 @@ namespace CitrusDB.View.AddStudent
         public event EventHandler NumericUDValueChanged;
         public event EventHandler NumericUDValueEnter;
 
+        public event EventHandler UpdateView;
+
         #endregion
 
         #region Forwarding Events
+
+        public void UpdateGroupView()
+        {
+            UpdateView?.Invoke(this, EventArgs.Empty);
+        }
 
         private void saveButton_Click(object sender, EventArgs e)
         {

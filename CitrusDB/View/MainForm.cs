@@ -95,6 +95,8 @@ namespace CitrusDB.View
         {
             ReplaceBacklightPanel(buttonAdd, e);
             addStudentBoard.BringToFront();
+
+            //todo: update view
         }
 
         private void buttonGroup_Click(object sender, EventArgs e)

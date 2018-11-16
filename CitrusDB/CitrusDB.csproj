@@ -106,8 +106,9 @@
     <Compile Include="Model\Entity\EqulityEntityComparer.cs" />
     <Compile Include="Model\Entity\GroupView.cs" />
     <Compile Include="Model\Entity\IEntity.cs" />
-    <Compile Include="Model\ExtensionLinq.cs" />
-    <Compile Include="Model\ExtensionControls.cs" />
+    <Compile Include="Model\Extensions\ExtensionControlCollection.cs" />
+    <Compile Include="Model\Extensions\ExtensionLinq.cs" />
+    <Compile Include="Model\Extensions\ExtensionControls.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
     <Compile Include="Model\Generate.cs" />
     <Compile Include="Model\TaskInfo.cs" />

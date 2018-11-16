@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Linq.Expressions;
 using CitrusDB.Model.Entity;
 
-namespace CitrusDB.Model
+namespace CitrusDB.Model.Extensions
 {
     public static class ExtensionLinq
     {

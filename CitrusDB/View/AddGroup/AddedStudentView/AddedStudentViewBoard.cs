@@ -17,7 +17,7 @@ namespace CitrusDB.View.AddGroup.AddedStudentView
     public partial class AddedStudentViewBoard : UserControl, IStudentView
     {
 
-        private int Id { get; set; }
+        public int Id { get; set; }
 
         public AddedStudentViewBoard()
         {

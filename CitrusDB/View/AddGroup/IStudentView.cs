@@ -9,7 +9,7 @@ using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.AddGroup
 {
-    public interface IStudentView : ICloneable
+    public interface IStudentView : ICloneable, IEntity
     {
         IStudentView FillView(Student student);
 
