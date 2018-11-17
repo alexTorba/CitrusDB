@@ -16,14 +16,16 @@ namespace CitrusDB.Model.Extensions
     public static class ExtensionControls
     {
 
-        public static List<T> CreateListViews<T>(this T view, int count) where T : ICloneable
+        public static T[] CreateListViews<T>(this T view, int count) where T : ICloneable
         {
-            List<T> views = new List<T>();
-            for (int i = 0; i < count; i++)
-                views.Add((T)view.Clone());
+            T[] arr = new T[count];
 
-            return views;
+            for (int i = 0; i < count; i++)
+                arr[i] = (T)view.Clone();
+
+            return arr;
         }
+
 
         public static bool CheckText<T>(this T control) where T : Control
         {

@@ -34,12 +34,11 @@ namespace CitrusDB.View.AddGroup.AddedStudentView
 
         public string GetLastName => lastNameTextBox.Text;
 
-
-        public IStudentView FillView(Student student)
+        public IEntityControlView<Student> FillView(Student entity)
         {
-            Id = student.Id;
-            firstNameTextBox.Text = student.FirstName;
-            lastNameTextBox.Text = student.LastName;
+            Id = entity.Id;
+            firstNameTextBox.Text = entity.FirstName;
+            lastNameTextBox.Text = entity.LastName;
 
             return this;
         }

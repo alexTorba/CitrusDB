@@ -103,7 +103,6 @@
     <Compile Include="Model\DataBaseLogic\CitrusDbContext.cs" />
     <Compile Include="Model\DataBaseLogic\EFGenericRepository.cs" />
     <Compile Include="Model\DataBaseLogic\InitDB.cs" />
-    <Compile Include="Model\Entity\EqulityEntityComparer.cs" />
     <Compile Include="Model\Entity\GroupView.cs" />
     <Compile Include="Model\Entity\IEntity.cs" />
     <Compile Include="Model\Extensions\ExtensionControlCollection.cs" />
@@ -174,6 +173,7 @@
     <Compile Include="View\EntitiesInfo\StudentInfo\StudentInfoForm.Designer.cs">
       <DependentUpon>StudentInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IEntityControlView.cs" />
     <Compile Include="View\IMainForm.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>

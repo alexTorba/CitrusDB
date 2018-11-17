@@ -48,18 +48,18 @@ namespace CitrusDB.View.AddStudent.GroupViews
             {
                 Id = Id,
                 GroupName = GroupName,
-                CountOfStudent = countLabel.Text == "" ? 0 : int.Parse(countLabel.Text)
+                CountOfStudent = countLabel.Text == "" ? 0 : int.Parse(countLabel.Text),
             };
-
+            groupView.ClearOtherBoard += ClearOtherBoard;
             return groupView;
         }
 
-        public IGroupView FillGroup(Group group)
+        public IEntityControlView<Group> FillView(Group entity)
         {
-            nameLabel.Text = group.Name;
-            photoGroupPictureBox.Image = group.Photo.ConvertByteArrToImage();
-            countLabel.Text = group.Students.Count.ToString();
-            Id = group.Id;
+            Id = entity.Id;
+            nameLabel.Text = entity.Name;
+            photoGroupPictureBox.Image = entity.Photo.ConvertByteArrToImage();
+            countLabel.Text = entity.Students.Count.ToString();
 
             return this;
         }
@@ -106,6 +106,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
             colorSeparator3.LineColor = color;
             colorSeparator4.LineColor = color;
         }
-        
+
+       
     }
 }

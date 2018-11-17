@@ -4,13 +4,10 @@ using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.AddStudent.GroupViews
 {
-    public interface IGroupView : ICloneable
+    public interface IGroupView : IEntityControlView<Group>
     {
-        int Id { get; set; }
         string GroupName { get; set; }
         int CountOfStudent { get; set; }
-
-        IGroupView FillGroup(Group group);
 
         Color FrameColor { get; set; }
 

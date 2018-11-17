@@ -24,6 +24,7 @@ namespace CitrusDB.Presenter
         {
             this.addStudentBoard = addStudentBoard;
             this.groupView = groupView;
+            this.groupView.ClearOtherBoard += GroupView_ClearOtherBoard;
 
             this.addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
             this.addStudentBoard.ClearButton += AddStudentBoard_ClearButton;
@@ -172,7 +173,7 @@ namespace CitrusDB.Presenter
                 Height = addStudentBoard.GetGrowth,
                 Weight = addStudentBoard.GetWeight,
                 KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage.Trim(),
-                Group = EFGenericRepository.FindById<Group>(selectedGroup.Id) ?? null
+                Group = selectedGroup == null ? null : EFGenericRepository.FindById<Group>(selectedGroup.Id)
             };
 
             EFGenericRepository.Create(student);
@@ -200,13 +201,13 @@ namespace CitrusDB.Presenter
 
         private void AddStudentBoard_LoadBoard(object sender, EventArgs e)
         {
-            List<Group> groups = EFGenericRepository.Get<Group>().ToList();
-            List<IGroupView> listGroupViews = groupView.CreateListViews(groups.Count);
+            IList<Group> groups = EFGenericRepository.Get<Group>().ToArray();
+            var listGroupViews = groupView.CreateListViews(groups.Count);
 
-            for (int i = 0; i < listGroupViews.Count; i++)
+            for (int i = 0; i < listGroupViews.Length; i++)
             {
-                IGroupView groupView = listGroupViews[i].FillGroup(groups[i]);
-                groupView.ClearOtherBoard += GroupView_ClearOtherBoard;
+                IGroupView groupView = (IGroupView)listGroupViews[i].FillView(groups[i]);
+
                 Control control = (Control)groupView;
                 control.BackColor = System.Drawing.Color.White;
 

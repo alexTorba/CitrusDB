@@ -13,23 +13,24 @@ using CitrusDB.View.AddGroup.StudentView;
 using CitrusDB.Model.DataBaseLogic;
 using System.Data.Entity;
 using CitrusDB.Model.Extensions;
+using CitrusDB.View;
 
 namespace CitrusDB.Presenter
 {
     class AddGroupBoardPresenter : IDisposable
     {
-
+        //todo: continue refactoring ! 
         TaskInfo currentTask = null;
 
         readonly IAddGroupBoard addGroupBoard;
-        readonly IStudentView studentView;
+        readonly IStudentView currentStudentView;
         readonly IStudentView addedStudentView;
 
         public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView studentView,
             IStudentView addedStudentView)
         {
             this.addGroupBoard = addGroupBoard;
-            this.studentView = studentView;
+            this.currentStudentView = studentView;
             this.addedStudentView = addedStudentView;
 
             SetHandlers();
@@ -44,7 +45,7 @@ namespace CitrusDB.Presenter
             addGroupBoard.CurrentStudentSearchTextBoxChanges += AddGroupBoard_CurrentStudentSearchTextBoxChanges;
             addGroupBoard.UpdateView += AddGroupBoard_UpdateView;
 
-            studentView.Click += AddStudentButton_Click;
+            currentStudentView.Click += AddStudentButton_Click;
             addedStudentView.Click += CancelButton_Click;
         }
 
@@ -56,12 +57,12 @@ namespace CitrusDB.Presenter
             addGroupBoard.DisableAddedStudentPanel();
 
             await AddControlsToControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToList(),
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToArray(),
                 new CancellationToken());
 
             await DeleteControlsFromControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted).ToList(),
-                null);
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted),
+                new CancellationToken());
 
             addGroupBoard.EnableCurrentStudentPanel();
             addGroupBoard.EnableAddedStudentPanel();
@@ -70,10 +71,12 @@ namespace CitrusDB.Presenter
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
             //todo: нужно ли сихнронизировать задачи в момент добавления в currentControlCol (может быть запрос с двойным результатом)
-            List<Student> students = new List<Student>();
+            Student[] students = new Student[addGroupBoard.AddedStudentControlCollection.Count];
 
-            foreach (IStudentView student in addGroupBoard.AddedStudentControlCollection)
-                students.Add(EFGenericRepository.FindById<Student>(student.GetStudentId));
+            for (int i = 0; i < students.Length; i++)
+                students[i] =
+                    EFGenericRepository.FindById<Student>(
+                        ((IStudentView)addGroupBoard.AddedStudentControlCollection[i]).GetStudentId);
 
             Group group = new Group
             {
@@ -97,7 +100,7 @@ namespace CitrusDB.Presenter
                 {
                     Control control = obj as Control;
 
-                    IStudentView studentView = (IStudentView)this.studentView.Clone();
+                    IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
                     studentView.FillView(EFGenericRepository.FindById<Student>(
                         ((IStudentView)control).GetStudentId));
 
@@ -109,7 +112,7 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            List<Student> students = EFGenericRepository.Get<Student>().ToList();
+            IList<Student> students = EFGenericRepository.Get<Student>().ToArray();
 
             FillInitControlCollection(students, new CancellationToken());
         }
@@ -133,7 +136,7 @@ namespace CitrusDB.Presenter
             //получаем addedStudentView на котором было вызвано событие button_Click
             IStudentView addedStudentView = (IStudentView)((Control)sender).Parent;
 
-            IStudentView studentView = (IStudentView)this.studentView.Clone();
+            IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
             studentView.FillView(EFGenericRepository.FindById<Student>(addedStudentView.GetStudentId));
 
             addGroupBoard.AddedStudentControlCollection.Remove((Control)addedStudentView);
@@ -161,8 +164,7 @@ namespace CitrusDB.Presenter
             {
                 addGroupBoard.DisableCurrentStudentPanel();
 
-                List<Student> result = await GetStudentWithExceptedAddedStudent((sender as TextBox).Text, token);
-
+                Student[] result = await GetStudentWithExceptedAddedStudent((sender as TextBox).Text, token);
                 await FillControlCollection(result, token);
             }
             catch (Exception ex)
@@ -183,7 +185,7 @@ namespace CitrusDB.Presenter
         /// </summary>
         /// <param name="condition">Условие, по которому будет формироваться выборка студентов.</param>
         /// <returns></returns>
-        private async Task<List<Student>> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
+        private async Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
         {
             return await Task.Factory.StartNew(() =>
              {
@@ -195,14 +197,14 @@ namespace CitrusDB.Presenter
                                 .Contains(condition.ToUpperInvariant()));
 
                  if (addGroupBoard.AddedStudentControlCollection.Count == 0)
-                     return students.ToList();
+                     return students.ToArray();
                  else
                  {
-                     var addedStudent = addGroupBoard.AddedStudentControlCollection
+                     var addedStudents = addGroupBoard.AddedStudentControlCollection
                                         .Cast<IStudentView>()
                                         .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
 
-                     return students.Except(addedStudent).ToList();
+                     return students.Except(addedStudents).ToArray();
                  }
              }, token);
 
@@ -213,147 +215,53 @@ namespace CitrusDB.Presenter
         /// </summary>
         /// <param name="students">Коллекция, которая будет трансформироваться в StudentViewBoard и помещаться в CurrentStudentControlCollection</param>
         /// <returns></returns>
-        private async Task FillControlCollection(List<Student> students, CancellationToken token)
+        private async Task FillControlCollection(IList<Student> students, CancellationToken token)
         {
-            var controls = await CreateControlCollection(students, token);
-
-            if (await СollectionEqualityTest(controls)) return;
-
-            addGroupBoard.CurrentStudentControlCollection.Clear();
-
-            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
+           await addGroupBoard
+                .CurrentStudentControlCollection
+                .FillControlCollectionForSearch(students, currentStudentView, token);
         }
 
-        private async Task AddControlsToControlCollection(List<Student> students, CancellationToken token)
+        private async Task AddControlsToControlCollection(IList<Student> students, CancellationToken token)
         {
-            //todo: change it  to generic method
+            await Task.Run(() =>
+            {
+                if (students.Count == 0)
+                    return;
+
+                // except exist student in both ControlCollections
+                students = students
+                .Where(s => !addGroupBoard.CurrentStudentControlCollection.IsContaintControl(s.Id) &&
+                !addGroupBoard.AddedStudentControlCollection.IsContaintControl(s.Id))
+                .ToArray();
+            });
+
+            addGroupBoard.CurrentStudentControlCollection.AddControls(students, currentStudentView, token);
+        }
+
+        private void FillInitControlCollection(IList<Student> students, CancellationToken token)
+        {
             if (students.Count == 0)
                 return;
 
-            // except exist student
-            students = students
-                .Where(s => !addGroupBoard.CurrentStudentControlCollection.IsContaintControl(s.Id))
-                .ToList();
+            addGroupBoard.CurrentStudentControlCollection.AddControls(students, currentStudentView, token);
 
-            List<Control> controls = await CreateControlCollection(students, token);
-
-            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
         }
 
-        private async void FillInitControlCollection(List<Student> students, CancellationToken token)
+        private async Task DeleteControlsFromControlCollection(IEnumerable<Student> students, CancellationToken token)
         {
-            if (students.Count == 0)
-                return;
+            await addGroupBoard.AddedStudentControlCollection.DeleteControlsFromControlCollection(
+                students,
+                EFGenericRepository.Get<Student>(),
+                token);
 
-            var controls = await CreateControlCollection(students, token);
-
-            addGroupBoard.CurrentStudentControlCollection.AddRange(controls.ToArray());
-        }
-
-        private async Task DeleteControlsFromControlCollection(List<Student> students, CancellationToken? token)
-        {
             await addGroupBoard.CurrentStudentControlCollection.DeleteControlsFromControlCollection(
                 students,
                 EFGenericRepository.Get<Student>(),
                 token);
 
-            await addGroupBoard.AddedStudentControlCollection.DeleteControlsFromControlCollection(
-                students,
-                EFGenericRepository.Get<Student>(),
-                token);
         }
-
-        private async Task<bool> СollectionEqualityTest(List<Control> newControls)
-        {
-            return await Task<bool>.Factory.StartNew(() =>
-            {
-                var current = addGroupBoard.CurrentStudentControlCollection.Cast<Control>();
-
-                int countSameValues = current.Count() == newControls.Count()
-                                   ? current.Except(newControls).Count()
-                                   : -1;
-
-                Console.WriteLine($"countSameValues - {countSameValues}");
-                if (countSameValues == 0)
-                    return true;
-
-                return false;
-            });
-        }
-
-        private async Task<List<Control>> CreateControlCollection(List<Student> students, CancellationToken token)
-        {
-            List<Control> controls = new List<Control>();
-
-            await Task.Factory.StartNew(() =>
-            {
-                List<IStudentView> rezult = studentView.CreateListViews(students.Count);
-
-                for (int i = 0; i < rezult.Count; i++)
-                {
-                    IStudentView view = rezult[i].FillView(students[i]);
-
-                    controls.Add((Control)view);
-                }
-            }, token);
-
-            return controls;
-        }
-
-        private async Task<(List<Student> students, EntityState entityState)> GetChangedStudents()
-        {
-            return await Task<(List<Student> students, EntityState entityState)>.Factory.StartNew(() =>
-            {
-                //студенты в локале
-                var students = EFGenericRepository.Get<Student>();
-
-                //студенты уже добавленные в группу во вью
-                var addedStudent = addGroupBoard.AddedStudentControlCollection
-                                                     .Cast<IStudentView>()
-                                                     .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
-                //текущие студенты во вью
-                var currentStudent = addGroupBoard.CurrentStudentControlCollection
-                                                   .Cast<IStudentView>()
-                                                   .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
-
-                if (addedStudent.Count() + currentStudent.Count() > students.Count())
-                {
-                    return (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted).ToList(), EntityState.Deleted);
-                }
-                else if (addedStudent.Count() + currentStudent.Count() < students.Count())
-                {
-                    return (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToList(), EntityState.Added);
-                }
-                else
-                {
-                    if (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).Count() > 0)
-                    {
-                        return (EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).ToList(), EntityState.Modified);
-                    }
-                    else
-                        return (students.ToList(), EntityState.Unchanged);
-                }
-            });
-        }
-
-        private void SetEntitiesState<TEntity>(EntityState entityState) where TEntity : class, IEntity
-        {
-            switch (entityState)
-            {
-                case EntityState.Added:
-                case EntityState.Modified:
-                    {
-                        var entities = EFGenericRepository.GetEntitiesWithState<Student>(entityState);
-                        foreach (var entity in entities)
-                            EFGenericRepository.SetUnchanged(entity);
-
-                        break;
-                    }
-                default:
-                    break;
-            }
-        }
-
+   
         public void Dispose()
         {
             currentTask?.Dispose();
