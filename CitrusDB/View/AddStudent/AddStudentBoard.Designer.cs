@@ -778,6 +778,8 @@ namespace CitrusDB.View.AddStudent
             this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
+            this.searchGroupTextBox.Click += new System.EventHandler(this.searchGroupTextBox_Click);
+            this.searchGroupTextBox.TextChanged += new System.EventHandler(this.searchGroupTextBox_TextChanged);
             // 
             // AddStudentBoard
             // 

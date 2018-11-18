@@ -58,16 +58,15 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
 
         #endregion
 
-        private void studentsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //todo: Opern studentInfoForm
-            int id = (int)studentsDataGrid.SelectedCells[0].Value;
-            new StudentInfoForm(id).ShowDialog();
-        }
-
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void studentsDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)studentsDataGrid.SelectedCells[0].Value;
+            new StudentInfoForm(id).ShowDialog();
         }
     }
 }

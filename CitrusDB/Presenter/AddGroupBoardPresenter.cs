@@ -57,7 +57,7 @@ namespace CitrusDB.Presenter
             addGroupBoard.DisableAddedStudentPanel();
 
             await AddControlsToControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added, s=>s.Group == null).ToArray(),
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added, s => s.Group == null).ToArray(),
                 new CancellationToken());
 
             await DeleteControlsFromControlCollection(
@@ -115,7 +115,7 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            IList<Student> students = EFGenericRepository.Get<Student>(s=>s.Group == null).ToArray();
+            IList<Student> students = EFGenericRepository.Get<Student>(s => s.Group == null).ToArray();
 
             FillInitControlCollection(students, new CancellationToken());
         }
@@ -170,10 +170,14 @@ namespace CitrusDB.Presenter
                 Student[] result = await GetStudentWithExceptedAddedStudent((sender as TextBox).Text, token);
                 await FillControlCollection(result, token);
             }
+            catch (OperationCanceledException canceledEx)
+            {
+                Console.WriteLine(canceledEx.Message);
+                return;
+            }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return;
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -192,7 +196,7 @@ namespace CitrusDB.Presenter
         {
             return await Task.Factory.StartNew(() =>
              {
-                 IEnumerable<Student> students = EFGenericRepository.Get<Student>();
+                 IEnumerable<Student> students = EFGenericRepository.Get<Student>(s=>s.Group == null);
 
                  if (condition != string.Empty)
                      students = students
@@ -220,9 +224,9 @@ namespace CitrusDB.Presenter
         /// <returns></returns>
         private async Task FillControlCollection(IList<Student> students, CancellationToken token)
         {
-           await addGroupBoard
-                .CurrentStudentControlCollection
-                .FillControlCollectionForSearch(students, currentStudentView, token);
+            await addGroupBoard
+                 .CurrentStudentControlCollection
+                 .FillControlCollectionForSearch(students, currentStudentView, token);
         }
 
         private async Task AddControlsToControlCollection(IList<Student> students, CancellationToken token)
@@ -234,8 +238,8 @@ namespace CitrusDB.Presenter
 
                 // except exist student in both ControlCollections
                 students = students
-                .Where(s => !addGroupBoard.CurrentStudentControlCollection.IsContaintControl(s.Id) &&
-                !addGroupBoard.AddedStudentControlCollection.IsContaintControl(s.Id))
+                .Where(s => !addGroupBoard.CurrentStudentControlCollection.IsContaintControl<Student>(s.Id) &&
+                !addGroupBoard.AddedStudentControlCollection.IsContaintControl<Student>(s.Id))
                 .ToArray();
             });
 
@@ -264,7 +268,7 @@ namespace CitrusDB.Presenter
                 token);
 
         }
-   
+
         public void Dispose()
         {
             currentTask?.Dispose();

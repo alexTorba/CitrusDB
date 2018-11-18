@@ -113,13 +113,13 @@ namespace CitrusDB.Model.Extensions
             this ControlCollection controlCollection,
             IList<T> newEntity,
             CancellationToken token)
-            where T : IEntity
+            where T : class, IEntity
         {
             return await Task<bool>.Factory.StartNew(() =>
             {
                 int countSameValues = controlCollection.Count == newEntity.Count()
                                    ? newEntity
-                                   .Where(nE => !controlCollection.IsContaintControl(nE.Id)).Count()
+                                   .Where(nE => !controlCollection.IsContaintControl<T>(nE.Id)).Count()
                                    : -1;
 
                 Console.WriteLine($"countSameValues - {countSameValues}");
@@ -136,7 +136,7 @@ namespace CitrusDB.Model.Extensions
             IList<T> entities,
             R entityControlView,
             CancellationToken token)
-            where T : IEntity
+            where T : class, IEntity
             where R : IEntityControlView<T>
         {
 
@@ -150,9 +150,9 @@ namespace CitrusDB.Model.Extensions
             controlCollection.AddRange(controls);
         }
 
-        public static bool IsContaintControl(this ControlCollection controlCollection, int id)
+        public static bool IsContaintControl<T>(this ControlCollection controlCollection, int id) where T : class, IEntity
         {
-            return controlCollection.Cast<IStudentView>().FirstOrDefault(c => c.GetStudentId == id) != null
+            return controlCollection.Cast<IEntityControlView<T>>().FirstOrDefault(c => c.Id == id) != null
                 ? true
                 : false;
         }

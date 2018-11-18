@@ -60,7 +60,7 @@ namespace CitrusDB.View.AddStudent.GroupViews
             nameLabel.Text = entity.Name;
             photoGroupPictureBox.Image = entity.Photo.ConvertByteArrToImage();
             countLabel.Text = entity.Students.Count.ToString();
-
+            BackColor = System.Drawing.Color.White;
             return this;
         }
 

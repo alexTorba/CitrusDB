@@ -10,11 +10,15 @@ using CitrusDB.View.AddStudent;
 using CitrusDB.View.AddStudent.GroupViews;
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Extensions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CitrusDB.Presenter
 {
     class AddStudentBoardPresenter
     {
+
+        TaskInfo currentTask = null;
 
         readonly IAddStudentBoard addStudentBoard;
         readonly IGroupView groupView;
@@ -50,13 +54,47 @@ namespace CitrusDB.Presenter
             addStudentBoard.NumericUDValueEnter += AddStudentBoard_NumericUDValueEnter;
 
             addStudentBoard.UpdateView += AddStudentBoard_UpdateView;
+
+            addStudentBoard.SearchBox_TextChange += AddStudentBoard_SearchBox_TextChange;
         }
 
         #region Event Handlers
 
+        private void AddStudentBoard_SearchBox_TextChange(object sender, EventArgs e)
+        {
+            currentTask?.CancelTask();
+
+            currentTask = new TaskInfo(SearchGroup, sender);
+        }
+
+        private async void SearchGroup(object sender, CancellationToken token)
+        {
+            try
+            {
+                addStudentBoard.DisableViewsPanel();
+
+                Group[] result = await GetGroups((sender as TextBox).Text, token);
+
+                await addStudentBoard.GroupsCollection.FillControlCollectionForSearch(result, groupView, token);
+            }
+            catch (OperationCanceledException canceledEx)
+            {
+                Console.WriteLine(canceledEx.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                addStudentBoard.EnableViewsPanel();
+            }
+        }
+
         private void AddStudentBoard_UpdateView(object sender, EventArgs e)
         {
-
+            //todo: updating board
         }
 
         private void GroupView_ClearOtherBoard(object sender, EventArgs e)
@@ -212,16 +250,26 @@ namespace CitrusDB.Presenter
 
             for (int i = 0; i < listGroupViews.Length; i++)
             {
-                IGroupView groupView = (IGroupView)listGroupViews[i].FillView(groups[i]);
+                var groupView = (IGroupView)listGroupViews[i].FillView(groups[i]);
 
-                Control control = (Control)groupView;
-                control.BackColor = System.Drawing.Color.White;
-
-                addStudentBoard.GroupsCollection.Add(control);
+                addStudentBoard.GroupsCollection.Add((Control)groupView);
             }
         }
 
         #endregion
+
+        private async Task<Group[]> GetGroups(string conditions, CancellationToken token)
+        {
+            return await Task.Run(() =>
+            {
+                if (conditions != string.Empty)
+                    return EFGenericRepository.Get<Group>(s => s.Name.ToUpperInvariant()
+                                                         .Contains(conditions.ToUpperInvariant()))
+                                                         .ToArray();
+
+                return EFGenericRepository.Get<Group>().ToArray();
+            }, token);
+        }
 
         private void ControlIsConfirmed(Control control)
         {

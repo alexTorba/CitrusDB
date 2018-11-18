@@ -47,6 +47,10 @@ namespace CitrusDB.View.AddStudent
 
         event EventHandler UpdateView;
 
+        event EventHandler SearchBox_TextChange;
+
         void HidePhotoLabels();
+        void DisableViewsPanel();
+        void EnableViewsPanel();
     }
 }

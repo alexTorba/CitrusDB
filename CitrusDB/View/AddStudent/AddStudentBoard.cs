@@ -87,6 +87,7 @@ namespace CitrusDB.View.AddStudent
         public event EventHandler NumericUDValueEnter;
 
         public event EventHandler UpdateView;
+        public event EventHandler SearchBox_TextChange;
 
         #endregion
 
@@ -149,6 +150,8 @@ namespace CitrusDB.View.AddStudent
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            searchGroupTextBox.Text = "";
+
             foreach (Control control in Controls)
             {
                 if (control is TextBox textBox)
@@ -174,6 +177,11 @@ namespace CitrusDB.View.AddStudent
         private void NumericUpDownValueEnterHandler(object sender, EventArgs e)
         {
             NumericUDValueEnter?.Invoke(sender, e);
+        }
+
+        private void searchGroupTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchBox_TextChange?.Invoke(sender, e);
         }
 
         #endregion
@@ -204,6 +212,13 @@ namespace CitrusDB.View.AddStudent
                 groupsFlowPanel.Enabled = false;
                 searchPanel.Enabled = false;
             }
+        }
+
+        private void searchGroupTextBox_Click(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
         }
 
         #endregion
@@ -266,6 +281,17 @@ namespace CitrusDB.View.AddStudent
             photo1Label.Visible = false;
             photo2Label.Visible = false;
         }
-      
+
+        public void DisableViewsPanel()
+        {
+            groupsFlowPanel.Enabled = false;
+        }
+
+        public void EnableViewsPanel()
+        {
+            groupsFlowPanel.Enabled = true;
+        }
+
+       
     }
 }
