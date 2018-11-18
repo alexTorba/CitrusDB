@@ -24,33 +24,39 @@ namespace CitrusDB.Presenter
         {
             this.addStudentBoard = addStudentBoard;
             this.groupView = groupView;
-            this.groupView.ClearOtherBoard += GroupView_ClearOtherBoard;
 
-            this.addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
-            this.addStudentBoard.ClearButton += AddStudentBoard_ClearButton;
-            this.addStudentBoard.GenerateButton += AddStudentBoard_GenerateButton;
+            SetHandlers();
+        }
 
-            this.addStudentBoard.LoadBoard += AddStudentBoard_LoadBoard;
-            this.addStudentBoard.ControlEnter += AddStudentBoard_ControlEnter;
+        private void SetHandlers()
+        {
+            groupView.ClearOtherBoard += GroupView_ClearOtherBoard;
 
-            this.addStudentBoard.TextBoxTextChanged += AddStudentBoard_TextBoxTextChanged;
+            addStudentBoard.SaveButton += AddStudentBoard_SaveButton;
+            addStudentBoard.ClearButton += AddStudentBoard_ClearButton;
+            addStudentBoard.GenerateButton += AddStudentBoard_GenerateButton;
 
-            this.addStudentBoard.ComboBoxTextUpdate += AddStudentBoard_ComboBoxTextUpdate;
-            this.addStudentBoard.ComboBoxSelectionChange += AddStudentBoard_ComboBoxSelectionChange;
+            addStudentBoard.LoadBoard += AddStudentBoard_LoadBoard;
+            addStudentBoard.ControlEnter += AddStudentBoard_ControlEnter;
 
-            this.addStudentBoard.PhotoLoaded += AddStudentBoard_PhotoLoaded;
+            addStudentBoard.TextBoxTextChanged += AddStudentBoard_TextBoxTextChanged;
 
-            this.addStudentBoard.NumericUDValueChanged += AddStudentBoard_NumericUDValueChanged;
-            this.addStudentBoard.NumericUDValueEnter += AddStudentBoard_NumericUDValueEnter;
+            addStudentBoard.ComboBoxTextUpdate += AddStudentBoard_ComboBoxTextUpdate;
+            addStudentBoard.ComboBoxSelectionChange += AddStudentBoard_ComboBoxSelectionChange;
 
-            this.addStudentBoard.UpdateView += AddStudentBoard_UpdateView;
+            addStudentBoard.PhotoLoaded += AddStudentBoard_PhotoLoaded;
+
+            addStudentBoard.NumericUDValueChanged += AddStudentBoard_NumericUDValueChanged;
+            addStudentBoard.NumericUDValueEnter += AddStudentBoard_NumericUDValueEnter;
+
+            addStudentBoard.UpdateView += AddStudentBoard_UpdateView;
         }
 
         #region Event Handlers
 
         private void AddStudentBoard_UpdateView(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GroupView_ClearOtherBoard(object sender, EventArgs e)
