@@ -62,6 +62,7 @@ namespace CitrusDB.View
 
             ((IDataBoard)dataBoard).UpdateView();
         }
+
         private void editButton_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
@@ -69,6 +70,12 @@ namespace CitrusDB.View
             timer.Start();
             TimerTiks = editPanel.TicksGrowsHeight;
         }
+
+        private void editStudentButton_Click(object sender, EventArgs e)
+        {
+            editStudentBoardFirst1.BringToFront();
+        }
+
         private void buttonStatistics_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
@@ -125,6 +132,7 @@ namespace CitrusDB.View
         {
             addStudentBoard.InitFields(this);
             dataBoard.InitDataBoard(this);
+            editStudentBoardFirst1.InitFields(this);
         }
 
         public void ClearEventHandlers()
@@ -154,6 +162,6 @@ namespace CitrusDB.View
             }
         }
 
-       
+        
     }
 }
