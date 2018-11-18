@@ -89,21 +89,16 @@ namespace CitrusDB.Presenter
             }
             finally
             {
-                addStudentBoard.EnableViewsPanel();
+                if (addStudentBoard.ProgressBarValue == 100)
+                    addStudentBoard.EnableViewsPanel();
             }
         }
 
         private async void AddStudentBoard_UpdateView(object sender, EventArgs e)
         {
-            //todo: updating board
-            addStudentBoard.DisableViewsPanel();
-
             await AddControlsToControlCollection(
                   EFGenericRepository.GetEntitiesWithState<Group>(EntityState.Added).ToArray(),
                   new CancellationToken());
-
-
-            addStudentBoard.EnableViewsPanel();
         }
 
         private void GroupView_ClearOtherBoard(object sender, EventArgs e)
@@ -232,7 +227,6 @@ namespace CitrusDB.Presenter
             };
 
             EFGenericRepository.Create(student);
-            AddStudentBoard_ClearButton(null, EventArgs.Empty);
 
             MessageBox.Show("Added student was successful !");
         }
