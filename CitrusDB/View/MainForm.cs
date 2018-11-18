@@ -62,7 +62,13 @@ namespace CitrusDB.View
 
             ((IDataBoard)dataBoard).UpdateView();
         }
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            ReplaceBacklightPanel(sender, e);
 
+            timer.Start();
+            TimerTiks = editPanel.TicksGrowsHeight;
+        }
         private void buttonStatistics_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
@@ -138,6 +144,8 @@ namespace CitrusDB.View
             {
                 if (currentButton.Parent == panelGroupAdd)
                     backlightPanel.Top = flowLayoutPanel1.Top + panelGroupAdd.Top;
+                else if(currentButton.Parent == editPanel)
+                    backlightPanel.Top = flowLayoutPanel1.Top + editPanel.Top;
                 else
                 {
                     backlightPanel.Height = currentButton.Height;
@@ -146,5 +154,6 @@ namespace CitrusDB.View
             }
         }
 
+       
     }
 }

@@ -55,11 +55,17 @@ namespace CitrusDB.View
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.editPanel = new System.Windows.Forms.Panel();
+            this.editButton = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.editStudentButton = new System.Windows.Forms.Button();
+            this.editGroupButton = new System.Windows.Forms.Button();
             this.addGroupBoard = new CitrusDB.View.AddGroup.AddGroupBoard();
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.addStudentBoard = new CitrusDB.View.AddStudent.AddStudentBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.dragPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -67,6 +73,9 @@ namespace CitrusDB.View
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.editPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +95,7 @@ namespace CitrusDB.View
             this.buttonAboutUs.ForeColor = System.Drawing.Color.White;
             this.buttonAboutUs.Image = ((System.Drawing.Image)(resources.GetObject("buttonAboutUs.Image")));
             this.buttonAboutUs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAboutUs.Location = new System.Drawing.Point(3, 231);
+            this.buttonAboutUs.Location = new System.Drawing.Point(3, 288);
             this.buttonAboutUs.Name = "buttonAboutUs";
             this.buttonAboutUs.Size = new System.Drawing.Size(163, 51);
             this.buttonAboutUs.TabIndex = 7;
@@ -103,7 +112,7 @@ namespace CitrusDB.View
             this.buttonSettings.ForeColor = System.Drawing.Color.White;
             this.buttonSettings.Image = ((System.Drawing.Image)(resources.GetObject("buttonSettings.Image")));
             this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSettings.Location = new System.Drawing.Point(3, 174);
+            this.buttonSettings.Location = new System.Drawing.Point(3, 231);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(163, 51);
             this.buttonSettings.TabIndex = 6;
@@ -120,7 +129,7 @@ namespace CitrusDB.View
             this.buttonStatistics.ForeColor = System.Drawing.Color.White;
             this.buttonStatistics.Image = ((System.Drawing.Image)(resources.GetObject("buttonStatistics.Image")));
             this.buttonStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStatistics.Location = new System.Drawing.Point(3, 117);
+            this.buttonStatistics.Location = new System.Drawing.Point(3, 174);
             this.buttonStatistics.Name = "buttonStatistics";
             this.buttonStatistics.Size = new System.Drawing.Size(163, 51);
             this.buttonStatistics.TabIndex = 5;
@@ -324,20 +333,112 @@ namespace CitrusDB.View
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.flowLayoutPanel1.Controls.Add(this.buttonData);
             this.flowLayoutPanel1.Controls.Add(this.panelGroupAdd);
+            this.flowLayoutPanel1.Controls.Add(this.editPanel);
             this.flowLayoutPanel1.Controls.Add(this.buttonStatistics);
             this.flowLayoutPanel1.Controls.Add(this.buttonSettings);
             this.flowLayoutPanel1.Controls.Add(this.buttonAboutUs);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 133);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(169, 391);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(169, 484);
             this.flowLayoutPanel1.TabIndex = 9;
+            // 
+            // dragControl
+            // 
+            this.dragControl.Fixed = true;
+            this.dragControl.Horizontal = true;
+            this.dragControl.TargetControl = this.dragPanel;
+            this.dragControl.Vertical = true;
+            // 
+            // editPanel
+            // 
+            this.editPanel.Controls.Add(this.editButton);
+            this.editPanel.Controls.Add(this.pictureBox4);
+            this.editPanel.Controls.Add(this.pictureBox5);
+            this.editPanel.Controls.Add(this.editStudentButton);
+            this.editPanel.Controls.Add(this.editGroupButton);
+            this.editPanel.Location = new System.Drawing.Point(3, 117);
+            this.editPanel.MaximumSize = new System.Drawing.Size(163, 154);
+            this.editPanel.MinimumSize = new System.Drawing.Size(163, 51);
+            this.editPanel.Name = "editPanel";
+            this.editPanel.Size = new System.Drawing.Size(163, 51);
+            this.editPanel.TabIndex = 7;
+            this.editPanel.Tag = false;
+            // 
+            // editButton
+            // 
+            this.editButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.editButton.FlatAppearance.BorderSize = 0;
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editButton.ForeColor = System.Drawing.Color.White;
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editButton.Location = new System.Drawing.Point(0, 0);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(163, 51);
+            this.editButton.TabIndex = 4;
+            this.editButton.Tag = "";
+            this.editButton.Text = "      Edit";
+            this.editButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(11, 116);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(17, 17);
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(12, 69);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(17, 17);
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
+            // 
+            // editStudentButton
+            // 
+            this.editStudentButton.FlatAppearance.BorderSize = 0;
+            this.editStudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editStudentButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editStudentButton.ForeColor = System.Drawing.Color.White;
+            this.editStudentButton.Image = ((System.Drawing.Image)(resources.GetObject("editStudentButton.Image")));
+            this.editStudentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editStudentButton.Location = new System.Drawing.Point(31, 51);
+            this.editStudentButton.Name = "editStudentButton";
+            this.editStudentButton.Size = new System.Drawing.Size(129, 51);
+            this.editStudentButton.TabIndex = 5;
+            this.editStudentButton.Text = "      Student";
+            this.editStudentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.editStudentButton.UseVisualStyleBackColor = true;
+            // 
+            // editGroupButton
+            // 
+            this.editGroupButton.FlatAppearance.BorderSize = 0;
+            this.editGroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editGroupButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editGroupButton.ForeColor = System.Drawing.Color.White;
+            this.editGroupButton.Image = ((System.Drawing.Image)(resources.GetObject("editGroupButton.Image")));
+            this.editGroupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.editGroupButton.Location = new System.Drawing.Point(30, 102);
+            this.editGroupButton.Name = "editGroupButton";
+            this.editGroupButton.Size = new System.Drawing.Size(130, 51);
+            this.editGroupButton.TabIndex = 6;
+            this.editGroupButton.Text = "      Group";
+            this.editGroupButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.editGroupButton.UseVisualStyleBackColor = true;
             // 
             // addGroupBoard
             // 
             this.addGroupBoard.CountOfAddedStudent = "0";
             this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
-            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 214, 3, 214);
+            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 254, 3, 254);
             this.addGroupBoard.Name = "addGroupBoard";
             this.addGroupBoard.Size = new System.Drawing.Size(917, 598);
             this.addGroupBoard.TabIndex = 12;
@@ -367,13 +468,6 @@ namespace CitrusDB.View
             // 
             this.studentBindingSource.DataSource = typeof(CitrusDB.Model.Entity.Student);
             // 
-            // dragControl
-            // 
-            this.dragControl.Fixed = true;
-            this.dragControl.Horizontal = true;
-            this.dragControl.TargetControl = this.dragPanel;
-            this.dragControl.Vertical = true;
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -399,6 +493,9 @@ namespace CitrusDB.View
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.editPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -430,6 +527,12 @@ namespace CitrusDB.View
         public CitrusDB.View.DataBoard.DataBoard dataBoard;
         public AddGroupBoard addGroupBoard;
         private Bunifu.Framework.UI.BunifuDragControl dragControl;
+        private System.Windows.Forms.Panel editPanel;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button editStudentButton;
+        private System.Windows.Forms.Button editGroupButton;
     }
 }
 
