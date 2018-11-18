@@ -87,7 +87,8 @@ namespace CitrusDB.Model.DataBaseLogic
             await context.SaveChangesAsync();
         }
 
-        public static IEnumerable<TEntity> GetEntitiesWithState<TEntity>(EntityState entityState) where TEntity : class
+        public static IEnumerable<TEntity> GetEntitiesWithState<TEntity>(EntityState entityState)
+            where TEntity : class, IEntity
         {
             if (entityState == EntityState.Deleted)
                 return context.Set<TEntity>()
@@ -98,8 +99,25 @@ namespace CitrusDB.Model.DataBaseLogic
                                     .Where(t => context.Entry(t).State == entityState).ToList();
         }
 
+        public static IEnumerable<TEntity> GetEntitiesWithState<TEntity>(
+            EntityState entityState, 
+            Func<TEntity, bool> predicate) 
+            where TEntity : class, IEntity
+        {
+            if (entityState == EntityState.Deleted)
+                return context.Set<TEntity>()
+                                    .AsEnumerable()
+                                    .Where(predicate)
+                                    .Where(t => context.Entry(t).State == entityState).ToList();
+            else
+                return context.Set<TEntity>().Local
+                                    .Where(predicate)
+                                    .Where(t => context.Entry(t).State == entityState).ToList();
+        }
+
         public static IEnumerable<TEntity> GetWithInclude<TEntity>
-            (Func<TEntity, bool> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
+            (Func<TEntity, bool> predicate,
+            params Expression<Func<TEntity, object>>[] includeProperties)
             where TEntity : class
         {
             return Include(includeProperties).Where(predicate);

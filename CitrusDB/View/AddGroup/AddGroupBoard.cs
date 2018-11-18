@@ -83,14 +83,11 @@ namespace CitrusDB.View.AddGroup
         private void clearButton_Click(object sender, EventArgs e)
         {
             ClearClick?.Invoke(sender, e);
-
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             SaveClick?.Invoke(sender, e);
-
-            ClearClick?.Invoke(null, EventArgs.Empty);
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
@@ -140,7 +137,6 @@ namespace CitrusDB.View.AddGroup
         {
             addedStudentFlowPanel.Enabled = true;
         }
-
 
         #endregion
 

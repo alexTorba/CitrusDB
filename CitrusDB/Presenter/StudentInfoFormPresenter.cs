@@ -34,7 +34,7 @@ namespace CitrusDB.Presenter
             studentInfoForm.Сitizenship = student.Сitizenship;
             studentInfoForm.KnowledgeOfLanguage = student.KnowledgeOfLanguage;
             studentInfoForm.DateOfBirth = student.DateOfBirth;
-            studentInfoForm.Group = EFGenericRepository.FindById<Group>(student.GroupId ?? -1);
+            studentInfoForm.Group = student.Group == null ? null : EFGenericRepository.FindById<Group>(student.Group.Id);
 
             studentInfoForm.FirstPhoto = student.FirstPhoto.ConvertByteArrToImage();
             studentInfoForm.SecondPhoto = student.SecondPhoto.ConvertByteArrToImage();

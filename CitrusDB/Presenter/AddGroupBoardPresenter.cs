@@ -57,11 +57,11 @@ namespace CitrusDB.Presenter
             addGroupBoard.DisableAddedStudentPanel();
 
             await AddControlsToControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToArray(),
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added, s=>s.Group == null).ToArray(),
                 new CancellationToken());
 
             await DeleteControlsFromControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted),
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted, s => s.Group == null),
                 new CancellationToken());
 
             addGroupBoard.EnableCurrentStudentPanel();
@@ -70,7 +70,6 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
-            //todo: нужно ли сихнронизировать задачи в момент добавления в currentControlCol (может быть запрос с двойным результатом)
             Student[] students = new Student[addGroupBoard.AddedStudentControlCollection.Count];
 
             for (int i = 0; i < students.Length; i++)
@@ -87,6 +86,10 @@ namespace CitrusDB.Presenter
             };
 
             EFGenericRepository.Create(group);
+
+            addGroupBoard.ClearView();
+            addGroupBoard.AddedStudentControlCollection.Clear();
+
             MessageBox.Show("Added group was sucessfule");
         }
 
@@ -112,7 +115,7 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            IList<Student> students = EFGenericRepository.Get<Student>().ToArray();
+            IList<Student> students = EFGenericRepository.Get<Student>(s=>s.Group == null).ToArray();
 
             FillInitControlCollection(students, new CancellationToken());
         }

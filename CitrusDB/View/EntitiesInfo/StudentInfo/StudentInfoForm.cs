@@ -110,7 +110,10 @@ namespace CitrusDB.View.EntitiesInfo.StudentInfo
 
         private void groupValue_Click(object sender, EventArgs e)
         {
-            new GroupInfoForm(this.group.Id).ShowDialog();
+            if (group == null)
+                return;
+
+            new GroupInfoForm(group.Id).ShowDialog();
         }
     }
 }
