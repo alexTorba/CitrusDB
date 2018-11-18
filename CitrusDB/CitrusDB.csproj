@@ -114,6 +114,7 @@
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\AddStudentBoardPresenter.cs" />
+    <Compile Include="Presenter\EditStudentBoardFirstPresenter.cs" />
     <Compile Include="Presenter\GroupInfoFormPresenter.cs" />
     <Compile Include="Presenter\StudentInfoFormPresenter.cs" />
     <Compile Include="Presenter\DataBoardPresenter.cs" />
@@ -136,7 +137,20 @@
       <DependentUpon>AddGroupBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AddGroup\IAddGroupBoard.cs" />
-    <Compile Include="View\AddGroup\IStudentView.cs" />
+    <Compile Include="View\EditStuden\EditStudentBoardFirst.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\EditStuden\EditStudentBoardFirst.Designer.cs">
+      <DependentUpon>EditStudentBoardFirst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditStuden\EditStudentView\EditStudentViewBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\EditStuden\EditStudentView\EditStudentViewBoard.Designer.cs">
+      <DependentUpon>EditStudentViewBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditStuden\IEditStudentBoardFirst.cs" />
+    <Compile Include="View\IStudentView.cs" />
     <Compile Include="View\AddStudent\AddStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,6 +244,12 @@
     <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\EditStuden\EditStudentBoardFirst.resx">
+      <DependentUpon>EditStudentBoardFirst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EditStuden\EditStudentView\EditStudentViewBoard.resx">
+      <DependentUpon>EditStudentViewBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.resx">
       <DependentUpon>GroupInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +295,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Edit_25px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

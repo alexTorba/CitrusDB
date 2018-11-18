@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CitrusDB.Model.Entity;
 
-namespace CitrusDB.View.AddGroup
+namespace CitrusDB.View
 {
     public interface IStudentView : IEntityControlView<Student>
     {
