@@ -9,6 +9,7 @@ using CitrusDB.View.AddGroup.AddedStudentView;
 using CitrusDB.View.AddGroup.StudentView;
 using CitrusDB.View.AddStudent.GroupViews;
 using CitrusDB.View;
+using CitrusDB.View.EditStuden.EditStudentView;
 
 namespace CitrusDB
 {
@@ -34,6 +35,8 @@ namespace CitrusDB
 
             var addGroupBoardPresenter = new AddGroupBoardPresenter(
                 mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
+
+            var editStudentBoardFirstPresenter = new EditStudentBoardFirstPresenter(mainForm.editStudentBoardFirst, new EditStudentViewBoard());
 
             Application.Run(mainForm);
 

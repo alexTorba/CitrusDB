@@ -55,14 +55,14 @@ namespace CitrusDB.View
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.editPanel = new System.Windows.Forms.Panel();
             this.editButton = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.editStudentButton = new System.Windows.Forms.Button();
             this.editGroupButton = new System.Windows.Forms.Button();
-            this.editStudentBoardFirst1 = new CitrusDB.View.EditStuden.editStudentBoardFirst();
+            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.editStudentBoardFirst = new CitrusDB.View.EditStuden.editStudentBoardFirst();
             this.addGroupBoard = new CitrusDB.View.AddGroup.AddGroupBoard();
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.addStudentBoard = new CitrusDB.View.AddStudent.AddStudentBoard();
@@ -343,13 +343,6 @@ namespace CitrusDB.View
             this.flowLayoutPanel1.Size = new System.Drawing.Size(169, 484);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
-            // dragControl
-            // 
-            this.dragControl.Fixed = true;
-            this.dragControl.Horizontal = true;
-            this.dragControl.TargetControl = this.dragPanel;
-            this.dragControl.Vertical = true;
-            // 
             // editPanel
             // 
             this.editPanel.Controls.Add(this.editButton);
@@ -435,13 +428,20 @@ namespace CitrusDB.View
             this.editGroupButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.editGroupButton.UseVisualStyleBackColor = true;
             // 
-            // editStudentBoardFirst1
+            // dragControl
             // 
-            this.editStudentBoardFirst1.Location = new System.Drawing.Point(188, 31);
-            this.editStudentBoardFirst1.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.editStudentBoardFirst1.Name = "editStudentBoardFirst1";
-            this.editStudentBoardFirst1.Size = new System.Drawing.Size(915, 598);
-            this.editStudentBoardFirst1.TabIndex = 13;
+            this.dragControl.Fixed = true;
+            this.dragControl.Horizontal = true;
+            this.dragControl.TargetControl = this.dragPanel;
+            this.dragControl.Vertical = true;
+            // 
+            // editStudentBoardFirst
+            // 
+            this.editStudentBoardFirst.Location = new System.Drawing.Point(188, 31);
+            this.editStudentBoardFirst.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.editStudentBoardFirst.Name = "editStudentBoardFirst";
+            this.editStudentBoardFirst.Size = new System.Drawing.Size(915, 598);
+            this.editStudentBoardFirst.TabIndex = 13;
             // 
             // addGroupBoard
             // 
@@ -482,7 +482,7 @@ namespace CitrusDB.View
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1105, 629);
-            this.Controls.Add(this.editStudentBoardFirst1);
+            this.Controls.Add(this.editStudentBoardFirst);
             this.Controls.Add(this.addGroupBoard);
             this.Controls.Add(this.dataBoard);
             this.Controls.Add(this.addStudentBoard);
@@ -544,7 +544,7 @@ namespace CitrusDB.View
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button editStudentButton;
         private System.Windows.Forms.Button editGroupButton;
-        private EditStuden.editStudentBoardFirst editStudentBoardFirst1;
+        public EditStuden.editStudentBoardFirst editStudentBoardFirst;
     }
 }
 

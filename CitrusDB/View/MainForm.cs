@@ -73,7 +73,7 @@ namespace CitrusDB.View
 
         private void editStudentButton_Click(object sender, EventArgs e)
         {
-            editStudentBoardFirst1.BringToFront();
+            editStudentBoardFirst.BringToFront();
         }
 
         private void buttonStatistics_Click(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace CitrusDB.View
         {
             addStudentBoard.InitFields(this);
             dataBoard.InitDataBoard(this);
-            editStudentBoardFirst1.InitFields(this);
+            editStudentBoardFirst.InitFields(this);
         }
 
         public void ClearEventHandlers()

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CitrusDB.View.EditStuden
 {
-    public partial class editStudentBoardFirst : UserControl
+    public partial class editStudentBoardFirst : UserControl, IEditStudentBoardFirst
     {
         MainForm mainForm;
 
@@ -19,9 +19,29 @@ namespace CitrusDB.View.EditStuden
             InitializeComponent();
         }
 
+        #region IEditStudentBoardFirst
+
+        public event EventHandler LoadEditStudentBoardFirst;
+        public event EventHandler UpdateView;
+        public event EventHandler StudentSearchTextBoxChanges;
+
+        public ControlCollection StudentControlCollection => studentFlowLayoutPanel.Controls;
+
+        #endregion
+
         public void InitFields(MainForm mainForm)
         {
             this.mainForm = mainForm;
+        }
+
+
+        private void collapsedButton_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+
+            mainForm.TimerTiks += TicksGrowsWidth;
         }
 
         private void TicksGrowsWidth(Timer timer, object sender, EventArgs e)
@@ -49,13 +69,9 @@ namespace CitrusDB.View.EditStuden
             }
         }
 
-        private void collapsedButton_Click(object sender, EventArgs e)
+        private void editStudentBoardFirst_Load(object sender, EventArgs e)
         {
-            mainForm.timer.Start();
-
-            mainForm.ClearEventHandlers();
-
-            mainForm.TimerTiks += TicksGrowsWidth;
+            LoadEditStudentBoardFirst?.Invoke(sender, e);
         }
     }
 }
