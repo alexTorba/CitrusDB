@@ -19,7 +19,6 @@ namespace CitrusDB.Presenter
 {
     class AddGroupBoardPresenter : IDisposable
     {
-        //todo: continue refactoring ! 
         TaskInfo currentTask = null;
 
         readonly IAddGroupBoard addGroupBoard;
@@ -70,12 +69,10 @@ namespace CitrusDB.Presenter
 
         private void AddGroupBoard_SaveClick(object sender, EventArgs e)
         {
-            Student[] students = new Student[addGroupBoard.AddedStudentControlCollection.Count];
+            List<Student> students = new List<Student>();
 
-            for (int i = 0; i < students.Length; i++)
-                students[i] =
-                    EFGenericRepository.FindById<Student>(
-                        ((IStudentView)addGroupBoard.AddedStudentControlCollection[i]).GetStudentId);
+            foreach (IStudentView studentView in addGroupBoard.AddedStudentControlCollection)
+                students.Add(EFGenericRepository.FindById<Student>(studentView.GetStudentId));
 
             Group group = new Group
             {

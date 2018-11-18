@@ -13,7 +13,7 @@ namespace CitrusDB.Model.Entity
         public string Name { get; set; }
         public byte[] Photo { get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public IList<Student> Students { get; set; }
 
         public Group()
         {

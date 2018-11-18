@@ -70,6 +70,8 @@ namespace CitrusDB.View.AddStudent.GroupViews
             colorSeparator2.LineColor = initColor;
             colorSeparator3.LineColor = initColor;
             colorSeparator4.LineColor = initColor;
+
+            IsSelected = false;
         }
 
         public event EventHandler ClearOtherBoard;

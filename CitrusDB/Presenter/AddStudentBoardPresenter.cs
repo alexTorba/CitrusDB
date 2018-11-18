@@ -12,6 +12,7 @@ using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Extensions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace CitrusDB.Presenter
 {
@@ -92,9 +93,17 @@ namespace CitrusDB.Presenter
             }
         }
 
-        private void AddStudentBoard_UpdateView(object sender, EventArgs e)
+        private async void AddStudentBoard_UpdateView(object sender, EventArgs e)
         {
             //todo: updating board
+            addStudentBoard.DisableViewsPanel();
+
+            await AddControlsToControlCollection(
+                  EFGenericRepository.GetEntitiesWithState<Group>(EntityState.Added).ToArray(),
+                  new CancellationToken());
+
+
+            addStudentBoard.EnableViewsPanel();
         }
 
         private void GroupView_ClearOtherBoard(object sender, EventArgs e)
@@ -194,7 +203,9 @@ namespace CitrusDB.Presenter
         {
             addStudentBoard.DateOfBirth = addStudentBoard.InitDateOfBirth;
             addStudentBoard.ProgressBarValue = 0;
+
             GroupView_ClearOtherBoard(null, EventArgs.Empty);
+
             validate.Reset();
         }
 
@@ -269,6 +280,22 @@ namespace CitrusDB.Presenter
 
                 return EFGenericRepository.Get<Group>().ToArray();
             }, token);
+        }
+
+        private async Task AddControlsToControlCollection(IList<Group> groups, CancellationToken token)
+        {
+            await Task.Run(() =>
+            {
+                if (groups.Count == 0)
+                    return;
+
+                // except exist group in ControlCollections
+                groups = groups
+                .Where(s => !addStudentBoard.GroupsCollection.IsContaintControl<Group>(s.Id))
+                .ToArray();
+            });
+
+            addStudentBoard.GroupsCollection.AddControls(groups, groupView, token);
         }
 
         private void ControlIsConfirmed(Control control)
