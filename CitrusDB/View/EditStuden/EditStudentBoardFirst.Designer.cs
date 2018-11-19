@@ -52,7 +52,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(914, 24);
+            this.panel1.Size = new System.Drawing.Size(931, 24);
             this.panel1.TabIndex = 6;
             // 
             // generPanelOptions
@@ -60,12 +60,12 @@
             this.generPanelOptions.Controls.Add(this.collapsedButton);
             this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Dock = System.Windows.Forms.DockStyle.Right;
-            this.generPanelOptions.Location = new System.Drawing.Point(609, 0);
+            this.generPanelOptions.Location = new System.Drawing.Point(636, 0);
             this.generPanelOptions.Margin = new System.Windows.Forms.Padding(4);
-            this.generPanelOptions.MaximumSize = new System.Drawing.Size(305, 567);
-            this.generPanelOptions.MinimumSize = new System.Drawing.Size(61, 567);
+            this.generPanelOptions.MaximumSize = new System.Drawing.Size(292, 621);
+            this.generPanelOptions.MinimumSize = new System.Drawing.Size(57, 621);
             this.generPanelOptions.Name = "generPanelOptions";
-            this.generPanelOptions.Size = new System.Drawing.Size(305, 567);
+            this.generPanelOptions.Size = new System.Drawing.Size(292, 621);
             this.generPanelOptions.TabIndex = 7;
             this.generPanelOptions.Tag = true;
             // 
@@ -75,7 +75,7 @@
             this.collapsedButton.FlatAppearance.BorderSize = 0;
             this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
-            this.collapsedButton.Location = new System.Drawing.Point(14, 310);
+            this.collapsedButton.Location = new System.Drawing.Point(5, 310);
             this.collapsedButton.Margin = new System.Windows.Forms.Padding(4);
             this.collapsedButton.Name = "collapsedButton";
             this.collapsedButton.Size = new System.Drawing.Size(54, 56);
@@ -88,10 +88,10 @@
             this.panelGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panelGroup.Controls.Add(this.panelTables);
             this.panelGroup.Controls.Add(this.flowGroupOptions);
-            this.panelGroup.Location = new System.Drawing.Point(43, 0);
+            this.panelGroup.Location = new System.Drawing.Point(28, 0);
             this.panelGroup.Margin = new System.Windows.Forms.Padding(4);
             this.panelGroup.Name = "panelGroup";
-            this.panelGroup.Size = new System.Drawing.Size(263, 567);
+            this.panelGroup.Size = new System.Drawing.Size(263, 621);
             this.panelGroup.TabIndex = 5;
             // 
             // panelTables
@@ -184,22 +184,20 @@
             // 
             this.unityPanel.Controls.Add(this.studentFlowLayoutPanel);
             this.unityPanel.Controls.Add(this.generPanelOptions);
-            this.unityPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.unityPanel.Location = new System.Drawing.Point(0, 23);
             this.unityPanel.Name = "unityPanel";
-            this.unityPanel.Size = new System.Drawing.Size(914, 570);
+            this.unityPanel.Size = new System.Drawing.Size(928, 621);
             this.unityPanel.TabIndex = 8;
             // 
             // studentFlowLayoutPanel
             // 
             this.studentFlowLayoutPanel.AutoScroll = true;
             this.studentFlowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.studentFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.studentFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.studentFlowLayoutPanel.MaximumSize = new System.Drawing.Size(843, 567);
-            this.studentFlowLayoutPanel.MinimumSize = new System.Drawing.Size(599, 567);
+            this.studentFlowLayoutPanel.MaximumSize = new System.Drawing.Size(855, 621);
+            this.studentFlowLayoutPanel.MinimumSize = new System.Drawing.Size(634, 621);
             this.studentFlowLayoutPanel.Name = "studentFlowLayoutPanel";
-            this.studentFlowLayoutPanel.Size = new System.Drawing.Size(599, 567);
+            this.studentFlowLayoutPanel.Size = new System.Drawing.Size(634, 621);
             this.studentFlowLayoutPanel.TabIndex = 8;
             // 
             // editStudentBoardFirst
@@ -208,7 +206,7 @@
             this.Controls.Add(this.unityPanel);
             this.Controls.Add(this.panel1);
             this.Name = "editStudentBoardFirst";
-            this.Size = new System.Drawing.Size(914, 593);
+            this.Size = new System.Drawing.Size(914, 644);
             this.Load += new System.EventHandler(this.editStudentBoardFirst_Load);
             this.generPanelOptions.ResumeLayout(false);
             this.panelGroup.ResumeLayout(false);

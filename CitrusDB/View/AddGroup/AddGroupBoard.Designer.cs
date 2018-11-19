@@ -62,7 +62,7 @@
             this.panelAddGroupSpace.Controls.Add(this.label2);
             this.panelAddGroupSpace.Location = new System.Drawing.Point(0, 0);
             this.panelAddGroupSpace.Name = "panelAddGroupSpace";
-            this.panelAddGroupSpace.Size = new System.Drawing.Size(312, 598);
+            this.panelAddGroupSpace.Size = new System.Drawing.Size(312, 644);
             this.panelAddGroupSpace.TabIndex = 0;
             // 
             // clearButton
@@ -72,7 +72,7 @@
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.clearButton.ForeColor = System.Drawing.Color.White;
-            this.clearButton.Location = new System.Drawing.Point(164, 535);
+            this.clearButton.Location = new System.Drawing.Point(164, 578);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(108, 43);
             this.clearButton.TabIndex = 23;
@@ -87,7 +87,7 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(41, 535);
+            this.saveButton.Location = new System.Drawing.Point(41, 578);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(108, 43);
             this.saveButton.TabIndex = 22;
@@ -100,7 +100,7 @@
             this.photoLabel.AutoSize = true;
             this.photoLabel.Enabled = false;
             this.photoLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.photoLabel.Location = new System.Drawing.Point(57, 70);
+            this.photoLabel.Location = new System.Drawing.Point(59, 74);
             this.photoLabel.Name = "photoLabel";
             this.photoLabel.Size = new System.Drawing.Size(51, 19);
             this.photoLabel.TabIndex = 1;
@@ -110,7 +110,7 @@
             // 
             this.countOfStudentsLabel.AutoSize = true;
             this.countOfStudentsLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.countOfStudentsLabel.Location = new System.Drawing.Point(223, 78);
+            this.countOfStudentsLabel.Location = new System.Drawing.Point(225, 82);
             this.countOfStudentsLabel.Name = "countOfStudentsLabel";
             this.countOfStudentsLabel.Size = new System.Drawing.Size(0, 21);
             this.countOfStudentsLabel.TabIndex = 6;
@@ -118,7 +118,7 @@
             // photoPictureBox
             // 
             this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.photoPictureBox.Location = new System.Drawing.Point(12, 11);
+            this.photoPictureBox.Location = new System.Drawing.Point(14, 15);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(140, 144);
             this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -130,7 +130,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.label4.Location = new System.Drawing.Point(159, 78);
+            this.label4.Location = new System.Drawing.Point(161, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 21);
             this.label4.TabIndex = 5;
@@ -142,7 +142,7 @@
             this.addedStudentFlowPanel.BackColor = System.Drawing.SystemColors.Control;
             this.addedStudentFlowPanel.Location = new System.Drawing.Point(3, 205);
             this.addedStudentFlowPanel.Name = "addedStudentFlowPanel";
-            this.addedStudentFlowPanel.Size = new System.Drawing.Size(309, 307);
+            this.addedStudentFlowPanel.Size = new System.Drawing.Size(309, 347);
             this.addedStudentFlowPanel.TabIndex = 4;
             this.addedStudentFlowPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.addedStudentFlowPanel_ControlAdded);
             this.addedStudentFlowPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.addedStudentFlowPanel_ControlRemoved);
@@ -160,7 +160,7 @@
             // nameGroupTextBox
             // 
             this.nameGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.nameGroupTextBox.Location = new System.Drawing.Point(163, 40);
+            this.nameGroupTextBox.Location = new System.Drawing.Point(165, 44);
             this.nameGroupTextBox.Multiline = true;
             this.nameGroupTextBox.Name = "nameGroupTextBox";
             this.nameGroupTextBox.Size = new System.Drawing.Size(137, 22);
@@ -170,7 +170,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(159, 16);
+            this.label2.Location = new System.Drawing.Point(161, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 21);
             this.label2.TabIndex = 2;
@@ -195,7 +195,7 @@
             this.optionFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.optionFlowPanel.Location = new System.Drawing.Point(774, 0);
             this.optionFlowPanel.Name = "optionFlowPanel";
-            this.optionFlowPanel.Size = new System.Drawing.Size(277, 598);
+            this.optionFlowPanel.Size = new System.Drawing.Size(277, 644);
             this.optionFlowPanel.TabIndex = 4;
             // 
             // currentStudentFlowPanel
@@ -203,7 +203,7 @@
             this.currentStudentFlowPanel.AutoScroll = true;
             this.currentStudentFlowPanel.Location = new System.Drawing.Point(328, 39);
             this.currentStudentFlowPanel.Name = "currentStudentFlowPanel";
-            this.currentStudentFlowPanel.Size = new System.Drawing.Size(440, 559);
+            this.currentStudentFlowPanel.Size = new System.Drawing.Size(440, 605);
             this.currentStudentFlowPanel.TabIndex = 6;
             // 
             // bunifuSeparator1
@@ -214,7 +214,7 @@
             this.bunifuSeparator1.Location = new System.Drawing.Point(313, 0);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 598);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 644);
             this.bunifuSeparator1.TabIndex = 7;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
@@ -229,7 +229,7 @@
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.panelAddGroupSpace);
             this.Name = "AddGroupBoard";
-            this.Size = new System.Drawing.Size(1051, 598);
+            this.Size = new System.Drawing.Size(1051, 644);
             this.Load += new System.EventHandler(this.AddGroupBoard_Load);
             this.panelAddGroupSpace.ResumeLayout(false);
             this.panelAddGroupSpace.PerformLayout();

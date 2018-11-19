@@ -72,7 +72,7 @@
             this.editStudentButton.FlatAppearance.BorderSize = 0;
             this.editStudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editStudentButton.Image = ((System.Drawing.Image)(resources.GetObject("editStudentButton.Image")));
-            this.editStudentButton.Location = new System.Drawing.Point(48, 175);
+            this.editStudentButton.Location = new System.Drawing.Point(47, 175);
             this.editStudentButton.Name = "editStudentButton";
             this.editStudentButton.Size = new System.Drawing.Size(32, 28);
             this.editStudentButton.TabIndex = 7;
@@ -87,6 +87,7 @@
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.studentViewPhoto);
+            this.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.Name = "EditStudentViewBoard";
             this.Size = new System.Drawing.Size(126, 206);
             ((System.ComponentModel.ISupportInitialize)(this.studentViewPhoto)).EndInit();
