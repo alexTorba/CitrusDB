@@ -86,8 +86,6 @@ namespace CitrusDB.Presenter
 
             addGroupBoard.ClearView();
             addGroupBoard.AddedStudentControlCollection.Clear();
-
-            MessageBox.Show("Added group was sucessfule");
         }
 
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)

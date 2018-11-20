@@ -245,7 +245,7 @@ namespace CitrusDB.Presenter
 
             EFGenericRepository.Create(student);
 
-            MessageBox.Show("Added student was successful !");
+            //MessageBox.Show("Added student was successful !");
         }
 
         #endregion

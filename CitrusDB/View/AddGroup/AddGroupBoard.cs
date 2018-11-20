@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using CitrusDB.View.UsersElements;
 
 namespace CitrusDB.View.AddGroup
 {
@@ -88,6 +89,8 @@ namespace CitrusDB.View.AddGroup
         private void saveButton_Click(object sender, EventArgs e)
         {
             SaveClick?.Invoke(sender, e);
+
+            new SuccessfulDialog("Group added successfully !").Show();
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
