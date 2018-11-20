@@ -143,5 +143,16 @@ namespace CitrusDB.Model
         {
             return $"{rand.Next(1,31)}.{rand.Next(1,12)}.{rand.Next(1960, 2018)}";
         }
+
+        public static DateTime GenerateDateTime()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(Convert.ToString(rand.Next(1, 30)) + ".");
+            stringBuilder.Append(Convert.ToString(rand.Next(1, 12)) + ".");
+            stringBuilder.Append(Convert.ToString(rand.Next(1950, 1995)));
+
+            return DateTime.Parse(stringBuilder.ToString());
+        }
+
     }
 }

@@ -67,7 +67,7 @@ namespace CitrusDB.View
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.addStudentBoard = new CitrusDB.View.AddStudent.AddStudentBoard();
             this.addGroupBoard = new CitrusDB.View.AddGroup.AddGroupBoard();
-            this.editStudentBoardFirst = new CitrusDB.View.EditStuden.editStudentBoardFirst();
+            this.editStudentBoardFirst = new CitrusDB.View.EditStuden.EditStudentBoardFirst();
             this.dragPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -464,7 +464,6 @@ namespace CitrusDB.View
             // 
             // addStudentBoard
             // 
-            this.addStudentBoard.DateOfBirth = "1.1.1960";
             this.addStudentBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addStudentBoard.Location = new System.Drawing.Point(188, 31);
             this.addStudentBoard.Name = "addStudentBoard";
@@ -558,7 +557,7 @@ namespace CitrusDB.View
         public DataBoard.DataBoard dataBoard;
         public AddStudentBoard addStudentBoard;
         public AddGroupBoard addGroupBoard;
-        public EditStuden.editStudentBoardFirst editStudentBoardFirst;
+        public EditStuden.EditStudentBoardFirst editStudentBoardFirst;
     }
 }
 

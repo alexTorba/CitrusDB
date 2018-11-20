@@ -17,7 +17,6 @@ namespace CitrusDB.View.AddStudent
 
             SetTextBoxHandlers();
             SetComboBoxHandlers();
-            SetNumericUpDownHandlers();
 
             progressBar.Value = 0;
         }
@@ -34,23 +33,7 @@ namespace CitrusDB.View.AddStudent
 
         public string GetKnowledgeOfLanguage => knowledgeOfLanguageTextbox.Text;
 
-        public string InitDateOfBirth =>
-            $"{daysNumericUpDown.Minimum.ToString()}.{monthNumericUpDown.Minimum.ToString()}.{yearNumericUpDown.Minimum.ToString()}";
-
-        public string DateOfBirth
-        {
-            get
-            {
-                return $"{daysNumericUpDown.Value.ToString()}.{monthNumericUpDown.Value.ToString()}.{yearNumericUpDown.Value.ToString()}";
-            }
-            set
-            {
-                var data = value.Trim().Split('.');
-                daysNumericUpDown.Value = decimal.Parse(data[0]);
-                monthNumericUpDown.Value = decimal.Parse(data[1]);
-                yearNumericUpDown.Value = decimal.Parse(data[2]);
-            }
-        }
+        public string DateOfBirth => monthCalendar.SelectionStart.ToShortDateString();
 
         public Image GetFirstPhoto => pictureBoxFirstPhoto.Image;
 
@@ -83,11 +66,36 @@ namespace CitrusDB.View.AddStudent
         public event EventHandler PhotoLoaded;
         public event EventHandler ClearButton;
 
-        public event EventHandler NumericUDValueChanged;
-        public event EventHandler NumericUDValueEnter;
-
         public event EventHandler UpdateView;
         public event EventHandler SearchBox_TextChange;
+
+        public event EventHandler MonthCalendarEnter;
+        public event EventHandler MonthCalendarDateChange;
+        public event EventHandler MonthCalendarDateSelected;
+
+        public void SetInitDate()
+        {
+            monthCalendar.Tag = monthCalendar.SelectionRange.ToString();
+        }
+
+        public void ResetControls()
+        {
+            searchGroupTextBox.Text = "";
+
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox textBox)
+                    textBox.Text = string.Empty;
+
+                if (control is ComboBox comboBox)
+                    comboBox.SelectedText = string.Empty;
+            }
+
+            pictureBoxFirstPhoto.Image = null;
+            pictureBoxSecondPhoto.Image = null;
+            photo1Label.Visible = true;
+            photo2Label.Visible = true;
+        }
 
         #endregion
 
@@ -108,6 +116,7 @@ namespace CitrusDB.View.AddStudent
         private void AddStudentBoard_Load(object sender, EventArgs e)
         {
             LoadBoard?.Invoke(sender, e);
+            SetInitDate();
         }
 
         private void TextBoxTextChangedHandler(object sender, EventArgs e)
@@ -132,6 +141,21 @@ namespace CitrusDB.View.AddStudent
             (sender as ComboBox).Text = string.Empty;
         }
 
+        private void monthCalendar_Enter(object sender, EventArgs e)
+        {
+            MonthCalendarEnter?.Invoke(sender, e);
+        }
+
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            MonthCalendarDateChange?.Invoke(sender, e);
+        }
+
+        private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            MonthCalendarDateSelected?.Invoke(sender, e);
+        }
+
         private void pictureBoxFirstPhoto_Click(object sender, EventArgs e)
         {
             ControlEnter?.Invoke(sender, e);
@@ -150,33 +174,7 @@ namespace CitrusDB.View.AddStudent
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            searchGroupTextBox.Text = "";
-
-            foreach (Control control in Controls)
-            {
-                if (control is TextBox textBox)
-                    textBox.Text = string.Empty;
-
-                if (control is ComboBox comboBox)
-                    comboBox.SelectedText = string.Empty;
-            }
-
-            pictureBoxFirstPhoto.Image = null;
-            pictureBoxSecondPhoto.Image = null;
-            photo1Label.Visible = true;
-            photo2Label.Visible = true;
-
             ClearButton?.Invoke(sender, e);
-        }
-
-        private void NumericUpDownValueChangedHandler(object sender, EventArgs e)
-        {
-            NumericUDValueChanged?.Invoke(sender, e);
-        }
-
-        private void NumericUpDownValueEnterHandler(object sender, EventArgs e)
-        {
-            NumericUDValueEnter?.Invoke(sender, e);
         }
 
         private void searchGroupTextBox_TextChanged(object sender, EventArgs e)
@@ -262,15 +260,6 @@ namespace CitrusDB.View.AddStudent
             }
         }
 
-        private void SetNumericUpDownHandlers()
-        {
-            foreach (NumericUpDown numericUpDown in Controls.OfType<NumericUpDown>())
-            {
-                numericUpDown.ValueChanged += NumericUpDownValueChangedHandler;
-                numericUpDown.Enter += NumericUpDownValueEnterHandler;
-            }
-        }
-
         private void generateButton_Click(object sender, EventArgs e)
         {
             GenerateButton.Invoke(sender, e);
@@ -292,5 +281,6 @@ namespace CitrusDB.View.AddStudent
             groupsFlowPanel.Enabled = true;
         }
 
+       
     }
 }

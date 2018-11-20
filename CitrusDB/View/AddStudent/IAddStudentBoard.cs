@@ -14,8 +14,7 @@ namespace CitrusDB.View.AddStudent
         string GetCitizenship { get; }
         string GetKnowledgeOfLanguage { get; }
 
-        string DateOfBirth { get; set; }
-        string InitDateOfBirth { get; }
+        string DateOfBirth { get; }
 
         Image GetFirstPhoto { get; }
         Image GetSecondPhoto { get; }
@@ -39,16 +38,18 @@ namespace CitrusDB.View.AddStudent
         event EventHandler ComboBoxSelectionChange;
         event EventHandler ComboBoxTextUpdate;
 
+        event EventHandler MonthCalendarEnter;
+        event EventHandler MonthCalendarDateChange;
+        event EventHandler MonthCalendarDateSelected;
+
         event EventHandler PhotoLoaded;
-
-
-        event EventHandler NumericUDValueChanged;
-        event EventHandler NumericUDValueEnter;
 
         event EventHandler UpdateView;
 
         event EventHandler SearchBox_TextChange;
 
+        void ResetControls();
+        void SetInitDate();
         void HidePhotoLabels();
         void DisableViewsPanel();
         void EnableViewsPanel();

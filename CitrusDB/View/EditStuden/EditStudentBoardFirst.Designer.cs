@@ -1,6 +1,6 @@
 ﻿namespace CitrusDB.View.EditStuden
 {
-    partial class editStudentBoardFirst
+    partial class EditStudentBoardFirst
     {
         /// <summary> 
         /// Обязательная переменная конструктора.

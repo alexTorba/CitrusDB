@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace CitrusDB.View.EditStuden
 {
-    public partial class editStudentBoardFirst : UserControl, IEditStudentBoardFirst
+    public partial class EditStudentBoardFirst : UserControl, IEditStudentBoardFirst
     {
         MainForm mainForm;
 
-        public editStudentBoardFirst()
+        public EditStudentBoardFirst()
         {
             InitializeComponent();
         }

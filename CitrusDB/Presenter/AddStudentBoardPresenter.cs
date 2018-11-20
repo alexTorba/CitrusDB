@@ -51,12 +51,13 @@ namespace CitrusDB.Presenter
 
             addStudentBoard.PhotoLoaded += AddStudentBoard_PhotoLoaded;
 
-            addStudentBoard.NumericUDValueChanged += AddStudentBoard_NumericUDValueChanged;
-            addStudentBoard.NumericUDValueEnter += AddStudentBoard_NumericUDValueEnter;
-
             addStudentBoard.UpdateView += AddStudentBoard_UpdateView;
 
             addStudentBoard.SearchBox_TextChange += AddStudentBoard_SearchBox_TextChange;
+
+            addStudentBoard.MonthCalendarDateChange += AddStudentBoard_MonthCalendarDateChange;
+            addStudentBoard.MonthCalendarDateSelected += AddStudentBoard_MonthCalendarDateSelected;
+            addStudentBoard.MonthCalendarEnter += AddStudentBoard_MonthCalendarEnter;
         }
 
         #region Event Handlers
@@ -109,13 +110,9 @@ namespace CitrusDB.Presenter
 
         private void AddStudentBoard_GenerateButton(object sender, EventArgs e)
         {
-            (string p1, string p2) = Generate.GetPhotos();
+            AddStudentBoard_ClearButton(null, EventArgs.Empty);
 
-            //numbericUD
-            validate.SetState(addStudentBoard.DateOfBirth == addStudentBoard.InitDateOfBirth, true);
-            addStudentBoard.DateOfBirth = Generate.GetDateOfBirth();
-            addStudentBoard.ProgressBarValue =
-                            validate.FillingProgressBarLogic(addStudentBoard.ProgressBarValue, 10);
+            (string p1, string p2) = Generate.GetPhotos();
 
             foreach (Control control in addStudentBoard.GetBoardControls)
             {
@@ -142,19 +139,36 @@ namespace CitrusDB.Presenter
                     AddStudentBoard_PhotoLoaded(pictureBox, EventArgs.Empty);
                     addStudentBoard.HidePhotoLabels();
                 }
+                else if (control is MonthCalendar monthCalendar)
+                {
+                    var time = Generate.GenerateDateTime();
+                    monthCalendar.SelectionRange = new SelectionRange(time, time);
+                    addStudentBoard.SetInitDate();
+                    monthCalendar.Select();
+
+                    AddStudentBoard_MonthCalendarDateSelected(monthCalendar, EventArgs.Empty);
+                }
             }
         }
 
-        #region NumericUP
+        #region MonthCalendar
 
-        private void AddStudentBoard_NumericUDValueEnter(object sender, EventArgs e)
+        private void AddStudentBoard_MonthCalendarEnter(object sender, EventArgs e)
         {
-            validate.SetState(addStudentBoard.DateOfBirth == addStudentBoard.InitDateOfBirth, true);
+            if (sender is MonthCalendar monthCalendar)
+            {
+                validate.SetState(monthCalendar.SelectionRange.ToString() == monthCalendar.Tag.ToString(), true);
+            }
         }
 
-        private void AddStudentBoard_NumericUDValueChanged(object sender, EventArgs e)
+        private void AddStudentBoard_MonthCalendarDateSelected(object sender, EventArgs e)
         {
-            ControlIsConfirmed(sender as NumericUpDown);
+            ControlIsConfirmed(sender as MonthCalendar);
+        }
+
+        private void AddStudentBoard_MonthCalendarDateChange(object sender, EventArgs e)
+        {
+            ControlIsConfirmed(sender as MonthCalendar);
         }
 
         #endregion
@@ -196,12 +210,15 @@ namespace CitrusDB.Presenter
 
         private void AddStudentBoard_ClearButton(object sender, EventArgs e)
         {
-            addStudentBoard.DateOfBirth = addStudentBoard.InitDateOfBirth;
+            addStudentBoard.SetInitDate();
+
             addStudentBoard.ProgressBarValue = 0;
 
             GroupView_ClearOtherBoard(null, EventArgs.Empty);
 
             validate.Reset();
+
+            addStudentBoard.ResetControls();
         }
 
         private void AddStudentBoard_SaveButton(object sender, EventArgs e)
