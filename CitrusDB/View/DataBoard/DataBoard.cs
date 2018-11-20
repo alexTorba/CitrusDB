@@ -52,12 +52,16 @@ namespace CitrusDB.View.DataBoard
 
         private void DataBoard_Load(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Loading data..";
+
             LoadDataBoard?.Invoke(null, EventArgs.Empty);
 
             radioButtonStudent.Checked = true;
 
             if (dataGrid.Columns["Id"] != null)
                 dataGrid.Columns["Id"].Visible = false;
+
+            mainForm.SetInitStatus();
         }
 
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
@@ -114,11 +118,15 @@ namespace CitrusDB.View.DataBoard
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Showing info..";
+
             int id = (int)dataGrid.SelectedCells[0].Value;
 
             if (dataGrid.DataSource is ICollection<StudentView>)
                 new StudentInfoForm(id).Show();
             else new GroupInfoForm(id).Show();
+
+            mainForm.SetInitStatus();
         }
 
         private void dataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -128,9 +136,13 @@ namespace CitrusDB.View.DataBoard
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Deleting entity..";
+
             var sel =  dataGrid.SelectedRows[0].DataBoundItem;
             DeleteEntity?.Invoke(null,  new EntityArgs(sel));
             UpdateView();
+
+            mainForm.SetInitStatus();
         }
     }
 }

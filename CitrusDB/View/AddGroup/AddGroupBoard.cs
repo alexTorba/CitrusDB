@@ -15,9 +15,16 @@ namespace CitrusDB.View.AddGroup
     public partial class AddGroupBoard : UserControl, IAddGroupBoard
     {
 
+        MainForm mainForm;
+
         public AddGroupBoard()
         {
             InitializeComponent();
+        }
+
+        public void InitGroupBoard(MainForm mainForm)
+        {
+            this.mainForm = mainForm;
         }
 
         #region IAddGroupBoard
@@ -83,24 +90,40 @@ namespace CitrusDB.View.AddGroup
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Clearing view..";
+
             ClearClick?.Invoke(sender, e);
+
+            mainForm.SetInitStatus();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Saving group..";
+
             SaveClick?.Invoke(sender, e);
 
             new SuccessfulDialog("Group added successfully !").Show();
+
+            mainForm.SetInitStatus();
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Searching students..";
+
             CurrentStudentSearchTextBoxChanges.Invoke(sender, e);
+
+            mainForm.SetInitStatus();
         }
 
         public void UpdateCurrentStudentView()
         {
+            mainForm.SetStatusValue = "Updating view..";
+
             UpdateView?.Invoke(null, EventArgs.Empty);
+
+            mainForm.SetInitStatus();
         }        
 
         #endregion

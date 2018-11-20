@@ -10,6 +10,7 @@ namespace CitrusDB.View.AddStudent
 {
     public partial class AddStudentBoard : UserControl, IAddStudentBoard
     {
+
         MainForm mainForm;
 
         public AddStudentBoard()
@@ -109,12 +110,15 @@ namespace CitrusDB.View.AddStudent
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Saving student..";
+
             SaveButton?.Invoke(sender, e);
 
             var succDealog = new SuccessfulDialog("Student added successfully !");
             if (succDealog.ShowDialog() == DialogResult.OK)
                 clearButton_Click(null, EventArgs.Empty);
 
+            mainForm.SetInitStatus();
         }
 
         private void AddStudentBoard_Load(object sender, EventArgs e)
@@ -178,12 +182,20 @@ namespace CitrusDB.View.AddStudent
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Clearing view..";
+
             ClearButton?.Invoke(sender, e);
+
+            mainForm.SetInitStatus();
         }
 
         private void searchGroupTextBox_TextChanged(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Searching the students..";
+
             SearchBox_TextChange?.Invoke(sender, e);
+
+            mainForm.SetInitStatus();
         }
 
         #endregion
@@ -266,7 +278,11 @@ namespace CitrusDB.View.AddStudent
 
         private void generateButton_Click(object sender, EventArgs e)
         {
+            mainForm.SetStatusValue = "Generating values..";
+
             GenerateButton.Invoke(sender, e);
+
+            mainForm.SetInitStatus();
         }
 
         public void HidePhotoLabels()

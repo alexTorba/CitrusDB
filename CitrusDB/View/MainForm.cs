@@ -22,6 +22,17 @@ namespace CitrusDB.View
 
         #region IMainForm
 
+        public void SetInitStatus()
+        {
+            statusTextBox.Text = statusTextBox.Tag.ToString();
+        }
+
+        public string SetStatusValue
+        {
+            get => statusTextBox.Text;
+            set => statusTextBox.Text = value;
+        }
+
         public event EventHandler LoadMainForm;
         public event EventHandler ClosingMainForm;
 
@@ -39,6 +50,8 @@ namespace CitrusDB.View
             LoadMainForm(sender, e);
 
             dataBoard.BringToFront();
+
+            SetInitStatus();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -133,6 +146,7 @@ namespace CitrusDB.View
             addStudentBoard.InitFields(this);
             dataBoard.InitDataBoard(this);
             editStudentBoardFirst.InitFields(this);
+            addGroupBoard.InitGroupBoard(this);
         }
 
         public void ClearEventHandlers()
@@ -152,7 +166,7 @@ namespace CitrusDB.View
             {
                 if (currentButton.Parent == panelGroupAdd)
                     backlightPanel.Top = flowLayoutPanel1.Top + panelGroupAdd.Top;
-                else if(currentButton.Parent == editPanel)
+                else if (currentButton.Parent == editPanel)
                     backlightPanel.Top = flowLayoutPanel1.Top + editPanel.Top;
                 else
                 {
@@ -162,6 +176,5 @@ namespace CitrusDB.View
             }
         }
 
-        
     }
 }
