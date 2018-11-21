@@ -10,6 +10,7 @@ using CitrusDB.Model;
 
 namespace CitrusDB.View.EntitiesInfo.GroupInfo
 {
+
     public partial class GroupInfoForm : Form, IGroupInfoForm
     {
         public GroupInfoForm(int id)
@@ -42,8 +43,19 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
             set => groupNameValue.Text = value;
         }
 
+        public void DisablingGrid()
+        {
+            studentsDataGrid.Enabled = false;
+        }
+
+        public void EnablingGrid()
+        {
+            studentsDataGrid.Enabled = true;
+        }
+
         public event EventHandler LoadForm;
         public event HeaderGridMouseClick HeaderMouseClick;
+        public event EventHandler SearchTextChanged;
 
         #endregion
 
@@ -54,8 +66,25 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
             LoadForm?.Invoke(sender, e);
 
             countOfAddedValue.Text = (studentsDataGrid.DataSource as IEnumerable<StudentView>).Count().ToString();
+            CustomizeTableDisplaying();    
+        }
+
+        private void CustomizeTableDisplaying()
+        {
             studentsDataGrid.Columns["Id"].Visible = false;
             studentsDataGrid.Columns["Group"].Visible = false;
+        }
+
+        private void studentsDataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            HeaderMouseClick?.Invoke(sender, 
+                new HeaderPropertyEventArgs(studentsDataGrid.Columns[e.ColumnIndex].DataPropertyName));
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchTextChanged?.Invoke(sender, e);
+            CustomizeTableDisplaying();
         }
 
         #endregion
@@ -71,10 +100,11 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
             new StudentInfoForm(id).ShowDialog();
         }
 
-        private void studentsDataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void searchTextBox_MouseClick(object sender, MouseEventArgs e)
         {
-            HeaderMouseClick.Invoke(sender, 
-                new HeaderPropertyEventArgs(studentsDataGrid.Columns[e.ColumnIndex].DataPropertyName));
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
         }
     }
 }

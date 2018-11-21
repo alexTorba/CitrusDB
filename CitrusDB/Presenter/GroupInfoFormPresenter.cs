@@ -7,12 +7,17 @@ using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.EntitiesInfo.GroupInfo;
 using CitrusDB.Model.Extensions;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CitrusDB.Presenter
 {
     class GroupInfoFormPresenter
     {
+
         readonly IGroupInfoForm groupInfoForm;
+        TaskInfo currentTask;
 
         public GroupInfoFormPresenter(IGroupInfoForm groupInfoForm)
         {
@@ -20,6 +25,57 @@ namespace CitrusDB.Presenter
 
             this.groupInfoForm.LoadForm += GroupInfoForm_LoadForm;
             this.groupInfoForm.HeaderMouseClick += GroupInfoForm_HeaderMouseClick;
+            this.groupInfoForm.SearchTextChanged += GroupInfoForm_SearchTextChanged;
+        }
+
+        private void GroupInfoForm_SearchTextChanged(object sender, EventArgs e)
+        {
+            currentTask?.CancelTask();
+
+            currentTask = new TaskInfo(SearchStudent, sender);
+        }
+
+        private async void SearchStudent(object sender, CancellationToken token)
+        {
+            try
+            {
+                groupInfoForm.DisablingGrid();
+
+                groupInfoForm.Students = await GetStudent((sender as TextBox).Text, token);
+            }
+            catch (OperationCanceledException canceledEx)
+            {
+                Console.WriteLine(canceledEx.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                groupInfoForm.EnablingGrid();
+            }
+            Console.WriteLine($"SUCCESSFUL" + Environment.NewLine);
+        }
+
+        private async Task<IEnumerable<StudentView>> GetStudent(string conditions, CancellationToken token)
+        {
+            return await Task.Run(() =>
+            {
+                if (conditions != string.Empty)
+                    return EFGenericRepository.FindById<Group>(groupInfoForm.Id)
+                                                      .Students
+                                                      .GetViews<Student, StudentView>()
+                                                      .Where(s => s.FirstName.ToUpperInvariant()
+                                                      .Contains(conditions.ToUpperInvariant()))
+                                                      .ToArray();
+
+                return EFGenericRepository.FindById<Group>(groupInfoForm.Id)
+                            .Students
+                            .GetViews<Student, StudentView>()
+                            .ToArray();
+            }, token);
         }
 
         private void GroupInfoForm_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)

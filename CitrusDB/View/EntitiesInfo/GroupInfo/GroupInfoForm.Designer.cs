@@ -139,7 +139,7 @@
             // 
             this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.photoPictureBox.Location = new System.Drawing.Point(64, 16);
-            this.photoPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.photoPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(98, 113);
             this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -206,7 +206,7 @@
             this.studentsDataGrid.HeaderBgColor = System.Drawing.Color.GhostWhite;
             this.studentsDataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
             this.studentsDataGrid.Location = new System.Drawing.Point(220, 48);
-            this.studentsDataGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studentsDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.studentsDataGrid.MultiSelect = false;
             this.studentsDataGrid.Name = "studentsDataGrid";
             this.studentsDataGrid.ReadOnly = true;
@@ -232,12 +232,14 @@
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.searchTextBox.Location = new System.Drawing.Point(220, 16);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(132, 23);
             this.searchTextBox.TabIndex = 42;
             this.searchTextBox.Text = "Search..";
+            this.searchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchTextBox_MouseClick);
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // dragControl
             // 
@@ -253,7 +255,7 @@
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
             this.closeButton.Location = new System.Drawing.Point(566, 8);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(2);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(27, 28);
             this.closeButton.TabIndex = 43;
@@ -266,7 +268,7 @@
             this.groupNameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.groupNameValue.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupNameValue.Location = new System.Drawing.Point(32, 154);
-            this.groupNameValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupNameValue.Margin = new System.Windows.Forms.Padding(2);
             this.groupNameValue.Multiline = true;
             this.groupNameValue.Name = "groupNameValue";
             this.groupNameValue.ReadOnly = true;
@@ -295,7 +297,7 @@
             this.Controls.Add(this.bunifuSeparator5);
             this.Controls.Add(this.photoPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GroupInfoForm";
             this.Text = "GroupInfoForm";
             this.Load += new System.EventHandler(this.GroupInfoForm_Load);
