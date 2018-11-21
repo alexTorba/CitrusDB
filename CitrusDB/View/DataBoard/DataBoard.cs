@@ -55,7 +55,8 @@ namespace CitrusDB.View.DataBoard
 
         private void DataBoard_Load(object sender, EventArgs e)
         {
-            mainForm.SetStatusValue = "Loading data..";
+            if (mainForm != null)
+                mainForm.SetStatusValue = "Loading data..";
 
             LoadDataBoard?.Invoke(null, EventArgs.Empty);
 
@@ -64,7 +65,7 @@ namespace CitrusDB.View.DataBoard
             if (dataGrid.Columns["Id"] != null)
                 dataGrid.Columns["Id"].Visible = false;
 
-            mainForm.SetInitStatus();
+            mainForm?.SetInitStatus();
         }
 
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
@@ -159,7 +160,7 @@ namespace CitrusDB.View.DataBoard
             else if (radioButtonGroup.Checked == true)
                 SelectedEntity = SelectedEntity.Group;
 
-            HeaderMouseClick?.Invoke(sender, 
+            HeaderMouseClick?.Invoke(sender,
                 new HeaderPropertyEventArgs(dataGrid.Columns[e.ColumnIndex].DataPropertyName));
         }
     }

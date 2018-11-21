@@ -49,6 +49,7 @@ namespace CitrusDB.View
         {
             LoadMainForm(sender, e);
 
+            ReplaceBacklightPanel(buttonData, e);
             dataBoard.BringToFront();
 
             SetInitStatus();
@@ -86,6 +87,8 @@ namespace CitrusDB.View
 
         private void editStudentButton_Click(object sender, EventArgs e)
         {
+            ReplaceBacklightPanel(editButton, e);
+            
             editStudentBoardFirst.BringToFront();
         }
 
