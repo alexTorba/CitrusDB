@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 using CitrusDB.View.EntitiesInfo.StudentInfo;
+using CitrusDB.Model;
 
 namespace CitrusDB.View.EntitiesInfo.GroupInfo
 {
@@ -42,6 +43,7 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
         }
 
         public event EventHandler LoadForm;
+        public event HeaderGridMouseClick HeaderMouseClick;
 
         #endregion
 
@@ -67,6 +69,12 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
         {
             int id = (int)studentsDataGrid.SelectedCells[0].Value;
             new StudentInfoForm(id).ShowDialog();
+        }
+
+        private void studentsDataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            HeaderMouseClick.Invoke(sender, 
+                new HeaderPropertyEventArgs(studentsDataGrid.Columns[e.ColumnIndex].DataPropertyName));
         }
     }
 }

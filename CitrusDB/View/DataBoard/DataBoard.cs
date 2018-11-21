@@ -30,6 +30,8 @@ namespace CitrusDB.View.DataBoard
             set => dataGrid.DataSource = value;
         }
 
+        public SelectedEntity SelectedEntity { get; set; }
+
         public void UpdateView()
         {
             if (radioButtonGroup.Checked == true)
@@ -40,6 +42,7 @@ namespace CitrusDB.View.DataBoard
         public event EventHandler LoadDataBoard;
         public event EventHandler GroupTableLoad;
         public event EventHandler DeleteEntity;
+        public event HeaderGridMouseClick HeaderMouseClick;
 
         #endregion
 
@@ -47,7 +50,7 @@ namespace CitrusDB.View.DataBoard
         {
             InitializeComponent();
         }
-       
+
         #region Forwarding Events
 
         private void DataBoard_Load(object sender, EventArgs e)
@@ -67,7 +70,7 @@ namespace CitrusDB.View.DataBoard
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
         {
             GroupTableLoad?.Invoke(sender, e);
-
+            //dataGrid.Columns["Photo"].
             dataGrid.Columns["Id"].Visible = false;
             ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -138,11 +141,26 @@ namespace CitrusDB.View.DataBoard
         {
             mainForm.SetStatusValue = "Deleting entity..";
 
-            var sel =  dataGrid.SelectedRows[0].DataBoundItem;
-            DeleteEntity?.Invoke(null,  new EntityArgs(sel));
+            var sel = dataGrid.SelectedRows[0].DataBoundItem;
+            DeleteEntity?.Invoke(null, new EntityArgs(sel));
             UpdateView();
 
             mainForm.SetInitStatus();
+        }
+
+        private void dataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string selectedHeader = dataGrid.Columns[e.ColumnIndex].DataPropertyName;
+            if (selectedHeader == "Photo")
+                return;
+
+            if (radioButtonStudent.Checked == true)
+                SelectedEntity = SelectedEntity.Student;
+            else if (radioButtonGroup.Checked == true)
+                SelectedEntity = SelectedEntity.Group;
+
+            HeaderMouseClick?.Invoke(sender, 
+                new HeaderPropertyEventArgs(dataGrid.Columns[e.ColumnIndex].DataPropertyName));
         }
     }
 }

@@ -15,11 +15,18 @@ namespace CitrusDB.Model.Extensions
         {
             return sequance.
                  OrderBy
-                 (e => e
-                 .GetType()
-                 .GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly)
-                 .Where(p => p.Name == propertyName)
-                 );
+                 (e =>
+                 {
+                     var result = e
+                        .GetType()
+                        .GetProperties()
+                        .FirstOrDefault(p => p.Name == propertyName)
+                        ?.GetValue(e, null);
+                     if (result is Group group)
+                         return group.Name;
+                     else return result;
+
+                 });
         }
 
         private static IEnumerable<T> OrderByTreeExpression<T>(this IEnumerable<T> sequance, string propertyName)
@@ -29,7 +36,7 @@ namespace CitrusDB.Model.Extensions
             MemberExpression property = Expression.Property(parameterExpression, propertyName);
             Delegate lambda = Expression.Lambda(property, parameterExpression).Compile();
 
-            var orderBy = typeof(IEnumerable<T>)
+            var orderBy = typeof(Enumerable)
                  .GetMethods(BindingFlags.Public | BindingFlags.Static)
                  .Where(m => m.GetParameters().Length == 2 && m.Name == "OrderBy")
                  .FirstOrDefault()
@@ -40,6 +47,9 @@ namespace CitrusDB.Model.Extensions
 
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> sequance, string propertyName)
         {
+            if (propertyName == null)
+                return null;
+
             if (sequance.Count() < 100)
                 return OrderBySimpleReflection(sequance, propertyName);
             else

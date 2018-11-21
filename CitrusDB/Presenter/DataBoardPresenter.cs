@@ -6,6 +6,7 @@ using CitrusDB.Model.Entity;
 using CitrusDB.Model;
 using CitrusDB.View.DataBoard;
 using CitrusDB.Model.Extensions;
+using System.ComponentModel;
 
 namespace CitrusDB.Presenter
 {
@@ -18,8 +19,24 @@ namespace CitrusDB.Presenter
             this.dataBoard = dataBoard;
             this.dataBoard.LoadDataBoard += DataBoard_LoadDataBoard;
             this.dataBoard.GroupTableLoad += DataBoard_GroupTableLoad;
+            this.dataBoard.HeaderMouseClick += DataBoard_HeaderMouseClick;
 
             this.dataBoard.DeleteEntity += DataBoard_DeleteEntity;
+        }
+
+        private void DataBoard_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)
+        {
+            if (dataBoard.SelectedEntity == SelectedEntity.Student)
+                dataBoard.GetDataSource = EFGenericRepository.Get<Student>()
+                                            .GetViews<Student, StudentView>()
+                                            .OrderBy(e.SelectedHeader)
+                                            .ToList();
+
+            else if (dataBoard.SelectedEntity == SelectedEntity.Group)
+                dataBoard.GetDataSource = EFGenericRepository.Get<Group>()
+                                            .GetViews<Group, GroupView>()
+                                            .OrderBy(e.SelectedHeader)
+                                            .ToList();
         }
 
         private void DataBoard_DeleteEntity(object sender, EventArgs e)

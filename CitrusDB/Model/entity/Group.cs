@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CitrusDB.Model.Entity
 {
-    public class Group : IEntity
+    public class Group : IEntity, IComparable<Group>
     {
 
         public int Id { get; set; }
@@ -25,5 +25,9 @@ namespace CitrusDB.Model.Entity
             return Name;
         }
 
+        public int CompareTo(Group other)
+        {
+            return Name.CompareTo(other.Name);
+        }
     }
 }

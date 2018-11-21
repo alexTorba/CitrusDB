@@ -1,10 +1,7 @@
-﻿using CitrusDB.Model.Entity;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using CitrusDB.Model;
 
 namespace CitrusDB.View.EntitiesInfo.GroupInfo
 {
@@ -16,6 +13,7 @@ namespace CitrusDB.View.EntitiesInfo.GroupInfo
         Image Photo { get; set; }
         object Students { get; set; }
 
+        event HeaderGridMouseClick HeaderMouseClick;
         event EventHandler LoadForm;
     }
 }
