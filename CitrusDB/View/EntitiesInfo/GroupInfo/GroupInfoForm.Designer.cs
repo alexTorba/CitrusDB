@@ -224,7 +224,7 @@
             this.studentsDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.studentsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentsDataGrid.Size = new System.Drawing.Size(362, 260);
-            this.studentsDataGrid.TabIndex = 41;
+            this.studentsDataGrid.TabIndex = 0;
             this.studentsDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGrid_CellDoubleClick);
             this.studentsDataGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.studentsDataGrid_ColumnHeaderMouseClick);
             // 

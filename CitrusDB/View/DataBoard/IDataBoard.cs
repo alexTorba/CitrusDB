@@ -16,6 +16,7 @@ namespace CitrusDB.View.DataBoard
         event EventHandler GroupTableLoad;
         event HeaderGridMouseClick HeaderMouseClick;
         event EventHandler DeleteEntity;
+        event EventHandler SearchBoxTextChanged;
 
         SelectedEntity SelectedEntity { get; set; }
 

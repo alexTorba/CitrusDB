@@ -7,6 +7,8 @@ using System.Linq.Expressions;
 using CitrusDB.Model.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace CitrusDB.Model.DataBaseLogic
 {
@@ -87,6 +89,35 @@ namespace CitrusDB.Model.DataBaseLogic
             await context.SaveChangesAsync();
         }
 
+        public static async Task<IEnumerable<IEntity>> GetEntityBySearch(
+           SelectedEntity selectedEntity,
+           string condition,
+           CancellationToken token)
+        {
+            return await Task.Run(() =>
+            {
+                switch (selectedEntity)
+                {
+                    case SelectedEntity.Group:
+                        {
+                            if (condition == string.Empty)
+                                return (IEnumerable<IEntity>)Get<Group>();
+                            return Get<Group>(g => g.Name.ToUpperInvariant()
+                                                  .Contains(condition.ToUpperInvariant()));
+                        }
+                    case SelectedEntity.Student:
+                        {
+                            if (condition == string.Empty)
+                                return Get<Student>();
+                            return Get<Student>(s => s.FirstName.ToUpperInvariant()
+                                                    .Contains(condition.ToUpperInvariant()));
+                        }
+                    default:
+                        return null;
+                }
+            }, token);
+        }
+
         public static IEnumerable<TEntity> GetEntitiesWithState<TEntity>(EntityState entityState)
             where TEntity : class, IEntity
         {
@@ -100,8 +131,8 @@ namespace CitrusDB.Model.DataBaseLogic
         }
 
         public static IEnumerable<TEntity> GetEntitiesWithState<TEntity>(
-            EntityState entityState, 
-            Func<TEntity, bool> predicate) 
+            EntityState entityState,
+            Func<TEntity, bool> predicate)
             where TEntity : class, IEntity
         {
             if (entityState == EntityState.Deleted)

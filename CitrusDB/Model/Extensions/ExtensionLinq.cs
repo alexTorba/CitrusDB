@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Linq.Expressions;
 using CitrusDB.Model.Entity;
+using System.Threading;
 
 namespace CitrusDB.Model.Extensions
 {
@@ -56,7 +57,8 @@ namespace CitrusDB.Model.Extensions
                 return OrderByTreeExpression(sequance, propertyName);
         }
 
-        public static IEnumerable<R> GetViews<T, R>(this IEnumerable<T> sequance) where T : class where R : class
+        public static IEnumerable<R> GetViews<T, R>(this IEnumerable<T> sequance)
+            where T : class, IEntity where R : class
         {
             switch (sequance)
             {
@@ -84,11 +86,48 @@ namespace CitrusDB.Model.Extensions
                                         Students = g.Students.Count()
                                     }).ToList();
                     }
-
                 default:
                     break;
             }
             return null;
+        }
+
+        public static async Task<IEnumerable<R>> GetViewsAsync<T, R>(this IEnumerable<T> sequance, CancellationToken token)
+            where T : class, IEntity where R : class
+        {
+            return await Task.Run(() =>
+            {
+                switch (sequance)
+                {
+                    case IEnumerable<Student> students:
+                        {
+                            return (IEnumerable<R>)students
+                                    .Select(s => new StudentView
+                                    {
+                                        Id = s.Id,
+                                        FirstName = s.FirstName,
+                                        LastName = s.LastName,
+                                        MiddleName = s.MiddleName,
+                                        Group = s.Group
+                                    });
+                        }
+
+                    case IEnumerable<Group> groups:
+                        {
+                            return (IEnumerable<R>)groups
+                                        .Select(g => new GroupView
+                                        {
+                                            Id = g.Id,
+                                            Photo = g.Photo,
+                                            Name = g.Name,
+                                            Students = g.Students.Count()
+                                        }).ToList();
+                        }
+                    default:
+                        break;
+                }
+                return null;
+            }, token);
         }
 
         public static R GetView<T, R>(this T entity)

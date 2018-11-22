@@ -22,6 +22,11 @@ namespace CitrusDB.View.DataBoard
 
         MainForm mainForm;
 
+        public DataBoard()
+        {
+            InitializeComponent();
+        }
+
         #region IDataBoard
 
         public object GetDataSource
@@ -43,13 +48,9 @@ namespace CitrusDB.View.DataBoard
         public event EventHandler GroupTableLoad;
         public event EventHandler DeleteEntity;
         public event HeaderGridMouseClick HeaderMouseClick;
+        public event EventHandler SearchBoxTextChanged;
 
         #endregion
-
-        public DataBoard()
-        {
-            InitializeComponent();
-        }
 
         #region Forwarding Events
 
@@ -75,6 +76,14 @@ namespace CitrusDB.View.DataBoard
             dataGrid.Columns["Id"].Visible = false;
             ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchBoxTextChanged?.Invoke(sender, e);
+
+            if (dataGrid.Columns["Id"] != null)
+                dataGrid.Columns["Id"].Visible = false;
         }
 
         #endregion
@@ -155,13 +164,20 @@ namespace CitrusDB.View.DataBoard
             if (selectedHeader == "Photo")
                 return;
 
-            if (radioButtonStudent.Checked == true)
-                SelectedEntity = SelectedEntity.Student;
-            else if (radioButtonGroup.Checked == true)
-                SelectedEntity = SelectedEntity.Group;
-
             HeaderMouseClick?.Invoke(sender,
                 new HeaderPropertyEventArgs(dataGrid.Columns[e.ColumnIndex].DataPropertyName));
+        }
+
+        private void radioButtonGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as RadioButton).Checked == true)
+                SelectedEntity = SelectedEntity.Group;
+        }
+
+        private void radioButtonStudent_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as RadioButton).Checked == true)
+                SelectedEntity = SelectedEntity.Student;
         }
     }
 }
