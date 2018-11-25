@@ -49,9 +49,9 @@ namespace CitrusDB.Presenter
         {
             try
             {
-                //disabling grid
-                GetEntityBySearch(dataBoard.SelectedEntity, (sender as TextBox).Text, token);
+                dataBoard.DisablingGrid();
 
+                GetEntityBySearch(dataBoard.SelectedEntity, (sender as TextBox).Text, token);
             }
             catch (TaskCanceledException canceledEx)
             {
@@ -64,7 +64,7 @@ namespace CitrusDB.Presenter
             }
             finally
             {
-                //enabling grid
+                dataBoard.EnablingGrid();
             }
             Console.WriteLine("SUCCESSFULLY");
         }

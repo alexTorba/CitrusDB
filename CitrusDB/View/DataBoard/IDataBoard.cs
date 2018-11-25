@@ -21,6 +21,8 @@ namespace CitrusDB.View.DataBoard
         SelectedEntity SelectedEntity { get; set; }
 
         void UpdateView();
+        void DisablingGrid();
+        void EnablingGrid();
 
         object GetDataSource { get; set; }
     }

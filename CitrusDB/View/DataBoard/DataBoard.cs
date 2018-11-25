@@ -44,6 +44,16 @@ namespace CitrusDB.View.DataBoard
             else LoadDataBoard?.Invoke(null, EventArgs.Empty);
         }
 
+        public void DisablingGrid()
+        {
+            dataGrid.Enabled = false;
+        }
+
+        public void EnablingGrid()
+        {
+            dataGrid.Enabled = true;
+        }
+
         public event EventHandler LoadDataBoard;
         public event EventHandler GroupTableLoad;
         public event EventHandler DeleteEntity;
@@ -178,5 +188,6 @@ namespace CitrusDB.View.DataBoard
             if ((sender as RadioButton).Checked == true)
                 SelectedEntity = SelectedEntity.Student;
         }
+
     }
 }
