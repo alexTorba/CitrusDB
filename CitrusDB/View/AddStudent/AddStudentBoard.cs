@@ -5,6 +5,7 @@ using System.Linq;
 
 using CitrusDB.Properties;
 using CitrusDB.View.UsersElements;
+using CitrusDB.View.UsersElements.Dialogs;
 
 namespace CitrusDB.View.AddStudent
 {
@@ -114,8 +115,8 @@ namespace CitrusDB.View.AddStudent
 
             SaveButton?.Invoke(sender, e);
 
-            var succDealog = new SuccessfulDialog("Student added successfully !");
-            if (succDealog.ShowDialog() == DialogResult.OK)
+
+            if (new SuccessfulDialog("Student added successfully !").ShowDialog() == DialogResult.OK)
                 clearButton_Click(null, EventArgs.Empty);
 
             mainForm.SetInitStatus();

@@ -11,6 +11,7 @@ using CitrusDB.Model.Extensions;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CitrusDB.View.UsersElements;
 
 namespace CitrusDB.Presenter
 {
@@ -44,7 +45,7 @@ namespace CitrusDB.Presenter
             currentTask = new TaskInfo(SearchEntities, sender);
         }
 
-        private  void SearchEntities(object sender, CancellationToken token)
+        private void SearchEntities(object sender, CancellationToken token)
         {
             try
             {
@@ -77,15 +78,15 @@ namespace CitrusDB.Presenter
                 await Task.Run(() =>
                 {
                     if (condition == string.Empty)
-                        studentViewResult= EFGenericRepository.Get<Student>().GetViews<Student, StudentView>();
+                        studentViewResult = EFGenericRepository.Get<Student>().GetViews<Student, StudentView>();
 
-                    studentViewResult =  EFGenericRepository.Get<Student>(s => s.FirstName
-                                                           .ToUpperInvariant()
-                                                           .Contains(condition.ToUpperInvariant()))
+                    studentViewResult = EFGenericRepository.Get<Student>(s => s.FirstName
+                                                          .ToUpperInvariant()
+                                                          .Contains(condition.ToUpperInvariant()))
                                                             .GetViews<Student, StudentView>();
-                },token);
+                }, token);
             }
-            else if(selectedEntity == SelectedEntity.Group)
+            else if (selectedEntity == SelectedEntity.Group)
             {
                 await Task.Run(() =>
                 {
@@ -100,7 +101,7 @@ namespace CitrusDB.Presenter
             }
             if (studentViewResult != null)
                 dataBoard.GetDataSource = studentViewResult.ToArray();
-            else if(groupViewResult != null)
+            else if (groupViewResult != null)
                 dataBoard.GetDataSource = groupViewResult.ToArray();
         }
 
@@ -143,9 +144,21 @@ namespace CitrusDB.Presenter
         private void DataBoard_DeleteEntity(object sender, EventArgs e)
         {
             if (((EntityArgs)e).Entity is StudentView studentView)
+            {
                 EFGenericRepository.Delete(EFGenericRepository.FindById<Student>(studentView.Id));
+            }
             if (((EntityArgs)e).Entity is GroupView groupView)
-                EFGenericRepository.Delete(EFGenericRepository.FindById<Group>(groupView.Id));
+            {
+                var deleteDialog = new DeleteDialog();
+                if (deleteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var retiringGroup = EFGenericRepository.FindById<Group>(groupView.Id);
+                    if (deleteDialog.IsDeleteMembers)
+                        EFGenericRepository.DeleteRange(retiringGroup.Students);
+
+                    EFGenericRepository.Delete(retiringGroup);
+                }
+            }
         }
 
         private void DataBoard_GroupTableLoad(object sender, EventArgs e)

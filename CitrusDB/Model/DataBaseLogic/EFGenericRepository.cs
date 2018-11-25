@@ -45,6 +45,15 @@ namespace CitrusDB.Model.DataBaseLogic
                 .Remove(entity);
         }
 
+        public static void DeleteRange<TEntity>(IList<TEntity> entities) where TEntity : class
+        {
+            var local = context.Set<TEntity>().Local;
+            foreach (var entity in entities.ToArray())
+            {
+                local.Remove(entity);
+            }
+        }
+
         public static TEntity FindById<TEntity>(int id) where TEntity : class, IEntity
         {
             return context.Set<TEntity>().Local

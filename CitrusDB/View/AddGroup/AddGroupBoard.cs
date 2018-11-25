@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using CitrusDB.View.UsersElements;
+using CitrusDB.View.UsersElements.Dialogs;
 
 namespace CitrusDB.View.AddGroup
 {

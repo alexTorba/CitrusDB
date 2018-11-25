@@ -1,4 +1,4 @@
-﻿namespace CitrusDB.View.UsersElements
+﻿namespace CitrusDB.View.UsersElements.Dialogs
 {
     partial class SuccessfulDialog
     {

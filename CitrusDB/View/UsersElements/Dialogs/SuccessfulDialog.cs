@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CitrusDB.View.UsersElements
+namespace CitrusDB.View.UsersElements.Dialogs
 {
     public partial class SuccessfulDialog : Form
     {

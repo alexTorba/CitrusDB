@@ -210,10 +210,16 @@
     <Compile Include="View\UsersElements\CirclusButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\UsersElements\SuccessfulDialog.cs">
+    <Compile Include="View\UsersElements\Dialogs\DeleteDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\UsersElements\SuccessfulDialog.Designer.cs">
+    <Compile Include="View\UsersElements\Dialogs\DeleteDialog.Designer.cs">
+      <DependentUpon>DeleteDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UsersElements\Dialogs\SuccessfulDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UsersElements\Dialogs\SuccessfulDialog.Designer.cs">
       <DependentUpon>SuccessfulDialog.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Migrations\201810040830148_InitialCreate.resx">
@@ -275,7 +281,10 @@
     <EmbeddedResource Include="View\AddGroup\StudentView\StudentViewBoard.resx">
       <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UsersElements\SuccessfulDialog.resx">
+    <EmbeddedResource Include="View\UsersElements\Dialogs\DeleteDialog.resx">
+      <DependentUpon>DeleteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UsersElements\Dialogs\SuccessfulDialog.resx">
       <DependentUpon>SuccessfulDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
