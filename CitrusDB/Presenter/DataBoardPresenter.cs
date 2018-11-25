@@ -130,14 +130,12 @@ namespace CitrusDB.Presenter
         private void DataBoard_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)
         {
             if (dataBoard.SelectedEntity == SelectedEntity.Student)
-                dataBoard.GetDataSource = EFGenericRepository.Get<Student>()
-                                            .GetViews<Student, StudentView>()
+                dataBoard.GetDataSource = ((ICollection<StudentView>)dataBoard.GetDataSource)
                                             .OrderBy(e.SelectedHeader)
                                             .ToList();
 
             else if (dataBoard.SelectedEntity == SelectedEntity.Group)
-                dataBoard.GetDataSource = EFGenericRepository.Get<Group>()
-                                            .GetViews<Group, GroupView>()
+                dataBoard.GetDataSource = ((ICollection<GroupView>)dataBoard.GetDataSource)
                                             .OrderBy(e.SelectedHeader)
                                             .ToList();
         }
