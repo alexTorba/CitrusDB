@@ -72,7 +72,6 @@ namespace CitrusDB.View.DataBoard
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
         {
             GroupTableLoad?.Invoke(sender, e);
-            //dataGrid.Columns["Photo"].
             dataGrid.Columns["Id"].Visible = false;
             ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;

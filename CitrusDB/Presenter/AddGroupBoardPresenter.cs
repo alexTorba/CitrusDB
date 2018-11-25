@@ -56,11 +56,15 @@ namespace CitrusDB.Presenter
             addGroupBoard.DisableAddedStudentPanel();
 
             await AddControlsToControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added, s => s.Group == null).ToArray(),
-                new CancellationToken());
-
+              EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added, s => s.Group == null).ToArray(),
+              new CancellationToken());
+            //todo: ??
             await DeleteControlsFromControlCollection(
                 EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted, s => s.Group == null),
+                new CancellationToken());
+
+            await AddControlsToControlCollection(
+                EFGenericRepository.Get<Student>(s => s.Group == null).ToArray(),
                 new CancellationToken());
 
             addGroupBoard.EnableCurrentStudentPanel();
@@ -191,7 +195,7 @@ namespace CitrusDB.Presenter
         {
             return await Task.Factory.StartNew(() =>
              {
-                 IEnumerable<Student> students = EFGenericRepository.Get<Student>(s=>s.Group == null);
+                 IEnumerable<Student> students = EFGenericRepository.Get<Student>(s => s.Group == null);
 
                  if (condition != string.Empty)
                      students = students
@@ -226,7 +230,7 @@ namespace CitrusDB.Presenter
 
         private async Task AddControlsToControlCollection(IList<Student> students, CancellationToken token)
         {
-            await Task.Run(() =>
+            await Task.Factory.StartNew(() =>
             {
                 if (students.Count == 0)
                     return;
@@ -252,12 +256,12 @@ namespace CitrusDB.Presenter
 
         private async Task DeleteControlsFromControlCollection(IEnumerable<Student> students, CancellationToken token)
         {
-            await addGroupBoard.AddedStudentControlCollection.DeleteControlsFromControlCollection(
+            await addGroupBoard.AddedStudentControlCollection.DeleteControls(
                 students,
                 EFGenericRepository.Get<Student>(),
                 token);
 
-            await addGroupBoard.CurrentStudentControlCollection.DeleteControlsFromControlCollection(
+            await addGroupBoard.CurrentStudentControlCollection.DeleteControls(
                 students,
                 EFGenericRepository.Get<Student>(),
                 token);

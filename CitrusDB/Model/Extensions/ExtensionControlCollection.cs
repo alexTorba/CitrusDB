@@ -22,7 +22,7 @@ namespace CitrusDB.Model.Extensions
         /// <param name="changedEntities">Entities that was changed</param>
         /// <param name="storedEntities">Entities that store in DB </param>
         /// <param name="token">Cancalation token</param>
-        public static async Task DeleteControlsFromControlCollection<T>(
+        public static async Task DeleteControls<T>(
             this ControlCollection controlCollection,
             IEnumerable<T> changedEntities,
             IEnumerable<T> storedEntities,
@@ -82,6 +82,9 @@ namespace CitrusDB.Model.Extensions
             where T : IEntity
             where R : IEntityControlView<T>
         {
+            if (newEntity.Count == 0)
+                return;
+
             Control[] controls = await newEntity.CreateControlCollection(entityControlView, token);
 
             controlCollection.AddRange(controls);

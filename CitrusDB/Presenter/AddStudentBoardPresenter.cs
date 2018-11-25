@@ -100,6 +100,10 @@ namespace CitrusDB.Presenter
             await AddControlsToControlCollection(
                   EFGenericRepository.GetEntitiesWithState<Group>(EntityState.Added).ToArray(),
                   new CancellationToken());
+
+            await DeleteControlsFromControlCollection(
+                 EFGenericRepository.GetEntitiesWithState<Group>(EntityState.Deleted).ToArray(),
+                 new CancellationToken());
         }
 
         private void GroupView_ClearOtherBoard(object sender, EventArgs e)
@@ -244,8 +248,6 @@ namespace CitrusDB.Presenter
             };
 
             EFGenericRepository.Create(student);
-
-            //MessageBox.Show("Added student was successful !");
         }
 
         #endregion
@@ -307,6 +309,14 @@ namespace CitrusDB.Presenter
             });
 
             addStudentBoard.GroupsCollection.AddControls(groups, groupView, token);
+        }
+
+        private async Task DeleteControlsFromControlCollection(IList<Group> groups, CancellationToken token)
+        {
+            await addStudentBoard.GroupsCollection.DeleteControls(
+                groups, 
+                EFGenericRepository.Get<Group>(),
+                token);
         }
 
         private void ControlIsConfirmed(Control control)
