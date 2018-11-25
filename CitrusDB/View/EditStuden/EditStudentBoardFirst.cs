@@ -21,11 +21,30 @@ namespace CitrusDB.View.EditStuden
 
         #region IEditStudentBoardFirst
 
+        public ControlCollection StudentControlCollection => studentFlowLayoutPanel.Controls;
+
+        public void EnablingControlCollection()
+        {
+            studentFlowLayoutPanel.Enabled = true;
+        }
+
+        public void DisablingControlCollection()
+        {
+            studentFlowLayoutPanel.Enabled = false;
+        }
+
         public event EventHandler LoadEditStudentBoardFirst;
         public event EventHandler UpdateView;
         public event EventHandler StudentSearchTextBoxChanges;
 
-        public ControlCollection StudentControlCollection => studentFlowLayoutPanel.Controls;
+        #endregion
+
+        #region Forwarding Events
+
+        public void UpdatingView(object sender, EventArgs e)
+        {
+            UpdateView?.Invoke(sender, e);
+        }
 
         #endregion
 
@@ -73,5 +92,7 @@ namespace CitrusDB.View.EditStuden
         {
             LoadEditStudentBoardFirst?.Invoke(sender, e);
         }
+
+       
     }
 }

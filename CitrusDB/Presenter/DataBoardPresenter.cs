@@ -49,7 +49,7 @@ namespace CitrusDB.Presenter
         {
             try
             {
-                dataBoard.DisablingGrid();
+                //dataBoard.DisablingGrid();
 
                 GetEntityBySearch(dataBoard.SelectedEntity, (sender as TextBox).Text, token);
             }
@@ -64,7 +64,7 @@ namespace CitrusDB.Presenter
             }
             finally
             {
-                dataBoard.EnablingGrid();
+                //dataBoard.EnablingGrid();
             }
             Console.WriteLine("SUCCESSFULLY");
         }
@@ -81,8 +81,8 @@ namespace CitrusDB.Presenter
                         studentViewResult = EFGenericRepository.Get<Student>().GetViews<Student, StudentView>();
 
                     studentViewResult = EFGenericRepository.Get<Student>(s => s.FirstName
-                                                          .ToUpperInvariant()
-                                                          .Contains(condition.ToUpperInvariant()))
+                                                            .ToUpperInvariant()
+                                                            .Contains(condition.ToUpperInvariant()))
                                                             .GetViews<Student, StudentView>();
                 }, token);
             }
@@ -96,7 +96,7 @@ namespace CitrusDB.Presenter
                     groupViewResult = EFGenericRepository.Get<Group>(g => g.Name
                                                           .ToUpperInvariant()
                                                           .Contains(condition.ToUpperInvariant()))
-                                                            .GetViews<Group, GroupView>();
+                                                          .GetViews<Group, GroupView>();
                 }, token);
             }
             if (studentViewResult != null)

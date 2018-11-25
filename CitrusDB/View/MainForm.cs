@@ -81,6 +81,8 @@ namespace CitrusDB.View
             ReplaceBacklightPanel(editButton, e);
             
             editStudentBoardFirst.BringToFront();
+
+            editStudentBoardFirst.UpdatingView(null, EventArgs.Empty);
         }
 
         private void buttonStatistics_Click(object sender, EventArgs e)

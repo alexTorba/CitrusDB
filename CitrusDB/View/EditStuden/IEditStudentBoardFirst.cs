@@ -11,6 +11,9 @@ namespace CitrusDB.View.EditStuden
     {
         ControlCollection StudentControlCollection { get; }
 
+        void EnablingControlCollection();
+        void DisablingControlCollection();
+
         event EventHandler LoadEditStudentBoardFirst;
         event EventHandler UpdateView;
         event EventHandler StudentSearchTextBoxChanges;
