@@ -43,16 +43,12 @@ namespace CitrusDB.Presenter
             editStudentBoardFirst.DisablingControlCollection();
 
             await AddControlsToControlCollection(
-              EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added/*, s => s.Group == null*/).ToArray(),
+              EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToArray(),
               new CancellationToken());
-            //todo: ??
-            await DeleteControlsFromControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted/*, s => s.Group == null*/),
-                new CancellationToken());
 
-            //await AddControlsToControlCollection(
-            //    EFGenericRepository.Get<Student>(s => s.Group == null).ToArray(),
-            //    new CancellationToken());
+            await DeleteControlsFromControlCollection(
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted),
+                new CancellationToken());
 
             editStudentBoardFirst.EnablingControlCollection();
         }
