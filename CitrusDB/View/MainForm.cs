@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using CitrusDB.View.DataBoard;
+using CitrusDB.View.UsersElements.FormLoading;
 
 namespace CitrusDB.View
 {
@@ -9,6 +10,7 @@ namespace CitrusDB.View
     public partial class MainForm : Form, IMainForm
     {
 
+        public LoadingForm loadingForm;
         public event TimerHandler TimerTiks;
 
         #region IMainForm
@@ -29,9 +31,12 @@ namespace CitrusDB.View
 
         #endregion
 
-        public MainForm()
+        public MainForm(ILoadingForm loadingForm)
         {
             InitializeComponent();
+
+            this.loadingForm = new LoadingForm(loadingForm);
+            this.loadingForm.Show();
         }
 
         #region Forwarding Events
@@ -79,7 +84,7 @@ namespace CitrusDB.View
         private void editStudentButton_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(editButton, e);
-            
+
             editStudentBoardFirst.BringToFront();
 
             editStudentBoardFirst.UpdatingView(null, EventArgs.Empty);
@@ -118,8 +123,7 @@ namespace CitrusDB.View
             ReplaceBacklightPanel(buttonAdd, e);
             addStudentBoard.BringToFront();
 
-            this.addStudentBoard.UpdateGroupView();
-            //todo: update view
+            addStudentBoard.UpdateGroupView();
         }
 
         private void buttonGroup_Click(object sender, EventArgs e)

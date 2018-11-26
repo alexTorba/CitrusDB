@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Reflection;
 using CitrusDB.View.UsersElements;
 using CitrusDB.View.UsersElements.Dialogs;
+using CitrusDB.View.UsersElements.FormLoading;
+using System.Threading;
 
 namespace CitrusDB.View.AddGroup
 {
@@ -74,6 +76,7 @@ namespace CitrusDB.View.AddGroup
 
         private void AddGroupBoard_Load(object sender, EventArgs e)
         {
+            
             LoadAddGroupBoard?.Invoke(sender, e);
 
             countOfStudentsLabel.Text = addedStudentFlowPanel.Controls.Count.ToString();

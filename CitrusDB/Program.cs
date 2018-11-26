@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CitrusDB.Presenter;
+using CitrusDB.View;
 using CitrusDB.View.AddGroup.AddedStudentView;
 using CitrusDB.View.AddGroup.StudentView;
 using CitrusDB.View.AddStudent.GroupViews;
-using CitrusDB.View;
 using CitrusDB.View.EditStuden.EditStudentView;
+using CitrusDB.View.UsersElements.FormLoading;
 
 namespace CitrusDB
 {
@@ -21,10 +19,11 @@ namespace CitrusDB
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(new LoadingMainForm());
             mainForm.InitBoard();
 
             var mainPresenter = new MainFormPresenter(mainForm);
@@ -39,8 +38,8 @@ namespace CitrusDB
             var editStudentBoardFirstPresenter = new EditStudentBoardFirstPresenter(mainForm.editStudentBoardFirst, new EditStudentViewBoard());
 
             Application.Run(mainForm);
-
             Console.ReadKey();
         }
+
     }
 }

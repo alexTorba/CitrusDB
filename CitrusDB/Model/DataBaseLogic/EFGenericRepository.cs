@@ -98,6 +98,11 @@ namespace CitrusDB.Model.DataBaseLogic
             await context.SaveChangesAsync();
         }
 
+        public static int CountOfEntities<TEntity>() where TEntity : class, IEntity
+        {
+            return context.Set<TEntity>().Local.Count;
+        }
+
         public static async Task<IEnumerable<IEntity>> GetEntityBySearch(
            SelectedEntity selectedEntity,
            string condition,

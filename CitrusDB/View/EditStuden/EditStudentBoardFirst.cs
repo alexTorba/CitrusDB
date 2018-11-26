@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CitrusDB.View.UsersElements.FormLoading;
 
 namespace CitrusDB.View.EditStuden
 {
     public partial class EditStudentBoardFirst : UserControl, IEditStudentBoardFirst
     {
+
         MainForm mainForm;
+        LoadingForm loadingForm = null;
 
         public EditStudentBoardFirst()
         {
@@ -93,6 +96,5 @@ namespace CitrusDB.View.EditStuden
             LoadEditStudentBoardFirst?.Invoke(sender, e);
         }
 
-       
     }
 }
