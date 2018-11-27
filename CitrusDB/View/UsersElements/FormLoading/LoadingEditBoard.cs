@@ -13,9 +13,11 @@ namespace CitrusDB.View.UsersElements.FormLoading
     public partial class LoadingEditBoard : Form, ILoadingForm
     {
         public LoadingEditBoard()
-        {           
+        {
             InitializeComponent();
         }
+
+        public bool isCompleted { get; set; }
 
         public void CloseForm()
         {

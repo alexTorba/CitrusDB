@@ -25,7 +25,15 @@ namespace CitrusDB.View.UsersElements.FormLoading
 
         public void Close()
         {
-            ((Form)loadingForm).Invoke((MethodInvoker)delegate { loadingForm.CloseForm(); });
+            if (!loadingForm.isCompleted)
+            {
+                ((Form)loadingForm).Invoke((MethodInvoker)delegate
+                {
+                    loadingForm.isCompleted = true;
+                    loadingForm.CloseForm();
+                    ((Form)loadingForm).Dispose();
+                });
+            }
         }
 
     }

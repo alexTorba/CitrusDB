@@ -17,6 +17,8 @@ namespace CitrusDB.View.UsersElements.FormLoading
             InitializeComponent();
         }
 
+        public bool isCompleted { get; set; }
+
         public void CloseForm()
         {
             Close();

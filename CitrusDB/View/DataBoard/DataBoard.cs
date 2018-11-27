@@ -71,9 +71,6 @@ namespace CitrusDB.View.DataBoard
                 dataGrid.Columns["Id"].Visible = false;
 
             mainForm?.SetInitStatus();
-
-            //close loading mainForm
-            mainForm.loadingForm.Close();
         }
 
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)

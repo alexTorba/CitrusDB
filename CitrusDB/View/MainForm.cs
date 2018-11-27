@@ -176,5 +176,9 @@ namespace CitrusDB.View
             }
         }
 
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            loadingForm?.Close();
+        }
     }
 }

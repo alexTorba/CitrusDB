@@ -63,9 +63,9 @@ namespace CitrusDB.View
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.statusTextBox = new System.Windows.Forms.TextBox();
-            this.editStudentBoardFirst = new EditStudentBoardFirst();
-            this.addGroupBoard = new AddGroupBoard();
-            this.addStudentBoard = new AddStudentBoard();
+            this.editStudentBoardFirst = new CitrusDB.View.Students.EditStuden.EditStudentBoardFirst();
+            this.addGroupBoard = new CitrusDB.View.Groups.AddGroup.AddGroupBoard();
+            this.addStudentBoard = new CitrusDB.View.Students.AddStudent.AddStudentBoard();
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dragPanel.SuspendLayout();
@@ -231,7 +231,7 @@ namespace CitrusDB.View
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(56, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 23);
+            this.label1.Size = new System.Drawing.Size(75, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "CitrusDB";
             // 
@@ -498,6 +498,7 @@ namespace CitrusDB.View
             this.dataBoard.Location = new System.Drawing.Point(188, 31);
             this.dataBoard.Margin = new System.Windows.Forms.Padding(4);
             this.dataBoard.Name = "dataBoard";
+            this.dataBoard.SelectedEntity = CitrusDB.Model.Entity.SelectedEntity.Student;
             this.dataBoard.Size = new System.Drawing.Size(917, 644);
             this.dataBoard.TabIndex = 15;
             // 
@@ -524,6 +525,7 @@ namespace CitrusDB.View
             this.Text = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.dragPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelGroupAdd.ResumeLayout(false);
