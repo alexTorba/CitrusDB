@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.generPanelOptions = new System.Windows.Forms.Panel();
             this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.panelGroup = new System.Windows.Forms.Panel();
@@ -47,25 +46,17 @@
             this.unityPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(931, 24);
-            this.panel1.TabIndex = 6;
-            // 
             // generPanelOptions
             // 
             this.generPanelOptions.Controls.Add(this.collapsedButton);
             this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Dock = System.Windows.Forms.DockStyle.Right;
-            this.generPanelOptions.Location = new System.Drawing.Point(636, 0);
+            this.generPanelOptions.Location = new System.Drawing.Point(646, 0);
             this.generPanelOptions.Margin = new System.Windows.Forms.Padding(4);
-            this.generPanelOptions.MaximumSize = new System.Drawing.Size(292, 621);
-            this.generPanelOptions.MinimumSize = new System.Drawing.Size(57, 621);
+            this.generPanelOptions.MaximumSize = new System.Drawing.Size(282, 644);
+            this.generPanelOptions.MinimumSize = new System.Drawing.Size(70, 644);
             this.generPanelOptions.Name = "generPanelOptions";
-            this.generPanelOptions.Size = new System.Drawing.Size(292, 621);
+            this.generPanelOptions.Size = new System.Drawing.Size(282, 644);
             this.generPanelOptions.TabIndex = 7;
             this.generPanelOptions.Tag = true;
             // 
@@ -75,10 +66,10 @@
             this.collapsedButton.FlatAppearance.BorderSize = 0;
             this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
-            this.collapsedButton.Location = new System.Drawing.Point(5, 310);
+            this.collapsedButton.Location = new System.Drawing.Point(5, 317);
             this.collapsedButton.Margin = new System.Windows.Forms.Padding(4);
             this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(54, 56);
+            this.collapsedButton.Size = new System.Drawing.Size(43, 45);
             this.collapsedButton.TabIndex = 7;
             this.collapsedButton.UseVisualStyleBackColor = false;
             this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
@@ -91,7 +82,7 @@
             this.panelGroup.Location = new System.Drawing.Point(28, 0);
             this.panelGroup.Margin = new System.Windows.Forms.Padding(4);
             this.panelGroup.Name = "panelGroup";
-            this.panelGroup.Size = new System.Drawing.Size(263, 621);
+            this.panelGroup.Size = new System.Drawing.Size(263, 644);
             this.panelGroup.TabIndex = 5;
             // 
             // panelTables
@@ -117,7 +108,7 @@
             this.radioButtonGroup.Location = new System.Drawing.Point(213, 139);
             this.radioButtonGroup.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonGroup.Name = "radioButtonGroup";
-            this.radioButtonGroup.Size = new System.Drawing.Size(17, 16);
+            this.radioButtonGroup.Size = new System.Drawing.Size(14, 13);
             this.radioButtonGroup.TabIndex = 9;
             this.radioButtonGroup.TabStop = true;
             this.radioButtonGroup.UseVisualStyleBackColor = true;
@@ -143,7 +134,7 @@
             this.radioButtonStudent.Location = new System.Drawing.Point(213, 81);
             this.radioButtonStudent.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonStudent.Name = "radioButtonStudent";
-            this.radioButtonStudent.Size = new System.Drawing.Size(17, 16);
+            this.radioButtonStudent.Size = new System.Drawing.Size(14, 13);
             this.radioButtonStudent.TabIndex = 7;
             this.radioButtonStudent.TabStop = true;
             this.radioButtonStudent.UseVisualStyleBackColor = true;
@@ -156,7 +147,7 @@
             this.label2.Location = new System.Drawing.Point(66, 134);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 21);
+            this.label2.Size = new System.Drawing.Size(66, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Groups :";
             // 
@@ -168,7 +159,7 @@
             this.label1.Location = new System.Drawing.Point(66, 76);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 21);
+            this.label1.Size = new System.Drawing.Size(76, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Students :";
             // 
@@ -177,16 +168,16 @@
             this.flowGroupOptions.Location = new System.Drawing.Point(0, 8);
             this.flowGroupOptions.Margin = new System.Windows.Forms.Padding(4);
             this.flowGroupOptions.Name = "flowGroupOptions";
-            this.flowGroupOptions.Size = new System.Drawing.Size(259, 476);
+            this.flowGroupOptions.Size = new System.Drawing.Size(259, 562);
             this.flowGroupOptions.TabIndex = 0;
             // 
             // unityPanel
             // 
             this.unityPanel.Controls.Add(this.studentFlowLayoutPanel);
             this.unityPanel.Controls.Add(this.generPanelOptions);
-            this.unityPanel.Location = new System.Drawing.Point(0, 23);
+            this.unityPanel.Location = new System.Drawing.Point(0, 0);
             this.unityPanel.Name = "unityPanel";
-            this.unityPanel.Size = new System.Drawing.Size(928, 621);
+            this.unityPanel.Size = new System.Drawing.Size(928, 644);
             this.unityPanel.TabIndex = 8;
             // 
             // studentFlowLayoutPanel
@@ -194,18 +185,17 @@
             this.studentFlowLayoutPanel.AutoScroll = true;
             this.studentFlowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
             this.studentFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.studentFlowLayoutPanel.MaximumSize = new System.Drawing.Size(855, 621);
-            this.studentFlowLayoutPanel.MinimumSize = new System.Drawing.Size(634, 621);
+            this.studentFlowLayoutPanel.MaximumSize = new System.Drawing.Size(856, 644);
+            this.studentFlowLayoutPanel.MinimumSize = new System.Drawing.Size(639, 644);
             this.studentFlowLayoutPanel.Name = "studentFlowLayoutPanel";
-            this.studentFlowLayoutPanel.Size = new System.Drawing.Size(634, 621);
+            this.studentFlowLayoutPanel.Size = new System.Drawing.Size(639, 644);
             this.studentFlowLayoutPanel.TabIndex = 8;
             // 
-            // editStudentBoardFirst
+            // EditStudentBoardFirst
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.unityPanel);
-            this.Controls.Add(this.panel1);
-            this.Name = "editStudentBoardFirst";
+            this.Name = "EditStudentBoardFirst";
             this.Size = new System.Drawing.Size(914, 644);
             this.Load += new System.EventHandler(this.editStudentBoardFirst_Load);
             this.generPanelOptions.ResumeLayout(false);
@@ -218,7 +208,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel generPanelOptions;
         private UsersElements.CirclusButton collapsedButton;
         private System.Windows.Forms.Panel panelGroup;

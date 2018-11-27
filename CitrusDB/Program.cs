@@ -35,7 +35,9 @@ namespace CitrusDB
             var addGroupBoardPresenter = new AddGroupBoardPresenter(
                 mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
 
-            var editStudentBoardFirstPresenter = new EditStudentBoardFirstPresenter(mainForm.editStudentBoardFirst, new EditStudentViewBoard());
+            EditStudentBoardFirstPresenter editStudentBoardFirstPresenter =
+                new EditStudentBoardFirstPresenter(mainForm.editStudentBoard.editStudentBoardFirst, new EditStudentViewBoard());
+            //var editStudentBoardFirstPresenter = new EditStudentBoardFirstPresenter(mainForm.editStudentBoardFirst, new EditStudentViewBoard());
 
             Application.Run(mainForm);
             Console.ReadKey();

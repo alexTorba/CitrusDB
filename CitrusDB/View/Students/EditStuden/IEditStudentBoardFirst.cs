@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CitrusDB.Model.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,21 @@ namespace CitrusDB.View.Students.EditStuden
 {
     interface IEditStudentBoardFirst
     {
+
+        Student EditStudent { get; set; }
+
         ControlCollection StudentControlCollection { get; }
 
         void EnablingControlCollection();
         void DisablingControlCollection();
 
+        void LoadingSecondForm();
+
         event EventHandler LoadEditStudentBoardFirst;
         event EventHandler UpdateView;
         event EventHandler StudentSearchTextBoxChanges;
+
+        event EventHandler LoadSecondForm;
 
     }
 }

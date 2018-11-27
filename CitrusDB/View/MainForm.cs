@@ -43,10 +43,10 @@ namespace CitrusDB.View
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadMainForm(sender, e);
+            LoadMainForm?.Invoke(sender, e);
 
             ReplaceBacklightPanel(buttonData, e);
-            dataBoard.BringToFront();
+            dataBoard?.BringToFront();
 
             SetInitStatus();
         }
@@ -85,9 +85,10 @@ namespace CitrusDB.View
         {
             ReplaceBacklightPanel(editButton, e);
 
-            editStudentBoardFirst.BringToFront();
+            editStudentBoard.BringToFront();
 
-            editStudentBoardFirst.UpdatingView(null, EventArgs.Empty);
+            //todo:
+            //editStudentBoard.UpdatingView(null, EventArgs.Empty);
         }
 
         private void buttonStatistics_Click(object sender, EventArgs e)
@@ -145,7 +146,7 @@ namespace CitrusDB.View
         {
             addStudentBoard.InitFields(this);
             dataBoard.InitDataBoard(this);
-            editStudentBoardFirst.InitFields(this);
+            editStudentBoard.InitFields(this);
             addGroupBoard.InitGroupBoard(this);
         }
 

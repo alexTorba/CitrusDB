@@ -35,6 +35,15 @@ namespace CitrusDB.Presenter
         {
             editStudentBoardFirst.LoadEditStudentBoardFirst += EditStudentBoardFirst_LoadEditStudentBoardFirst;
             editStudentBoardFirst.UpdateView += EditStudentBoardFirst_UpdateView;
+
+            editStudentView.Click += EditStudentView_Click;
+        }
+
+        private void EditStudentView_Click(object sender, EventArgs e)
+        {
+            editStudentBoardFirst.EditStudent = EFGenericRepository.FindById<Student>(((IStudentView)((Control)sender).Parent).Id);
+
+            editStudentBoardFirst.LoadingSecondForm();
         }
 
         private async void EditStudentBoardFirst_UpdateView(object sender, EventArgs e)

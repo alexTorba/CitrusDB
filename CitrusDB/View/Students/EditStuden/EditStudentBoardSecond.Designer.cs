@@ -57,6 +57,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.groupsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).BeginInit();
             this.searchPanel.SuspendLayout();
@@ -64,18 +65,21 @@
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(544, 312);
+            this.monthCalendar.Location = new System.Drawing.Point(717, 311);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(1990, 12, 27, 0, 0, 0, 0), new System.DateTime(1991, 1, 2, 0, 0, 0, 0));
             this.monthCalendar.TabIndex = 54;
             this.monthCalendar.Tag = "27.12.1990; 02.01.1991";
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
+            this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
+            this.monthCalendar.Enter += new System.EventHandler(this.monthCalendar_Enter);
             // 
             // photo2Label
             // 
             this.photo2Label.AutoSize = true;
             this.photo2Label.Enabled = false;
             this.photo2Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.photo2Label.Location = new System.Drawing.Point(405, 276);
+            this.photo2Label.Location = new System.Drawing.Point(409, 282);
             this.photo2Label.Name = "photo2Label";
             this.photo2Label.Size = new System.Drawing.Size(59, 19);
             this.photo2Label.TabIndex = 53;
@@ -86,7 +90,7 @@
             this.photo1Label.AutoSize = true;
             this.photo1Label.Enabled = false;
             this.photo1Label.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.photo1Label.Location = new System.Drawing.Point(405, 88);
+            this.photo1Label.Location = new System.Drawing.Point(409, 94);
             this.photo1Label.Name = "photo1Label";
             this.photo1Label.Size = new System.Drawing.Size(59, 19);
             this.photo1Label.TabIndex = 52;
@@ -99,12 +103,13 @@
             this.acceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.acceptButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.acceptButton.ForeColor = System.Drawing.Color.White;
-            this.acceptButton.Location = new System.Drawing.Point(632, 570);
+            this.acceptButton.Location = new System.Drawing.Point(628, 570);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(118, 43);
             this.acceptButton.TabIndex = 21;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // cancelButton
             // 
@@ -113,18 +118,19 @@
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(762, 570);
+            this.cancelButton.Location = new System.Drawing.Point(759, 570);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(118, 43);
             this.cancelButton.TabIndex = 22;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // knowledgeOfLanguageLabel
             // 
             this.knowledgeOfLanguageLabel.AutoSize = true;
             this.knowledgeOfLanguageLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.knowledgeOfLanguageLabel.Location = new System.Drawing.Point(540, 175);
+            this.knowledgeOfLanguageLabel.Location = new System.Drawing.Point(542, 175);
             this.knowledgeOfLanguageLabel.Name = "knowledgeOfLanguageLabel";
             this.knowledgeOfLanguageLabel.Size = new System.Drawing.Size(94, 20);
             this.knowledgeOfLanguageLabel.TabIndex = 50;
@@ -134,7 +140,7 @@
             // 
             this.knowledgeOfLanguageTextbox.BorderColor = System.Drawing.Color.SeaGreen;
             this.knowledgeOfLanguageTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.knowledgeOfLanguageTextbox.Location = new System.Drawing.Point(540, 198);
+            this.knowledgeOfLanguageTextbox.Location = new System.Drawing.Point(542, 198);
             this.knowledgeOfLanguageTextbox.Multiline = true;
             this.knowledgeOfLanguageTextbox.Name = "knowledgeOfLanguageTextbox";
             this.knowledgeOfLanguageTextbox.Size = new System.Drawing.Size(339, 47);
@@ -145,7 +151,7 @@
             // 
             this.citizenshipLabel.AutoSize = true;
             this.citizenshipLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.citizenshipLabel.Location = new System.Drawing.Point(722, 98);
+            this.citizenshipLabel.Location = new System.Drawing.Point(724, 98);
             this.citizenshipLabel.Name = "citizenshipLabel";
             this.citizenshipLabel.Size = new System.Drawing.Size(89, 20);
             this.citizenshipLabel.TabIndex = 48;
@@ -155,7 +161,7 @@
             // 
             this.citizenshipTextbox.BorderColor = System.Drawing.Color.SeaGreen;
             this.citizenshipTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.citizenshipTextbox.Location = new System.Drawing.Point(722, 121);
+            this.citizenshipTextbox.Location = new System.Drawing.Point(724, 121);
             this.citizenshipTextbox.Multiline = true;
             this.citizenshipTextbox.Name = "citizenshipTextbox";
             this.citizenshipTextbox.Size = new System.Drawing.Size(157, 23);
@@ -166,7 +172,7 @@
             // 
             this.dateOfBirthLabel.AutoSize = true;
             this.dateOfBirthLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.dateOfBirthLabel.Location = new System.Drawing.Point(544, 290);
+            this.dateOfBirthLabel.Location = new System.Drawing.Point(713, 288);
             this.dateOfBirthLabel.Name = "dateOfBirthLabel";
             this.dateOfBirthLabel.Size = new System.Drawing.Size(104, 20);
             this.dateOfBirthLabel.TabIndex = 46;
@@ -176,7 +182,7 @@
             // 
             this.weightLabel.AutoSize = true;
             this.weightLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.weightLabel.Location = new System.Drawing.Point(758, 387);
+            this.weightLabel.Location = new System.Drawing.Point(546, 365);
             this.weightLabel.Name = "weightLabel";
             this.weightLabel.Size = new System.Drawing.Size(65, 20);
             this.weightLabel.TabIndex = 45;
@@ -186,7 +192,7 @@
             // 
             this.growsLabel.AutoSize = true;
             this.growsLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.growsLabel.Location = new System.Drawing.Point(758, 289);
+            this.growsLabel.Location = new System.Drawing.Point(546, 288);
             this.growsLabel.Name = "growsLabel";
             this.growsLabel.Size = new System.Drawing.Size(69, 20);
             this.growsLabel.TabIndex = 44;
@@ -339,7 +345,7 @@
             "177",
             "178",
             "179"});
-            this.weightComboBox.Location = new System.Drawing.Point(758, 410);
+            this.weightComboBox.Location = new System.Drawing.Point(546, 388);
             this.weightComboBox.Name = "weightComboBox";
             this.weightComboBox.Size = new System.Drawing.Size(121, 25);
             this.weightComboBox.TabIndex = 43;
@@ -443,7 +449,7 @@
             "227",
             "228",
             "229"});
-            this.growsComboBox.Location = new System.Drawing.Point(758, 312);
+            this.growsComboBox.Location = new System.Drawing.Point(546, 311);
             this.growsComboBox.Name = "growsComboBox";
             this.growsComboBox.Size = new System.Drawing.Size(121, 25);
             this.growsComboBox.TabIndex = 42;
@@ -462,7 +468,7 @@
             this.progressBar.LabelVisible = true;
             this.progressBar.LineProgressThickness = 8;
             this.progressBar.LineThickness = 5;
-            this.progressBar.Location = new System.Drawing.Point(354, 451);
+            this.progressBar.Location = new System.Drawing.Point(355, 449);
             this.progressBar.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.progressBar.MaxValue = 100;
             this.progressBar.Name = "progressBar";
@@ -475,28 +481,30 @@
             // pictureBoxSecondPhoto
             // 
             this.pictureBoxSecondPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSecondPhoto.Location = new System.Drawing.Point(360, 207);
+            this.pictureBoxSecondPhoto.Location = new System.Drawing.Point(364, 213);
             this.pictureBoxSecondPhoto.Name = "pictureBoxSecondPhoto";
             this.pictureBoxSecondPhoto.Size = new System.Drawing.Size(145, 158);
             this.pictureBoxSecondPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSecondPhoto.TabIndex = 40;
             this.pictureBoxSecondPhoto.TabStop = false;
+            this.pictureBoxSecondPhoto.Click += new System.EventHandler(this.pictureBoxSecondPhoto_Click);
             // 
             // pictureBoxFirstPhoto
             // 
             this.pictureBoxFirstPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxFirstPhoto.Location = new System.Drawing.Point(360, 20);
+            this.pictureBoxFirstPhoto.Location = new System.Drawing.Point(364, 26);
             this.pictureBoxFirstPhoto.Name = "pictureBoxFirstPhoto";
             this.pictureBoxFirstPhoto.Size = new System.Drawing.Size(145, 158);
             this.pictureBoxFirstPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFirstPhoto.TabIndex = 39;
             this.pictureBoxFirstPhoto.TabStop = false;
+            this.pictureBoxFirstPhoto.Click += new System.EventHandler(this.pictureBoxFirstPhoto_Click);
             // 
             // middleNameLabel
             // 
             this.middleNameLabel.AutoSize = true;
             this.middleNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.middleNameLabel.Location = new System.Drawing.Point(540, 98);
+            this.middleNameLabel.Location = new System.Drawing.Point(542, 98);
             this.middleNameLabel.Name = "middleNameLabel";
             this.middleNameLabel.Size = new System.Drawing.Size(110, 20);
             this.middleNameLabel.TabIndex = 38;
@@ -506,7 +514,7 @@
             // 
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.lastNameLabel.Location = new System.Drawing.Point(722, 23);
+            this.lastNameLabel.Location = new System.Drawing.Point(724, 23);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(87, 20);
             this.lastNameLabel.TabIndex = 37;
@@ -517,7 +525,7 @@
             // 
             this.middleNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
             this.middleNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.middleNameTextbox.Location = new System.Drawing.Point(540, 121);
+            this.middleNameTextbox.Location = new System.Drawing.Point(542, 121);
             this.middleNameTextbox.Multiline = true;
             this.middleNameTextbox.Name = "middleNameTextbox";
             this.middleNameTextbox.Size = new System.Drawing.Size(148, 23);
@@ -528,7 +536,7 @@
             // 
             this.lastNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
             this.lastNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.lastNameTextbox.Location = new System.Drawing.Point(722, 46);
+            this.lastNameTextbox.Location = new System.Drawing.Point(724, 46);
             this.lastNameTextbox.Multiline = true;
             this.lastNameTextbox.Name = "lastNameTextbox";
             this.lastNameTextbox.Size = new System.Drawing.Size(157, 23);
@@ -539,7 +547,7 @@
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameLabel.Location = new System.Drawing.Point(540, 23);
+            this.firstNameLabel.Location = new System.Drawing.Point(542, 23);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(85, 20);
             this.firstNameLabel.TabIndex = 34;
@@ -549,7 +557,7 @@
             // 
             this.firstNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
             this.firstNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstNameTextbox.Location = new System.Drawing.Point(540, 46);
+            this.firstNameTextbox.Location = new System.Drawing.Point(542, 46);
             this.firstNameTextbox.Multiline = true;
             this.firstNameTextbox.Name = "firstNameTextbox";
             this.firstNameTextbox.Size = new System.Drawing.Size(148, 23);
@@ -612,10 +620,13 @@
             this.groupsFlowPanel.Size = new System.Drawing.Size(320, 556);
             this.groupsFlowPanel.TabIndex = 55;
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // EditStudentBoardSecond
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.acceptButton);
@@ -644,6 +655,7 @@
             this.Controls.Add(this.firstNameTextbox);
             this.Name = "EditStudentBoardSecond";
             this.Size = new System.Drawing.Size(914, 644);
+            this.Load += new System.EventHandler(this.EditStudentBoardSecond_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).EndInit();
             this.searchPanel.ResumeLayout(false);
@@ -683,5 +695,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.FlowLayoutPanel groupsFlowPanel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

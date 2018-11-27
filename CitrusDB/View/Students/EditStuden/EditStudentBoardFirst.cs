@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CitrusDB.View.UsersElements.FormLoading;
+using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.Students.EditStuden
 {
     public partial class EditStudentBoardFirst : UserControl, IEditStudentBoardFirst
     {
 
-        MainForm mainForm;
-        LoadingForm loadingForm = null;
+        MainForm mainForm = null;
 
         public EditStudentBoardFirst()
         {
@@ -25,6 +25,8 @@ namespace CitrusDB.View.Students.EditStuden
         #region IEditStudentBoardFirst
 
         public ControlCollection StudentControlCollection => studentFlowLayoutPanel.Controls;
+
+        public Student EditStudent { get; set; }
 
         public void EnablingControlCollection()
         {
@@ -36,19 +38,31 @@ namespace CitrusDB.View.Students.EditStuden
             studentFlowLayoutPanel.Enabled = false;
         }
 
+        public void LoadingSecondForm()
+        {
+            LoadSecondForm?.Invoke(null, EventArgs.Empty);
+        }
+
         public event EventHandler LoadEditStudentBoardFirst;
         public event EventHandler UpdateView;
         public event EventHandler StudentSearchTextBoxChanges;
+        public event EventHandler LoadSecondForm;
 
         #endregion
 
         #region Forwarding Events
+
+        
 
         public void UpdatingView(object sender, EventArgs e)
         {
             UpdateView?.Invoke(sender, e);
         }
 
+        private void editStudentBoardFirst_Load(object sender, EventArgs e)
+        {
+            LoadEditStudentBoardFirst?.Invoke(sender, e);
+        }
         #endregion
 
         public void InitFields(MainForm mainForm)
@@ -91,10 +105,6 @@ namespace CitrusDB.View.Students.EditStuden
             }
         }
 
-        private void editStudentBoardFirst_Load(object sender, EventArgs e)
-        {
-            LoadEditStudentBoardFirst?.Invoke(sender, e);
-        }
-
+       
     }
 }

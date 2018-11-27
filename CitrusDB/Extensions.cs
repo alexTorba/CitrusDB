@@ -52,6 +52,28 @@ namespace CitrusDB
             }
         }
 
+        public static void TicksGrowsWidthQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
+        {
+            if (!(bool)panel.Tag)
+            {
+                panel.Width += 19;
+                if (panel.MaximumSize.Width == panel.Width)
+                {
+                    timer.Stop();
+                    panel.Tag = true;
+                }
+            }
+            else
+            {
+                panel.Width -= 26;
+                if (panel.MinimumSize.Width == panel.Width)
+                {
+                    timer.Stop();
+                    panel.Tag = false;
+                }
+            }
+        }
+
         public static void ChangeImageButton(this Button button, Panel panel, Bitmap collapsed, Bitmap unfolded)
         {
             if ((bool)panel.Tag == false)

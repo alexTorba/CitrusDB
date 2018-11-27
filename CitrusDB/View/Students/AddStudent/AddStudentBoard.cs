@@ -302,6 +302,5 @@ namespace CitrusDB.View.Students.AddStudent
             groupsFlowPanel.Enabled = true;
         }
 
-
     }
 }
