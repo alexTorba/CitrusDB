@@ -145,6 +145,12 @@
     <Compile Include="View\EditStuden\EditStudentBoardFirst.Designer.cs">
       <DependentUpon>EditStudentBoardFirst.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EditStuden\EditStudentBoardSecond.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\EditStuden\EditStudentBoardSecond.Designer.cs">
+      <DependentUpon>EditStudentBoardSecond.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\EditStuden\EditStudentView\EditStudentViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditStuden\EditStudentBoardFirst.resx">
       <DependentUpon>EditStudentBoardFirst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EditStuden\EditStudentBoardSecond.resx">
+      <DependentUpon>EditStudentBoardSecond.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditStuden\EditStudentView\EditStudentViewBoard.resx">
       <DependentUpon>EditStudentViewBoard.cs</DependentUpon>

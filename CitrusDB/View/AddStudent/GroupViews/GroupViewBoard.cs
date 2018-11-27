@@ -16,7 +16,6 @@ namespace CitrusDB.View.AddStudent.GroupViews
 
         Color initColor;
 
-
         public GroupViewBoard()
         {
             InitializeComponent();
