@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Linq;
+using System.Windows.Forms;
 using System.Collections.Generic;
-
-using CitrusDB.Model.DataBaseLogic;
-using CitrusDB.Model;
-using CitrusDB.Model.Entity;
-using CitrusDB.View.EntitiesInfo.GroupInfo;
-using CitrusDB.Model.Extensions;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
+using CitrusDB.Model;
+using CitrusDB.Model.DataBaseLogic;
+using CitrusDB.Model.Entity;
+using CitrusDB.Model.Extensions;
+using CitrusDB.View.Groups.GroupsView.GroupInfo;
 
 namespace CitrusDB.Presenter
 {

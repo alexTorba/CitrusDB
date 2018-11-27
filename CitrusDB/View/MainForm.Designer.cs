@@ -1,7 +1,6 @@
-﻿using CitrusDB.Model.Entity;
-using CitrusDB.View.AddGroup;
-using CitrusDB.View.AddStudent;
-using CitrusDB.View.DataBoard;
+﻿using CitrusDB.View.Groups.AddGroup;
+using CitrusDB.View.Students.AddStudent;
+using CitrusDB.View.Students.EditStuden;
 
 namespace CitrusDB.View
 {
@@ -64,9 +63,9 @@ namespace CitrusDB.View
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.statusTextBox = new System.Windows.Forms.TextBox();
-            this.editStudentBoardFirst = new CitrusDB.View.EditStuden.EditStudentBoardFirst();
-            this.addGroupBoard = new CitrusDB.View.AddGroup.AddGroupBoard();
-            this.addStudentBoard = new CitrusDB.View.AddStudent.AddStudentBoard();
+            this.editStudentBoardFirst = new EditStudentBoardFirst();
+            this.addGroupBoard = new AddGroupBoard();
+            this.addStudentBoard = new AddStudentBoard();
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dragPanel.SuspendLayout();
@@ -576,7 +575,7 @@ namespace CitrusDB.View
         public DataBoard.DataBoard dataBoard;
         public AddStudentBoard addStudentBoard;
         public AddGroupBoard addGroupBoard;
-        public EditStuden.EditStudentBoardFirst editStudentBoardFirst;
+        public EditStudentBoardFirst editStudentBoardFirst;
         private System.Windows.Forms.TextBox statusTextBox;
     }
 }

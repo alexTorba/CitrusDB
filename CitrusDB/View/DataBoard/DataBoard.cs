@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Bunifu.Framework.UI;
 
 using CitrusDB.Properties;
 using CitrusDB.Model;
 using CitrusDB.Model.Entity;
-using CitrusDB.View.EntitiesInfo.StudentInfo;
-using CitrusDB.View.EntitiesInfo.GroupInfo;
+using CitrusDB.View.Students.StudentsView.StudentInfo;
+using CitrusDB.View.Groups.GroupsView.GroupInfo;
 
 namespace CitrusDB.View.DataBoard
 {

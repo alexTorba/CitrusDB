@@ -1,11 +1,12 @@
 ﻿using System;
+
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
-using CitrusDB.View.EntitiesInfo;
-using CitrusDB.View.EntitiesInfo.StudentInfo;
+using CitrusDB.View.Students.StudentsView.StudentInfo;
 
 namespace CitrusDB.Presenter
 {
+
     class StudentInfoFormPresenter
     {
         readonly IStudentInfoForm studentInfoForm;

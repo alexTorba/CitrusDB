@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-
-using CitrusDB.Model;
-using CitrusDB.Model.Entity;
-using CitrusDB.View.AddStudent;
-using CitrusDB.View.AddStudent.GroupViews;
-using CitrusDB.Model.DataBaseLogic;
-using CitrusDB.Model.Extensions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Data.Entity;
+
+using CitrusDB.Model;
+using CitrusDB.Model.Entity;
+using CitrusDB.Model.DataBaseLogic;
+using CitrusDB.Model.Extensions;
+using CitrusDB.View.Students.AddStudent;
+using CitrusDB.View.Groups.GroupsView.GroupViews;
 
 namespace CitrusDB.Presenter
 {

@@ -126,73 +126,73 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.cs">
+    <Compile Include="View\Students\StudentsView\AddedStudentView\AddedStudentViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.Designer.cs">
+    <Compile Include="View\Students\StudentsView\AddedStudentView\AddedStudentViewBoard.Designer.cs">
       <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddGroup\AddGroupBoard.cs">
+    <Compile Include="View\Groups\AddGroup\AddGroupBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AddGroup\AddGroupBoard.Designer.cs">
+    <Compile Include="View\Groups\AddGroup\AddGroupBoard.Designer.cs">
       <DependentUpon>AddGroupBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddGroup\IAddGroupBoard.cs" />
-    <Compile Include="View\EditStuden\EditStudentBoardFirst.cs">
+    <Compile Include="View\Groups\AddGroup\IAddGroupBoard.cs" />
+    <Compile Include="View\Students\EditStuden\EditStudentBoardFirst.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\EditStuden\EditStudentBoardFirst.Designer.cs">
+    <Compile Include="View\Students\EditStuden\EditStudentBoardFirst.Designer.cs">
       <DependentUpon>EditStudentBoardFirst.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditStuden\EditStudentBoardSecond.cs">
+    <Compile Include="View\Students\EditStuden\EditStudentBoardSecond.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\EditStuden\EditStudentBoardSecond.Designer.cs">
+    <Compile Include="View\Students\EditStuden\EditStudentBoardSecond.Designer.cs">
       <DependentUpon>EditStudentBoardSecond.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditStuden\EditStudentView\EditStudentViewBoard.cs">
+    <Compile Include="View\Students\StudentsView\EditStudentView\EditStudentViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\EditStuden\EditStudentView\EditStudentViewBoard.Designer.cs">
+    <Compile Include="View\Students\StudentsView\EditStudentView\EditStudentViewBoard.Designer.cs">
       <DependentUpon>EditStudentViewBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditStuden\IEditStudentBoardFirst.cs" />
-    <Compile Include="View\IStudentView.cs" />
-    <Compile Include="View\AddStudent\AddStudentBoard.cs">
+    <Compile Include="View\Students\EditStuden\IEditStudentBoardFirst.cs" />
+    <Compile Include="View\Students\StudentsView\IStudentView.cs" />
+    <Compile Include="View\Students\AddStudent\AddStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AddStudent\AddStudentBoard.Designer.cs">
+    <Compile Include="View\Students\AddStudent\AddStudentBoard.Designer.cs">
       <DependentUpon>AddStudentBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddStudent\GroupViews\GroupViewBoard.cs">
+    <Compile Include="View\Groups\GroupsView\GroupViews\GroupViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AddStudent\GroupViews\GroupViewBoard.Designer.cs">
+    <Compile Include="View\Groups\GroupsView\GroupViews\GroupViewBoard.Designer.cs">
       <DependentUpon>GroupViewBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddStudent\GroupViews\IGroupView.cs" />
+    <Compile Include="View\Groups\GroupsView\GroupViews\IGroupView.cs" />
     <Compile Include="View\DataBoard\DataBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\DataBoard\DataBoard.Designer.cs">
       <DependentUpon>DataBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AddStudent\IAddStudentBoard.cs" />
+    <Compile Include="View\Students\AddStudent\IAddStudentBoard.cs" />
     <Compile Include="View\DataBoard\EntityArgs.cs" />
     <Compile Include="View\DataBoard\IDataBoard.cs" />
-    <Compile Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.cs">
+    <Compile Include="View\Groups\GroupsView\GroupInfo\GroupInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.Designer.cs">
+    <Compile Include="View\Groups\GroupsView\GroupInfo\GroupInfoForm.Designer.cs">
       <DependentUpon>GroupInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EntitiesInfo\GroupInfo\IGroupInfoForm.cs" />
-    <Compile Include="View\EntitiesInfo\StudentInfo\IStudentInfoForm.cs" />
-    <Compile Include="View\EntitiesInfo\StudentInfo\StudentInfoForm.cs">
+    <Compile Include="View\Groups\GroupsView\GroupInfo\IGroupInfoForm.cs" />
+    <Compile Include="View\Students\StudentsView\StudentInfo\IStudentInfoForm.cs" />
+    <Compile Include="View\Students\StudentsView\StudentInfo\StudentInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EntitiesInfo\StudentInfo\StudentInfoForm.Designer.cs">
+    <Compile Include="View\Students\StudentsView\StudentInfo\StudentInfoForm.Designer.cs">
       <DependentUpon>StudentInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IEntityControlView.cs" />
@@ -207,10 +207,10 @@
     <Compile Include="Model\Entity\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\AddGroup\StudentView\StudentViewBoard.cs">
+    <Compile Include="View\Students\StudentsView\StudentView\StudentViewBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AddGroup\StudentView\StudentViewBoard.Designer.cs">
+    <Compile Include="View\Students\StudentsView\StudentView\StudentViewBoard.Designer.cs">
       <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UsersElements\CirclusButton.cs">
@@ -263,34 +263,34 @@
     <EmbeddedResource Include="Migrations\201811091837294_add_IEntity.resx">
       <DependentUpon>201811091837294_add_IEntity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddGroup\AddedStudentView\AddedStudentViewBoard.resx">
+    <EmbeddedResource Include="View\Students\StudentsView\AddedStudentView\AddedStudentViewBoard.resx">
       <DependentUpon>AddedStudentViewBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddGroup\AddGroupBoard.resx">
+    <EmbeddedResource Include="View\Groups\AddGroup\AddGroupBoard.resx">
       <DependentUpon>AddGroupBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddStudent\AddStudentBoard.resx">
+    <EmbeddedResource Include="View\Students\AddStudent\AddStudentBoard.resx">
       <DependentUpon>AddStudentBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddStudent\GroupViews\GroupViewBoard.resx">
+    <EmbeddedResource Include="View\Groups\GroupsView\GroupViews\GroupViewBoard.resx">
       <DependentUpon>GroupViewBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DataBoard\DataBoard.resx">
       <DependentUpon>DataBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditStuden\EditStudentBoardFirst.resx">
+    <EmbeddedResource Include="View\Students\EditStuden\EditStudentBoardFirst.resx">
       <DependentUpon>EditStudentBoardFirst.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditStuden\EditStudentBoardSecond.resx">
+    <EmbeddedResource Include="View\Students\EditStuden\EditStudentBoardSecond.resx">
       <DependentUpon>EditStudentBoardSecond.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditStuden\EditStudentView\EditStudentViewBoard.resx">
+    <EmbeddedResource Include="View\Students\StudentsView\EditStudentView\EditStudentViewBoard.resx">
       <DependentUpon>EditStudentViewBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EntitiesInfo\GroupInfo\GroupInfoForm.resx">
+    <EmbeddedResource Include="View\Groups\GroupsView\GroupInfo\GroupInfoForm.resx">
       <DependentUpon>GroupInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EntitiesInfo\StudentInfo\StudentInfoForm.resx">
+    <EmbeddedResource Include="View\Students\StudentsView\StudentInfo\StudentInfoForm.resx">
       <DependentUpon>StudentInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
@@ -301,7 +301,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AddGroup\StudentView\StudentViewBoard.resx">
+    <EmbeddedResource Include="View\Students\StudentsView\StudentView\StudentViewBoard.resx">
       <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UsersElements\Dialogs\DeleteDialog.resx">
@@ -347,6 +347,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_Edit_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Groups\EditGroup\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

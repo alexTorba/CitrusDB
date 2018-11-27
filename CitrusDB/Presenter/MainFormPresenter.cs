@@ -7,7 +7,7 @@ namespace CitrusDB.Presenter
 {
     class MainFormPresenter
     {
-        IMainForm mainForm;
+        readonly IMainForm mainForm;
 
         public MainFormPresenter(IMainForm mainForm)
         {

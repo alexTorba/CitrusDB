@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 using CitrusDB.Presenter;
 using CitrusDB.View;
-using CitrusDB.View.AddGroup.AddedStudentView;
-using CitrusDB.View.AddGroup.StudentView;
-using CitrusDB.View.AddStudent.GroupViews;
-using CitrusDB.View.EditStuden.EditStudentView;
+using CitrusDB.View.Groups.GroupsView.GroupViews;
+using CitrusDB.View.Students.StudentsView.AddedStudentView;
+using CitrusDB.View.Students.StudentsView.EditStudentView;
+using CitrusDB.View.Students.StudentsView.StudentView;
 using CitrusDB.View.UsersElements.FormLoading;
 
 namespace CitrusDB
