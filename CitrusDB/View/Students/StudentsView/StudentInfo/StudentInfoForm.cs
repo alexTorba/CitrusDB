@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 using CitrusDB.Model.Entity;
 using CitrusDB.Presenter;
+using CitrusDB.Presenter.Students;
 using CitrusDB.View.Groups.GroupsView.GroupInfo;
 
 namespace CitrusDB.View.Students.StudentsView.StudentInfo

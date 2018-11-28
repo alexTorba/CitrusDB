@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 
 using CitrusDB.Presenter;
+using CitrusDB.Presenter.Groups;
+using CitrusDB.Presenter.Students;
 using CitrusDB.View;
 using CitrusDB.View.Groups.GroupsView.GroupViews;
 using CitrusDB.View.Students.StudentsView.AddedStudentView;
@@ -19,7 +21,6 @@ namespace CitrusDB
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -35,9 +36,12 @@ namespace CitrusDB
             var addGroupBoardPresenter = new AddGroupBoardPresenter(
                 mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
 
-            EditStudentBoardFirstPresenter editStudentBoardFirstPresenter =
+            var editStudentBoardFirstPresenter =
                 new EditStudentBoardFirstPresenter(mainForm.editStudentBoard.editStudentBoardFirst, new EditStudentViewBoard());
-            //var editStudentBoardFirstPresenter = new EditStudentBoardFirstPresenter(mainForm.editStudentBoardFirst, new EditStudentViewBoard());
+
+            //todo: 
+            //var editStudentBoardSecondPresenter =
+            //    new EditStudentBoardSecondPresenter(mainForm.editStudentBoard.editStudentBoardSecond, new GroupViewBoard());
 
             Application.Run(mainForm);
             Console.ReadKey();

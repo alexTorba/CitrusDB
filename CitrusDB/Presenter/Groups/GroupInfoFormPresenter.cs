@@ -11,7 +11,7 @@ using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
 using CitrusDB.View.Groups.GroupsView.GroupInfo;
 
-namespace CitrusDB.Presenter
+namespace CitrusDB.Presenter.Groups
 {
     class GroupInfoFormPresenter
     {

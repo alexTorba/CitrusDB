@@ -41,7 +41,7 @@
             this.editStudentSecondContainerPanel.Location = new System.Drawing.Point(0, 0);
             this.editStudentSecondContainerPanel.MaximumSize = new System.Drawing.Size(914, 644);
             this.editStudentSecondContainerPanel.Name = "editStudentSecondContainerPanel";
-            this.editStudentSecondContainerPanel.Size = new System.Drawing.Size(10, 644);
+            this.editStudentSecondContainerPanel.Size = new System.Drawing.Size(0, 644);
             this.editStudentSecondContainerPanel.TabIndex = 0;
             this.editStudentSecondContainerPanel.Tag = false;
             // 
@@ -61,9 +61,9 @@
             this.editStudentBoardFirst.AutoSize = true;
             this.editStudentBoardFirst.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editStudentBoardFirst.EditStudent = null;
-            this.editStudentBoardFirst.Location = new System.Drawing.Point(10, 0);
+            this.editStudentBoardFirst.Location = new System.Drawing.Point(0, 0);
             this.editStudentBoardFirst.Name = "editStudentBoardFirst";
-            this.editStudentBoardFirst.Size = new System.Drawing.Size(904, 644);
+            this.editStudentBoardFirst.Size = new System.Drawing.Size(914, 644);
             this.editStudentBoardFirst.TabIndex = 1;
             // 
             // EditStudentBoard

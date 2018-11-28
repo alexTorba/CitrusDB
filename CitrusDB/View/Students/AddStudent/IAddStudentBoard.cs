@@ -16,7 +16,6 @@ namespace CitrusDB.View.Students.AddStudent
         void ResetControls();
         void SetInitDate();
         void HidePhotoLabels();
-        void DisableViewsPanel();
-        void EnableViewsPanel();
+        
     }
 }

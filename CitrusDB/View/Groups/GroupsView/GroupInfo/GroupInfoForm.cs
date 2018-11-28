@@ -7,6 +7,7 @@ using System.Linq;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
+using CitrusDB.Presenter.Groups;
 
 namespace CitrusDB.View.Groups.GroupsView.GroupInfo
 {
@@ -19,7 +20,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupInfo
 
             Id = id;
 
-            Presenter.GroupInfoFormPresenter groupInfoFormPresenter = new Presenter.GroupInfoFormPresenter(this);
+            GroupInfoFormPresenter groupInfoFormPresenter = new GroupInfoFormPresenter(this);
         }
 
         #region IGroupInfoForm

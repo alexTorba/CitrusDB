@@ -13,7 +13,7 @@ using CitrusDB.Model.Entity;
 using CitrusDB.View.Students.EditStuden;
 using CitrusDB.View.Students;
 
-namespace CitrusDB.Presenter
+namespace CitrusDB.Presenter.Students
 {
     class EditStudentBoardFirstPresenter
     {

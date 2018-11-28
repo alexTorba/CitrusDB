@@ -28,6 +28,9 @@ namespace CitrusDB.View.Students
         ControlCollection GroupsCollection { get; }
         int ProgressBarValue { get; set; }
 
+        void DisableViewsPanel();
+        void EnableViewsPanel();
+
         event EventHandler LoadBoard;
         event EventHandler TextBoxTextChanged;
         event EventHandler ControlEnter;

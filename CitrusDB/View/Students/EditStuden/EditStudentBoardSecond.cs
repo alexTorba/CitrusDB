@@ -51,6 +51,16 @@ namespace CitrusDB.View.Students.EditStuden
             set => progressBar.Value = value;
         }
 
+        public void DisableViewsPanel()
+        {
+            groupsFlowPanel.Enabled = false;
+        }
+
+        public void EnableViewsPanel()
+        {
+            groupsFlowPanel.Enabled = true;
+        }
+
         public event EventHandler LoadBoard;
         public event EventHandler TextBoxTextChanged;
         public event EventHandler ControlEnter;
@@ -209,15 +219,7 @@ namespace CitrusDB.View.Students.EditStuden
             photo2Label.Visible = false;
         }
 
-        public void DisableViewsPanel()
-        {
-            groupsFlowPanel.Enabled = false;
-        }
-
-        public void EnableViewsPanel()
-        {
-            groupsFlowPanel.Enabled = true;
-        }
+     
 
     }
 }

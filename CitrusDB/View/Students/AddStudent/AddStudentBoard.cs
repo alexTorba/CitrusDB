@@ -281,7 +281,7 @@ namespace CitrusDB.View.Students.AddStudent
         {
             mainForm.SetStatusValue = "Generating values..";
 
-            GenerateButton.Invoke(sender, e);
+            GenerateButton?.Invoke(sender, e);
 
             mainForm.SetInitStatus();
         }

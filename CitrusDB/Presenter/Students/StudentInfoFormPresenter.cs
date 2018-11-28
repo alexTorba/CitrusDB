@@ -4,7 +4,7 @@ using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 
-namespace CitrusDB.Presenter
+namespace CitrusDB.Presenter.Students
 {
 
     class StudentInfoFormPresenter

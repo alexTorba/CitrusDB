@@ -13,7 +13,7 @@ using CitrusDB.Model.Extensions;
 using CitrusDB.View.Groups.AddGroup;
 using CitrusDB.View.Students;
 
-namespace CitrusDB.Presenter
+namespace CitrusDB.Presenter.Groups
 {
     class AddGroupBoardPresenter : IDisposable
     {
