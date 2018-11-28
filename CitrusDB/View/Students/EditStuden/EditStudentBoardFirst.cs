@@ -52,17 +52,16 @@ namespace CitrusDB.View.Students.EditStuden
 
         #region Forwarding Events
 
-        
-
-        public void UpdatingView(object sender, EventArgs e)
+        public void UpdatingView()
         {
-            UpdateView?.Invoke(sender, e);
+            UpdateView?.Invoke(null, EventArgs.Empty);
         }
 
         private void editStudentBoardFirst_Load(object sender, EventArgs e)
         {
             LoadEditStudentBoardFirst?.Invoke(sender, e);
         }
+
         #endregion
 
         public void InitFields(MainForm mainForm)

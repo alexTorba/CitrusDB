@@ -87,11 +87,6 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         private void MouseClickHandler(object sender, EventArgs e)
         {
-            SelectView();
-        }
-
-        public void SelectView()
-        {
             if (colorSeparator1.LineColor == initColor)
             {
                 ClearOtherBoard?.Invoke(null, EventArgs.Empty);
@@ -105,6 +100,12 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
             }
         }
 
+        public void SelectView()
+        {
+            ClearOtherBoard?.Invoke(null, EventArgs.Empty);
+            ChangeColor(Color.LimeGreen);
+        }
+
         private void ChangeColor(Color color)
         {
             colorSeparator1.LineColor = color;
@@ -113,6 +114,6 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
             colorSeparator4.LineColor = color;
         }
 
-       
+
     }
 }

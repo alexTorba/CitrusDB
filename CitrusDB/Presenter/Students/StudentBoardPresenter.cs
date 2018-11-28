@@ -15,7 +15,7 @@ using System.Data.Entity;
 
 namespace CitrusDB.Presenter.Students
 {
-    internal abstract class StudentBoardPresenter
+    abstract class StudentBoardPresenter
     {
 
         protected TaskInfo currentTask = null;

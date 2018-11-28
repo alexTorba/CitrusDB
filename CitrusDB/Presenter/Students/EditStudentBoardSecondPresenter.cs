@@ -36,12 +36,13 @@ namespace CitrusDB.Presenter.Students
 
         private void StudentBoardSecond_SetInitGroup(object sender, EntityTransferEventArgs e)
         {
-            //todo: select init group
-            var group = studentBoardSecond.GroupsCollection
-                                .Cast<IGroupView>()
-                                .FirstOrDefault(g => g.Id == e.entity.Id);
-            group?.SelectView();
-                                
+            if (e.entity != null)
+            {
+                var group = studentBoardSecond.GroupsCollection
+                                    .Cast<IGroupView>()
+                                    .FirstOrDefault(g => g.Id == e.entity.Id);
+                group?.SelectView();
+            }
         }
 
         private void StudentBoardSecond_CancelButton(object sender, EventArgs e)

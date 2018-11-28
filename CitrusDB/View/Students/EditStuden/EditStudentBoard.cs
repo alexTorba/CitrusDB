@@ -31,6 +31,12 @@ namespace CitrusDB.View.Students.EditStuden
             editStudentBoardFirst?.InitFields(this.mainForm);
         }
 
+        public void UpdateView()
+        {
+            editStudentBoardFirst.UpdatingView();
+            editStudentBoardSecond.UpdateGroupView();
+        }
+
         private void EditStudentBoardSecond_CancelButton(object sender, EventArgs e)
         {
             if (mainForm != null)
@@ -44,6 +50,7 @@ namespace CitrusDB.View.Students.EditStuden
 
         private void EditStudentBoardFirst_LoadSecondForm(object sender, EventArgs e)
         {
+            
             editStudentBoardSecond?.SetStudent(editStudentBoardFirst?.EditStudent);
 
             if (mainForm != null)
