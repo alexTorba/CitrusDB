@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CitrusDB.Model
+namespace CitrusDB.Model.UsersEventArgs
 {
-    public delegate void HeaderGridMouseClick(object sender, HeaderPropertyEventArgs e);
+    public delegate void HeaderGridMouseClickHandler(object sender, HeaderPropertyEventArgs e);
 
     public class HeaderPropertyEventArgs : EventArgs
     {

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CitrusDB.View.UsersElements;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.Presenter
 {

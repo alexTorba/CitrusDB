@@ -111,7 +111,8 @@
     <Compile Include="Model\Extensions\ExtensionControls.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
     <Compile Include="Model\Generate.cs" />
-    <Compile Include="Model\HeaderPropertyEventArgs.cs" />
+    <Compile Include="Model\UsersEventArgs\EntityTransferEventArgs.cs" />
+    <Compile Include="Model\UsersEventArgs\HeaderPropertyEventArgs.cs" />
     <Compile Include="Model\TaskInfo.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\Groups\AddGroupBoardPresenter.cs" />

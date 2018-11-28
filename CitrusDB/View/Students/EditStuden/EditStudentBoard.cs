@@ -25,21 +25,21 @@ namespace CitrusDB.View.Students.EditStuden
             editStudentBoardSecond.CancelButton += EditStudentBoardSecond_CancelButton;
         }
 
+        public void InitFields(MainForm mainForm)
+        {
+            this.mainForm = mainForm;
+            editStudentBoardFirst?.InitFields(this.mainForm);
+        }
+
         private void EditStudentBoardSecond_CancelButton(object sender, EventArgs e)
         {
             if (mainForm != null)
             {
-                mainForm.timer.Start();
-
                 mainForm.ClearEventHandlers();
                 mainForm.TimerTiks += editStudentSecondContainerPanel.TicksGrowsWidthQuiсkly;
-            }
-        }
 
-        public void InitFields(MainForm mainForm)
-        {
-            this.mainForm = mainForm;
-            editStudentBoardFirst.InitFields(this.mainForm);
+                mainForm.timer.Start();
+            }
         }
 
         private void EditStudentBoardFirst_LoadSecondForm(object sender, EventArgs e)
@@ -48,11 +48,12 @@ namespace CitrusDB.View.Students.EditStuden
 
             if (mainForm != null)
             {
-                mainForm.timer.Start();
-
                 mainForm.ClearEventHandlers();
                 mainForm.TimerTiks += editStudentSecondContainerPanel.TicksGrowsWidthQuiсkly;
+
+                mainForm.timer.Start();
             }
         }
+
     }
 }

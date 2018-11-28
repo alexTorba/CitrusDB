@@ -6,13 +6,15 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 { 
     public interface IGroupView : IEntityControlView<Group>
     {
+
         string GroupName { get; set; }
         int CountOfStudent { get; set; }
-
+        bool IsSelected { get; set; }
         Color FrameColor { get; set; }
 
-        bool IsSelected { get; set; }
         void ChangeColorToBase();
+        void SelectView();
+
         event EventHandler ClearOtherBoard;
 
     }

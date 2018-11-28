@@ -2,6 +2,7 @@
 using System.Drawing;
 
 using CitrusDB.Model;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.Groups.GroupsView.GroupInfo
 {
@@ -17,7 +18,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupInfo
         void EnablingGrid();
 
         event EventHandler SearchTextChanged;
-        event HeaderGridMouseClick HeaderMouseClick;
+        event HeaderGridMouseClickHandler HeaderMouseClick;
         event EventHandler LoadForm;
     }
 }

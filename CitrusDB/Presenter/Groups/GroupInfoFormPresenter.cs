@@ -10,6 +10,7 @@ using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
 using CitrusDB.View.Groups.GroupsView.GroupInfo;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.Presenter.Groups
 {

@@ -19,8 +19,8 @@ namespace CitrusDB.Presenter.Students
     {
 
         protected TaskInfo currentTask = null;
-        protected readonly IStudentBoard studentBoard;
-        protected readonly IGroupView groupView;
+        readonly IStudentBoard studentBoard;
+        readonly IGroupView groupView;
         protected readonly Validate validate = new Validate();
 
         public StudentBoardPresenter(IStudentBoard studentBoard, IGroupView groupView)

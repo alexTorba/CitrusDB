@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CitrusDB.Model.Entity;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.Students.EditStuden
 {
@@ -19,6 +20,11 @@ namespace CitrusDB.View.Students.EditStuden
         public EditStudentBoardSecond()
         {
             InitializeComponent();
+
+            SetTextBoxHandlers();
+            SetComboBoxHandlers();
+
+            progressBar.Value = 0;
         }
 
         #region IEditStudentBoardSecond
@@ -62,18 +68,26 @@ namespace CitrusDB.View.Students.EditStuden
         }
 
         public event EventHandler LoadBoard;
+
         public event EventHandler TextBoxTextChanged;
         public event EventHandler ControlEnter;
+
         public event EventHandler ComboBoxSelectionChange;
         public event EventHandler ComboBoxTextUpdate;
+
         public event EventHandler MonthCalendarEnter;
         public event EventHandler MonthCalendarDateChange;
         public event EventHandler MonthCalendarDateSelected;
+
         public event EventHandler PhotoLoaded;
+
         public event EventHandler UpdateView;
         public event EventHandler SearchBox_TextChange;
+
         public event EventHandler AcceptButton;
         public event EventHandler CancelButton;
+
+        public event EntityTransferHandler SetInitGroup;
 
         #endregion
 
@@ -96,17 +110,21 @@ namespace CitrusDB.View.Students.EditStuden
                 citizenshipTextbox.Text = editStudent.Сitizenship;
                 pictureBoxFirstPhoto.Image = editStudent.FirstPhoto.ConvertByteArrToImage();
                 pictureBoxSecondPhoto.Image = editStudent.SecondPhoto.ConvertByteArrToImage();
+
                 monthCalendar.SelectionRange = new SelectionRange(
                     DateTime.Parse(student.DateOfBirth), 
                     DateTime.Parse(student.DateOfBirth));
+
                 growsComboBox.Text = editStudent.Height.ToString();
                 weightComboBox.Text = editStudent.Weight.ToString();
                 knowledgeOfLanguageTextbox.Text = editStudent.KnowledgeOfLanguage;
-                //todo: select group in groupControlCollection
+
+                SetInitGroup?.Invoke(this, new EntityTransferEventArgs(editStudent.Group));
             }
 
-            photo1Label.Visible = false;
-            photo2Label.Visible = false;
+            HidePhotoLabels();
+
+            progressBar.Value = 100;
         }
 
         private void EditStudentBoardSecond_Load(object sender, EventArgs e)
@@ -177,6 +195,11 @@ namespace CitrusDB.View.Students.EditStuden
             CancelButton?.Invoke(sender, e);
         }
 
+        private void searchGroupTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchBox_TextChange?.Invoke(sender, e);
+        }
+
         #endregion
 
         private bool LoadPhoto(PictureBox pictureBox, Label photoLabel)
@@ -219,7 +242,18 @@ namespace CitrusDB.View.Students.EditStuden
             photo2Label.Visible = false;
         }
 
-     
-
+        private void progressBar_ProgressChanged(object sender, EventArgs e)
+        {
+            if (progressBar.Value == 100)
+            {
+                groupsFlowPanel.Enabled = true;
+                searchPanel.Enabled = true;
+            }
+            else
+            {
+                groupsFlowPanel.Enabled = false;
+                searchPanel.Enabled = false;
+            }
+        }
     }
 }

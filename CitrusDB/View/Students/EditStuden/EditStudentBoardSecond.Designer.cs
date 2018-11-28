@@ -477,6 +477,7 @@
             this.progressBar.Size = new System.Drawing.Size(162, 162);
             this.progressBar.TabIndex = 41;
             this.progressBar.Value = 0;
+            this.progressBar.ProgressChanged += new System.EventHandler(this.progressBar_ProgressChanged);
             // 
             // pictureBoxSecondPhoto
             // 
@@ -583,6 +584,7 @@
             this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
+            this.searchGroupTextBox.TextChanged += new System.EventHandler(this.searchGroupTextBox_TextChanged);
             // 
             // textBox1
             // 

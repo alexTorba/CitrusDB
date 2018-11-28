@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Linq;
 
 using CitrusDB.Model.Entity;
-using CitrusDB.Model;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 using CitrusDB.Presenter.Groups;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.Groups.GroupsView.GroupInfo
 {
@@ -55,7 +55,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupInfo
         }
 
         public event EventHandler LoadForm;
-        public event HeaderGridMouseClick HeaderMouseClick;
+        public event HeaderGridMouseClickHandler HeaderMouseClick;
         public event EventHandler SearchTextChanged;
 
         #endregion

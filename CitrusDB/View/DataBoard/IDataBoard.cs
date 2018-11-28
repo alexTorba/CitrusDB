@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Bunifu.Framework.UI;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.DataBoard
 {
@@ -14,7 +15,7 @@ namespace CitrusDB.View.DataBoard
     {
         event EventHandler LoadDataBoard;
         event EventHandler GroupTableLoad;
-        event HeaderGridMouseClick HeaderMouseClick;
+        event HeaderGridMouseClickHandler HeaderMouseClick;
         event EventHandler DeleteEntity;
         event EventHandler SearchBoxTextChanged;
 

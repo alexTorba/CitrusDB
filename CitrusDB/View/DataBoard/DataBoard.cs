@@ -8,6 +8,7 @@ using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 using CitrusDB.View.Groups.GroupsView.GroupInfo;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.DataBoard
 {
@@ -51,7 +52,7 @@ namespace CitrusDB.View.DataBoard
         public event EventHandler LoadDataBoard;
         public event EventHandler GroupTableLoad;
         public event EventHandler DeleteEntity;
-        public event HeaderGridMouseClick HeaderMouseClick;
+        public event HeaderGridMouseClickHandler HeaderMouseClick;
         public event EventHandler SearchBoxTextChanged;
 
         #endregion

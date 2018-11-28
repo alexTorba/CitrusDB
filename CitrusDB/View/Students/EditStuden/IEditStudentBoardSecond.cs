@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.Students.EditStuden
 {
@@ -10,5 +8,7 @@ namespace CitrusDB.View.Students.EditStuden
     {
         event EventHandler AcceptButton;
         event EventHandler CancelButton;
+
+        event EntityTransferHandler SetInitGroup;        
     }
 }
