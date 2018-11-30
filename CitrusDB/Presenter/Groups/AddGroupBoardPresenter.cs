@@ -66,6 +66,10 @@ namespace CitrusDB.Presenter.Groups
                     EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted, s => s.Group == null),
                     CancellationToken.None);
 
+            await UpdateControlsFromControlCollection(
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).ToArray(),
+                CancellationToken.None);
+
             addGroupBoard.EnableCurrentStudentPanel();
             addGroupBoard.EnableAddedStudentPanel();
         }
@@ -269,6 +273,28 @@ namespace CitrusDB.Presenter.Groups
                 students,
                 EFGenericRepository.Get<Student>(),
                 token);
+        }
+
+        private async Task UpdateControlsFromControlCollection(IList<Student> students, CancellationToken token)
+        {
+            if (students.Count == 0)
+                return;
+
+            await DeleteControlsFromControlCollection(students.Where(s => s.Group != null).ToArray(), token);
+
+            var studentWithoutGroup = students.Where(s => s.Group == null).ToArray();
+            
+            await addGroupBoard.AddedStudentControlCollection.UpdateControls(
+                studentWithoutGroup,
+                addedStudentView,
+                token
+                );
+
+            await addGroupBoard.CurrentStudentControlCollection.UpdateControls(
+                studentWithoutGroup,
+                currentStudentView,
+                token
+                );
         }
 
         public void Dispose()

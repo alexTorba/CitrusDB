@@ -10,6 +10,8 @@ using CitrusDB.Model.Entity;
 using System.Threading;
 using CitrusDB.View.Students;
 using CitrusDB.Model.UsersEventArgs;
+using CitrusDB.Model.DataBaseLogic;
+using System.Drawing;
 
 namespace CitrusDB.Presenter.Students
 {
@@ -18,7 +20,8 @@ namespace CitrusDB.Presenter.Students
 
         readonly IEditStudentBoardSecond studentBoardSecond;
 
-        public EditStudentBoardSecondPresenter(IEditStudentBoardSecond studentBoard, IGroupView groupView) : base(studentBoard, groupView)
+        public EditStudentBoardSecondPresenter(IEditStudentBoardSecond studentBoard, IGroupView groupView) 
+            : base(studentBoard, groupView)
         {
             studentBoardSecond = studentBoard;
 
@@ -52,9 +55,51 @@ namespace CitrusDB.Presenter.Students
 
         private void StudentBoardSecond_AcceptButton(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            var selectedGroup = studentBoardSecond.GroupsCollection
+                .Cast<IGroupView>()
+                .FirstOrDefault(gv => gv.IsSelected == true);
+
+            Student editStudent = new Student
+            {
+                Id = studentBoardSecond.CurrentStudent.Id,
+                FirstName = studentBoardSecond.GetFirstName,
+                LastName = studentBoardSecond.GetLastName,
+                MiddleName = studentBoardSecond.GetMiddleName,
+                DateOfBirth = studentBoardSecond.DateOfBirth,
+                Height = studentBoardSecond.GetGrowth,
+                Weight = studentBoardSecond.GetWeight,
+                Сitizenship = studentBoardSecond.GetCitizenship,
+                KnowledgeOfLanguage = studentBoardSecond.GetKnowledgeOfLanguage,
+
+                FirstPhoto = SetPhoto(studentBoardSecond.GetFirstPhoto, studentBoardSecond.CurrentStudent.FirstPhoto),
+
+                SecondPhoto = SetPhoto(studentBoardSecond.GetSecondPhoto, studentBoardSecond.CurrentStudent.SecondPhoto),
+
+                Group = selectedGroup == null ? null : EFGenericRepository.FindById<Group>(selectedGroup.Id)
+            };
+
+            if (!editStudent.Equals(studentBoardSecond.CurrentStudent, editStudent))
+            {
+                studentBoardSecond.CurrentStudent.SetCopy(editStudent);
+                EFGenericRepository.Update(studentBoardSecond.CurrentStudent);
+            }
+
         }
 
         #endregion
+
+        private byte[] SetPhoto(Image editPhoto, byte[] initPhoto)
+        {
+            try
+            {
+                return editPhoto.ConvertImageToByteArr();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return initPhoto;
+            }
+        }
+
     }
 }

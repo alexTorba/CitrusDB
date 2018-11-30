@@ -31,6 +31,8 @@ namespace CitrusDB.Model.Extensions
         {
             List<Control> controls = new List<Control>();
 
+            Console.WriteLine($"DeleteControls: changedEntities - {changedEntities.Count()}");
+
             await Task.Factory.StartNew(() =>
             {
                 //entity that doesnt store in db and was deleted 
@@ -75,6 +77,31 @@ namespace CitrusDB.Model.Extensions
             Control[] controls = await newEntity.CreateControlCollectionAsync(entityControlView, token);
 
             controlCollection.AddRange(controls);
+        }
+
+        public static async Task UpdateControls<T, R>(
+            this ControlCollection controlCollection,
+            IList<T> editEntities,
+            R entityControlView,
+            CancellationToken token)
+            where T : IEntity
+            where R : IEntityControlView<T>
+        {
+            if (editEntities.Count == 0)
+                return;
+            
+            await Task.Factory.StartNew(async () =>
+            {
+                Control[] controls = await editEntities.CreateControlCollectionAsync(entityControlView, token);
+
+                var currentControl = controlCollection.Cast<IEntityControlView<T>>();
+                foreach (IEntityControlView<T> control in controls)
+                {
+                    var oldControl = currentControl.First(c => c.Id == control.Id);
+                    oldControl = control;
+                }
+
+            }, TaskCreationOptions.AttachedToParent);
         }
 
         private static async Task<Control[]> CreateControlCollectionAsync<T, R>(

@@ -15,8 +15,6 @@ namespace CitrusDB.View.Students.EditStuden
     public partial class EditStudentBoardSecond : UserControl, IEditStudentBoardSecond
     {
 
-        Student editStudent = null;
-
         public EditStudentBoardSecond()
         {
             InitializeComponent();
@@ -56,6 +54,8 @@ namespace CitrusDB.View.Students.EditStuden
             get => progressBar.Value;
             set => progressBar.Value = value;
         }
+
+        public Student CurrentStudent { get; private set; }
 
         public void DisableViewsPanel()
         {
@@ -100,26 +100,26 @@ namespace CitrusDB.View.Students.EditStuden
 
         public void SetStudent(Student student)
         {
-            editStudent = student;
+            CurrentStudent = student;
 
-            if (editStudent != null)
+            if (CurrentStudent != null)
             {
-                firstNameTextbox.Text = editStudent.FirstName;
-                lastNameTextbox.Text = editStudent.LastName;
-                middleNameTextbox.Text = editStudent.MiddleName;
-                citizenshipTextbox.Text = editStudent.Сitizenship;
-                pictureBoxFirstPhoto.Image = editStudent.FirstPhoto.ConvertByteArrToImage();
-                pictureBoxSecondPhoto.Image = editStudent.SecondPhoto.ConvertByteArrToImage();
+                firstNameTextbox.Text = CurrentStudent.FirstName;
+                lastNameTextbox.Text = CurrentStudent.LastName;
+                middleNameTextbox.Text = CurrentStudent.MiddleName;
+                citizenshipTextbox.Text = CurrentStudent.Сitizenship;
+                pictureBoxFirstPhoto.Image = CurrentStudent.FirstPhoto.ConvertByteArrToImage();
+                pictureBoxSecondPhoto.Image = CurrentStudent.SecondPhoto.ConvertByteArrToImage();
 
                 monthCalendar.SelectionRange = new SelectionRange(
-                    DateTime.Parse(student.DateOfBirth), 
+                    DateTime.Parse(student.DateOfBirth),
                     DateTime.Parse(student.DateOfBirth));
 
-                growsComboBox.Text = editStudent.Height.ToString();
-                weightComboBox.Text = editStudent.Weight.ToString();
-                knowledgeOfLanguageTextbox.Text = editStudent.KnowledgeOfLanguage;
+                growsComboBox.Text = CurrentStudent.Height.ToString();
+                weightComboBox.Text = CurrentStudent.Weight.ToString();
+                knowledgeOfLanguageTextbox.Text = CurrentStudent.KnowledgeOfLanguage;
 
-                SetInitGroup?.Invoke(this, new EntityTransferEventArgs(editStudent.Group));
+                SetInitGroup?.Invoke(this, new EntityTransferEventArgs(CurrentStudent.Group));
             }
 
             HidePhotoLabels();

@@ -1,11 +1,13 @@
 ﻿using System;
-
+using CitrusDB.Model.Entity;
 using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.Students.EditStuden
 {
     interface IEditStudentBoardSecond : IStudentBoard
     {
+        Student CurrentStudent { get; }
+
         event EventHandler AcceptButton;
         event EventHandler CancelButton;
 

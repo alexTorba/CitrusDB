@@ -86,10 +86,17 @@ namespace CitrusDB.Model.DataBaseLogic
         public static void Update<TEntity>(TEntity entity) where TEntity : class
         {
             context.Entry(entity).State = EntityState.Modified;
+           
         }
 
         public static void SaveChanges()
         {
+            context.Set<Student>().Local.ToList().ForEach(s =>
+            {
+                if (s.Id >= 100000000 && context.Entry(s).State == EntityState.Modified)
+                    context.Entry(s).State = EntityState.Added;
+            });
+
             context.SaveChanges();
         }
 

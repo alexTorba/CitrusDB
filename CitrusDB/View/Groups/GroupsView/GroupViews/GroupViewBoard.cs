@@ -104,6 +104,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
         {
             ClearOtherBoard?.Invoke(null, EventArgs.Empty);
             ChangeColor(Color.LimeGreen);
+            IsSelected = true;
         }
 
         private void ChangeColor(Color color)
