@@ -33,19 +33,6 @@ namespace CitrusDB.Model.Extensions
 
             await Task.Factory.StartNew(() =>
             {
-                //students that was changed in program and store in local
-                if (changedEntities.Count() == 0)
-                {
-                    foreach (var entity in changedEntities)
-                    {
-                        var control = controlCollection
-                           .Cast<IEntity>()
-                           .Where(c => c.Id == entity.Id)
-                           .FirstOrDefault();
-                        controls.Add((Control)control);
-                    }
-                }
-
                 //entity that doesnt store in db and was deleted 
                 var entityIDs = controlCollection
                 .Cast<IEntity>()
@@ -85,12 +72,12 @@ namespace CitrusDB.Model.Extensions
             if (newEntity.Count == 0)
                 return;
 
-            Control[] controls = await newEntity.CreateControlCollection(entityControlView, token);
+            Control[] controls = await newEntity.CreateControlCollectionAsync(entityControlView, token);
 
             controlCollection.AddRange(controls);
         }
 
-        private static async Task<Control[]> CreateControlCollection<T, R>(
+        private static async Task<Control[]> CreateControlCollectionAsync<T, R>(
             this IList<T> entities,
             R entityControlView,
             CancellationToken token)
@@ -107,7 +94,26 @@ namespace CitrusDB.Model.Extensions
                 {
                     arrControls[i] = (Control)result[i].FillView(entities[i]);
                 }
-            }, token);
+            }, TaskCreationOptions.DenyChildAttach);
+
+            return arrControls;
+        }
+
+        public static Control[] CreateControlCollection<T, R>(
+            this IList<T> entities,
+            R entityControlView,
+            CancellationToken token)
+            where T : IEntity
+            where R : IEntityControlView<T>
+        {
+            Control[] arrControls = new Control[entities.Count()];
+
+            var result = entityControlView.CreateListViews(entities.Count());
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                arrControls[i] = (Control)result[i].FillView(entities[i]);
+            }
 
             return arrControls;
         }
@@ -133,7 +139,7 @@ namespace CitrusDB.Model.Extensions
             }, token);
         }
 
-        
+
         public static async Task FillControlCollectionForSearch<T, R>(
             this ControlCollection controlCollection,
             IList<T> entities,
@@ -146,7 +152,7 @@ namespace CitrusDB.Model.Extensions
             if (await controlCollection.СollectionEqualityTest(entities, token))
                 return;
 
-            var controls = await entities.CreateControlCollection(entityControlView, token);
+            var controls = await entities.CreateControlCollectionAsync(entityControlView, token);
 
             controlCollection.Clear();
 

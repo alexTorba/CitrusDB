@@ -147,7 +147,7 @@ namespace CitrusDB.Model
         public static DateTime GenerateDateTime()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(Convert.ToString(rand.Next(1, 30)) + ".");
+            stringBuilder.Append(Convert.ToString(rand.Next(1, 29)) + ".");
             stringBuilder.Append(Convert.ToString(rand.Next(1, 12)) + ".");
             stringBuilder.Append(Convert.ToString(rand.Next(1950, 1995)));
 

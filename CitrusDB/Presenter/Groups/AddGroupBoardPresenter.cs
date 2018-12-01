@@ -55,15 +55,16 @@ namespace CitrusDB.Presenter.Groups
 
             await AddControlsToControlCollection(
               EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added, s => s.Group == null).ToArray(),
-              new CancellationToken());
-            //todo: ??
-            await DeleteControlsFromControlCollection(
-                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted, s => s.Group == null),
-                new CancellationToken());
+              CancellationToken.None);
 
+            //для студентов, которые были загружены с бд и в процессе были исключены из группы
             await AddControlsToControlCollection(
                 EFGenericRepository.Get<Student>(s => s.Group == null).ToArray(),
-                new CancellationToken());
+                CancellationToken.None);
+
+            await DeleteControlsFromControlCollection(
+                    EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted, s => s.Group == null),
+                    CancellationToken.None);
 
             addGroupBoard.EnableCurrentStudentPanel();
             addGroupBoard.EnableAddedStudentPanel();
@@ -228,6 +229,8 @@ namespace CitrusDB.Presenter.Groups
 
         private async Task AddControlsToControlCollection(IList<Student> students, CancellationToken token)
         {
+            Control[] controls = null;
+
             await Task.Factory.StartNew(() =>
             {
                 if (students.Count == 0)
@@ -238,9 +241,12 @@ namespace CitrusDB.Presenter.Groups
                 .Where(s => !addGroupBoard.CurrentStudentControlCollection.IsContaintControl<Student>(s.Id) &&
                 !addGroupBoard.AddedStudentControlCollection.IsContaintControl<Student>(s.Id))
                 .ToArray();
+
+                controls = students.CreateControlCollection(currentStudentView, token);
             });
 
-            addGroupBoard.CurrentStudentControlCollection.AddControls(students, currentStudentView, token);
+            if (controls != null)
+                addGroupBoard.CurrentStudentControlCollection.AddRange(controls);
         }
 
         private void FillInitControlCollection(IList<Student> students, CancellationToken token)
@@ -263,7 +269,6 @@ namespace CitrusDB.Presenter.Groups
                 students,
                 EFGenericRepository.Get<Student>(),
                 token);
-
         }
 
         public void Dispose()

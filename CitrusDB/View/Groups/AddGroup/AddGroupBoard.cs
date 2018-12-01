@@ -126,7 +126,7 @@ namespace CitrusDB.View.Groups.AddGroup
             mainForm.SetStatusValue = "Updating view..";
 
             UpdateView?.Invoke(null, EventArgs.Empty);
-
+            currentStudentFlowPanel.Refresh();
             mainForm.SetInitStatus();
         }        
 
