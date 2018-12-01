@@ -14,6 +14,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         void ChangeColorToBase();
         void SelectView();
+        void ResetOtherBoard();
 
         event EventHandler ClearOtherBoard;
 

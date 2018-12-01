@@ -39,6 +39,8 @@ namespace CitrusDB.View.Students.EditStuden
 
         private void EditStudentBoardSecond_CancelButton(object sender, EventArgs e)
         {
+            editStudentBoardFirst.UpdatingView();
+
             if (mainForm != null)
             {
                 mainForm.ClearEventHandlers();

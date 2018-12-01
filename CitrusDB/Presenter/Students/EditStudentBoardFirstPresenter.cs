@@ -52,11 +52,16 @@ namespace CitrusDB.Presenter.Students
 
             await AddControlsToControlCollection(
               EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Added).ToArray(),
-              new CancellationToken());
+              CancellationToken.None);
 
             await DeleteControlsFromControlCollection(
                 EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted),
-                new CancellationToken());
+                CancellationToken.None);
+
+            //todo: updating
+            await UpdateControlsFromControlCollection(
+                EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).ToArray(),
+                CancellationToken.None);
 
             editStudentBoardFirst.EnablingControlCollection();
         }
@@ -81,6 +86,18 @@ namespace CitrusDB.Presenter.Students
         {
             await editStudentBoardFirst.StudentControlCollection
                 .DeleteControls(students, EFGenericRepository.Get<Student>(), token);
+        }
+
+        private async Task UpdateControlsFromControlCollection(IList<Student> students, CancellationToken token)
+        {
+            if (students.Count == 0)
+                return;
+
+            await editStudentBoardFirst.StudentControlCollection.UpdateControls(
+                students,
+                editStudentView,
+                token
+                );
         }
 
         private void EditStudentBoardFirst_LoadEditStudentBoardFirst(object sender, EventArgs e)

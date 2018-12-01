@@ -20,7 +20,7 @@ namespace CitrusDB.Presenter.Students
 
         readonly IEditStudentBoardSecond studentBoardSecond;
 
-        public EditStudentBoardSecondPresenter(IEditStudentBoardSecond studentBoard, IGroupView groupView) 
+        public EditStudentBoardSecondPresenter(IEditStudentBoardSecond studentBoard, IGroupView groupView)
             : base(studentBoard, groupView)
         {
             studentBoardSecond = studentBoard;
@@ -39,12 +39,22 @@ namespace CitrusDB.Presenter.Students
 
         private void StudentBoardSecond_SetInitGroup(object sender, EntityTransferEventArgs e)
         {
-            if (e.entity != null)
+            if (studentBoardSecond.GroupsCollection.Count == 0)
             {
-                var group = studentBoardSecond.GroupsCollection
-                                    .Cast<IGroupView>()
-                                    .FirstOrDefault(g => g.Id == e.entity.Id);
-                group?.SelectView();
+                return;
+            }
+            else
+            {
+                ((IGroupView)studentBoardSecond.GroupsCollection[0]).ResetOtherBoard();
+
+                if (e.entity != null)
+                {
+                    var group = studentBoardSecond.GroupsCollection
+                                        .Cast<IGroupView>()
+                                        .FirstOrDefault(g => g.Id == e.entity.Id);
+
+                    group?.SelectView();
+                }
             }
         }
 

@@ -84,6 +84,11 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         #endregion
 
+        public void ResetOtherBoard()
+        {
+            ClearOtherBoard?.Invoke(null, EventArgs.Empty);
+        }
+
         private void SetMouseClickHandler()
         {
             foreach (Control control in Controls)
@@ -96,7 +101,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
         {
             if (colorSeparator1.LineColor == initColor)
             {
-                ClearOtherBoard?.Invoke(null, EventArgs.Empty);
+                ResetOtherBoard();
                 ChangeColor(Color.LimeGreen);
                 IsSelected = true;
             }
@@ -109,7 +114,6 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         public void SelectView()
         {
-            ClearOtherBoard?.Invoke(null, EventArgs.Empty);
             ChangeColor(Color.LimeGreen);
             IsSelected = true;
         }
