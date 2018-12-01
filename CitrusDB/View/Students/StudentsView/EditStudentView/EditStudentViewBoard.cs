@@ -18,11 +18,17 @@ namespace CitrusDB.View.Students.StudentsView.EditStudentView
 
         #region IStudentView
 
-        public int GetStudentId => Id;
+        public string GetFirstName
+        {
+            get => firstNameTextBox.Text;
+            private set => firstNameTextBox.Text = value;
+        }
 
-        public string GetFristName => firstNameTextBox.Text;
-
-        public string GetLastName => lastNameTextBox.Text;
+        public string GetLastName
+        {
+            get => lastNameTextBox.Text;
+            private set => lastNameTextBox.Text = value;
+        }
 
         public IEntityControlView<Student> FillView(Student entity)
         {
@@ -32,6 +38,13 @@ namespace CitrusDB.View.Students.StudentsView.EditStudentView
             studentViewPhoto.Image = entity.FirstPhoto.ConvertByteArrToImage();
 
             return this;
+        }
+
+        public void SetCopy(IEntityControlView<Student> newEntity)
+        {
+            GetFirstName = ((EditStudentViewBoard)newEntity).GetFirstName;
+            GetLastName = ((EditStudentViewBoard)newEntity).GetLastName;
+            studentViewPhoto.Image = ((EditStudentViewBoard)newEntity).studentViewPhoto.Image;
         }
 
         public object Clone()
@@ -53,7 +66,7 @@ namespace CitrusDB.View.Students.StudentsView.EditStudentView
         {
             return obj is EditStudentViewBoard board &&
                    Id == board.Id &&
-                   GetFristName == board.GetFristName &&
+                   GetFirstName == board.GetFirstName &&
                    GetLastName == board.GetLastName;
         }
 
@@ -61,7 +74,7 @@ namespace CitrusDB.View.Students.StudentsView.EditStudentView
         {
             var hashCode = 573123138;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(GetFristName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(GetFirstName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(GetLastName);
             return hashCode;
         }
@@ -82,5 +95,6 @@ namespace CitrusDB.View.Students.StudentsView.EditStudentView
             studentInfo.BringToFront();
             studentInfo.Show();
         }
+
     }
 }

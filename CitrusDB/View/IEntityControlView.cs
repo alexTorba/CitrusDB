@@ -11,5 +11,6 @@ namespace CitrusDB.View
           where T : IEntity
     {
         IEntityControlView<T> FillView(T entity);
+        void SetCopy(IEntityControlView<T> newEntity);
     }
 }

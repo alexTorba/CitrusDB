@@ -30,7 +30,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         public int Id { get; set; }
 
-        public string GroupName { get => nameLabel.Text; set => nameLabel.Text = value; }
+        public string GroupName { get => nameLabel.Text; private set => nameLabel.Text = value; }
 
         public int CountOfStudent
         {
@@ -61,6 +61,13 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
             countLabel.Text = entity.Students.Count.ToString();
             BackColor = System.Drawing.Color.White;
             return this;
+        }
+
+        public void SetCopy(IEntityControlView<Group> newEntity)
+        {
+            GroupName = ((GroupViewBoard)newEntity).GroupName;
+            photoGroupPictureBox.Image = ((GroupViewBoard)newEntity).photoGroupPictureBox.Image;
+            CountOfStudent = ((GroupViewBoard)newEntity).CountOfStudent;
         }
 
         public void ChangeColorToBase()

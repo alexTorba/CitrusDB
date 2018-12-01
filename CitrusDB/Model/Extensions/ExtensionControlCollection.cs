@@ -35,6 +35,16 @@ namespace CitrusDB.Model.Extensions
 
             await Task.Factory.StartNew(() =>
             {
+                //???
+                foreach (var entity in changedEntities)
+                {
+                    var control = controlCollection
+                       .Cast<IEntity>()
+                       .Where(c => c.Id == entity.Id)
+                       .FirstOrDefault();
+                    controls.Add((Control)control);
+                }
+
                 //entity that doesnt store in db and was deleted 
                 var entityIDs = controlCollection
                 .Cast<IEntity>()
@@ -89,19 +99,21 @@ namespace CitrusDB.Model.Extensions
         {
             if (editEntities.Count == 0)
                 return;
-            
-            await Task.Factory.StartNew(async () =>
-            {
-                Control[] controls = await editEntities.CreateControlCollectionAsync(entityControlView, token);
 
-                var currentControl = controlCollection.Cast<IEntityControlView<T>>();
-                foreach (IEntityControlView<T> control in controls)
-                {
-                    var oldControl = currentControl.First(c => c.Id == control.Id);
-                    oldControl = control;
-                }
+            Control[] controls = null;
+            IEnumerable<IEntityControlView<T>> currentControl = null;
 
-            }, TaskCreationOptions.AttachedToParent);
+            await Task.Factory.StartNew(() =>
+           {
+               controls = editEntities.CreateControlCollection(entityControlView, token);
+
+               currentControl = controlCollection?.Cast<IEntityControlView<T>>();
+
+           }, TaskCreationOptions.AttachedToParent);
+
+            foreach (IEntityControlView<T> control in controls)
+                currentControl.FirstOrDefault(c => c.Id == control.Id)?.SetCopy(control);
+
         }
 
         private static async Task<Control[]> CreateControlCollectionAsync<T, R>(

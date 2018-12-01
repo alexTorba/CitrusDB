@@ -79,7 +79,7 @@ namespace CitrusDB.Presenter.Groups
             List<Student> students = new List<Student>();
 
             foreach (IStudentView studentView in addGroupBoard.AddedStudentControlCollection)
-                students.Add(EFGenericRepository.FindById<Student>(studentView.GetStudentId));
+                students.Add(EFGenericRepository.FindById<Student>(studentView.Id));
 
             Group group = new Group
             {
@@ -107,7 +107,7 @@ namespace CitrusDB.Presenter.Groups
 
                     IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
                     studentView.FillView(EFGenericRepository.FindById<Student>(
-                        ((IStudentView)control).GetStudentId));
+                        ((IStudentView)control).Id));
 
                     addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
                 }
@@ -130,7 +130,7 @@ namespace CitrusDB.Presenter.Groups
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
             IStudentView addedStudentView = (IStudentView)this.addedStudentView.Clone();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
-            addedStudentView.FillView(EFGenericRepository.FindById<Student>(studentViewBoard.GetStudentId));
+            addedStudentView.FillView(EFGenericRepository.FindById<Student>(studentViewBoard.Id));
 
             addGroupBoard.CurrentStudentControlCollection.Remove((Control)studentViewBoard);
             addGroupBoard.AddedStudentControlCollection.Add((Control)addedStudentView);
@@ -142,7 +142,7 @@ namespace CitrusDB.Presenter.Groups
             IStudentView addedStudentView = (IStudentView)((Control)sender).Parent;
 
             IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
-            studentView.FillView(EFGenericRepository.FindById<Student>(addedStudentView.GetStudentId));
+            studentView.FillView(EFGenericRepository.FindById<Student>(addedStudentView.Id));
 
             addGroupBoard.AddedStudentControlCollection.Remove((Control)addedStudentView);
             addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
@@ -211,7 +211,7 @@ namespace CitrusDB.Presenter.Groups
                  {
                      var addedStudents = addGroupBoard.AddedStudentControlCollection
                                         .Cast<IStudentView>()
-                                        .Select(s => EFGenericRepository.FindById<Student>(s.GetStudentId));
+                                        .Select(s => EFGenericRepository.FindById<Student>(s.Id));
 
                      return students.Except(addedStudents).ToArray();
                  }

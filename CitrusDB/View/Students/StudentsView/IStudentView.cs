@@ -6,9 +6,7 @@ namespace CitrusDB.View.Students
 {
     public interface IStudentView : IEntityControlView<Student>
     {
-
-        int GetStudentId { get; }
-        string GetFristName { get; }
+        string GetFirstName { get; }
         string GetLastName { get; }
 
         event EventHandler Click;

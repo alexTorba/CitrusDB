@@ -8,8 +8,6 @@ namespace CitrusDB.View.Students.StudentsView.AddedStudentView
     public partial class AddedStudentViewBoard : UserControl, IStudentView
     {
 
-        public int Id { get; set; }
-
         public AddedStudentViewBoard()
         {
             InitializeComponent();
@@ -19,11 +17,19 @@ namespace CitrusDB.View.Students.StudentsView.AddedStudentView
 
         #region IStudentView
 
-        public int GetStudentId => Id;
+        public string GetFirstName
+        {
+            get => firstNameTextBox.Text;
+            private set => firstNameTextBox.Text = value;
+        }
 
-        public string GetFristName => firstNameTextBox.Text;
+        public string GetLastName
+        {
+            get => lastNameTextBox.Text;
+            private set => lastNameTextBox.Text = value;
+        }
 
-        public string GetLastName => lastNameTextBox.Text;
+        public int Id { get;  set; }
 
         public IEntityControlView<Student> FillView(Student entity)
         {
@@ -43,6 +49,12 @@ namespace CitrusDB.View.Students.StudentsView.AddedStudentView
             addedStudentViewBoard.Id = Id;
 
             return addedStudentViewBoard;
+        }
+
+        public void SetCopy(IEntityControlView<Student> newEntity)
+        {
+            GetFirstName = ((AddedStudentViewBoard)newEntity).GetFirstName;
+            GetLastName = ((AddedStudentViewBoard)newEntity).GetLastName;
         }
 
         new public event EventHandler Click;
@@ -65,6 +77,8 @@ namespace CitrusDB.View.Students.StudentsView.AddedStudentView
             firstNameTextBox.BackColor = BackColor;
             lastNameTextBox.BackColor = BackColor;
         }
+
+        
 
         #endregion
 

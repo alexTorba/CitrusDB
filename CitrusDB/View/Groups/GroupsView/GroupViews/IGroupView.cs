@@ -7,7 +7,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
     public interface IGroupView : IEntityControlView<Group>
     {
 
-        string GroupName { get; set; }
+        string GroupName { get; }
         int CountOfStudent { get; set; }
         bool IsSelected { get; set; }
         Color FrameColor { get; set; }
