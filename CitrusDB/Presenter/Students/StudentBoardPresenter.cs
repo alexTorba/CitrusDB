@@ -64,6 +64,10 @@ namespace CitrusDB.Presenter.Students
         {
             foreach (var groupView in studentBoard.GroupsCollection.Cast<IGroupView>())
                 groupView.ChangeColorToBase();
+
+            if (sender is IGroupView view)
+                studentBoard.GroupId = view.Id;
+
         }
 
         private async void StudentBoard_UpdateView(object sender, EventArgs e)
@@ -163,6 +167,8 @@ namespace CitrusDB.Presenter.Students
                 Group[] result = await GetGroups((sender as TextBox).Text, token);
 
                 await studentBoard.GroupsCollection.FillControlCollectionForSearch(result, groupView, token);
+
+                studentBoard.GroupsCollection.Cast<IGroupView>().FirstOrDefault(g => g.Id == studentBoard.GroupId)?.SelectView();
             }
             catch (OperationCanceledException canceledEx)
             {

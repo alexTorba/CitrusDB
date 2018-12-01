@@ -46,6 +46,8 @@ namespace CitrusDB.View.Students.AddStudent
 
         public float GetWeight => float.Parse(weightComboBox.Text);
 
+        public int GroupId { get; set; }
+
         public ControlCollection GroupsCollection => groupsFlowPanel.Controls;
 
         public int ProgressBarValue
@@ -55,6 +57,7 @@ namespace CitrusDB.View.Students.AddStudent
         }
 
         public ControlCollection GetBoardControls => Controls;
+
 
         public event EventHandler SaveButton;
         public event EventHandler LoadBoard;

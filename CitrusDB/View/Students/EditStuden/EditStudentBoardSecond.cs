@@ -49,6 +49,8 @@ namespace CitrusDB.View.Students.EditStuden
 
         public ControlCollection GroupsCollection => groupsFlowPanel.Controls;
 
+        public int GroupId { get; set; }
+
         public int ProgressBarValue
         {
             get => progressBar.Value;

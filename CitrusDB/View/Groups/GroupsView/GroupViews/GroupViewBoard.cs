@@ -86,7 +86,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         public void ResetOtherBoard()
         {
-            ClearOtherBoard?.Invoke(null, EventArgs.Empty);
+            ClearOtherBoard?.Invoke(this, EventArgs.Empty);
         }
 
         private void SetMouseClickHandler()

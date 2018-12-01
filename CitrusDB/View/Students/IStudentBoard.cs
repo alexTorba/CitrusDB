@@ -28,6 +28,8 @@ namespace CitrusDB.View.Students
         ControlCollection GroupsCollection { get; }
         int ProgressBarValue { get; set; }
 
+        int GroupId { get; set; }
+
         void DisableViewsPanel();
         void EnableViewsPanel();
 

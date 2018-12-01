@@ -65,9 +65,6 @@ namespace CitrusDB.Presenter.Students
 
         private void StudentBoardSecond_AcceptButton(object sender, EventArgs e)
         {
-            var selectedGroup = studentBoardSecond.GroupsCollection
-                .Cast<IGroupView>()
-                .FirstOrDefault(gv => gv.IsSelected == true);
 
             Student editStudent = new Student
             {
@@ -85,7 +82,7 @@ namespace CitrusDB.Presenter.Students
 
                 SecondPhoto = SetPhoto(studentBoardSecond.GetSecondPhoto, studentBoardSecond.CurrentStudent.SecondPhoto),
 
-                Group = selectedGroup == null ? null : EFGenericRepository.FindById<Group>(selectedGroup.Id)
+                Group = EFGenericRepository.FindById<Group>(studentBoardSecond.GroupId)
             };
 
             if (!editStudent.Equals(studentBoardSecond.CurrentStudent, editStudent))

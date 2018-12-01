@@ -77,10 +77,6 @@ namespace CitrusDB.Presenter.Students
 
         private void AddStudentBoard_SaveButton(object sender, EventArgs e)
         {
-            var selectedGroup = addStudentBoard.GroupsCollection
-                .Cast<IGroupView>()
-                .FirstOrDefault(gv => gv.IsSelected == true);
-
             Student student = new Student
             {
                 Id = new Random(Guid.NewGuid().GetHashCode()).Next(),
@@ -94,7 +90,7 @@ namespace CitrusDB.Presenter.Students
                 Height = addStudentBoard.GetGrowth,
                 Weight = addStudentBoard.GetWeight,
                 KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage.Trim(),
-                Group = selectedGroup == null ? null : EFGenericRepository.FindById<Group>(selectedGroup.Id)
+                Group = EFGenericRepository.FindById<Group>(addStudentBoard.GroupId)
             };
 
             EFGenericRepository.Create(student);
