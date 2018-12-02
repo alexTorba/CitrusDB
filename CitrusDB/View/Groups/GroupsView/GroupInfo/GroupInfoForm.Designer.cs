@@ -47,10 +47,13 @@
             this.studentsDataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.closeButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.groupNameValue = new System.Windows.Forms.TextBox();
+            this.closeButton = new CitrusDB.View.UsersElements.CirclusButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGrid)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuSeparator5
@@ -58,7 +61,7 @@
             this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator5.LineThickness = 1;
-            this.bunifuSeparator5.Location = new System.Drawing.Point(32, 174);
+            this.bunifuSeparator5.Location = new System.Drawing.Point(32, 185);
             this.bunifuSeparator5.Name = "bunifuSeparator5";
             this.bunifuSeparator5.Size = new System.Drawing.Size(161, 8);
             this.bunifuSeparator5.TabIndex = 32;
@@ -95,7 +98,7 @@
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(30, 206);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(30, 217);
             this.bunifuCustomLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(134, 19);
@@ -106,7 +109,7 @@
             // 
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(30, 249);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(30, 260);
             this.bunifuCustomLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(92, 19);
@@ -117,7 +120,7 @@
             // 
             this.countOfAddedValue.AutoSize = true;
             this.countOfAddedValue.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countOfAddedValue.Location = new System.Drawing.Point(158, 206);
+            this.countOfAddedValue.Location = new System.Drawing.Point(158, 217);
             this.countOfAddedValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.countOfAddedValue.Name = "countOfAddedValue";
             this.countOfAddedValue.Size = new System.Drawing.Size(30, 19);
@@ -128,7 +131,7 @@
             // 
             this.lastAddedStudentValue.AutoSize = true;
             this.lastAddedStudentValue.Font = new System.Drawing.Font("Century Gothic", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lastAddedStudentValue.Location = new System.Drawing.Point(119, 249);
+            this.lastAddedStudentValue.Location = new System.Drawing.Point(119, 260);
             this.lastAddedStudentValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lastAddedStudentValue.Name = "lastAddedStudentValue";
             this.lastAddedStudentValue.Size = new System.Drawing.Size(80, 17);
@@ -138,7 +141,7 @@
             // photoPictureBox
             // 
             this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.photoPictureBox.Location = new System.Drawing.Point(64, 16);
+            this.photoPictureBox.Location = new System.Drawing.Point(66, 27);
             this.photoPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(98, 113);
@@ -180,50 +183,54 @@
             this.studentsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.studentsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.studentsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.studentsDataGrid.BackgroundColor = System.Drawing.Color.GhostWhite;
+            this.studentsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.studentsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.studentsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.studentsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.studentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.GhostWhite;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.studentsDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.studentsDataGrid.DoubleBuffered = true;
             this.studentsDataGrid.EnableHeadersVisualStyles = false;
-            this.studentsDataGrid.GridColor = System.Drawing.Color.GhostWhite;
-            this.studentsDataGrid.HeaderBgColor = System.Drawing.Color.GhostWhite;
-            this.studentsDataGrid.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.studentsDataGrid.Location = new System.Drawing.Point(220, 48);
+            this.studentsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.studentsDataGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.studentsDataGrid.HeaderForeColor = System.Drawing.Color.White;
+            this.studentsDataGrid.Location = new System.Drawing.Point(9, 53);
             this.studentsDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.studentsDataGrid.MultiSelect = false;
             this.studentsDataGrid.Name = "studentsDataGrid";
             this.studentsDataGrid.ReadOnly = true;
             this.studentsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.studentsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.studentsDataGrid.RowHeadersWidth = 4;
+            this.studentsDataGrid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.studentsDataGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.studentsDataGrid.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.studentsDataGrid.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.studentsDataGrid.RowTemplate.Height = 24;
             this.studentsDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.studentsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.studentsDataGrid.Size = new System.Drawing.Size(362, 260);
+            this.studentsDataGrid.Size = new System.Drawing.Size(355, 250);
             this.studentsDataGrid.TabIndex = 0;
             this.studentsDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGrid_CellDoubleClick);
             this.studentsDataGrid.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.studentsDataGrid_ColumnHeaderMouseClick);
@@ -231,7 +238,7 @@
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.searchTextBox.Location = new System.Drawing.Point(220, 16);
+            this.searchTextBox.Location = new System.Drawing.Point(20, 21);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
@@ -248,26 +255,12 @@
             this.dragControl.TargetControl = this;
             this.dragControl.Vertical = true;
             // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.Transparent;
-            this.closeButton.FlatAppearance.BorderSize = 0;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(566, 8);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(2);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(27, 28);
-            this.closeButton.TabIndex = 43;
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
             // groupNameValue
             // 
             this.groupNameValue.BackColor = System.Drawing.Color.GhostWhite;
             this.groupNameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.groupNameValue.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupNameValue.Location = new System.Drawing.Point(32, 154);
+            this.groupNameValue.Location = new System.Drawing.Point(32, 165);
             this.groupNameValue.Margin = new System.Windows.Forms.Padding(2);
             this.groupNameValue.Multiline = true;
             this.groupNameValue.Name = "groupNameValue";
@@ -276,6 +269,43 @@
             this.groupNameValue.TabIndex = 44;
             this.groupNameValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+            this.closeButton.Location = new System.Drawing.Point(328, 8);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(29, 29);
+            this.closeButton.TabIndex = 43;
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.searchTextBox);
+            this.panel1.Controls.Add(this.studentsDataGrid);
+            this.panel1.Controls.Add(this.closeButton);
+            this.panel1.Location = new System.Drawing.Point(230, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(366, 309);
+            this.panel1.TabIndex = 45;
+            // 
+            // bunifuSeparator6
+            // 
+            this.bunifuSeparator6.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator6.LineColor = System.Drawing.Color.DimGray;
+            this.bunifuSeparator6.LineThickness = 13;
+            this.bunifuSeparator6.Location = new System.Drawing.Point(217, 6);
+            this.bunifuSeparator6.Name = "bunifuSeparator6";
+            this.bunifuSeparator6.Size = new System.Drawing.Size(13, 309);
+            this.bunifuSeparator6.TabIndex = 46;
+            this.bunifuSeparator6.Transparency = 255;
+            this.bunifuSeparator6.Vertical = true;
+            // 
             // GroupInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,9 +313,6 @@
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(602, 327);
             this.Controls.Add(this.groupNameValue);
-            this.Controls.Add(this.closeButton);
-            this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.studentsDataGrid);
             this.Controls.Add(this.bunifuSeparator4);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.bunifuSeparator2);
@@ -296,6 +323,8 @@
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.bunifuSeparator5);
             this.Controls.Add(this.photoPictureBox);
+            this.Controls.Add(this.bunifuSeparator6);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GroupInfoForm";
@@ -303,6 +332,8 @@
             this.Load += new System.EventHandler(this.GroupInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGrid)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +356,7 @@
         private Bunifu.Framework.UI.BunifuDragControl dragControl;
         private UsersElements.CirclusButton closeButton;
         private System.Windows.Forms.TextBox groupNameValue;
+        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator6;
     }
 }
