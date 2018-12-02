@@ -9,6 +9,7 @@ using CitrusDB.Model.Entity;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 using CitrusDB.View.Groups.GroupsView.GroupInfo;
 using CitrusDB.Model.UsersEventArgs;
+using System.Threading.Tasks;
 
 namespace CitrusDB.View.DataBoard
 {
@@ -53,7 +54,7 @@ namespace CitrusDB.View.DataBoard
         public event EventHandler GroupTableLoad;
         public event EventHandler DeleteEntity;
         public event HeaderGridMouseClickHandler HeaderMouseClick;
-        public event EventHandler SearchBoxTextChanged;
+        public event SearchingEventHandler SearchBoxTextChanged;
 
         #endregion
 
@@ -84,13 +85,18 @@ namespace CitrusDB.View.DataBoard
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            SearchBoxTextChanged?.Invoke(sender, e);
+            Search(((TextBox)sender).Text, new AfterSearchingEventArgs(null, null));
+        }
+
+        #endregion
+
+        private void Search(string conditionFilter, AfterSearchingEventArgs e)
+        {
+            SearchBoxTextChanged?.Invoke(conditionFilter, e);
 
             if (dataGrid.Columns["Id"] != null)
                 dataGrid.Columns["Id"].Visible = false;
         }
-
-        #endregion
 
         #region Event Handlers
 
@@ -157,7 +163,11 @@ namespace CitrusDB.View.DataBoard
 
             var sel = dataGrid.SelectedRows[0].DataBoundItem;
             DeleteEntity?.Invoke(null, new EntityArgs(sel));
-            UpdateView();
+
+            //todo: ??
+            Search(searchTextBox.Text,
+                new AfterSearchingEventArgs(SortingTable, dataGrid.Tag.ToString())
+                  );
 
             mainForm.SetInitStatus();
         }
@@ -165,11 +175,21 @@ namespace CitrusDB.View.DataBoard
         private void dataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             string selectedHeader = dataGrid.Columns[e.ColumnIndex].DataPropertyName;
+
             if (selectedHeader == "Photo")
                 return;
 
-            HeaderMouseClick?.Invoke(sender,
-                new HeaderPropertyEventArgs(dataGrid.Columns[e.ColumnIndex].DataPropertyName));
+            dataGrid.Tag = selectedHeader;
+
+            SortingTable(selectedHeader);
+        }
+
+        private void SortingTable(string conditionSorting)
+        {
+            if (conditionSorting == null)
+                return;
+
+            HeaderMouseClick?.Invoke(dataGrid, new HeaderPropertyEventArgs(conditionSorting));
         }
 
         private void radioButtonGroup_CheckedChanged(object sender, EventArgs e)

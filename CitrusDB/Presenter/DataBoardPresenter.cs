@@ -38,20 +38,21 @@ namespace CitrusDB.Presenter
             dataBoard.SearchBoxTextChanged += DataBoard_SearchBoxTextChanged;
         }
 
-        private void DataBoard_SearchBoxTextChanged(object sender, EventArgs e)
+        private void DataBoard_SearchBoxTextChanged(string condition, EventArgs e)
         {
             currentTask?.CancelTask();
 
-            currentTask = new TaskInfo(SearchEntities, sender);
+            currentTask = new TaskInfo(SearchEntities,
+                condition,
+                ((AfterSearchingEventArgs)e)?.sorting,
+                ((AfterSearchingEventArgs)e)?.conditionSorting);
         }
 
-        private void SearchEntities(object sender, CancellationToken token)
+        private void SearchEntities(string conditionFilter, Action<string> sorting, string conditionSorting, CancellationToken token)
         {
             try
             {
-                //dataBoard.DisablingGrid();
-
-                GetEntityBySearch(dataBoard.SelectedEntity, (sender as TextBox).Text, token);
+                GetEntityBySearch(dataBoard.SelectedEntity, conditionFilter, sorting, conditionSorting, token);
             }
             catch (TaskCanceledException canceledEx)
             {
@@ -62,14 +63,12 @@ namespace CitrusDB.Presenter
             {
                 throw new Exception(e.Message);
             }
-            finally
-            {
-                //dataBoard.EnablingGrid();
-            }
+
+
             Console.WriteLine("SUCCESSFULLY");
         }
 
-        private async void GetEntityBySearch(SelectedEntity selectedEntity, string condition, CancellationToken token)
+        private async void GetEntityBySearch(SelectedEntity selectedEntity, string conditionFilter, Action<string> sorting, string conditionSorting, CancellationToken token)
         {
             IEnumerable<StudentView> studentViewResult = null;
             IEnumerable<GroupView> groupViewResult = null;
@@ -77,12 +76,12 @@ namespace CitrusDB.Presenter
             {
                 await Task.Run(() =>
                 {
-                    if (condition == string.Empty)
+                    if (conditionFilter == string.Empty)
                         studentViewResult = EFGenericRepository.Get<Student>().GetViews<Student, StudentView>();
 
                     studentViewResult = EFGenericRepository.Get<Student>(s => s.FirstName
                                                             .ToUpperInvariant()
-                                                            .Contains(condition.ToUpperInvariant()))
+                                                            .Contains(conditionFilter.ToUpperInvariant()))
                                                             .GetViews<Student, StudentView>();
                 }, token);
             }
@@ -90,19 +89,22 @@ namespace CitrusDB.Presenter
             {
                 await Task.Run(() =>
                 {
-                    if (condition == string.Empty)
+                    if (conditionFilter == string.Empty)
                         groupViewResult = EFGenericRepository.Get<Group>().GetViews<Group, GroupView>();
 
                     groupViewResult = EFGenericRepository.Get<Group>(g => g.Name
                                                           .ToUpperInvariant()
-                                                          .Contains(condition.ToUpperInvariant()))
+                                                          .Contains(conditionFilter.ToUpperInvariant()))
                                                           .GetViews<Group, GroupView>();
                 }, token);
             }
+
             if (studentViewResult != null)
                 dataBoard.GetDataSource = studentViewResult.ToArray();
             else if (groupViewResult != null)
                 dataBoard.GetDataSource = groupViewResult.ToArray();
+
+            sorting?.Invoke(conditionSorting);
         }
 
         private async void TransformResultToEntityView(IEnumerable<IEntity> result, CancellationToken token)

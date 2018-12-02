@@ -112,6 +112,7 @@
     <Compile Include="Model\Extensions\ExtensionControls.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
     <Compile Include="Model\Generate.cs" />
+    <Compile Include="Model\UsersEventArgs\AfterSearchingEventArgs.cs" />
     <Compile Include="Model\UsersEventArgs\EntityTransferEventArgs.cs" />
     <Compile Include="Model\UsersEventArgs\HeaderPropertyEventArgs.cs" />
     <Compile Include="Model\TaskInfo.cs" />
