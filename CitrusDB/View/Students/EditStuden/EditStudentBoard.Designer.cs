@@ -49,6 +49,7 @@
             // 
             this.editStudentBoardSecond.AutoSize = true;
             this.editStudentBoardSecond.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editStudentBoardSecond.GroupId = 0;
             this.editStudentBoardSecond.Location = new System.Drawing.Point(0, 0);
             this.editStudentBoardSecond.MinimumSize = new System.Drawing.Size(914, 644);
             this.editStudentBoardSecond.Name = "editStudentBoardSecond";

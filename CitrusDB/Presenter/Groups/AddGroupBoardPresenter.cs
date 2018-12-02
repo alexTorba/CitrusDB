@@ -170,6 +170,7 @@ namespace CitrusDB.Presenter.Groups
                 addGroupBoard.DisableCurrentStudentPanel();
 
                 Student[] result = await GetStudentWithExceptedAddedStudent((sender as TextBox).Text, token);
+
                 await FillControlCollection(result, token);
             }
             catch (OperationCanceledException canceledEx)

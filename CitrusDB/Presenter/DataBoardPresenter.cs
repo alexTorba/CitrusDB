@@ -109,8 +109,6 @@ namespace CitrusDB.Presenter
         {
             try
             {
-                await Task.Delay(300);
-
                 if (dataBoard.SelectedEntity == SelectedEntity.Group)
                 {
                     dataBoard.GetDataSource = (await ((IEnumerable<Group>)result).GetViewsAsync<Group, GroupView>(token)).ToArray();
@@ -126,7 +124,6 @@ namespace CitrusDB.Presenter
                 return;
             }
         }
-
 
         private void DataBoard_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)
         {

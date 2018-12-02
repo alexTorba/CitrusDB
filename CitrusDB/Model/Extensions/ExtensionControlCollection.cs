@@ -133,7 +133,7 @@ namespace CitrusDB.Model.Extensions
                 {
                     arrControls[i] = (Control)result[i].FillView(entities[i]);
                 }
-            }, TaskCreationOptions.DenyChildAttach);
+            }, token);
 
             return arrControls;
         }
@@ -157,6 +157,7 @@ namespace CitrusDB.Model.Extensions
             return arrControls;
         }
 
+        //if collections are equal, cleaning will not occur
         public static async Task<bool> СollectionEqualityTest<T>(
             this ControlCollection controlCollection,
             IList<T> newEntity,
@@ -171,6 +172,8 @@ namespace CitrusDB.Model.Extensions
                                    : -1;
 
                 Console.WriteLine($"countSameValues - {countSameValues}");
+
+
                 if (countSameValues == 0)
                     return true;
 

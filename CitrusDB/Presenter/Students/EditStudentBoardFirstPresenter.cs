@@ -18,7 +18,7 @@ namespace CitrusDB.Presenter.Students
     class EditStudentBoardFirstPresenter
     {
 
-        TaskInfo taskInfo;
+        TaskInfo currentTask;
 
         readonly IEditStudentBoardFirst editStudentBoardFirst;
         readonly IStudentView editStudentView;
@@ -35,16 +35,12 @@ namespace CitrusDB.Presenter.Students
         {
             editStudentBoardFirst.LoadEditStudentBoardFirst += EditStudentBoardFirst_LoadEditStudentBoardFirst;
             editStudentBoardFirst.UpdateView += EditStudentBoardFirst_UpdateView;
+            editStudentBoardFirst.StudentSearchTextBoxChanges += EditStudentBoardFirst_StudentSearchTextBoxChanges;
 
             editStudentView.Click += EditStudentView_Click;
         }
 
-        private void EditStudentView_Click(object sender, EventArgs e)
-        {
-            editStudentBoardFirst.EditStudent = EFGenericRepository.FindById<Student>(((IStudentView)((Control)sender).Parent).Id);
-
-            editStudentBoardFirst.LoadingSecondForm();
-        }
+        #region EventHandlers
 
         private async void EditStudentBoardFirst_UpdateView(object sender, EventArgs e)
         {
@@ -64,6 +60,82 @@ namespace CitrusDB.Presenter.Students
 
             editStudentBoardFirst.EnablingControlCollection();
         }
+
+        private void EditStudentBoardFirst_LoadEditStudentBoardFirst(object sender, EventArgs e)
+        {
+            var students = EFGenericRepository.Get<Student>().ToArray();
+            var studentControls = editStudentView.CreateListViews(students.Length);
+
+            for (int i = 0; i < students.Length; i++)
+            {
+                editStudentBoardFirst.StudentControlCollection.Add((Control)studentControls[i].FillView(students[i]));
+            }
+        }
+
+        private void EditStudentBoardFirst_StudentSearchTextBoxChanges(object sender, EventArgs e)
+        {
+            currentTask?.CancelTask();
+
+            currentTask = new TaskInfo(SearchStudent, sender);
+        }
+
+        #endregion
+
+        private async void SearchStudent(object sender, CancellationToken token)
+        {
+            try
+            {
+                // addGroupBoard.DisableCurrentStudentPanel();
+
+                Student[] result = GetStudentsWithConditions((sender as TextBox).Text);
+                await FillControlCollection(result, token);
+            }
+            catch (OperationCanceledException canceledEx)
+            {
+                Console.WriteLine(canceledEx.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                //addGroupBoard.EnableCurrentStudentPanel();
+            }
+
+            Console.WriteLine($"SUCCESSFUL" + Environment.NewLine);
+        }
+
+        private Student[] GetStudentsWithConditions(string condition)
+        {
+            if (condition == string.Empty)
+                return EFGenericRepository.Get<Student>().ToArray();
+
+            return EFGenericRepository.Get<Student>(s => s.FirstName.ToUpperInvariant()
+                                                         .Contains(condition.ToUpperInvariant()))
+                                                         .ToArray();
+        }
+
+        /// <summary>
+        /// Асинхронное заполнение CurrentStudentControlCollection.
+        /// </summary>
+        /// <param name="students">Коллекция, которая будет трансформироваться в StudentViewBoard и помещаться в CurrentStudentControlCollection</param>
+        /// <returns></returns>
+        private async Task FillControlCollection(IList<Student> students, CancellationToken token)
+        {
+            await editStudentBoardFirst
+                 .StudentControlCollection
+                 .FillControlCollectionForSearch(students, editStudentView, token);
+        }
+
+        private void EditStudentView_Click(object sender, EventArgs e)
+        {
+            editStudentBoardFirst.EditStudent = EFGenericRepository.FindById<Student>(((IStudentView)((Control)sender).Parent).Id);
+
+            editStudentBoardFirst.LoadingSecondForm();
+        }
+
 
         private async Task AddControlsToControlCollection(IList<Student> students, CancellationToken token)
         {
@@ -99,16 +171,6 @@ namespace CitrusDB.Presenter.Students
                 );
         }
 
-        private void EditStudentBoardFirst_LoadEditStudentBoardFirst(object sender, EventArgs e)
-        {
-            var students = EFGenericRepository.Get<Student>().ToArray();
-            var studentControls = editStudentView.CreateListViews(students.Length);
 
-            for (int i = 0; i < students.Length; i++)
-            {
-                editStudentBoardFirst.StudentControlCollection.Add((Control)studentControls[i].FillView(students[i]));
-            }
-
-        }
     }
 }

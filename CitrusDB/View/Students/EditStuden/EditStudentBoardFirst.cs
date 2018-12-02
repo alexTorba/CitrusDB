@@ -62,6 +62,11 @@ namespace CitrusDB.View.Students.EditStuden
             LoadEditStudentBoardFirst?.Invoke(sender, e);
         }
 
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            StudentSearchTextBoxChanges?.Invoke(sender, e);
+        }
+
         #endregion
 
         public void InitFields(MainForm mainForm)
@@ -104,6 +109,12 @@ namespace CitrusDB.View.Students.EditStuden
             }
         }
 
-       
+        private void searchTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
+        }
+
     }
 }
