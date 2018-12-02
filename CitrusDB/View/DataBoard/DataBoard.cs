@@ -92,7 +92,11 @@ namespace CitrusDB.View.DataBoard
 
         private void Search(string conditionFilter, AfterSearchingEventArgs e)
         {
-            SearchBoxTextChanged?.Invoke(conditionFilter, e);
+            if (conditionFilter == "Search..")
+                SearchBoxTextChanged?.Invoke("", e);
+            else
+                SearchBoxTextChanged?.Invoke(conditionFilter, e);
+
 
             if (dataGrid.Columns["Id"] != null)
                 dataGrid.Columns["Id"].Visible = false;
@@ -204,5 +208,11 @@ namespace CitrusDB.View.DataBoard
                 SelectedEntity = SelectedEntity.Student;
         }
 
+        private void searchTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
+        }
     }
 }

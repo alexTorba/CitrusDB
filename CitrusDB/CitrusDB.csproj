@@ -106,7 +106,6 @@
     <Compile Include="Model\Entity\GroupView.cs" />
     <Compile Include="Model\Entity\IEntity.cs" />
     <Compile Include="Model\Entity\SelectedEntity.cs" />
-    <Compile Include="Model\Entity\StudentComparer.cs" />
     <Compile Include="Model\Extensions\ExtensionControlCollection.cs" />
     <Compile Include="Model\Extensions\ExtensionLinq.cs" />
     <Compile Include="Model\Extensions\ExtensionControls.cs" />
