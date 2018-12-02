@@ -12,6 +12,8 @@ using CitrusDB.View.Students;
 using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.Model.DataBaseLogic;
 using System.Drawing;
+using CitrusDB.View.UsersElements.Dialogs;
+using System.Windows.Forms;
 
 namespace CitrusDB.Presenter.Students
 {
@@ -63,8 +65,11 @@ namespace CitrusDB.Presenter.Students
             //throw new NotImplementedException();
         }
 
-        private void StudentBoardSecond_AcceptButton(object sender, EventArgs e)
+        private bool StudentBoardSecond_AcceptButton()
         {
+            var selectedGroup = studentBoardSecond.GroupsCollection
+                .Cast<IGroupView>()
+                .FirstOrDefault(gv => gv.IsSelected == true);
 
             Student editStudent = new Student
             {
@@ -82,15 +87,19 @@ namespace CitrusDB.Presenter.Students
 
                 SecondPhoto = SetPhoto(studentBoardSecond.GetSecondPhoto, studentBoardSecond.CurrentStudent.SecondPhoto),
 
-                Group = EFGenericRepository.FindById<Group>(studentBoardSecond.GroupId)
+                Group = selectedGroup == null 
+                                     ? null 
+                                     : EFGenericRepository.FindById<Group>(selectedGroup.Id)
             };
 
             if (!editStudent.Equals(studentBoardSecond.CurrentStudent, editStudent))
             {
                 studentBoardSecond.CurrentStudent.SetCopy(editStudent);
                 EFGenericRepository.Update(studentBoardSecond.CurrentStudent);
+                return true;
             }
 
+            return false;
         }
 
         #endregion

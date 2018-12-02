@@ -8,7 +8,7 @@ namespace CitrusDB.View.Students.EditStuden
     {
         Student CurrentStudent { get; }
 
-        event EventHandler AcceptButton;
+        event Func<bool> AcceptButton;
         event EventHandler CancelButton;
 
         event EntityTransferHandler SetInitGroup;        

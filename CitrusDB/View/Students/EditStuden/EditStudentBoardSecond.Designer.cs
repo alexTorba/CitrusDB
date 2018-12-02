@@ -584,6 +584,7 @@
             this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
+            this.searchGroupTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchGroupTextBox_MouseClick);
             this.searchGroupTextBox.TextChanged += new System.EventHandler(this.searchGroupTextBox_TextChanged);
             // 
             // textBox1

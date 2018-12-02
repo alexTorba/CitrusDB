@@ -114,6 +114,8 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         public void SelectView()
         {
+            ResetOtherBoard();
+
             ChangeColor(Color.LimeGreen);
             IsSelected = true;
         }

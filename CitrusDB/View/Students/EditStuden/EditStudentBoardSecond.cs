@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using CitrusDB.View.UsersElements.Dialogs;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.UsersEventArgs;
 
@@ -86,7 +83,7 @@ namespace CitrusDB.View.Students.EditStuden
         public event EventHandler UpdateView;
         public event EventHandler SearchBox_TextChange;
 
-        public event EventHandler AcceptButton;
+        public event Func<bool> AcceptButton;
         public event EventHandler CancelButton;
 
         public event EntityTransferHandler SetInitGroup;
@@ -189,7 +186,9 @@ namespace CitrusDB.View.Students.EditStuden
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            AcceptButton?.Invoke(sender, e);
+            if (AcceptButton?.Invoke() ?? false)
+                if (new SuccessfulDialog("Changes accepted successfully !").ShowDialog() == DialogResult.OK)
+                    cancelButton_Click(null, EventArgs.Empty);
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -256,6 +255,13 @@ namespace CitrusDB.View.Students.EditStuden
                 groupsFlowPanel.Enabled = false;
                 searchPanel.Enabled = false;
             }
+        }
+
+        private void searchGroupTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
         }
     }
 }

@@ -58,7 +58,6 @@ namespace CitrusDB.Presenter.Students
                 EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted),
                 CancellationToken.None);
 
-            //todo: updating
             await UpdateControlsFromControlCollection(
                 EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).ToArray(),
                 CancellationToken.None);
