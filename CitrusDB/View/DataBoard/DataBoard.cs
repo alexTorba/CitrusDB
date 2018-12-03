@@ -170,7 +170,7 @@ namespace CitrusDB.View.DataBoard
 
             //todo: ??
             Search(searchTextBox.Text,
-                new AfterSearchingEventArgs(SortingTable, dataGrid.Tag.ToString())
+                new AfterSearchingEventArgs(SortingTable, dataGrid.Tag?.ToString())
                   );
 
             mainForm.SetInitStatus();

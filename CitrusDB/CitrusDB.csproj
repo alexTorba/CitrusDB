@@ -118,6 +118,7 @@
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\Groups\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\Groups\EditGroupBoardFirstPresenter.cs" />
+    <Compile Include="Presenter\Groups\GroupBoardPresenter.cs" />
     <Compile Include="Presenter\Students\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\Students\EditStudentBoardFirstPresenter.cs" />
     <Compile Include="Presenter\Students\EditStudentBoardSecondPresenter.cs" />
@@ -150,6 +151,8 @@
       <DependentUpon>EditGroupBoardSecond.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Groups\EditGroup\IEditGroupBoardFirst.cs" />
+    <Compile Include="View\Groups\EditGroup\IEditGroupBoardSecond.cs" />
+    <Compile Include="View\Groups\IGroupBoard.cs" />
     <Compile Include="View\Students\EditStuden\EditStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>

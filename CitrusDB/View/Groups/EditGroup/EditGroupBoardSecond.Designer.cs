@@ -1,6 +1,6 @@
 ﻿namespace CitrusDB.View.Groups.EditGroup
 {
-    partial class editGroupBoardSecond
+    partial class EditGroupBoardSecond
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -41,14 +41,20 @@
             this.nameGroupTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.currentStudentsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.optionFlowPanel.SuspendLayout();
             this.panelAddGroupSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // optionFlowPanel
             // 
             this.optionFlowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.optionFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.optionFlowPanel.Controls.Add(this.panel1);
             this.optionFlowPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.optionFlowPanel.Location = new System.Drawing.Point(0, 0);
             this.optionFlowPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -89,6 +95,7 @@
             this.cancelButton.TabIndex = 25;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // acceptButton
             // 
@@ -103,6 +110,7 @@
             this.acceptButton.TabIndex = 24;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // photoLabel
             // 
@@ -198,18 +206,51 @@
             this.currentStudentsFlowPanel.Size = new System.Drawing.Size(430, 644);
             this.currentStudentsFlowPanel.TabIndex = 9;
             // 
-            // editGroupBoardSecond
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(31, 33);
+            this.searchTextBox.Multiline = true;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(171, 21);
+            this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.searchTextBox);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(239, 71);
+            this.panel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(87, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Search";
+            // 
+            // EditGroupBoardSecond
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.currentStudentsFlowPanel);
             this.Controls.Add(this.panelAddGroupSpace);
             this.Controls.Add(this.optionFlowPanel);
-            this.Name = "editGroupBoardSecond";
+            this.Name = "EditGroupBoardSecond";
             this.Size = new System.Drawing.Size(928, 644);
+            this.Load += new System.EventHandler(this.EditGroupBoardSecond_Load);
+            this.optionFlowPanel.ResumeLayout(false);
             this.panelAddGroupSpace.ResumeLayout(false);
             this.panelAddGroupSpace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -229,5 +270,8 @@
         private System.Windows.Forms.FlowLayoutPanel currentStudentsFlowPanel;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button acceptButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox searchTextBox;
     }
 }

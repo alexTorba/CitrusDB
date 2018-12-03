@@ -22,6 +22,8 @@ namespace CitrusDB.Presenter.Groups
         {
             this.editGroupBoardFirst = editGroupBoardFirst;
             this.groupView = groupView;
+
+            SetHandlers();
         }
 
         private void SetHandlers()
@@ -41,5 +43,6 @@ namespace CitrusDB.Presenter.Groups
                 editGroupBoardFirst.GroupCollection.Add((Control)groupView);
             }
         }
+
     }
 }
