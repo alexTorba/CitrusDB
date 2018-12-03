@@ -23,7 +23,13 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
             SetMouseClickHandler();
 
             initColor = colorSeparator1.LineColor;
-            FrameColor = Color.Green;
+            selectedColor = Color.Green;
+        }
+
+        public GroupViewBoard(Color initColor, Color selectedColor) : base()
+        {
+            this.initColor = initColor;
+            this.selectedColor = selectedColor;
         }
 
         #region IGroupView
@@ -38,7 +44,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
             set => countLabel.Text = value.ToString();
         }
 
-        public Color FrameColor { get; set; }
+        public Color selectedColor { get; set; }
         public bool IsSelected { get; set; }
 
         public object Clone()

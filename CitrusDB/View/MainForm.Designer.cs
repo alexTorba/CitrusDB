@@ -63,11 +63,11 @@ namespace CitrusDB.View
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.statusTextBox = new System.Windows.Forms.TextBox();
+            this.editStudentBoard = new CitrusDB.View.Students.EditStuden.EditStudentBoard();
             this.addGroupBoard = new CitrusDB.View.Groups.AddGroup.AddGroupBoard();
             this.addStudentBoard = new CitrusDB.View.Students.AddStudent.AddStudentBoard();
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.editStudentBoard = new CitrusDB.View.Students.EditStuden.EditStudentBoard();
             this.dragPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -462,12 +462,21 @@ namespace CitrusDB.View
             this.statusTextBox.Tag = "©All rights reserved";
             this.statusTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // editStudentBoard
+            // 
+            this.editStudentBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editStudentBoard.Location = new System.Drawing.Point(188, 31);
+            this.editStudentBoard.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.editStudentBoard.Name = "editStudentBoard";
+            this.editStudentBoard.Size = new System.Drawing.Size(917, 644);
+            this.editStudentBoard.TabIndex = 18;
+            // 
             // addGroupBoard
             // 
             this.addGroupBoard.CountOfAddedStudent = "0";
             this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
-            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 14, 3, 14);
+            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 17, 3, 17);
             this.addGroupBoard.Name = "addGroupBoard";
             this.addGroupBoard.Size = new System.Drawing.Size(917, 644);
             this.addGroupBoard.TabIndex = 17;
@@ -475,6 +484,7 @@ namespace CitrusDB.View
             // addStudentBoard
             // 
             this.addStudentBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addStudentBoard.GroupId = 0;
             this.addStudentBoard.Location = new System.Drawing.Point(188, 31);
             this.addStudentBoard.Name = "addStudentBoard";
             this.addStudentBoard.ProgressBarValue = 0;
@@ -497,15 +507,6 @@ namespace CitrusDB.View
             // studentBindingSource
             // 
             this.studentBindingSource.DataSource = typeof(CitrusDB.Model.Entity.Student);
-            // 
-            // editStudentBoard
-            // 
-            this.editStudentBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editStudentBoard.Location = new System.Drawing.Point(188, 31);
-            this.editStudentBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.editStudentBoard.Name = "editStudentBoard";
-            this.editStudentBoard.Size = new System.Drawing.Size(917, 644);
-            this.editStudentBoard.TabIndex = 18;
             // 
             // MainForm
             // 

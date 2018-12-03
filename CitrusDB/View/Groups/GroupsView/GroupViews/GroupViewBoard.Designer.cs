@@ -49,7 +49,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(123, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 21);
+            this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name:";
             // 
@@ -59,7 +59,7 @@
             this.nameLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.nameLabel.Location = new System.Drawing.Point(182, 11);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(0, 21);
+            this.nameLabel.Size = new System.Drawing.Size(0, 19);
             this.nameLabel.TabIndex = 2;
             // 
             // countLabel
@@ -68,7 +68,7 @@
             this.countLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
             this.countLabel.Location = new System.Drawing.Point(256, 37);
             this.countLabel.Name = "countLabel";
-            this.countLabel.Size = new System.Drawing.Size(0, 21);
+            this.countLabel.Size = new System.Drawing.Size(0, 19);
             this.countLabel.TabIndex = 4;
             // 
             // label4
@@ -77,7 +77,7 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(123, 37);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 21);
+            this.label4.Size = new System.Drawing.Size(134, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "Count of students:";
             // 
@@ -87,7 +87,7 @@
             this.lastAddedStudentLabel.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lastAddedStudentLabel.Location = new System.Drawing.Point(220, 69);
             this.lastAddedStudentLabel.Name = "lastAddedStudentLabel";
-            this.lastAddedStudentLabel.Size = new System.Drawing.Size(0, 18);
+            this.lastAddedStudentLabel.Size = new System.Drawing.Size(0, 16);
             this.lastAddedStudentLabel.TabIndex = 6;
             // 
             // lastAddedTextLabel
@@ -96,7 +96,7 @@
             this.lastAddedTextLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lastAddedTextLabel.Location = new System.Drawing.Point(123, 69);
             this.lastAddedTextLabel.Name = "lastAddedTextLabel";
-            this.lastAddedTextLabel.Size = new System.Drawing.Size(89, 19);
+            this.lastAddedTextLabel.Size = new System.Drawing.Size(71, 16);
             this.lastAddedTextLabel.TabIndex = 5;
             this.lastAddedTextLabel.Text = "last added:";
             this.lastAddedTextLabel.Visible = false;
@@ -130,7 +130,7 @@
             // 
             this.colorSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator2.LineThickness = 12;
+            this.colorSeparator2.LineThickness = 16;
             this.colorSeparator2.Location = new System.Drawing.Point(-1, -2);
             this.colorSeparator2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.colorSeparator2.Name = "colorSeparator2";
@@ -143,7 +143,7 @@
             // 
             this.colorSeparator4.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator4.LineThickness = 14;
+            this.colorSeparator4.LineThickness = 18;
             this.colorSeparator4.Location = new System.Drawing.Point(-1, 90);
             this.colorSeparator4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.colorSeparator4.Name = "colorSeparator4";
@@ -156,7 +156,7 @@
             // 
             this.colorSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator1.LineThickness = 10;
+            this.colorSeparator1.LineThickness = 12;
             this.colorSeparator1.Location = new System.Drawing.Point(286, 7);
             this.colorSeparator1.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.colorSeparator1.Name = "colorSeparator1";
@@ -169,7 +169,7 @@
             // 
             this.colorSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator3.LineThickness = 10;
+            this.colorSeparator3.LineThickness = 12;
             this.colorSeparator3.Location = new System.Drawing.Point(-1, -2);
             this.colorSeparator3.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
             this.colorSeparator3.Name = "colorSeparator3";
@@ -180,7 +180,7 @@
             // 
             // GroupViewBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.colorSeparator4);

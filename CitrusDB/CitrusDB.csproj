@@ -117,6 +117,7 @@
     <Compile Include="Model\TaskInfo.cs" />
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\Groups\AddGroupBoardPresenter.cs" />
+    <Compile Include="Presenter\Groups\EditGroupBoardFirstPresenter.cs" />
     <Compile Include="Presenter\Students\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\Students\EditStudentBoardFirstPresenter.cs" />
     <Compile Include="Presenter\Students\EditStudentBoardSecondPresenter.cs" />
@@ -130,6 +131,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\Groups\EditGroup\EditGroupBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Groups\EditGroup\EditGroupBoard.Designer.cs">
+      <DependentUpon>EditGroupBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groups\EditGroup\EditGroupBoardFirst.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Groups\EditGroup\EditGroupBoardFirst.Designer.cs">
+      <DependentUpon>EditGroupBoardFirst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groups\EditGroup\EditGroupBoardSecond.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Groups\EditGroup\EditGroupBoardSecond.Designer.cs">
+      <DependentUpon>EditGroupBoardSecond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groups\EditGroup\IEditGroupBoardFirst.cs" />
     <Compile Include="View\Students\EditStuden\EditStudentBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -275,6 +295,15 @@
     <EmbeddedResource Include="Migrations\201811091837294_add_IEntity.resx">
       <DependentUpon>201811091837294_add_IEntity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Groups\EditGroup\EditGroupBoard.resx">
+      <DependentUpon>EditGroupBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Groups\EditGroup\EditGroupBoardFirst.resx">
+      <DependentUpon>EditGroupBoardFirst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Groups\EditGroup\EditGroupBoardSecond.resx">
+      <DependentUpon>EditGroupBoardSecond.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Students\EditStuden\EditStudentBoard.resx">
       <DependentUpon>EditStudentBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,8 +392,6 @@
   <ItemGroup>
     <None Include="Resources\icons8_Edit_25px.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Groups\EditGroup\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
