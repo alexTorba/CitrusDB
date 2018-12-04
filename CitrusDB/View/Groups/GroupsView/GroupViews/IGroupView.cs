@@ -11,6 +11,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
         int CountOfStudent { get; set; }
         bool IsSelected { get; set; }
         Color selectedColor { get; set; }
+        Color initColor { get; set; }
 
         void ChangeColorToBase();
         void SelectView();

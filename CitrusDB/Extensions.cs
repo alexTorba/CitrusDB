@@ -100,5 +100,18 @@ namespace CitrusDB
             }
         }
 
+        public static byte[] SetPhoto(this Image editPhoto, byte[] initPhoto)
+        {
+            try
+            {
+                return editPhoto.ConvertImageToByteArr();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return initPhoto;
+            }
+        }
+
     }
 }

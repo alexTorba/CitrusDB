@@ -83,16 +83,19 @@ namespace CitrusDB.Presenter.Students
                 Сitizenship = studentBoardSecond.GetCitizenship,
                 KnowledgeOfLanguage = studentBoardSecond.GetKnowledgeOfLanguage,
 
-                FirstPhoto = SetPhoto(studentBoardSecond.GetFirstPhoto, studentBoardSecond.CurrentStudent.FirstPhoto),
+                FirstPhoto = studentBoardSecond.GetFirstPhoto.SetPhoto(studentBoardSecond.CurrentStudent.FirstPhoto),
 
-                SecondPhoto = SetPhoto(studentBoardSecond.GetSecondPhoto, studentBoardSecond.CurrentStudent.SecondPhoto),
+                SecondPhoto = studentBoardSecond.GetSecondPhoto.SetPhoto(studentBoardSecond.CurrentStudent.SecondPhoto),
 
-                Group = selectedGroup == null 
-                                     ? null 
+                Group = selectedGroup == null
+                                     ? null
                                      : EFGenericRepository.FindById<Group>(selectedGroup.Id)
             };
 
-            if (!editStudent.Equals(studentBoardSecond.CurrentStudent, editStudent))
+            bool isEquality = new StudentsEqualityComarer()
+                .Equals(editStudent, studentBoardSecond.CurrentStudent);
+
+            if (!isEquality)
             {
                 studentBoardSecond.CurrentStudent.SetCopy(editStudent);
                 EFGenericRepository.Update(studentBoardSecond.CurrentStudent);
@@ -103,19 +106,6 @@ namespace CitrusDB.Presenter.Students
         }
 
         #endregion
-
-        private byte[] SetPhoto(Image editPhoto, byte[] initPhoto)
-        {
-            try
-            {
-                return editPhoto.ConvertImageToByteArr();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return initPhoto;
-            }
-        }
 
     }
 }

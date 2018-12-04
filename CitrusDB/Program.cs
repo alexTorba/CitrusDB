@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 using CitrusDB.Presenter;
@@ -42,8 +43,15 @@ namespace CitrusDB
             var editStudentBoardSecondPresenter =
                 new EditStudentBoardSecondPresenter(mainForm.editStudentBoard.editStudentBoardSecond, new GroupViewBoard());
 
-            //var editGroupBoardFirstPresenter = 
-            //    new EditGroupBoardFirstPresenter(mainForm)
+            var editGroupBoardFirstPresenter =
+                new EditGroupBoardFirstPresenter(
+                    mainForm.editGroupBoard.editGroupBoardFirst, 
+                new GroupViewBoard(Color.RoyalBlue));
+
+            var editGroupBoardSecondPresenter =
+                new EditGroupBoardSecondPresenter(
+                    mainForm.editGroupBoard.editGroupBoardSecond,
+                    new StudentViewBoard(), new AddedStudentViewBoard());
 
             Application.Run(mainForm);
             Console.ReadKey();

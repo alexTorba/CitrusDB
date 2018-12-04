@@ -52,7 +52,6 @@ namespace CitrusDB.View.Students.EditStuden
 
         private void EditStudentBoardFirst_LoadSecondForm(object sender, EventArgs e)
         {
-            
             editStudentBoardSecond?.SetStudent(editStudentBoardFirst?.EditStudent);
 
             if (mainForm != null)

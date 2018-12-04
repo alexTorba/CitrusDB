@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.Groups.EditGroup
 {
@@ -19,20 +20,31 @@ namespace CitrusDB.View.Groups.EditGroup
             set => countOfStudentsLabel.Text = value;
         }
 
-        public string GetNameOfGroup => nameGroupTextBox.Text;
+        public string GetNameOfGroup
+        {
+            get => nameGroupTextBox.Text;
+            private set => nameGroupTextBox.Text = value;
+        }
 
-        public Image GetGroupPhoto => photoPictureBox.Image;
+        public Image GetGroupPhoto
+        {
+            get => photoPictureBox.Image;
+            set => photoPictureBox.Image = value;
+        }
 
         public ControlCollection CurrentStudentControlCollection => currentStudentsFlowPanel.Controls;
 
         public ControlCollection AddedStudentControlCollection => addedStudentFlowPanel.Controls;
 
-        public event EventHandler AcceptClick;
+        public Group CurrentGroup { get; private set; }
+
+        public event Func<bool> AcceptClick;
         public event EventHandler CancelClick;
-        public event EventHandler LoadAddGroupBoard;
+        public event EventHandler LoadGroupBoard;
         public event EventHandler ChangeAddedStudentPanelControl;
         public event EventHandler CurrentStudentSearchTextBoxChanges;
         public event EventHandler UpdateView;
+        public event EventHandler SetEditingGroup;
 
         public void ClearView()
         {
@@ -41,31 +53,47 @@ namespace CitrusDB.View.Groups.EditGroup
 
         public void DisableAddedStudentPanel()
         {
-            throw new NotImplementedException();
+            addedStudentFlowPanel.Enabled = false;
         }
 
         public void DisableCurrentStudentPanel()
         {
-            throw new NotImplementedException();
+            currentStudentsFlowPanel.Enabled = false;
         }
 
         public void EnableAddedStudentPanel()
         {
-            throw new NotImplementedException();
+            addedStudentFlowPanel.Enabled = true;
         }
 
         public void EnableCurrentStudentPanel()
         {
-            throw new NotImplementedException();
+            currentStudentsFlowPanel.Enabled = true;
         }
 
         #endregion
+
+        public void UpdatingView()
+        {
+            UpdateView?.Invoke(null, EventArgs.Empty);
+        }
+
+        public void SetGroup(Group group)
+        {
+            CurrentGroup = group;
+
+            GetNameOfGroup = CurrentGroup.Name;
+            GetGroupPhoto = CurrentGroup.Photo.ConvertByteArrToImage();
+            photoLabel.Visible = false;
+
+            SetEditingGroup?.Invoke(null, EventArgs.Empty);
+        }
 
         #region Forwarding Events
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            AcceptClick?.Invoke(sender, e);
+            AcceptClick?.Invoke();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -75,7 +103,7 @@ namespace CitrusDB.View.Groups.EditGroup
 
         private void EditGroupBoardSecond_Load(object sender, EventArgs e)
         {
-            LoadAddGroupBoard?.Invoke(sender, e);
+            LoadGroupBoard?.Invoke(sender, e);
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)

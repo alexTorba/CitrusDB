@@ -103,9 +103,11 @@
     <Compile Include="Model\DataBaseLogic\CitrusDbContext.cs" />
     <Compile Include="Model\DataBaseLogic\EFGenericRepository.cs" />
     <Compile Include="Model\DataBaseLogic\InitDB.cs" />
+    <Compile Include="Model\Entity\EntityEqualityComarer.cs" />
     <Compile Include="Model\Entity\GroupView.cs" />
     <Compile Include="Model\Entity\IEntity.cs" />
     <Compile Include="Model\Entity\SelectedEntity.cs" />
+    <Compile Include="Model\Entity\StudentsEqualityComarer.cs" />
     <Compile Include="Model\Extensions\ExtensionControlCollection.cs" />
     <Compile Include="Model\Extensions\ExtensionLinq.cs" />
     <Compile Include="Model\Extensions\ExtensionControls.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Model\Validate.cs" />
     <Compile Include="Presenter\Groups\AddGroupBoardPresenter.cs" />
     <Compile Include="Presenter\Groups\EditGroupBoardFirstPresenter.cs" />
+    <Compile Include="Presenter\Groups\EditGroupBoardSecondPresenter.cs" />
     <Compile Include="Presenter\Groups\GroupBoardPresenter.cs" />
     <Compile Include="Presenter\Students\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\Students\EditStudentBoardFirstPresenter.cs" />

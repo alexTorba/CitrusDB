@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.optionFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.panelAddGroupSpace = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
@@ -41,13 +44,11 @@
             this.nameGroupTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.currentStudentsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.optionFlowPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelAddGroupSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // optionFlowPanel
@@ -59,12 +60,42 @@
             this.optionFlowPanel.Location = new System.Drawing.Point(0, 0);
             this.optionFlowPanel.Margin = new System.Windows.Forms.Padding(2);
             this.optionFlowPanel.Name = "optionFlowPanel";
-            this.optionFlowPanel.Size = new System.Drawing.Size(243, 644);
+            this.optionFlowPanel.Size = new System.Drawing.Size(241, 644);
             this.optionFlowPanel.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.searchTextBox);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(237, 71);
+            this.panel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(86, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Search";
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(30, 33);
+            this.searchTextBox.Multiline = true;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(171, 21);
+            this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // panelAddGroupSpace
             // 
             this.panelAddGroupSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.panelAddGroupSpace.Controls.Add(this.bunifuSeparator1);
             this.panelAddGroupSpace.Controls.Add(this.cancelButton);
             this.panelAddGroupSpace.Controls.Add(this.acceptButton);
             this.panelAddGroupSpace.Controls.Add(this.photoLabel);
@@ -76,10 +107,10 @@
             this.panelAddGroupSpace.Controls.Add(this.nameGroupTextBox);
             this.panelAddGroupSpace.Controls.Add(this.label2);
             this.panelAddGroupSpace.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelAddGroupSpace.Location = new System.Drawing.Point(673, 0);
+            this.panelAddGroupSpace.Location = new System.Drawing.Point(472, 0);
             this.panelAddGroupSpace.Margin = new System.Windows.Forms.Padding(2);
             this.panelAddGroupSpace.Name = "panelAddGroupSpace";
-            this.panelAddGroupSpace.Size = new System.Drawing.Size(255, 644);
+            this.panelAddGroupSpace.Size = new System.Drawing.Size(453, 644);
             this.panelAddGroupSpace.TabIndex = 6;
             // 
             // cancelButton
@@ -89,7 +120,7 @@
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(135, 586);
+            this.cancelButton.Location = new System.Drawing.Point(147, 587);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(97, 37);
             this.cancelButton.TabIndex = 25;
@@ -104,7 +135,7 @@
             this.acceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.acceptButton.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.acceptButton.ForeColor = System.Drawing.Color.White;
-            this.acceptButton.Location = new System.Drawing.Point(24, 586);
+            this.acceptButton.Location = new System.Drawing.Point(32, 587);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(97, 37);
             this.acceptButton.TabIndex = 24;
@@ -117,7 +148,7 @@
             this.photoLabel.AutoSize = true;
             this.photoLabel.Enabled = false;
             this.photoLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.photoLabel.Location = new System.Drawing.Point(170, 59);
+            this.photoLabel.Location = new System.Drawing.Point(187, 59);
             this.photoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.photoLabel.Name = "photoLabel";
             this.photoLabel.Size = new System.Drawing.Size(41, 16);
@@ -128,7 +159,7 @@
             // 
             this.countOfStudentsLabel.AutoSize = true;
             this.countOfStudentsLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.countOfStudentsLabel.Location = new System.Drawing.Point(169, 67);
+            this.countOfStudentsLabel.Location = new System.Drawing.Point(178, 67);
             this.countOfStudentsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.countOfStudentsLabel.Name = "countOfStudentsLabel";
             this.countOfStudentsLabel.Size = new System.Drawing.Size(0, 19);
@@ -137,7 +168,7 @@
             // photoPictureBox
             // 
             this.photoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.photoPictureBox.Location = new System.Drawing.Point(135, 12);
+            this.photoPictureBox.Location = new System.Drawing.Point(154, 12);
             this.photoPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.photoPictureBox.Name = "photoPictureBox";
             this.photoPictureBox.Size = new System.Drawing.Size(106, 117);
@@ -149,7 +180,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.label4.Location = new System.Drawing.Point(9, 63);
+            this.label4.Location = new System.Drawing.Point(18, 63);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 19);
@@ -160,17 +191,17 @@
             // 
             this.addedStudentFlowPanel.AutoScroll = true;
             this.addedStudentFlowPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.addedStudentFlowPanel.Location = new System.Drawing.Point(2, 170);
+            this.addedStudentFlowPanel.Location = new System.Drawing.Point(13, 170);
             this.addedStudentFlowPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addedStudentFlowPanel.Name = "addedStudentFlowPanel";
-            this.addedStudentFlowPanel.Size = new System.Drawing.Size(251, 384);
+            this.addedStudentFlowPanel.Size = new System.Drawing.Size(276, 397);
             this.addedStudentFlowPanel.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.label3.Location = new System.Drawing.Point(6, 149);
+            this.label3.Location = new System.Drawing.Point(15, 149);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 19);
@@ -180,18 +211,18 @@
             // nameGroupTextBox
             // 
             this.nameGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.nameGroupTextBox.Location = new System.Drawing.Point(12, 32);
+            this.nameGroupTextBox.Location = new System.Drawing.Point(20, 33);
             this.nameGroupTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameGroupTextBox.Multiline = true;
             this.nameGroupTextBox.Name = "nameGroupTextBox";
-            this.nameGroupTextBox.Size = new System.Drawing.Size(104, 19);
+            this.nameGroupTextBox.Size = new System.Drawing.Size(125, 22);
             this.nameGroupTextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(9, 12);
+            this.label2.Location = new System.Drawing.Point(18, 12);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 19);
@@ -200,57 +231,41 @@
             // 
             // currentStudentsFlowPanel
             // 
+            this.currentStudentsFlowPanel.AutoScroll = true;
+            this.currentStudentsFlowPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.currentStudentsFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.currentStudentsFlowPanel.Location = new System.Drawing.Point(243, 0);
+            this.currentStudentsFlowPanel.Location = new System.Drawing.Point(241, 0);
             this.currentStudentsFlowPanel.Name = "currentStudentsFlowPanel";
-            this.currentStudentsFlowPanel.Size = new System.Drawing.Size(430, 644);
+            this.currentStudentsFlowPanel.Size = new System.Drawing.Size(231, 644);
             this.currentStudentsFlowPanel.TabIndex = 9;
             // 
-            // searchTextBox
+            // bunifuSeparator1
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(31, 33);
-            this.searchTextBox.Multiline = true;
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(171, 21);
-            this.searchTextBox.TabIndex = 0;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.searchTextBox);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(239, 71);
-            this.panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(87, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Search";
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.bunifuSeparator1.LineThickness = 3;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(3, 0);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(3, 644);
+            this.bunifuSeparator1.TabIndex = 26;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = true;
             // 
             // EditGroupBoardSecond
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.currentStudentsFlowPanel);
             this.Controls.Add(this.panelAddGroupSpace);
             this.Controls.Add(this.optionFlowPanel);
             this.Name = "EditGroupBoardSecond";
-            this.Size = new System.Drawing.Size(928, 644);
+            this.Size = new System.Drawing.Size(925, 644);
             this.Load += new System.EventHandler(this.EditGroupBoardSecond_Load);
             this.optionFlowPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panelAddGroupSpace.ResumeLayout(false);
             this.panelAddGroupSpace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -273,5 +288,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
     }
 }

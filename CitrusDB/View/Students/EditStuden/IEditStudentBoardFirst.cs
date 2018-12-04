@@ -24,7 +24,5 @@ namespace CitrusDB.View.Students.EditStuden
         event EventHandler UpdateView;
         event EventHandler StudentSearchTextBoxChanges;
 
-        event EventHandler LoadSecondForm;
-
     }
 }

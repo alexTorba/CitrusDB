@@ -29,6 +29,33 @@ namespace CitrusDB.Presenter.Groups
         private void SetHandlers()
         {
             editGroupBoardFirst.LoadEditGroupBoardFirst += EditGroupBoardFirst_LoadEditGroupBoardFirst;
+            editGroupBoardFirst.EditGroupButtonClick += EditGroupBoardFirst_EditGroupButtonClick;
+
+            groupView.ClearOtherBoard += GroupView_ClearOtherBoard;
+        }
+
+
+        #region Event Handlers
+
+        private void GroupView_ClearOtherBoard(object sender, EventArgs e)
+        {
+            foreach (var groupView in editGroupBoardFirst.GroupCollection.Cast<IGroupView>())
+                groupView.ChangeColorToBase();
+
+            //todo: ??
+            //if (sender is IGroupView view)
+            //    studentBoard.GroupId = view.Id;
+        }
+
+        private void EditGroupBoardFirst_EditGroupButtonClick(object sender, EventArgs e)
+        {
+            var selectedGroup= editGroupBoardFirst.GroupCollection
+                .Cast<IGroupView>()
+                .FirstOrDefault(gv => gv.IsSelected == true);
+
+            editGroupBoardFirst.EditGroup = EFGenericRepository.FindById<Group>(selectedGroup.Id);
+
+            editGroupBoardFirst.LoadingSecondForm();
         }
 
         private void EditGroupBoardFirst_LoadEditGroupBoardFirst(object sender, EventArgs e)
@@ -43,6 +70,8 @@ namespace CitrusDB.Presenter.Groups
                 editGroupBoardFirst.GroupCollection.Add((Control)groupView);
             }
         }
+
+        #endregion
 
     }
 }

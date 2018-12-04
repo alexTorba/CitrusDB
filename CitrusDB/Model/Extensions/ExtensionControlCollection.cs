@@ -63,6 +63,31 @@ namespace CitrusDB.Model.Extensions
             controls.ForEach(c => controlCollection.Remove(c));
         }
 
+        public static async void DeleteControls<T>(
+            this ControlCollection controlCollection,
+            IEnumerable<T> changedEntities,
+            CancellationToken token)
+            where T : IEntity
+        {
+            List<Control> controls = new List<Control>();
+
+            await Task.Factory.StartNew(() =>
+            {
+                //???
+                foreach (var entity in changedEntities)
+                {
+                    var control = controlCollection
+                       .Cast<IEntity>()
+                       .Where(c => c.Id == entity.Id)
+                       .FirstOrDefault();
+                    controls.Add((Control)control);
+                }
+
+            }, token);
+
+            controls.ForEach(c => controlCollection.Remove(c));
+        }
+
         /// <summary>
         /// Transformation of entities into controls and adding them to the collection
         /// </summary>

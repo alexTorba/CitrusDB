@@ -63,7 +63,7 @@ namespace CitrusDB.View.Groups.AddGroup
             currentStudentFlowPanel.Enabled = true;
         }
 
-        public event EventHandler LoadAddGroupBoard;
+        public event EventHandler LoadGroupBoard;
         public event EventHandler ChangeAddedStudentPanelControl;
         public event EventHandler ClearClick;
         public event EventHandler SaveClick;
@@ -77,7 +77,7 @@ namespace CitrusDB.View.Groups.AddGroup
         private void AddGroupBoard_Load(object sender, EventArgs e)
         {
             
-            LoadAddGroupBoard?.Invoke(sender, e);
+            LoadGroupBoard?.Invoke(sender, e);
 
             countOfStudentsLabel.Text = addedStudentFlowPanel.Controls.Count.ToString();
         }

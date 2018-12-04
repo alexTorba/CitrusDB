@@ -19,7 +19,7 @@ namespace CitrusDB.View.Groups
         void DisableAddedStudentPanel();
         void EnableAddedStudentPanel();
 
-        event EventHandler LoadAddGroupBoard;
+        event EventHandler LoadGroupBoard;
         event EventHandler ChangeAddedStudentPanelControl;
         event EventHandler CurrentStudentSearchTextBoxChanges;
         event EventHandler UpdateView;

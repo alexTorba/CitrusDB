@@ -35,7 +35,7 @@ namespace CitrusDB.Presenter.Groups
         {
             groupBoard.ChangeAddedStudentPanelControl += GroupBoard_ChangeAddedStudentPanelControl;
             groupBoard.CurrentStudentSearchTextBoxChanges += GroupBoard_CurrentStudentSearchTextBoxChanges;
-            groupBoard.LoadAddGroupBoard += GroupBoard_LoadAddGroupBoard;
+            groupBoard.LoadGroupBoard += GroupBoard_LoadAddGroupBoard;
             groupBoard.UpdateView += GroupBoard_UpdateView;
 
             currentStudentView.Click += AddStudentButton_Click;
@@ -96,7 +96,7 @@ namespace CitrusDB.Presenter.Groups
             groupBoard.EnableAddedStudentPanel();
         }
 
-        private void GroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
+        public virtual void GroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
             IList<Student> students = EFGenericRepository.Get<Student>(s => s.Group == null).ToArray();
 
