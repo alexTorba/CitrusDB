@@ -144,7 +144,12 @@ namespace CitrusDB.Presenter
         {
             if (((EntityArgs)e).Entity is StudentView studentView)
             {
-                EFGenericRepository.Delete(EFGenericRepository.FindById<Student>(studentView.Id));
+                var studentToDelete = EFGenericRepository.FindById<Student>(studentView.Id);
+
+                if (studentToDelete.Group != null)
+                    EFGenericRepository.Update(studentToDelete.Group);
+
+                EFGenericRepository.Delete(studentToDelete);
             }
             if (((EntityArgs)e).Entity is GroupView groupView)
             {

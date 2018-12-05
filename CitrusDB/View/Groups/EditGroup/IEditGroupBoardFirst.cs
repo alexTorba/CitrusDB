@@ -11,6 +11,9 @@ namespace CitrusDB.View.Groups.EditGroup
 
         void LoadingSecondForm();
 
+        int GroupId { get; set; }
+        event EventHandler SearchBoxTextChanged;
+        event EventHandler UpdateView;
         event EventHandler EditGroupButtonClick;
         event EventHandler LoadEditGroupBoardFirst;
     }

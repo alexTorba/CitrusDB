@@ -23,8 +23,16 @@ namespace CitrusDB.View.Groups.EditGroup
             editGroupBoardSecond.CancelClick += EditGroupBoardSecond_CancelClick;
         }
 
+        public void UpdateView()
+        {
+            editGroupBoardFirst.UpdatingView();
+            editGroupBoardSecond.UpdatingView();
+        }
+
         private void EditGroupBoardSecond_CancelClick(object sender, EventArgs e)
         {
+            editGroupBoardFirst.UpdatingView();
+
             if (mainForm != null)
             {
                 mainForm.ClearEventHandlers();

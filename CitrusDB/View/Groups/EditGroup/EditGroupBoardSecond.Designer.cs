@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.panelAddGroupSpace = new System.Windows.Forms.Panel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.cancelButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
             this.photoLabel = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.nameGroupTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.currentStudentsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.optionFlowPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAddGroupSpace.SuspendLayout();
@@ -113,6 +113,18 @@
             this.panelAddGroupSpace.Size = new System.Drawing.Size(453, 644);
             this.panelAddGroupSpace.TabIndex = 6;
             // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.bunifuSeparator1.LineThickness = 3;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(3, 0);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(3, 644);
+            this.bunifuSeparator1.TabIndex = 26;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = true;
+            // 
             // cancelButton
             // 
             this.cancelButton.BackColor = System.Drawing.Color.Teal;
@@ -175,6 +187,7 @@
             this.photoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.photoPictureBox.TabIndex = 1;
             this.photoPictureBox.TabStop = false;
+            this.photoPictureBox.Click += new System.EventHandler(this.photoPictureBox_Click);
             // 
             // label4
             // 
@@ -238,18 +251,6 @@
             this.currentStudentsFlowPanel.Name = "currentStudentsFlowPanel";
             this.currentStudentsFlowPanel.Size = new System.Drawing.Size(231, 644);
             this.currentStudentsFlowPanel.TabIndex = 9;
-            // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.bunifuSeparator1.LineThickness = 3;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(3, 0);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(3, 644);
-            this.bunifuSeparator1.TabIndex = 26;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = true;
             // 
             // EditGroupBoardSecond
             // 

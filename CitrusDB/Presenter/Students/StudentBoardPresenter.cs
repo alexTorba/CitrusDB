@@ -74,11 +74,15 @@ namespace CitrusDB.Presenter.Students
         {
             await AddControlsToControlCollection(
                   EFGenericRepository.GetEntitiesWithState<Group>(EntityState.Added).ToArray(),
-                  new CancellationToken());
+                  CancellationToken.None);
 
             await DeleteControlsFromControlCollection(
                  EFGenericRepository.GetEntitiesWithState<Group>(EntityState.Deleted).ToArray(),
-                 new CancellationToken());
+                CancellationToken.None);
+
+            await UpdateControlFromControlCollection(
+                EFGenericRepository.GetEntitiesWithState<Group>(EntityState.Modified).ToArray(),
+                CancellationToken.None);
         }
 
         private void StudentBoard_TextBoxTextChanged(object sender, EventArgs e)
@@ -168,7 +172,10 @@ namespace CitrusDB.Presenter.Students
 
                 await studentBoard.GroupsCollection.FillControlCollectionForSearch(result, groupView, token);
 
-                studentBoard.GroupsCollection.Cast<IGroupView>().FirstOrDefault(g => g.Id == studentBoard.GroupId)?.SelectView();
+                studentBoard.GroupsCollection
+                    .Cast<IGroupView>()
+                    .FirstOrDefault(g => g.Id == studentBoard.GroupId)
+                    ?.SelectView();
             }
             catch (OperationCanceledException canceledEx)
             {
@@ -220,6 +227,14 @@ namespace CitrusDB.Presenter.Students
             await studentBoard.GroupsCollection.DeleteControls(
                 groups,
                 EFGenericRepository.Get<Group>(),
+                token);
+        }
+
+        private async Task UpdateControlFromControlCollection(IList<Group> groups, CancellationToken token)
+        {
+            await studentBoard.GroupsCollection.UpdateControls(
+                groups,
+                groupView,
                 token);
         }
 

@@ -8,6 +8,9 @@ using CitrusDB.View.Groups.GroupsView.GroupViews;
 using CitrusDB.Model;
 using System.Windows.Forms;
 using CitrusDB.Model.Extensions;
+using System.Threading;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CitrusDB.Presenter.Students
 {
@@ -15,10 +18,11 @@ namespace CitrusDB.Presenter.Students
     {
 
         IAddStudentBoard addStudentBoard;
-
+        IGroupView groupView;
         public AddStudentBoardPresenter(IAddStudentBoard studentBoard, IGroupView groupView) : base(studentBoard, groupView)
         {
             addStudentBoard = studentBoard;
+            this.groupView = groupView;
 
             SetHandlers();
         }
@@ -75,11 +79,15 @@ namespace CitrusDB.Presenter.Students
             }
         }
 
-        private void AddStudentBoard_SaveButton(object sender, EventArgs e)
+        private async void AddStudentBoard_SaveButton(object sender, EventArgs e)
         {
-            var selectedGroup = addStudentBoard.GroupsCollection
+            var selectedGroupView = addStudentBoard.GroupsCollection
                 .Cast<IGroupView>()
                 .FirstOrDefault(gv => gv.IsSelected == true);
+
+            var selectedGroup = selectedGroupView == null
+                                    ? null
+                                    : EFGenericRepository.FindById<Group>(selectedGroupView.Id);
 
             Student student = new Student
             {
@@ -95,12 +103,16 @@ namespace CitrusDB.Presenter.Students
                 Weight = addStudentBoard.GetWeight,
                 KnowledgeOfLanguage = addStudentBoard.GetKnowledgeOfLanguage.Trim(),
 
-                Group = selectedGroup == null
-                                    ? null
-                                    : EFGenericRepository.FindById<Group>(selectedGroup.Id)
+                Group = selectedGroup
             };
 
             EFGenericRepository.Create(student);
+
+            if (selectedGroup != null)
+            {
+                await addStudentBoard.GroupsCollection.UpdateControls(new Group[] { selectedGroup }, groupView, CancellationToken.None);
+                EFGenericRepository.Update(selectedGroup);
+            }
         }
 
         private void AddStudentBoard_ClearButton(object sender, EventArgs e)

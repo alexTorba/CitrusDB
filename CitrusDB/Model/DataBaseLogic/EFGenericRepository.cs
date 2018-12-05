@@ -97,6 +97,12 @@ namespace CitrusDB.Model.DataBaseLogic
                     context.Entry(s).State = EntityState.Added;
             });
 
+            context.Set<Group>().Local.ToList().ForEach(g =>
+            {
+                if (g.Id >= 100000000 && context.Entry(g).State == EntityState.Modified)
+                    context.Entry(g).State = EntityState.Added;
+            });
+
             context.SaveChanges();
         }
 

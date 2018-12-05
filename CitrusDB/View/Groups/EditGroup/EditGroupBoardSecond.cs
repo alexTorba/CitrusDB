@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using CitrusDB.Model.Entity;
+using CitrusDB.View.UsersElements.Dialogs;
 
 namespace CitrusDB.View.Groups.EditGroup
 {
@@ -94,6 +95,8 @@ namespace CitrusDB.View.Groups.EditGroup
         private void acceptButton_Click(object sender, EventArgs e)
         {
             AcceptClick?.Invoke();
+            if (new SuccessfulDialog("Changes accepted successfully !").ShowDialog() == DialogResult.OK)
+                cancelButton_Click(null, EventArgs.Empty);
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -113,5 +116,16 @@ namespace CitrusDB.View.Groups.EditGroup
 
         #endregion
 
+        private void photoPictureBox_Click(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = sender as PictureBox;
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+                pictureBox.Load(openFile.FileName);
+
+            if (pictureBox.Image != null)
+                photoLabel.Visible = false;
+        }
     }
 }

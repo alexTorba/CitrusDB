@@ -30,7 +30,7 @@
         {
             this.optionalPanel = new System.Windows.Forms.Panel();
             this.editGroupButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchGroupTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.optionalPanel.SuspendLayout();
@@ -40,7 +40,7 @@
             // 
             this.optionalPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.optionalPanel.Controls.Add(this.editGroupButton);
-            this.optionalPanel.Controls.Add(this.textBox1);
+            this.optionalPanel.Controls.Add(this.searchGroupTextBox);
             this.optionalPanel.Controls.Add(this.label1);
             this.optionalPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.optionalPanel.Location = new System.Drawing.Point(632, 0);
@@ -63,13 +63,15 @@
             this.editGroupButton.UseVisualStyleBackColor = false;
             this.editGroupButton.Click += new System.EventHandler(this.editGroupButton_Click);
             // 
-            // textBox1
+            // searchGroupTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(34, 43);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 23);
-            this.textBox1.TabIndex = 1;
+            this.searchGroupTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchGroupTextBox.Location = new System.Drawing.Point(34, 43);
+            this.searchGroupTextBox.Multiline = true;
+            this.searchGroupTextBox.Name = "searchGroupTextBox";
+            this.searchGroupTextBox.Size = new System.Drawing.Size(229, 23);
+            this.searchGroupTextBox.TabIndex = 1;
+            this.searchGroupTextBox.TextChanged += new System.EventHandler(this.searchGroupTextBox_TextChanged);
             // 
             // label1
             // 
@@ -84,6 +86,7 @@
             // 
             // groupFlowPanel
             // 
+            this.groupFlowPanel.AutoScroll = true;
             this.groupFlowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.groupFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupFlowPanel.Location = new System.Drawing.Point(0, 0);
@@ -108,7 +111,7 @@
         #endregion
 
         private System.Windows.Forms.Panel optionalPanel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchGroupTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel groupFlowPanel;
         private System.Windows.Forms.Button editGroupButton;

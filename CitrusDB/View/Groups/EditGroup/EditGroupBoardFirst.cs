@@ -25,9 +25,12 @@ namespace CitrusDB.View.Groups.EditGroup
         public ControlCollection GroupCollection => groupFlowPanel.Controls;
 
         public Group EditGroup { get; set; }
+        public int GroupId { get; set; }
 
         public event EventHandler LoadEditGroupBoardFirst;
         public event EventHandler EditGroupButtonClick;
+        public event EventHandler UpdateView;
+        public event EventHandler SearchBoxTextChanged;
 
         public void LoadingSecondForm()
         {
@@ -37,6 +40,11 @@ namespace CitrusDB.View.Groups.EditGroup
         #endregion
 
         #region Forwarding Events
+
+        public void UpdatingView()
+        {
+            UpdateView?.Invoke(null, EventArgs.Empty);
+        }
 
         public void LoadSecondFormHandler()
         {
@@ -50,9 +58,12 @@ namespace CitrusDB.View.Groups.EditGroup
 
         private void editGroupButton_Click(object sender, EventArgs e)
         {
-            //Set editGroup
-            //EditGroup = ..
             EditGroupButtonClick?.Invoke(sender, e);
+        }
+
+        private void searchGroupTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchBoxTextChanged?.Invoke(sender, EventArgs.Empty);
         }
 
         #endregion

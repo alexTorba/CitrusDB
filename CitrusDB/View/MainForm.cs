@@ -92,8 +92,7 @@ namespace CitrusDB.View
         {
             ReplaceBacklightPanel(editButton, e);
 
-            //todo: updating 
-            //editGroupBoard.UpdateView();
+            editGroupBoard.UpdateView();
             editGroupBoard.BringToFront();
         }
 
