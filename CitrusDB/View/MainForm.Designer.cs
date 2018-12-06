@@ -63,6 +63,7 @@ namespace CitrusDB.View
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.statusTextBox = new System.Windows.Forms.TextBox();
+            this.statisticBoard = new CitrusDB.View.Statistics.StatisticBoard();
             this.editGroupBoard = new CitrusDB.View.Groups.EditGroup.EditGroupBoard();
             this.editStudentBoard = new CitrusDB.View.Students.EditStuden.EditStudentBoard();
             this.addGroupBoard = new CitrusDB.View.Groups.AddGroup.AddGroupBoard();
@@ -464,11 +465,21 @@ namespace CitrusDB.View
             this.statusTextBox.Tag = "©All rights reserved";
             this.statusTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // statisticBoard
+            // 
+            this.statisticBoard.AutoSize = true;
+            this.statisticBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statisticBoard.Location = new System.Drawing.Point(188, 31);
+            this.statisticBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.statisticBoard.Name = "statisticBoard";
+            this.statisticBoard.Size = new System.Drawing.Size(917, 644);
+            this.statisticBoard.TabIndex = 20;
+            // 
             // editGroupBoard
             // 
             this.editGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editGroupBoard.Location = new System.Drawing.Point(188, 31);
-            this.editGroupBoard.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.editGroupBoard.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.editGroupBoard.Name = "editGroupBoard";
             this.editGroupBoard.Size = new System.Drawing.Size(917, 644);
             this.editGroupBoard.TabIndex = 19;
@@ -477,7 +488,7 @@ namespace CitrusDB.View
             // 
             this.editStudentBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editStudentBoard.Location = new System.Drawing.Point(188, 31);
-            this.editStudentBoard.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.editStudentBoard.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.editStudentBoard.Name = "editStudentBoard";
             this.editStudentBoard.Size = new System.Drawing.Size(917, 644);
             this.editStudentBoard.TabIndex = 18;
@@ -487,7 +498,7 @@ namespace CitrusDB.View
             this.addGroupBoard.CountOfAddedStudent = "0";
             this.addGroupBoard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addGroupBoard.Location = new System.Drawing.Point(188, 31);
-            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 21, 3, 21);
+            this.addGroupBoard.Margin = new System.Windows.Forms.Padding(3, 32, 3, 32);
             this.addGroupBoard.Name = "addGroupBoard";
             this.addGroupBoard.Size = new System.Drawing.Size(917, 644);
             this.addGroupBoard.TabIndex = 17;
@@ -523,6 +534,7 @@ namespace CitrusDB.View
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1105, 702);
+            this.Controls.Add(this.statisticBoard);
             this.Controls.Add(this.editGroupBoard);
             this.Controls.Add(this.editStudentBoard);
             this.Controls.Add(this.addGroupBoard);
@@ -555,6 +567,7 @@ namespace CitrusDB.View
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -594,6 +607,7 @@ namespace CitrusDB.View
         private System.Windows.Forms.TextBox statusTextBox;
         public EditStudentBoard editStudentBoard;
         public Groups.EditGroup.EditGroupBoard editGroupBoard;
+        private Statistics.StatisticBoard statisticBoard;
     }
 }
 

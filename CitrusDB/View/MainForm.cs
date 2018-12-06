@@ -116,6 +116,8 @@ namespace CitrusDB.View
         private void buttonStatistics_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
+            //updating
+            statisticBoard.BringToFront();
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
