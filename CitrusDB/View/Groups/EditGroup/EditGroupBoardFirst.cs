@@ -14,6 +14,7 @@ namespace CitrusDB.View.Groups.EditGroup
     public partial class EditGroupBoardFirst : UserControl, IEditGroupBoardFirst
     {
         public event EventHandler LoadSecondForm;
+        public bool isSecondBoardOpened;
 
         public EditGroupBoardFirst()
         {
@@ -58,6 +59,7 @@ namespace CitrusDB.View.Groups.EditGroup
 
         private void editGroupButton_Click(object sender, EventArgs e)
         {
+            isSecondBoardOpened = false;
             EditGroupButtonClick?.Invoke(sender, e);
         }
 

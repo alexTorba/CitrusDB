@@ -16,6 +16,7 @@ namespace CitrusDB.View.Students.EditStuden
     {
 
         MainForm mainForm = null;
+        public bool isSecondFormOpened;
 
         public EditStudentBoardFirst()
         {
@@ -40,6 +41,7 @@ namespace CitrusDB.View.Students.EditStuden
 
         public void LoadingSecondForm()
         {
+            isSecondFormOpened = false;
             LoadSecondForm?.Invoke(null, EventArgs.Empty);
         }
 

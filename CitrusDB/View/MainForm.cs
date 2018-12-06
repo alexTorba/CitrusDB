@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using CitrusDB.Model.Entity;
 using CitrusDB.View.DataBoard;
 using CitrusDB.View.UsersElements.FormLoading;
 
@@ -35,8 +36,24 @@ namespace CitrusDB.View
         {
             InitializeComponent();
 
+            dataBoard.ChangeEntity += DataBoard_ChangeEntity;
+
             this.loadingForm = new LoadingForm(loadingForm);
             this.loadingForm.Show();
+        }
+
+        private void DataBoard_ChangeEntity(object sender, EventArgs e)
+        {
+            if (((EntityArgs)e).Entity is Student student)
+            {
+                editStudentButton_Click(null, EventArgs.Empty);
+                editStudentBoard.LoadSecondForm(student);
+            }
+            else if (((EntityArgs)e).Entity is Group group)
+            {
+                editGroupButton_Click(null, EventArgs.Empty);
+                editGroupBoard.LoadSecondForm(group);
+            }
         }
 
         #region Forwarding Events
@@ -188,6 +205,6 @@ namespace CitrusDB.View
             loadingForm?.Close();
         }
 
-        
+
     }
 }

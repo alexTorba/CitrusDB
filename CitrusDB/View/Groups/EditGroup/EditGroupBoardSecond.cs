@@ -8,6 +8,7 @@ namespace CitrusDB.View.Groups.EditGroup
 {
     public partial class EditGroupBoardSecond : UserControl, IEditGroupBoardSecond
     {
+
         public EditGroupBoardSecond()
         {
             InitializeComponent();

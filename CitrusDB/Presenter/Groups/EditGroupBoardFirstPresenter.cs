@@ -107,8 +107,6 @@ namespace CitrusDB.Presenter.Groups
         {
             try
             {
-                //this.editGroupBoardFirst.Disa();
-
                 Group[] result = await GetGroups((sender as TextBox).Text, token);
 
                 await editGroupBoardFirst
@@ -128,10 +126,6 @@ namespace CitrusDB.Presenter.Groups
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-            }
-            finally
-            {
-                //studentBoard.EnableViewsPanel();
             }
         }
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CitrusDB.Presenter;
 using CitrusDB.View.Students.StudentsView.EditStudentView;
+using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.Students.EditStuden
 {
@@ -40,7 +41,7 @@ namespace CitrusDB.View.Students.EditStuden
         private void EditStudentBoardSecond_CancelButton(object sender, EventArgs e)
         {
             editStudentBoardFirst.UpdatingView();
-
+            editStudentBoardFirst.isSecondFormOpened = false;
             if (mainForm != null)
             {
                 mainForm.ClearEventHandlers();
@@ -50,17 +51,24 @@ namespace CitrusDB.View.Students.EditStuden
             }
         }
 
-        private void EditStudentBoardFirst_LoadSecondForm(object sender, EventArgs e)
+        public void LoadSecondForm(Student students)
         {
-            editStudentBoardSecond?.SetStudent(editStudentBoardFirst?.EditStudent);
+            editStudentBoardSecond?.SetStudent(students);
 
-            if (mainForm != null)
+            if (mainForm != null && !editStudentBoardFirst.isSecondFormOpened)
             {
+                editStudentBoardFirst.isSecondFormOpened = true;
+
                 mainForm.ClearEventHandlers();
                 mainForm.TimerTiks += editStudentSecondContainerPanel.TicksGrowsWidthQuiсkly;
 
                 mainForm.timer.Start();
             }
+        }
+
+        private void EditStudentBoardFirst_LoadSecondForm(object sender, EventArgs e)
+        {
+            LoadSecondForm(editStudentBoardFirst?.EditStudent);
         }
 
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.Groups.EditGroup
 {
@@ -31,6 +32,7 @@ namespace CitrusDB.View.Groups.EditGroup
 
         private void EditGroupBoardSecond_CancelClick(object sender, EventArgs e)
         {
+            editGroupBoardFirst.isSecondBoardOpened = false;
             editGroupBoardFirst.UpdatingView();
 
             if (mainForm != null)
@@ -42,17 +44,24 @@ namespace CitrusDB.View.Groups.EditGroup
             }
         }
 
-        private void EditGroupBoardFirst_LoadSecondForm(object sender, EventArgs e)
+        public void LoadSecondForm(Group group)
         {
-            editGroupBoardSecond?.SetGroup(editGroupBoardFirst?.EditGroup);
+            editGroupBoardSecond?.SetGroup(group);
 
-            if (mainForm != null)
+            if (mainForm != null && !editGroupBoardFirst.isSecondBoardOpened)
             {
+                editGroupBoardFirst.isSecondBoardOpened = true;
+
                 mainForm.ClearEventHandlers();
                 mainForm.TimerTiks += panelEditGroupBoardSecond.TicksGrowsWidthQuiсkly;
 
                 mainForm.timer.Start();
             }
+        }
+
+        private void EditGroupBoardFirst_LoadSecondForm(object sender, EventArgs e)
+        {
+            LoadSecondForm(editGroupBoardFirst?.EditGroup);
         }
 
         public void InitField(MainForm mainForm)

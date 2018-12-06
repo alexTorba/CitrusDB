@@ -55,6 +55,8 @@ namespace CitrusDB.View.DataBoard
         public event EventHandler DeleteEntity;
         public event HeaderGridMouseClickHandler HeaderMouseClick;
         public event SearchingEventHandler SearchBoxTextChanged;
+        public event EventHandler ChangeEntity;
+        public event GetEntityBySelectedViewHandler GetEntityBySelectedView;
 
         #endregion
 
@@ -176,6 +178,15 @@ namespace CitrusDB.View.DataBoard
             mainForm.SetInitStatus();
         }
 
+        private void changeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            object selectedEntityView = dataGrid.SelectedRows[0].DataBoundItem;
+            IEntity selectedEntity = GetEntityBySelectedView?.Invoke(null, new EntityTransferEventArgs((IEntity)selectedEntityView));
+
+            if (selectedEntity != null)
+                ChangeEntity?.Invoke(null, new EntityArgs(selectedEntity));
+        }
+
         private void dataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             string selectedHeader = dataGrid.Columns[e.ColumnIndex].DataPropertyName;
@@ -214,5 +225,6 @@ namespace CitrusDB.View.DataBoard
             textBox.SelectionStart = 0;
             textBox.SelectionLength = textBox.Text.Length;
         }
+
     }
 }

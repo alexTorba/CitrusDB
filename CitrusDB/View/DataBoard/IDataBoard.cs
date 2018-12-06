@@ -16,9 +16,10 @@ namespace CitrusDB.View.DataBoard
         event EventHandler LoadDataBoard;
         event EventHandler GroupTableLoad;
         event HeaderGridMouseClickHandler HeaderMouseClick;
+        event EventHandler ChangeEntity;
         event EventHandler DeleteEntity;
         event SearchingEventHandler SearchBoxTextChanged;
-
+        event GetEntityBySelectedViewHandler GetEntityBySelectedView;
         SelectedEntity SelectedEntity { get; set; }
 
         void UpdateView();

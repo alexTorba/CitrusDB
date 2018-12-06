@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CitrusDB.View.UsersElements;
 using CitrusDB.Model.UsersEventArgs;
+using CitrusDB.View.Students;
+using CitrusDB.View.Groups.GroupsView.GroupViews;
 
 namespace CitrusDB.Presenter
 {
@@ -32,10 +34,25 @@ namespace CitrusDB.Presenter
             dataBoard.LoadDataBoard += DataBoard_LoadDataBoard;
             dataBoard.GroupTableLoad += DataBoard_GroupTableLoad;
             dataBoard.HeaderMouseClick += DataBoard_HeaderMouseClick;
-
+            dataBoard.GetEntityBySelectedView += DataBoard_GetEntityBySelectedView;
             dataBoard.DeleteEntity += DataBoard_DeleteEntity;
 
             dataBoard.SearchBoxTextChanged += DataBoard_SearchBoxTextChanged;
+        }
+
+        private IEntity DataBoard_GetEntityBySelectedView(object sender, EntityTransferEventArgs e)
+        {
+            var selectedView = e.entity;
+
+            if (selectedView is StudentView studentView)
+            {
+                return EFGenericRepository.FindById<Student>(studentView.Id);
+            }
+            else if (selectedView is GroupView groupView)
+            {
+                return EFGenericRepository.FindById<Group>(groupView.Id);
+            }
+            return null;
         }
 
         private void DataBoard_SearchBoxTextChanged(string condition, EventArgs e)
@@ -151,7 +168,7 @@ namespace CitrusDB.Presenter
 
                 EFGenericRepository.Delete(studentToDelete);
             }
-            if (((EntityArgs)e).Entity is GroupView groupView)
+            else if (((EntityArgs)e).Entity is GroupView groupView)
             {
                 var deleteDialog = new DeleteDialog();
                 if (deleteDialog.ShowDialog() == DialogResult.OK)
