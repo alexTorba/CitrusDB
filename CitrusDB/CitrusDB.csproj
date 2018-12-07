@@ -70,6 +70,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -113,12 +114,19 @@
     <Compile Include="Migrations\201811091837294_add_IEntity.Designer.cs">
       <DependentUpon>201811091837294_add_IEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812061610458_added_history.cs" />
+    <Compile Include="Migrations\201812061610458_added_history.Designer.cs">
+      <DependentUpon>201812061610458_added_history.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\DataBaseLogic\CitrusDbContext.cs" />
     <Compile Include="Model\DataBaseLogic\EFGenericRepository.cs" />
     <Compile Include="Model\DataBaseLogic\InitDB.cs" />
     <Compile Include="Model\Entity\EntityEqualityComarer.cs" />
     <Compile Include="Model\Entity\GroupView.cs" />
+    <Compile Include="Model\Entity\History\GroupsHistory.cs" />
+    <Compile Include="Model\Entity\History\IEntityHistory.cs" />
+    <Compile Include="Model\Entity\History\StudentsHistory.cs" />
     <Compile Include="Model\Entity\IEntity.cs" />
     <Compile Include="Model\Entity\SelectedEntity.cs" />
     <Compile Include="Model\Entity\StudentsEqualityComarer.cs" />
@@ -136,6 +144,7 @@
     <Compile Include="Presenter\Groups\EditGroupBoardFirstPresenter.cs" />
     <Compile Include="Presenter\Groups\EditGroupBoardSecondPresenter.cs" />
     <Compile Include="Presenter\Groups\GroupBoardPresenter.cs" />
+    <Compile Include="Presenter\StatisticBoardPresenter.cs" />
     <Compile Include="Presenter\Students\AddStudentBoardPresenter.cs" />
     <Compile Include="Presenter\Students\EditStudentBoardFirstPresenter.cs" />
     <Compile Include="Presenter\Students\EditStudentBoardSecondPresenter.cs" />
@@ -170,6 +179,8 @@
     <Compile Include="View\Groups\EditGroup\IEditGroupBoardFirst.cs" />
     <Compile Include="View\Groups\EditGroup\IEditGroupBoardSecond.cs" />
     <Compile Include="View\Groups\IGroupBoard.cs" />
+    <Compile Include="View\Statistics\DateModel.cs" />
+    <Compile Include="View\Statistics\IStatisticBoard.cs" />
     <Compile Include="View\Statistics\StatisticBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -320,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811091837294_add_IEntity.resx">
       <DependentUpon>201811091837294_add_IEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061610458_added_history.resx">
+      <DependentUpon>201812061610458_added_history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Groups\EditGroup\EditGroupBoard.resx">
       <DependentUpon>EditGroupBoard.cs</DependentUpon>

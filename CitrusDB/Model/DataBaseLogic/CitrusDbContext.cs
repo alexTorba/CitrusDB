@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.SqlClient;
 using CitrusDB.Model.Entity;
+using CitrusDB.Model.Entity.History;
 
 namespace CitrusDB.Model.DataBaseLogic
 {
@@ -16,6 +17,8 @@ namespace CitrusDB.Model.DataBaseLogic
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<GroupsHistory> GroupsHistories { get; set; }
+        public DbSet<StudentsHistory> StudentsHistories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

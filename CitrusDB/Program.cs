@@ -53,6 +53,9 @@ namespace CitrusDB
                     mainForm.editGroupBoard.editGroupBoardSecond,
                     new StudentViewBoard(), new AddedStudentViewBoard());
 
+            var statisticBoardPresenter =
+                new StatisticBoardPresenter(mainForm.statisticBoard);
+
             Application.Run(mainForm);
             Console.ReadKey();
         }

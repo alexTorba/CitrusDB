@@ -65,8 +65,23 @@ namespace CitrusDB.Model.DataBaseLogic
             return context.Set<TEntity>().Local.AsEnumerable();
         }
 
-        public static IEnumerable<TEntity> Get<TEntity>(Func<TEntity, bool> predicate) where TEntity : class
+        public static IEnumerable<TEntity> Get<TEntity>(Func<TEntity, bool> predicate)
+            where TEntity : class
         {
+            return context.Set<TEntity>().Local
+                .Where(predicate);
+        }
+
+        public static IEnumerable<TEntity> GetWithLoad<TEntity>() where TEntity : class
+        {
+            context.Set<TEntity>().Load();
+            return context.Set<TEntity>().Local.AsEnumerable();
+        }
+
+        public static IEnumerable<TEntity> GetWithLoad<TEntity>(Func<TEntity, bool> predicate)
+            where TEntity : class
+        {
+            context.Set<TEntity>().Load();
             return context.Set<TEntity>().Local
                 .Where(predicate);
         }
@@ -86,10 +101,16 @@ namespace CitrusDB.Model.DataBaseLogic
         public static void Update<TEntity>(TEntity entity) where TEntity : class
         {
             context.Entry(entity).State = EntityState.Modified;
-           
         }
 
         public static void SaveChanges()
+        {
+            SetUpdatedEntitiesInLocalToAdding();
+
+            context.SaveChanges();
+        }
+
+        private static void SetUpdatedEntitiesInLocalToAdding()
         {
             context.Set<Student>().Local.ToList().ForEach(s =>
             {
@@ -102,12 +123,11 @@ namespace CitrusDB.Model.DataBaseLogic
                 if (g.Id >= 100000000 && context.Entry(g).State == EntityState.Modified)
                     context.Entry(g).State = EntityState.Added;
             });
-
-            context.SaveChanges();
         }
 
-        public static async void SaveChangesAsync()
+        public static async Task SaveChangesAsync()
         {
+            SetUpdatedEntitiesInLocalToAdding();
             await context.SaveChangesAsync();
         }
 

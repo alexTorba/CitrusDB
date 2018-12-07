@@ -607,7 +607,7 @@ namespace CitrusDB.View
         private System.Windows.Forms.TextBox statusTextBox;
         public EditStudentBoard editStudentBoard;
         public Groups.EditGroup.EditGroupBoard editGroupBoard;
-        private Statistics.StatisticBoard statisticBoard;
+        public Statistics.StatisticBoard statisticBoard;
     }
 }
 

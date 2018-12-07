@@ -116,7 +116,7 @@ namespace CitrusDB.View
         private void buttonStatistics_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
-            //updating
+            statisticBoard.UpdatingView();
             statisticBoard.BringToFront();
         }
 
@@ -173,6 +173,7 @@ namespace CitrusDB.View
             addGroupBoard.InitGroupBoard(this);
             editStudentBoard.InitFields(this);
             editGroupBoard.InitField(this);
+            statisticBoard.InitFields(this);
         }
 
         public void ClearEventHandlers()
