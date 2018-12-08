@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
+using System.Linq.Expressions;
 
 using CitrusDB.Properties;
-using CitrusDB.Model;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 using CitrusDB.View.Groups.GroupsView.GroupInfo;
 using CitrusDB.Model.UsersEventArgs;
-using System.Threading.Tasks;
 
 namespace CitrusDB.View.DataBoard
 {
@@ -74,6 +74,8 @@ namespace CitrusDB.View.DataBoard
             if (dataGrid.Columns["Id"] != null)
                 dataGrid.Columns["Id"].Visible = false;
 
+            SetSizeGrid();
+
             mainForm?.SetInitStatus();
         }
 
@@ -83,6 +85,8 @@ namespace CitrusDB.View.DataBoard
             dataGrid.Columns["Id"].Visible = false;
             ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+
+            SetSizeGrid();
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
@@ -91,6 +95,15 @@ namespace CitrusDB.View.DataBoard
         }
 
         #endregion
+
+        private void SetSizeGrid()
+        {
+            int width = 0;
+            foreach (DataGridViewCell cell in dataGrid.Rows[0].Cells)
+                width += cell.Size.Width;
+
+            dataGrid.Size = new Size(width,dataGrid.Size.Height);
+        }
 
         private void Search(string conditionFilter, AfterSearchingEventArgs e)
         {
