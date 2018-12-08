@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.studentButton = new System.Windows.Forms.Button();
             this.groupButton = new System.Windows.Forms.Button();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.optionsPanel = new System.Windows.Forms.Panel();
+            this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.deletedTodatValue = new System.Windows.Forms.Label();
             this.updatedTodayValue = new System.Windows.Forms.Label();
             this.addedTodayValue = new System.Windows.Forms.Label();
@@ -49,17 +51,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.generalStudentsLabel = new System.Windows.Forms.Label();
             this.logPanel = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.logContainerPanel = new System.Windows.Forms.Panel();
-            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.chartContainerPanel = new System.Windows.Forms.Panel();
             this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.optionsPanel.SuspendLayout();
             this.logPanel.SuspendLayout();
             this.logContainerPanel.SuspendLayout();
+            this.chartContainerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -108,16 +110,16 @@
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.BorderlineColor = System.Drawing.SystemColors.Control;
             this.chart.BorderSkin.PageColor = System.Drawing.SystemColors.Control;
-            chartArea5.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart.Legends.Add(legend5);
-            this.chart.Location = new System.Drawing.Point(0, 205);
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
+            this.chart.Location = new System.Drawing.Point(0, 23);
             this.chart.Name = "chart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
             this.chart.Size = new System.Drawing.Size(692, 442);
             this.chart.TabIndex = 2;
             this.chart.Text = "chart1";
@@ -143,6 +145,30 @@
             this.optionsPanel.Name = "optionsPanel";
             this.optionsPanel.Size = new System.Drawing.Size(773, 177);
             this.optionsPanel.TabIndex = 3;
+            // 
+            // bunifuSeparator3
+            // 
+            this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator3.LineThickness = 1;
+            this.bunifuSeparator3.Location = new System.Drawing.Point(341, 0);
+            this.bunifuSeparator3.Name = "bunifuSeparator3";
+            this.bunifuSeparator3.Size = new System.Drawing.Size(1, 176);
+            this.bunifuSeparator3.TabIndex = 13;
+            this.bunifuSeparator3.Transparency = 255;
+            this.bunifuSeparator3.Vertical = true;
+            // 
+            // bunifuSeparator2
+            // 
+            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator2.LineThickness = 2;
+            this.bunifuSeparator2.Location = new System.Drawing.Point(0, 174);
+            this.bunifuSeparator2.Name = "bunifuSeparator2";
+            this.bunifuSeparator2.Size = new System.Drawing.Size(773, 2);
+            this.bunifuSeparator2.TabIndex = 12;
+            this.bunifuSeparator2.Transparency = 255;
+            this.bunifuSeparator2.Vertical = false;
             // 
             // deletedTodatValue
             // 
@@ -276,6 +302,19 @@
             this.logPanel.Size = new System.Drawing.Size(750, 473);
             this.logPanel.TabIndex = 4;
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(16, 178);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(23, 108);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "LOG";
+            // 
             // logTextBox
             // 
             this.logTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -300,42 +339,14 @@
             this.logContainerPanel.TabIndex = 5;
             this.logContainerPanel.Tag = false;
             // 
-            // bunifuSeparator2
+            // chartContainerPanel
             // 
-            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator2.LineThickness = 2;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(0, 174);
-            this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(773, 2);
-            this.bunifuSeparator2.TabIndex = 12;
-            this.bunifuSeparator2.Transparency = 255;
-            this.bunifuSeparator2.Vertical = false;
-            // 
-            // bunifuSeparator3
-            // 
-            this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator3.LineThickness = 1;
-            this.bunifuSeparator3.Location = new System.Drawing.Point(341, 0);
-            this.bunifuSeparator3.Name = "bunifuSeparator3";
-            this.bunifuSeparator3.Size = new System.Drawing.Size(1, 177);
-            this.bunifuSeparator3.TabIndex = 13;
-            this.bunifuSeparator3.Transparency = 255;
-            this.bunifuSeparator3.Vertical = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(16, 178);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(23, 108);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "LOG";
+            this.chartContainerPanel.Controls.Add(this.chart);
+            this.chartContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartContainerPanel.Location = new System.Drawing.Point(0, 177);
+            this.chartContainerPanel.Name = "chartContainerPanel";
+            this.chartContainerPanel.Size = new System.Drawing.Size(704, 473);
+            this.chartContainerPanel.TabIndex = 6;
             // 
             // collapsedButton
             // 
@@ -354,9 +365,9 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
+            this.Controls.Add(this.chartContainerPanel);
             this.Controls.Add(this.logContainerPanel);
             this.Controls.Add(this.optionsPanel);
-            this.Controls.Add(this.chart);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "StatisticBoard";
             this.Size = new System.Drawing.Size(928, 650);
@@ -367,6 +378,7 @@
             this.logPanel.ResumeLayout(false);
             this.logPanel.PerformLayout();
             this.logContainerPanel.ResumeLayout(false);
+            this.chartContainerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -396,5 +408,6 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel chartContainerPanel;
     }
 }

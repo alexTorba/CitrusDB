@@ -298,11 +298,11 @@
       <DependentUpon>SuccessfulDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UsersElements\FormLoading\ILoadingForm.cs" />
-    <Compile Include="View\UsersElements\FormLoading\LoadingEditBoard.cs">
+    <Compile Include="View\UsersElements\FormLoading\LoadingStatisticBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\UsersElements\FormLoading\LoadingEditBoard.Designer.cs">
-      <DependentUpon>LoadingEditBoard.cs</DependentUpon>
+    <Compile Include="View\UsersElements\FormLoading\LoadingStatisticBoard.Designer.cs">
+      <DependentUpon>LoadingStatisticBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UsersElements\FormLoading\LoadingForm.cs" />
     <Compile Include="View\UsersElements\FormLoading\LoadingMainForm.cs">
@@ -397,8 +397,8 @@
     <EmbeddedResource Include="View\UsersElements\Dialogs\SuccessfulDialog.resx">
       <DependentUpon>SuccessfulDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UsersElements\FormLoading\LoadingEditBoard.resx">
-      <DependentUpon>LoadingEditBoard.cs</DependentUpon>
+    <EmbeddedResource Include="View\UsersElements\FormLoading\LoadingStatisticBoard.resx">
+      <DependentUpon>LoadingStatisticBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UsersElements\FormLoading\LoadingMainForm.resx">
       <DependentUpon>LoadingMainForm.cs</DependentUpon>

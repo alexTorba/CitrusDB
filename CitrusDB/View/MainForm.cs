@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.DataBoard;
@@ -113,10 +114,12 @@ namespace CitrusDB.View
             editGroupBoard.BringToFront();
         }
 
-        private void buttonStatistics_Click(object sender, EventArgs e)
+        private  void buttonStatistics_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
+
             statisticBoard.UpdatingView();
+
             statisticBoard.BringToFront();
         }
 

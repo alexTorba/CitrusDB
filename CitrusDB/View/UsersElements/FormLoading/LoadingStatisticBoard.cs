@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace CitrusDB.View.UsersElements.FormLoading
 {
-    public partial class LoadingEditBoard : Form, ILoadingForm
+    public partial class LoadingStatisticBoard : Form, ILoadingForm
     {
-        public LoadingEditBoard()
+        public LoadingStatisticBoard()
         {
             InitializeComponent();
+        }
+
+        public LoadingStatisticBoard(Size size, Point location)
+        {
+            //Size = size;
+            //Location = location;
         }
 
         public bool isCompleted { get; set; }

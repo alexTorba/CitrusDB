@@ -21,6 +21,7 @@ namespace CitrusDB.View.Statistics
     public partial class StatisticBoard : UserControl, IStatisticBoard
     {
         MainForm mainForm;
+        StringBuilder builder = new StringBuilder();
 
         public StatisticBoard()
         {
@@ -42,6 +43,8 @@ namespace CitrusDB.View.Statistics
         {
             await UpdateView?.Invoke(null, EventArgs.Empty);
             studentButton_Click(null, EventArgs.Empty);
+            chart.Update();
+            chart.UpdateAnnotations();
         }
 
         #endregion
@@ -140,22 +143,24 @@ namespace CitrusDB.View.Statistics
 
         private void SetLog(IList<IEntityHistory> entityHistory)
         {
+            builder.Clear();
+
             if (entityHistory is IList<GroupsHistory> groupsHistory)
             {
                 foreach (var item in groupsHistory)
                 {
-                    logTextBox.Text
-                        += $"  {item.Name,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine;
+                    builder.Insert(0, $"  {item.Name,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine);
                 }
             }
             else if (entityHistory is IList<StudentsHistory> studentHistory)
             {
                 foreach (var item in studentHistory)
                 {
-                    logTextBox.Text
-                        += $"  {item.FirstName,-20} \t {item.LastName,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine;
+                    builder.Insert(0, $"  {item.FirstName,-20} \t {item.LastName,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine);
                 }
             }
+
+            logTextBox.Text = builder.ToString();
         }
 
     }
