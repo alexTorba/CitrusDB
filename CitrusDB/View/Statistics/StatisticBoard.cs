@@ -119,15 +119,17 @@ namespace CitrusDB.View.Statistics
             deletedTodayLabel.Text = $"Deleted {nameOfEntities} :";
             updatedTodayLabel.Text = $"Updated {nameOfEntities} :";
 
-            addedTodayValue.Text = entityHistories
+            var historiesToday = entityHistories.Where(eh => eh.Time.Date == DateTime.Now.Date).ToArray();
+
+            addedTodayValue.Text = historiesToday
                 .Where(sh => sh.TypeOfOperation == "Inserting")
                 .Count().ToString();
 
-            deletedTodatValue.Text = entityHistories
+            deletedTodatValue.Text = historiesToday
                 .Where(sh => sh.TypeOfOperation == "Deleting")
                 .Count().ToString();
 
-            updatedTodayValue.Text = entityHistories
+            updatedTodayValue.Text = historiesToday
                 .Where(sh => sh.TypeOfOperation == "Updating")
                 .Count().ToString();
         }
