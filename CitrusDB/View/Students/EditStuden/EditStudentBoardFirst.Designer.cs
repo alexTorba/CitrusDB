@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.generPanelOptions = new System.Windows.Forms.Panel();
+            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.panelGroup = new System.Windows.Forms.Panel();
             this.flowGroupOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -36,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.unityPanel = new System.Windows.Forms.Panel();
             this.studentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.generPanelOptions.SuspendLayout();
             this.panelGroup.SuspendLayout();
             this.flowGroupOptions.SuspendLayout();
@@ -57,6 +57,20 @@
             this.generPanelOptions.Size = new System.Drawing.Size(282, 644);
             this.generPanelOptions.TabIndex = 7;
             this.generPanelOptions.Tag = true;
+            // 
+            // collapsedButton
+            // 
+            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
+            this.collapsedButton.Location = new System.Drawing.Point(5, 317);
+            this.collapsedButton.Margin = new System.Windows.Forms.Padding(4);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(43, 45);
+            this.collapsedButton.TabIndex = 7;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
             // 
             // panelGroup
             // 
@@ -127,20 +141,6 @@
             this.studentFlowLayoutPanel.Name = "studentFlowLayoutPanel";
             this.studentFlowLayoutPanel.Size = new System.Drawing.Size(639, 644);
             this.studentFlowLayoutPanel.TabIndex = 8;
-            // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
-            this.collapsedButton.Location = new System.Drawing.Point(5, 317);
-            this.collapsedButton.Margin = new System.Windows.Forms.Padding(4);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(43, 45);
-            this.collapsedButton.TabIndex = 7;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
             // 
             // EditStudentBoardFirst
             // 

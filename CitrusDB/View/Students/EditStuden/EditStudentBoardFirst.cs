@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CitrusDB.View.UsersElements.FormLoading;
 using CitrusDB.Model.Entity;
+using CitrusDB.Properties;
 
 namespace CitrusDB.View.Students.EditStuden
 {
@@ -84,6 +85,8 @@ namespace CitrusDB.View.Students.EditStuden
             mainForm.ClearEventHandlers();
 
             mainForm.TimerTiks += TicksGrowsWidth;
+
+            (sender as Button)?.ChangeImageButton(generPanelOptions, Resources.left, Resources.right);
         }
 
         private void TicksGrowsWidth(Timer timer, object sender, EventArgs e)

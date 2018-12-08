@@ -14,6 +14,7 @@ using CitrusDB.Model.Entity.History;
 using LiveCharts.Configurations;
 using System.Runtime.Serialization;
 using CitrusDB.Model.UsersEventArgs;
+using CitrusDB.Properties;
 
 namespace CitrusDB.View.Statistics
 {
@@ -56,6 +57,9 @@ namespace CitrusDB.View.Statistics
 
             mainForm.ClearEventHandlers();
             mainForm.TimerTiks += logContainerPanel.TicksGrowsWidthQuiсkly;
+
+            (sender as Button)?.ChangeImageButton(logContainerPanel, Resources.left, Resources.right);
+
         }
 
         private void studentButton_Click(object sender, EventArgs e)
@@ -85,8 +89,8 @@ namespace CitrusDB.View.Statistics
             chart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Days;
             chart.ChartAreas[0].AxisX.IntervalOffset = 1;
 
-            chart.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddDays(-3).ToOADate();
-            chart.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddDays(3).ToOADate();
+            chart.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddDays(-5).ToOADate();
+            chart.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddDays(1).ToOADate();
         }
 
         private void SetChart(string nameOfEntity, IList<IEntityHistory> entityHistory)
@@ -141,7 +145,7 @@ namespace CitrusDB.View.Statistics
                 foreach (var item in groupsHistory)
                 {
                     logTextBox.Text
-                        += $"{item.Name,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine;
+                        += $"  {item.Name,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine;
                 }
             }
             else if (entityHistory is IList<StudentsHistory> studentHistory)
@@ -149,7 +153,7 @@ namespace CitrusDB.View.Statistics
                 foreach (var item in studentHistory)
                 {
                     logTextBox.Text
-                        += $"{item.FirstName,-20} \t {item.LastName,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine;
+                        += $"  {item.FirstName,-20} \t {item.LastName,-20} \t {item.TypeOfOperation,-20} \t {item.Time,-20}" + Environment.NewLine;
                 }
             }
         }
