@@ -124,7 +124,7 @@
   <data name="progressBar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKIAAACiCAYAAADC8hYbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAxRSURBVHhe7Z0tcNxIEIUDAwMPBh48GGhoaGhoaBgYaGYY
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAxRSURBVHhe7Z0tcNxIEIUDAwMPBh48GGhoaGhoaBgYaGYY
         GHjQ0NDQ0HDhJnFcCw0NDe/e2+p1rWd6JO1qJI1G76vqcrKSRqOZVnfPrz4IIYQQQgghhBBCCCGEOJ7N
         ZvPx8fHx5M+fP+f4e7UT/P8Wct8gd8H5F/h7gvQ+WdJCxFBBoChnVJqnp6d/qUz49wv+/pdbkO4r/jL9
         G94P/z7H/f+yrIglYZbuFEpwDXmgghQga7wE35GvM1nOiqHV+f3791dUOF2npwilyYqK+fPnz7/tEcRc
@@ -180,4 +180,7 @@
         q1jEKSnTBbcAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="promptToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>150, 17</value>
+  </metadata>
 </root>

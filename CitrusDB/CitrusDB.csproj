@@ -282,8 +282,14 @@
     <Compile Include="View\Students\StudentsView\StudentView\StudentViewBoard.Designer.cs">
       <DependentUpon>StudentViewBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UsersElements\CirclusButton.cs">
+    <Compile Include="View\UsersElements\Controls\CirclusButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UsersElements\Controls\PromptToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UsersElements\Controls\PromptToolTip.Designer.cs">
+      <DependentUpon>PromptToolTip.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UsersElements\Dialogs\DeleteDialog.cs">
       <SubType>Form</SubType>
@@ -435,6 +441,8 @@
   <ItemGroup>
     <None Include="Resources\icons8_Edit_25px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8_Help_35px_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

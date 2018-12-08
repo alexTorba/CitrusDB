@@ -98,11 +98,15 @@ namespace CitrusDB.View.DataBoard
 
         private void SetSizeGrid()
         {
-            int width = 0;
-            foreach (DataGridViewCell cell in dataGrid.Rows[0].Cells)
-                width += cell.Size.Width;
+            if (dataGrid != null && dataGrid?.Rows.Count != 0)
+            {
 
-            dataGrid.Size = new Size(width,dataGrid.Size.Height);
+                int width = 0;
+                foreach (DataGridViewCell cell in dataGrid.Rows[0].Cells)
+                    width += cell.Size.Width;
+
+                dataGrid.Size = new Size(width, dataGrid.Size.Height);
+            }
         }
 
         private void Search(string conditionFilter, AfterSearchingEventArgs e)

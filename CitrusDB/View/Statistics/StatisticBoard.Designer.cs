@@ -54,8 +54,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.logContainerPanel = new System.Windows.Forms.Panel();
-            this.chartContainerPanel = new System.Windows.Forms.Panel();
             this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
+            this.chartContainerPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.optionsPanel.SuspendLayout();
@@ -151,7 +151,7 @@
             this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator3.LineThickness = 1;
-            this.bunifuSeparator3.Location = new System.Drawing.Point(341, 0);
+            this.bunifuSeparator3.Location = new System.Drawing.Point(362, 0);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
             this.bunifuSeparator3.Size = new System.Drawing.Size(1, 176);
             this.bunifuSeparator3.TabIndex = 13;
@@ -174,7 +174,7 @@
             // 
             this.deletedTodatValue.AutoSize = true;
             this.deletedTodatValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deletedTodatValue.Location = new System.Drawing.Point(624, 118);
+            this.deletedTodatValue.Location = new System.Drawing.Point(627, 118);
             this.deletedTodatValue.Name = "deletedTodatValue";
             this.deletedTodatValue.Size = new System.Drawing.Size(26, 21);
             this.deletedTodatValue.TabIndex = 11;
@@ -184,7 +184,7 @@
             // 
             this.updatedTodayValue.AutoSize = true;
             this.updatedTodayValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.updatedTodayValue.Location = new System.Drawing.Point(624, 90);
+            this.updatedTodayValue.Location = new System.Drawing.Point(627, 90);
             this.updatedTodayValue.Name = "updatedTodayValue";
             this.updatedTodayValue.Size = new System.Drawing.Size(26, 21);
             this.updatedTodayValue.TabIndex = 10;
@@ -194,7 +194,7 @@
             // 
             this.addedTodayValue.AutoSize = true;
             this.addedTodayValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addedTodayValue.Location = new System.Drawing.Point(624, 62);
+            this.addedTodayValue.Location = new System.Drawing.Point(627, 62);
             this.addedTodayValue.Name = "addedTodayValue";
             this.addedTodayValue.Size = new System.Drawing.Size(26, 21);
             this.addedTodayValue.TabIndex = 9;
@@ -204,7 +204,7 @@
             // 
             this.deletedTodayLabel.AutoSize = true;
             this.deletedTodayLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deletedTodayLabel.Location = new System.Drawing.Point(466, 118);
+            this.deletedTodayLabel.Location = new System.Drawing.Point(469, 118);
             this.deletedTodayLabel.Name = "deletedTodayLabel";
             this.deletedTodayLabel.Size = new System.Drawing.Size(73, 21);
             this.deletedTodayLabel.TabIndex = 8;
@@ -214,7 +214,7 @@
             // 
             this.updatedTodayLabel.AutoSize = true;
             this.updatedTodayLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.updatedTodayLabel.Location = new System.Drawing.Point(466, 90);
+            this.updatedTodayLabel.Location = new System.Drawing.Point(469, 90);
             this.updatedTodayLabel.Name = "updatedTodayLabel";
             this.updatedTodayLabel.Size = new System.Drawing.Size(82, 21);
             this.updatedTodayLabel.TabIndex = 7;
@@ -224,7 +224,7 @@
             // 
             this.addedTodayLabel.AutoSize = true;
             this.addedTodayLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addedTodayLabel.Location = new System.Drawing.Point(466, 62);
+            this.addedTodayLabel.Location = new System.Drawing.Point(469, 62);
             this.addedTodayLabel.Name = "addedTodayLabel";
             this.addedTodayLabel.Size = new System.Drawing.Size(66, 21);
             this.addedTodayLabel.TabIndex = 6;
@@ -235,7 +235,7 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(460, 50);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(463, 50);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(200, 1);
             this.bunifuSeparator1.TabIndex = 5;
@@ -246,7 +246,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(526, 23);
+            this.label2.Location = new System.Drawing.Point(529, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 24);
             this.label2.TabIndex = 4;
@@ -339,15 +339,6 @@
             this.logContainerPanel.TabIndex = 5;
             this.logContainerPanel.Tag = false;
             // 
-            // chartContainerPanel
-            // 
-            this.chartContainerPanel.Controls.Add(this.chart);
-            this.chartContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartContainerPanel.Location = new System.Drawing.Point(0, 177);
-            this.chartContainerPanel.Name = "chartContainerPanel";
-            this.chartContainerPanel.Size = new System.Drawing.Size(704, 473);
-            this.chartContainerPanel.TabIndex = 6;
-            // 
             // collapsedButton
             // 
             this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -360,6 +351,15 @@
             this.collapsedButton.TabIndex = 29;
             this.collapsedButton.UseVisualStyleBackColor = false;
             this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
+            // 
+            // chartContainerPanel
+            // 
+            this.chartContainerPanel.Controls.Add(this.chart);
+            this.chartContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartContainerPanel.Location = new System.Drawing.Point(0, 177);
+            this.chartContainerPanel.Name = "chartContainerPanel";
+            this.chartContainerPanel.Size = new System.Drawing.Size(704, 473);
+            this.chartContainerPanel.TabIndex = 6;
             // 
             // StatisticBoard
             // 

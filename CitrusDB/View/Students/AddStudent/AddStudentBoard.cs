@@ -129,6 +129,7 @@ namespace CitrusDB.View.Students.AddStudent
         {
             LoadBoard?.Invoke(sender, e);
             SetInitDate();
+            promptToolTip.SetControlToolTip(promptButton, promptButton.Tag.ToString());
         }
 
         private void TextBoxTextChangedHandler(object sender, EventArgs e)
@@ -220,12 +221,14 @@ namespace CitrusDB.View.Students.AddStudent
         {
             if (progressBar.Value == 100)
             {
+                promptButton.Visible = true;
                 saveButton.Enabled = true;
                 groupsFlowPanel.Enabled = true;
                 searchPanel.Enabled = true;
             }
             else
             {
+                promptButton.Visible = false;
                 saveButton.Enabled = false;
                 groupsFlowPanel.Enabled = false;
                 searchPanel.Enabled = false;

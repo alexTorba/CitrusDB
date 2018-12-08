@@ -152,7 +152,7 @@ namespace CitrusDB.View.DataBoard
             this.panelTables.Name = "panelTables";
             this.panelTables.Size = new System.Drawing.Size(228, 152);
             this.panelTables.TabIndex = 6;
-            this.panelTables.Tag = false;
+            this.panelTables.Tag = true;
             // 
             // radioButtonGroup
             // 

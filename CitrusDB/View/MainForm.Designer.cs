@@ -43,7 +43,7 @@ namespace CitrusDB.View
             this.dragPanel = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.rollUpButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGroupAdd = new System.Windows.Forms.Panel();
@@ -185,7 +185,7 @@ namespace CitrusDB.View
             this.dragPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dragPanel.Controls.Add(this.buttonExit);
             this.dragPanel.Controls.Add(this.button1);
-            this.dragPanel.Controls.Add(this.button2);
+            this.dragPanel.Controls.Add(this.rollUpButton);
             this.dragPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.dragPanel.Location = new System.Drawing.Point(188, 0);
             this.dragPanel.Name = "dragPanel";
@@ -215,16 +215,17 @@ namespace CitrusDB.View
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // rollUpButton
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(838, -2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 31);
-            this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
+            this.rollUpButton.FlatAppearance.BorderSize = 0;
+            this.rollUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rollUpButton.Image = ((System.Drawing.Image)(resources.GetObject("rollUpButton.Image")));
+            this.rollUpButton.Location = new System.Drawing.Point(838, -2);
+            this.rollUpButton.Name = "rollUpButton";
+            this.rollUpButton.Size = new System.Drawing.Size(38, 31);
+            this.rollUpButton.TabIndex = 4;
+            this.rollUpButton.UseVisualStyleBackColor = true;
+            this.rollUpButton.Click += new System.EventHandler(this.rollUpButton_Click);
             // 
             // label1
             // 
@@ -468,11 +469,15 @@ namespace CitrusDB.View
             // statisticBoard
             // 
             this.statisticBoard.AutoSize = true;
+            this.statisticBoard.CountOfGroup = "xx";
+            this.statisticBoard.CountOfStudent = "xx";
             this.statisticBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statisticBoard.GroupsHistory = null;
             this.statisticBoard.Location = new System.Drawing.Point(188, 31);
             this.statisticBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.statisticBoard.Name = "statisticBoard";
             this.statisticBoard.Size = new System.Drawing.Size(917, 644);
+            this.statisticBoard.StudentsHistory = null;
             this.statisticBoard.TabIndex = 20;
             // 
             // editGroupBoard
@@ -577,7 +582,7 @@ namespace CitrusDB.View
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button rollUpButton;
         private System.Windows.Forms.Button buttonData;
         private System.Windows.Forms.Panel backlightPanel;
         private System.Windows.Forms.Button buttonAboutUs;
