@@ -4,8 +4,8 @@ using System.Windows.Forms;
 using System.Linq;
 
 using CitrusDB.Properties;
-using CitrusDB.View.UsersElements;
 using CitrusDB.View.UsersElements.Dialogs;
+using CitrusDB.Model.Extensions;
 
 namespace CitrusDB.View.Students.AddStudent
 {

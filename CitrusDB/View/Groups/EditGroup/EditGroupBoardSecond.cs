@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+
 using CitrusDB.Model.Entity;
+using CitrusDB.Model.Extensions;
 using CitrusDB.View.UsersElements.Dialogs;
 
 namespace CitrusDB.View.Groups.EditGroup

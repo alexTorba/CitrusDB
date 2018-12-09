@@ -2,6 +2,7 @@
 
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
+using CitrusDB.Model.Extensions;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 
 namespace CitrusDB.Presenter.Students

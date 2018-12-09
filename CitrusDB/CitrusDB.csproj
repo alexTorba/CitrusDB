@@ -85,7 +85,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions.cs" />
+    <Compile Include="Model\Extensions\ExtensionButtons.cs" />
     <Compile Include="Migrations\201810040830148_InitialCreate.cs" />
     <Compile Include="Migrations\201810040830148_InitialCreate.Designer.cs">
       <DependentUpon>201810040830148_InitialCreate.cs</DependentUpon>
@@ -130,10 +130,13 @@
     <Compile Include="Model\Entity\IEntity.cs" />
     <Compile Include="Model\Entity\SelectedEntity.cs" />
     <Compile Include="Model\Entity\StudentsEqualityComarer.cs" />
+    <Compile Include="Model\Extensions\ExtensionCharts.cs" />
     <Compile Include="Model\Extensions\ExtensionControlCollection.cs" />
+    <Compile Include="Model\Extensions\ExtensionImages.cs" />
     <Compile Include="Model\Extensions\ExtensionLinq.cs" />
     <Compile Include="Model\Extensions\ExtensionControls.cs" />
     <Compile Include="Model\Entity\StudentView.cs" />
+    <Compile Include="Model\Extensions\ExtensionPanels.cs" />
     <Compile Include="Model\Generate.cs" />
     <Compile Include="Model\UsersEventArgs\AfterSearchingEventArgs.cs" />
     <Compile Include="Model\UsersEventArgs\EntityTransferEventArgs.cs" />

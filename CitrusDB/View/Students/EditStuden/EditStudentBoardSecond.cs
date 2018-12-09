@@ -3,9 +3,10 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-using CitrusDB.View.UsersElements.Dialogs;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.UsersEventArgs;
+using CitrusDB.Model.Extensions;
+using CitrusDB.View.UsersElements.Dialogs;
 
 namespace CitrusDB.View.Students.EditStuden
 {

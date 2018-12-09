@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using LiveCharts;
-using LiveCharts.Defaults;
+
 using CitrusDB.Model.Entity.History;
-using LiveCharts.Configurations;
-using System.Runtime.Serialization;
 using CitrusDB.Model.UsersEventArgs;
+using CitrusDB.Model.Extensions;
 using CitrusDB.Properties;
 
 namespace CitrusDB.View.Statistics

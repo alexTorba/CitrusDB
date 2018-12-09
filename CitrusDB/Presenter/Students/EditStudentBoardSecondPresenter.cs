@@ -1,19 +1,12 @@
-﻿using CitrusDB.View.Students.EditStuden;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CitrusDB.View.Groups.GroupsView.GroupViews;
-using CitrusDB.Model;
+
 using CitrusDB.Model.Entity;
-using System.Threading;
-using CitrusDB.View.Students;
 using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.Model.DataBaseLogic;
-using System.Drawing;
-using CitrusDB.View.UsersElements.Dialogs;
-using System.Windows.Forms;
+using CitrusDB.Model.Extensions;
+using CitrusDB.View.Students.EditStuden;
+using CitrusDB.View.Groups.GroupsView.GroupViews;
 
 namespace CitrusDB.Presenter.Students
 {

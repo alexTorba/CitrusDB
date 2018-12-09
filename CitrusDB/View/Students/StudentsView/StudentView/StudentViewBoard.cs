@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 
 using CitrusDB.Model.Entity;
+using CitrusDB.Model.Extensions;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 
 namespace CitrusDB.View.Students.StudentsView.StudentView

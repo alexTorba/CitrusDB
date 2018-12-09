@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Linq;
-using System.Linq.Expressions;
 
 using CitrusDB.Properties;
 using CitrusDB.Model.Entity;
+using CitrusDB.Model.UsersEventArgs;
+using CitrusDB.Model.Extensions;
 using CitrusDB.View.Students.StudentsView.StudentInfo;
 using CitrusDB.View.Groups.GroupsView.GroupInfo;
-using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.DataBoard
 {
