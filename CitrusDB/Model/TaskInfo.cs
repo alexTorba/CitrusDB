@@ -26,12 +26,12 @@ namespace CitrusDB.Model
             task.RunSynchronously();
         }
 
-        public TaskInfo(Action<string, Action<string>, string, CancellationToken> action, string conditionFilter, Action<string> sorting, string conditionSorting)
+        public TaskInfo(Action<string, string, Action<string>, string, CancellationToken> action, string conditionFilter, string searchCriteria, Action<string> sorting, string conditionSorting)
         {
             tokenSource = new CancellationTokenSource();
             CancellationToken token = tokenSource.Token;
 
-            task = new Task(() => action.Invoke(conditionFilter, sorting, conditionSorting, token), token);
+            task = new Task(() => action.Invoke(conditionFilter, searchCriteria, sorting, conditionSorting, token), token);
 
             Console.WriteLine($"Task{task.Id} was run !");
 

@@ -14,6 +14,7 @@ using CitrusDB.View.UsersElements;
 using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.View.Students;
 using CitrusDB.View.Groups.GroupsView.GroupViews;
+using System.Runtime.ExceptionServices;
 
 namespace CitrusDB.Presenter
 {
@@ -55,93 +56,50 @@ namespace CitrusDB.Presenter
             return null;
         }
 
-        private void DataBoard_SearchBoxTextChanged(string condition, EventArgs e)
+        private void DataBoard_SearchBoxTextChanged(string condition, string searchCriteria, EventArgs e)
         {
             currentTask?.CancelTask();
 
             currentTask = new TaskInfo(SearchEntities,
-                condition,
+                condition, searchCriteria,
                 ((AfterSearchingEventArgs)e)?.sorting,
                 ((AfterSearchingEventArgs)e)?.conditionSorting);
         }
 
-        private void SearchEntities(string conditionFilter, Action<string> sorting, string conditionSorting, CancellationToken token)
+        private async void SearchEntities(string conditionFilter, string searchCriteria, Action<string> sorting, string conditionSorting, CancellationToken token)
         {
             try
             {
-                GetEntityBySearch(dataBoard.SelectedEntity, conditionFilter, sorting, conditionSorting, token);
+                if (dataBoard.SelectedEntity == SelectedEntity.Student)
+                {
+                    dataBoard.GetDataSource = await GetViews<Student, StudentView>(searchCriteria, conditionFilter, token);
+                }
+                else if (dataBoard.SelectedEntity == SelectedEntity.Group)
+                {
+                    dataBoard.GetDataSource = await GetViews<Group, GroupView>(searchCriteria, conditionFilter, token);
+                }
             }
-            catch (TaskCanceledException canceledEx)
+            catch (OperationCanceledException canceledEx)
             {
                 Console.WriteLine(canceledEx.Message);
                 return;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                throw new Exception(ex.Message);
             }
-
-
+            sorting?.Invoke(conditionSorting);
             Console.WriteLine("SUCCESSFULLY");
         }
 
-        private async void GetEntityBySearch(SelectedEntity selectedEntity, string conditionFilter, Action<string> sorting, string conditionSorting, CancellationToken token)
+        private async Task<TResult[]> GetViews<TEntity, TResult>(string searchCriteria, string conditionFilter, CancellationToken token)
+            where TEntity : class, IEntity
+            where TResult : class, IEntity
         {
-            IEnumerable<StudentView> studentViewResult = null;
-            IEnumerable<GroupView> groupViewResult = null;
-            if (selectedEntity == SelectedEntity.Student)
+            return await Task.Factory.StartNew(() =>
             {
-                await Task.Run(() =>
-                {
-                    if (conditionFilter == string.Empty)
-                        studentViewResult = EFGenericRepository.Get<Student>().GetViews<Student, StudentView>();
-
-                    studentViewResult = EFGenericRepository.Get<Student>(s => s.FirstName
-                                                            .ToUpperInvariant()
-                                                            .Contains(conditionFilter.ToUpperInvariant()))
-                                                            .GetViews<Student, StudentView>();
-                }, token);
-            }
-            else if (selectedEntity == SelectedEntity.Group)
-            {
-                await Task.Run(() =>
-                {
-                    if (conditionFilter == string.Empty)
-                        groupViewResult = EFGenericRepository.Get<Group>().GetViews<Group, GroupView>();
-
-                    groupViewResult = EFGenericRepository.Get<Group>(g => g.Name
-                                                          .ToUpperInvariant()
-                                                          .Contains(conditionFilter.ToUpperInvariant()))
-                                                          .GetViews<Group, GroupView>();
-                }, token);
-            }
-
-            if (studentViewResult != null)
-                dataBoard.GetDataSource = studentViewResult.ToArray();
-            else if (groupViewResult != null)
-                dataBoard.GetDataSource = groupViewResult.ToArray();
-
-            sorting?.Invoke(conditionSorting);
-        }
-
-        private async void TransformResultToEntityView(IEnumerable<IEntity> result, CancellationToken token)
-        {
-            try
-            {
-                if (dataBoard.SelectedEntity == SelectedEntity.Group)
-                {
-                    dataBoard.GetDataSource = (await ((IEnumerable<Group>)result).GetViewsAsync<Group, GroupView>(token)).ToArray();
-                }
-                else if (dataBoard.SelectedEntity == SelectedEntity.Student)
-                {
-                    var res = await ((IEnumerable<Student>)result).GetViewsAsync<Student, StudentView>(token);
-                    dataBoard.GetDataSource = res.ToArray();
-                }
-            }
-            catch (TaskCanceledException)
-            {
-                return;
-            }
+                return EFGenericRepository.Get<TEntity>(searchCriteria, conditionFilter).GetViews<TEntity, TResult>().ToArray();
+            }, token);
         }
 
         private void DataBoard_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)
@@ -184,12 +142,12 @@ namespace CitrusDB.Presenter
 
         private void DataBoard_GroupTableLoad(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = EFGenericRepository.Get<Group>().GetViews<Group, GroupView>().ToList();
+            dataBoard.GetDataSource = EFGenericRepository.Get<Group>().GetViews<Group, GroupView>().ToArray();
         }
 
         private void DataBoard_LoadDataBoard(object sender, EventArgs e)
         {
-            dataBoard.GetDataSource = EFGenericRepository.Get<Student>().GetViews<Student, StudentView>().ToList();
+            dataBoard.GetDataSource = EFGenericRepository.Get<Student>().GetViews<Student, StudentView>().ToArray();
         }
     }
 }

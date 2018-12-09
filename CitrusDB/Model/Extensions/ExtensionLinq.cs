@@ -30,6 +30,41 @@ namespace CitrusDB.Model.Extensions
                  });
         }
 
+        private static IEnumerable<T> OrderByDescendingSimpleReflection<T>(this IEnumerable<T> sequance, string propertyName)
+        {
+            return sequance.
+                 OrderByDescending
+                 (e =>
+                 {
+                     var result = e
+                        .GetType()
+                        .GetProperties()
+                        .FirstOrDefault(p => p.Name == propertyName)
+                        ?.GetValue(e, null);
+                     if (result is Group group)
+                         return group.Name;
+                     else return result;
+
+                 });
+        }
+
+        private static IEnumerable<T> WhereSimpleReflection<T>(this IEnumerable<T> sequance, string searchCriteria, string filter)
+        {
+            return sequance.
+                 Where
+                 (e =>
+                 {
+                     var result = e
+                        .GetType()
+                        .GetProperties()
+                        .FirstOrDefault(p => p.Name == searchCriteria)
+                        ?.GetValue(e, null);
+                     if (result is Group group)
+                         return group.Name.ToUpperInvariant().Contains(filter.ToUpperInvariant());
+                     else return result.ToString().ToUpperInvariant().Contains(filter.ToUpperInvariant());
+                 });
+        }
+
         private static IEnumerable<T> OrderByTreeExpression<T>(this IEnumerable<T> sequance, string propertyName)
         {
             // x=>x.propertyName
@@ -46,15 +81,67 @@ namespace CitrusDB.Model.Extensions
             return (IEnumerable<T>)orderBy.Invoke(null, new object[] { sequance, lambda });
         }
 
+        private static IEnumerable<T> OrderByDescendingTreeExpression<T>(this IEnumerable<T> sequance, string propertyName)
+        {
+            // x=>x.propertyName
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(T));
+            MemberExpression property = Expression.Property(parameterExpression, propertyName);
+            Delegate lambda = Expression.Lambda(property, parameterExpression).Compile();
+
+            var orderBy = typeof(Enumerable)
+                 .GetMethods(BindingFlags.Public | BindingFlags.Static)
+                 .Where(m => m.GetParameters().Length == 2 && m.Name == "OrderByDescending")
+                 .FirstOrDefault()
+                 .MakeGenericMethod(typeof(T), property.Type);
+
+            return (IEnumerable<T>)orderBy.Invoke(null, new object[] { sequance, lambda });
+        }
+
+        private static IEnumerable<T> WhereTreeExpression<T>(this IEnumerable<T> sequance, string searchCriteria, string filter)
+        {
+            // x=>x.propertyName
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(T));
+            MemberExpression property = Expression.Property(parameterExpression, searchCriteria);
+            Delegate lambda = Expression.Lambda(property, parameterExpression).Compile();
+
+            var where = typeof(Enumerable)
+                .GetMethods(BindingFlags.Public | BindingFlags.Static)
+                .Where(m => m.GetParameters().Length == 2 && m.Name == "Where")
+                .FirstOrDefault()
+                .MakeGenericMethod(typeof(T), property.Type);
+
+            return (IEnumerable<T>)where.Invoke(null, new object[] { sequance, lambda });
+        }
+
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> sequance, string propertyName)
         {
             if (propertyName == null)
                 return null;
-
             if (sequance.Count() < 100)
                 return OrderBySimpleReflection(sequance, propertyName);
             else
                 return OrderByTreeExpression(sequance, propertyName);
+        }
+
+        public static IEnumerable<T> OrderByDescending<T>(this IEnumerable<T> sequance, string propertyName)
+        {
+            if (propertyName == null)
+                return null;
+            if (sequance.Count() < 100)
+                return OrderByDescendingSimpleReflection(sequance, propertyName);
+            else
+                return OrderByDescendingTreeExpression(sequance, propertyName);
+        }
+
+        public static IEnumerable<T> Where<T>(this IEnumerable<T> sequance, string searchCriteria, string filter)
+        {
+            if (searchCriteria == null)
+                return null;
+
+            if (sequance.Count() < 100)
+                return WhereSimpleReflection(sequance, searchCriteria, filter);
+            else
+                return WhereTreeExpression(sequance, searchCriteria, filter);
         }
 
         public static IEnumerable<R> GetViews<T, R>(this IEnumerable<T> sequance)

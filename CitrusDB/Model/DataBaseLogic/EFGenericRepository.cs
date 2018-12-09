@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using CitrusDB.Model.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 using System.Threading;
+
+using CitrusDB.Model.Entity;
+using CitrusDB.Model.Extensions;
 
 namespace CitrusDB.Model.DataBaseLogic
 {
@@ -70,6 +69,16 @@ namespace CitrusDB.Model.DataBaseLogic
         {
             return context.Set<TEntity>().Local
                 .Where(predicate);
+        }
+
+        public static IEnumerable<TEntity> Get<TEntity>(string searchCriteria, string filter)
+            where TEntity : class
+        {
+            if (string.IsNullOrEmpty(filter))
+                return Get<TEntity>();
+
+            return context.Set<TEntity>().Local
+                .Where(searchCriteria, filter);
         }
 
         public static IEnumerable<TEntity> GetWithLoad<TEntity>() where TEntity : class

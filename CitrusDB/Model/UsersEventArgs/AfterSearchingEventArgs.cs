@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CitrusDB.Model.UsersEventArgs
 {
 
-    public delegate void SearchingEventHandler(string condition, AfterSearchingEventArgs e);
+    public delegate void SearchingEventHandler(string condition, string searchCriteria, AfterSearchingEventArgs e);
 
     public class AfterSearchingEventArgs : EventArgs
     {

@@ -32,6 +32,28 @@ namespace CitrusDB.Model.Extensions
             }
         }
 
+        public static void TicksGrowsHeightQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
+        {
+            if (!(bool)panel.Tag)
+            {
+                panel.Height += 10;
+                if (panel.MaximumSize.Height == panel.Height)
+                {
+                    timer.Stop();
+                    panel.Tag = true;
+                }
+            }
+            else
+            {
+                panel.Height -= 20;
+                if (panel.MinimumSize.Height == panel.Height)
+                {
+                    timer.Stop();
+                    panel.Tag = false;
+                }
+            }
+        }
+
         public static void TicksGrowsWidth(this Panel panel, Timer timer, object sender, EventArgs e)
         {
             if (!(bool)panel.Tag)

@@ -63,19 +63,9 @@ namespace CitrusDB.View.DataBoard
 
         private void DataBoard_Load(object sender, EventArgs e)
         {
-            if (mainForm != null)
-                mainForm.SetStatusValue = "Loading data..";
+            radioButtonStudent_MouseClick(null, null);
 
-            LoadDataBoard?.Invoke(null, EventArgs.Empty);
-
-            radioButtonStudent.Checked = true;
-
-            if (dataGrid.Columns["Id"] != null)
-                dataGrid.Columns["Id"].Visible = false;
-
-            SetSizeGrid();
-
-            mainForm?.SetInitStatus();
+            radioButtonAscend.Checked = true;
         }
 
         private void radioButtonGroup_MouseClick(object sender, MouseEventArgs e)
@@ -84,6 +74,11 @@ namespace CitrusDB.View.DataBoard
             dataGrid.Columns["Id"].Visible = false;
             ((DataGridViewImageColumn)dataGrid.Columns["Photo"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dataGrid.Columns["Photo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+
+            comboBoxFilters.DataSource = new List<string>
+            {
+                "Name"
+            };
 
             SetSizeGrid();
         }
@@ -111,9 +106,9 @@ namespace CitrusDB.View.DataBoard
         private void Search(string conditionFilter, AfterSearchingEventArgs e)
         {
             if (conditionFilter == "Search..")
-                SearchBoxTextChanged?.Invoke("", e);
+                SearchBoxTextChanged?.Invoke("", comboBoxFilters.SelectedValue.ToString(), e);
             else
-                SearchBoxTextChanged?.Invoke(conditionFilter, e);
+                SearchBoxTextChanged?.Invoke(conditionFilter, comboBoxFilters.SelectedItem.ToString(), e);
 
 
             if (dataGrid.Columns["Id"] != null)
@@ -142,8 +137,25 @@ namespace CitrusDB.View.DataBoard
 
         private void radioButtonStudent_MouseClick(object sender, MouseEventArgs e)
         {
-            DataBoard_Load(sender, EventArgs.Empty);
+            LoadDataBoard?.Invoke(null, EventArgs.Empty);
+
             radioButtonStudent.Checked = true;
+
+            if (dataGrid.Columns["Id"] != null)
+                dataGrid.Columns["Id"].Visible = false;
+
+            SetSizeGrid();
+
+            comboBoxFilters.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
         }
 
         #endregion
@@ -240,6 +252,30 @@ namespace CitrusDB.View.DataBoard
             TextBox textBox = sender as TextBox;
             textBox.SelectionStart = 0;
             textBox.SelectionLength = textBox.Text.Length;
+        }
+
+        private void searchSettingsButton_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += flowPanelSearchSettings.TicksGrowsHeightQuiсkly;
+        }
+
+        private void buttonWhere_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += panelWhere.TicksGrowsHeight;
+        }
+
+        private void buttonOrderBy_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += panelOrderBy.TicksGrowsHeight;
         }
 
     }
