@@ -87,7 +87,7 @@ namespace CitrusDB.Presenter.Students
 
             var selectedGroup = selectedGroupView == null
                                     ? null
-                                    : EFGenericRepository.FindById<Group>(selectedGroupView.Id);
+                                    : EFGenericRepository.Find<Group>(selectedGroupView.Id);
 
             Student student = new Student
             {

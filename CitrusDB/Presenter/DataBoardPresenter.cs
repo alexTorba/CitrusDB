@@ -48,11 +48,11 @@ namespace CitrusDB.Presenter
 
             if (selectedView is StudentView studentView)
             {
-                return EFGenericRepository.FindById<Student>(studentView.Id);
+                return EFGenericRepository.Find<Student>(studentView.Id);
             }
             else if (selectedView is GroupView groupView)
             {
-                return EFGenericRepository.FindById<Group>(groupView.Id);
+                return EFGenericRepository.Find<Group>(groupView.Id);
             }
             return null;
         }
@@ -137,7 +137,7 @@ namespace CitrusDB.Presenter
         {
             if (((EntityArgs)e).Entity is StudentView studentView)
             {
-                var studentToDelete = EFGenericRepository.FindById<Student>(studentView.Id);
+                var studentToDelete = EFGenericRepository.Find<Student>(studentView.Id);
 
                 if (studentToDelete.Group != null)
                     EFGenericRepository.Update(studentToDelete.Group);
@@ -149,7 +149,7 @@ namespace CitrusDB.Presenter
                 var deleteDialog = new DeleteDialog();
                 if (deleteDialog.ShowDialog() == DialogResult.OK)
                 {
-                    var retiringGroup = EFGenericRepository.FindById<Group>(groupView.Id);
+                    var retiringGroup = EFGenericRepository.Find<Group>(groupView.Id);
                     if (deleteDialog.IsDeleteMembers)
                         EFGenericRepository.DeleteRange(retiringGroup.Students);
 

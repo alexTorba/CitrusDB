@@ -53,7 +53,7 @@ namespace CitrusDB.Model.DataBaseLogic
             }
         }
 
-        public static TEntity FindById<TEntity>(int id) where TEntity : class, IEntity
+        public static TEntity Find<TEntity>(int id) where TEntity : class, IEntity
         {
             return context.Set<TEntity>().Local
                 .FirstOrDefault(e => e.Id == id);

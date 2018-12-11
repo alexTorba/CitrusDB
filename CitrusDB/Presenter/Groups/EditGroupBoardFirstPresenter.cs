@@ -82,7 +82,7 @@ namespace CitrusDB.Presenter.Groups
 
             if (selectedGroup != null)
             {
-                editGroupBoardFirst.EditGroup = EFGenericRepository.FindById<Group>(selectedGroup.Id);
+                editGroupBoardFirst.EditGroup = EFGenericRepository.Find<Group>(selectedGroup.Id);
 
                 editGroupBoardFirst.LoadingSecondForm();
             }

@@ -37,7 +37,6 @@ namespace CitrusDB.Presenter.Groups
 
         private void GroupBoardSecond_SetEditingGroup(object sender, EventArgs e)
         {
-            //todo: переделать в плане производит..
             groupBoardSecond.CurrentStudentControlCollection.DeleteControls(
                 groupBoardSecond.CurrentGroup.Students,
                 CancellationToken.None);
@@ -57,7 +56,7 @@ namespace CitrusDB.Presenter.Groups
             List<Student> students = new List<Student>();
 
             foreach (IStudentView studentView in groupBoardSecond.AddedStudentControlCollection)
-                students.Add(EFGenericRepository.FindById<Student>(studentView.Id));
+                students.Add(EFGenericRepository.Find<Student>(studentView.Id));
 
             Group group = new Group
             {
@@ -89,6 +88,36 @@ namespace CitrusDB.Presenter.Groups
                 EFGenericRepository.Get<Student>(s => s.Group == null).ToArray(),
                 currentStudentView,
                 CancellationToken.None);
+        }
+
+        public async override Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
+        {
+            return await Task.Factory.StartNew(() =>
+            {
+                IEnumerable<Student> students = EFGenericRepository.Get<Student>(s => s.Group == null).ToArray();
+
+                var existGroup = EFGenericRepository.Get<Group>(g => g.Name == groupBoard.GetNameOfGroup).FirstOrDefault();
+                IEnumerable<Student> currentStudent = existGroup?.Students;
+                if (currentStudent != null)
+                    students = students.Union(currentStudent);
+
+                if (condition != string.Empty)
+                    students = students
+                               .Where(s => s.FirstName.ToUpperInvariant()
+                               .Contains(condition.ToUpperInvariant()));
+
+
+                if (groupBoard.AddedStudentControlCollection.Count == 0)
+                    return students.ToArray();
+                else
+                {
+                    var addedStudents = groupBoard.AddedStudentControlCollection
+                                       .Cast<IStudentView>()
+                                       .Select(s => EFGenericRepository.Find<Student>(s.Id));
+
+                    return students.Except(addedStudents).ToArray();
+                }
+            }, token);
         }
 
         #endregion

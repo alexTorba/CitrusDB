@@ -131,7 +131,7 @@ namespace CitrusDB.Presenter.Students
 
         private void EditStudentView_Click(object sender, EventArgs e)
         {
-            editStudentBoardFirst.EditStudent = EFGenericRepository.FindById<Student>(((IStudentView)((Control)sender).Parent).Id);
+            editStudentBoardFirst.EditStudent = EFGenericRepository.Find<Student>(((IStudentView)((Control)sender).Parent).Id);
 
             editStudentBoardFirst.LoadingSecondForm();
         }

@@ -41,7 +41,7 @@ namespace CitrusDB.Presenter.Groups
             List<Student> students = new List<Student>();
 
             foreach (IStudentView studentView in addGroupBoard.AddedStudentControlCollection)
-                students.Add(EFGenericRepository.FindById<Student>(studentView.Id));
+                students.Add(EFGenericRepository.Find<Student>(studentView.Id));
 
             Group group = new Group
             {
@@ -68,7 +68,7 @@ namespace CitrusDB.Presenter.Groups
                     Control control = obj as Control;
 
                     IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
-                    studentView.FillView(EFGenericRepository.FindById<Student>(
+                    studentView.FillView(EFGenericRepository.Find<Student>(
                         ((IStudentView)control).Id));
 
                     addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);

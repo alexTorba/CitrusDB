@@ -65,14 +65,14 @@ namespace CitrusDB.Presenter.Groups
             return await Task.Run(() =>
             {
                 if (conditions != string.Empty)
-                    return EFGenericRepository.FindById<Group>(groupInfoForm.Id)
+                    return EFGenericRepository.Find<Group>(groupInfoForm.Id)
                                                       .Students
                                                       .GetViews<Student, StudentView>()
                                                       .Where(s => s.FirstName.ToUpperInvariant()
                                                       .Contains(conditions.ToUpperInvariant()))
                                                       .ToArray();
 
-                return EFGenericRepository.FindById<Group>(groupInfoForm.Id)
+                return EFGenericRepository.Find<Group>(groupInfoForm.Id)
                             .Students
                             .GetViews<Student, StudentView>()
                             .ToArray();
@@ -88,7 +88,7 @@ namespace CitrusDB.Presenter.Groups
 
         private void GroupInfoForm_LoadForm(object sender, EventArgs e)
         {
-            var group = EFGenericRepository.FindById<Group>(groupInfoForm.Id);
+            var group = EFGenericRepository.Find<Group>(groupInfoForm.Id);
             groupInfoForm.GroupName = group.Name;
             groupInfoForm.Photo = group.Photo.ConvertByteArrToImage();
             groupInfoForm.Students = group.Students.GetViews<Student, StudentView>().ToList();

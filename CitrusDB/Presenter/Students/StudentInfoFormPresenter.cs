@@ -21,7 +21,7 @@ namespace CitrusDB.Presenter.Students
 
         private void StudentInfoForm_FormLoad(object sender, EventArgs e)
         {
-            var student = EFGenericRepository.FindById<Student>(studentInfoForm.Id);
+            var student = EFGenericRepository.Find<Student>(studentInfoForm.Id);
 
             FillView(student);
         }
@@ -36,7 +36,7 @@ namespace CitrusDB.Presenter.Students
             studentInfoForm.Сitizenship = student.Сitizenship;
             studentInfoForm.KnowledgeOfLanguage = student.KnowledgeOfLanguage;
             studentInfoForm.DateOfBirth = student.DateOfBirth;
-            studentInfoForm.Group = student.Group == null ? null : EFGenericRepository.FindById<Group>(student.Group.Id);
+            studentInfoForm.Group = student.Group == null ? null : EFGenericRepository.Find<Group>(student.Group.Id);
 
             studentInfoForm.FirstPhoto = student.FirstPhoto.ConvertByteArrToImage();
             studentInfoForm.SecondPhoto = student.SecondPhoto.ConvertByteArrToImage();

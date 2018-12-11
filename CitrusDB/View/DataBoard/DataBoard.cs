@@ -199,7 +199,6 @@ namespace CitrusDB.View.DataBoard
             var sel = dataGrid.SelectedRows[0].DataBoundItem;
             DeleteEntity?.Invoke(null, new EntityArgs(sel));
 
-            //todo: ??
             Search(searchTextBox.Text,
                 new AfterSearchingEventArgs(SortingTable, dataGrid.Tag?.ToString())
                   );

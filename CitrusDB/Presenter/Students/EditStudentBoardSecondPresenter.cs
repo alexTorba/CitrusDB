@@ -82,7 +82,7 @@ namespace CitrusDB.Presenter.Students
 
                 Group = selectedGroup == null
                                      ? null
-                                     : EFGenericRepository.FindById<Group>(selectedGroup.Id)
+                                     : EFGenericRepository.Find<Group>(selectedGroup.Id)
             };
 
             bool isEquality = new StudentsEqualityComarer()

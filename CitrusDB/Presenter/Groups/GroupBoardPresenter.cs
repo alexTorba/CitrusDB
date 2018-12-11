@@ -50,7 +50,7 @@ namespace CitrusDB.Presenter.Groups
             IStudentView addedStudentView = (IStudentView)((Control)sender).Parent;
 
             IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
-            studentView.FillView(EFGenericRepository.FindById<Student>(addedStudentView.Id));
+            studentView.FillView(EFGenericRepository.Find<Student>(addedStudentView.Id));
 
             groupBoard.AddedStudentControlCollection.Remove((Control)addedStudentView);
             groupBoard.CurrentStudentControlCollection.Add((Control)studentView);
@@ -64,7 +64,7 @@ namespace CitrusDB.Presenter.Groups
             //создаем addedStudentViewBoard (клонируем переданный экземпляр конкретного класса)
             IStudentView addedStudentView = (IStudentView)this.addedStudentView.Clone();
             //заполняем addedStudentViewBoard полями studentViewBoard на котороым было вызвано событие Click
-            addedStudentView.FillView(EFGenericRepository.FindById<Student>(studentViewBoard.Id));
+            addedStudentView.FillView(EFGenericRepository.Find<Student>(studentViewBoard.Id));
 
             groupBoard.CurrentStudentControlCollection.Remove((Control)studentViewBoard);
             groupBoard.AddedStudentControlCollection.Add((Control)addedStudentView);
@@ -150,16 +150,17 @@ namespace CitrusDB.Presenter.Groups
         /// </summary>
         /// <param name="condition">Условие, по которому будет формироваться выборка студентов.</param>
         /// <returns></returns>
-        private async Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
+        public virtual async Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
         {
             return await Task.Factory.StartNew(() =>
             {
-                IEnumerable<Student> students = EFGenericRepository.Get<Student>(s => s.Group == null);
+                IEnumerable<Student> students = EFGenericRepository.Get<Student>(s => s.Group == null).ToArray();
 
                 if (condition != string.Empty)
                     students = students
                                .Where(s => s.FirstName.ToUpperInvariant()
                                .Contains(condition.ToUpperInvariant()));
+
 
                 if (groupBoard.AddedStudentControlCollection.Count == 0)
                     return students.ToArray();
@@ -167,7 +168,7 @@ namespace CitrusDB.Presenter.Groups
                 {
                     var addedStudents = groupBoard.AddedStudentControlCollection
                                        .Cast<IStudentView>()
-                                       .Select(s => EFGenericRepository.FindById<Student>(s.Id));
+                                       .Select(s => EFGenericRepository.Find<Student>(s.Id));
 
                     return students.Except(addedStudents).ToArray();
                 }
