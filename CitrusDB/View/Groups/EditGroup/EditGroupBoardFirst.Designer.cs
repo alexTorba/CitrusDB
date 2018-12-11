@@ -65,20 +65,20 @@
             // 
             // searchGroupTextBox
             // 
-            this.searchGroupTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchGroupTextBox.Location = new System.Drawing.Point(34, 43);
+            this.searchGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.searchGroupTextBox.Location = new System.Drawing.Point(51, 43);
             this.searchGroupTextBox.Multiline = true;
             this.searchGroupTextBox.Name = "searchGroupTextBox";
-            this.searchGroupTextBox.Size = new System.Drawing.Size(229, 23);
+            this.searchGroupTextBox.Size = new System.Drawing.Size(191, 23);
             this.searchGroupTextBox.TabIndex = 1;
             this.searchGroupTextBox.TextChanged += new System.EventHandler(this.searchGroupTextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(112, 18);
+            this.label1.Location = new System.Drawing.Point(110, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 22);
             this.label1.TabIndex = 0;

@@ -102,11 +102,11 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchTextBox.Location = new System.Drawing.Point(31, 32);
+            this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.searchTextBox.Location = new System.Drawing.Point(25, 32);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(176, 20);
+            this.searchTextBox.Size = new System.Drawing.Size(191, 23);
             this.searchTextBox.TabIndex = 1;
             this.searchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchTextBox_MouseClick);
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
@@ -114,11 +114,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(89, 9);
+            this.label1.Location = new System.Drawing.Point(84, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.Size = new System.Drawing.Size(74, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Search";
             // 

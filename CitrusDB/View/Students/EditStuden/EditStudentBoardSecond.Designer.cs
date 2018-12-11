@@ -572,16 +572,16 @@
             this.searchPanel.Controls.Add(this.textBox1);
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(320, 89);
+            this.searchPanel.Size = new System.Drawing.Size(320, 82);
             this.searchPanel.TabIndex = 57;
             // 
             // searchGroupTextBox
             // 
-            this.searchGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchGroupTextBox.Location = new System.Drawing.Point(10, 51);
+            this.searchGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.searchGroupTextBox.Location = new System.Drawing.Point(63, 43);
             this.searchGroupTextBox.Multiline = true;
             this.searchGroupTextBox.Name = "searchGroupTextBox";
-            this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
+            this.searchGroupTextBox.Size = new System.Drawing.Size(191, 23);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
             this.searchGroupTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchGroupTextBox_MouseClick);
@@ -593,7 +593,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(2, 9);
+            this.textBox1.Location = new System.Drawing.Point(1, 11);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(310, 26);
@@ -618,9 +618,9 @@
             // 
             this.groupsFlowPanel.AutoScroll = true;
             this.groupsFlowPanel.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.groupsFlowPanel.Location = new System.Drawing.Point(0, 88);
+            this.groupsFlowPanel.Location = new System.Drawing.Point(0, 82);
             this.groupsFlowPanel.Name = "groupsFlowPanel";
-            this.groupsFlowPanel.Size = new System.Drawing.Size(320, 556);
+            this.groupsFlowPanel.Size = new System.Drawing.Size(320, 562);
             this.groupsFlowPanel.TabIndex = 55;
             // 
             // openFileDialog

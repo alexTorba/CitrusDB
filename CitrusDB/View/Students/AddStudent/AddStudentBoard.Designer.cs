@@ -53,6 +53,7 @@ namespace CitrusDB.View.Students.AddStudent
             this.generateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.promptButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.photo1Label = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.photo2Label = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -65,7 +66,6 @@ namespace CitrusDB.View.Students.AddStudent
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchGroupTextBox = new System.Windows.Forms.TextBox();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.promptButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.promptToolTip = new CitrusDB.View.UsersElements.Controls.PromptToolTip(this.components);
             this.flowLayoutPanelAddBoard.SuspendLayout();
             this.swingPanel.SuspendLayout();
@@ -552,6 +552,20 @@ namespace CitrusDB.View.Students.AddStudent
             this.clearButton.UseVisualStyleBackColor = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
+            // promptButton
+            // 
+            this.promptButton.BackColor = System.Drawing.Color.Gold;
+            this.promptButton.FlatAppearance.BorderSize = 0;
+            this.promptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.promptButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.promptButton.Image = global::CitrusDB.Properties.Resources.icons8_Help_35px_1;
+            this.promptButton.Location = new System.Drawing.Point(246, 3);
+            this.promptButton.Name = "promptButton";
+            this.promptButton.Size = new System.Drawing.Size(37, 37);
+            this.promptButton.TabIndex = 33;
+            this.promptButton.Tag = "Now you can choose a group for a student or save it without a group.";
+            this.promptButton.UseVisualStyleBackColor = false;
+            // 
             // photo1Label
             // 
             this.photo1Label.AutoSize = true;
@@ -582,9 +596,9 @@ namespace CitrusDB.View.Students.AddStudent
             // 
             this.groupsFlowPanel.AutoScroll = true;
             this.groupsFlowPanel.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.groupsFlowPanel.Location = new System.Drawing.Point(597, 88);
+            this.groupsFlowPanel.Location = new System.Drawing.Point(597, 79);
             this.groupsFlowPanel.Name = "groupsFlowPanel";
-            this.groupsFlowPanel.Size = new System.Drawing.Size(320, 556);
+            this.groupsFlowPanel.Size = new System.Drawing.Size(320, 565);
             this.groupsFlowPanel.TabIndex = 28;
             // 
             // progressBar
@@ -652,7 +666,7 @@ namespace CitrusDB.View.Students.AddStudent
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(5, 9);
+            this.textBox1.Location = new System.Drawing.Point(5, 10);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(310, 26);
@@ -667,16 +681,16 @@ namespace CitrusDB.View.Students.AddStudent
             this.searchPanel.Controls.Add(this.textBox1);
             this.searchPanel.Location = new System.Drawing.Point(597, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(320, 89);
+            this.searchPanel.Size = new System.Drawing.Size(320, 79);
             this.searchPanel.TabIndex = 31;
             // 
             // searchGroupTextBox
             // 
-            this.searchGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchGroupTextBox.Location = new System.Drawing.Point(10, 51);
+            this.searchGroupTextBox.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.searchGroupTextBox.Location = new System.Drawing.Point(63, 40);
             this.searchGroupTextBox.Multiline = true;
             this.searchGroupTextBox.Name = "searchGroupTextBox";
-            this.searchGroupTextBox.Size = new System.Drawing.Size(205, 31);
+            this.searchGroupTextBox.Size = new System.Drawing.Size(191, 23);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
             this.searchGroupTextBox.Click += new System.EventHandler(this.searchGroupTextBox_Click);
@@ -692,20 +706,6 @@ namespace CitrusDB.View.Students.AddStudent
             this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             this.monthCalendar.Enter += new System.EventHandler(this.monthCalendar_Enter);
-            // 
-            // promptButton
-            // 
-            this.promptButton.BackColor = System.Drawing.Color.Gold;
-            this.promptButton.FlatAppearance.BorderSize = 0;
-            this.promptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.promptButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.promptButton.Image = global::CitrusDB.Properties.Resources.icons8_Help_35px_1;
-            this.promptButton.Location = new System.Drawing.Point(246, 3);
-            this.promptButton.Name = "promptButton";
-            this.promptButton.Size = new System.Drawing.Size(37, 37);
-            this.promptButton.TabIndex = 33;
-            this.promptButton.Tag = "Now you can choose a group for a student or save it without a group.";
-            this.promptButton.UseVisualStyleBackColor = false;
             // 
             // promptToolTip
             // 
