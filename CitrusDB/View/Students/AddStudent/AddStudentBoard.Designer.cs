@@ -690,7 +690,7 @@ namespace CitrusDB.View.Students.AddStudent
             this.searchGroupTextBox.Location = new System.Drawing.Point(63, 40);
             this.searchGroupTextBox.Multiline = true;
             this.searchGroupTextBox.Name = "searchGroupTextBox";
-            this.searchGroupTextBox.Size = new System.Drawing.Size(191, 23);
+            this.searchGroupTextBox.Size = new System.Drawing.Size(191, 24);
             this.searchGroupTextBox.TabIndex = 31;
             this.searchGroupTextBox.Text = "Search..";
             this.searchGroupTextBox.Click += new System.EventHandler(this.searchGroupTextBox_Click);

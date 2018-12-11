@@ -41,8 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.optionFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.currentStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.flowPanelSearchSettings = new System.Windows.Forms.FlowLayoutPanel();
             this.searchSettingsButton = new System.Windows.Forms.Button();
             this.panelWhere = new System.Windows.Forms.Panel();
@@ -53,6 +51,8 @@
             this.radioButtonDescen = new System.Windows.Forms.RadioButton();
             this.radioButtonAscend = new System.Windows.Forms.RadioButton();
             this.buttonOrderBy = new System.Windows.Forms.Button();
+            this.currentStudentFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panelAddGroupSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoPictureBox)).BeginInit();
             this.optionFlowPanel.SuspendLayout();
@@ -204,11 +204,11 @@
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.searchTextBox.Location = new System.Drawing.Point(249, 7);
+            this.searchTextBox.Location = new System.Drawing.Point(249, 6);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(191, 23);
+            this.searchTextBox.Size = new System.Drawing.Size(191, 24);
             this.searchTextBox.TabIndex = 1;
             this.searchTextBox.Tag = "";
             this.searchTextBox.Text = "Search..";
@@ -225,6 +225,147 @@
             this.optionFlowPanel.Name = "optionFlowPanel";
             this.optionFlowPanel.Size = new System.Drawing.Size(208, 524);
             this.optionFlowPanel.TabIndex = 4;
+            // 
+            // flowPanelSearchSettings
+            // 
+            this.flowPanelSearchSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.flowPanelSearchSettings.Controls.Add(this.searchSettingsButton);
+            this.flowPanelSearchSettings.Controls.Add(this.panelWhere);
+            this.flowPanelSearchSettings.Controls.Add(this.panelOrderBy);
+            this.flowPanelSearchSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowPanelSearchSettings.Location = new System.Drawing.Point(3, 3);
+            this.flowPanelSearchSettings.MaximumSize = new System.Drawing.Size(201, 294);
+            this.flowPanelSearchSettings.MinimumSize = new System.Drawing.Size(201, 48);
+            this.flowPanelSearchSettings.Name = "flowPanelSearchSettings";
+            this.flowPanelSearchSettings.Size = new System.Drawing.Size(201, 48);
+            this.flowPanelSearchSettings.TabIndex = 8;
+            this.flowPanelSearchSettings.Tag = false;
+            // 
+            // searchSettingsButton
+            // 
+            this.searchSettingsButton.AutoSize = true;
+            this.searchSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.searchSettingsButton.FlatAppearance.BorderSize = 0;
+            this.searchSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchSettingsButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchSettingsButton.ForeColor = System.Drawing.Color.White;
+            this.searchSettingsButton.Location = new System.Drawing.Point(3, 3);
+            this.searchSettingsButton.Name = "searchSettingsButton";
+            this.searchSettingsButton.Size = new System.Drawing.Size(201, 48);
+            this.searchSettingsButton.TabIndex = 1;
+            this.searchSettingsButton.Text = "Search settings :";
+            this.searchSettingsButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.searchSettingsButton.UseVisualStyleBackColor = false;
+            this.searchSettingsButton.Click += new System.EventHandler(this.searchSettingsButton_Click);
+            // 
+            // panelWhere
+            // 
+            this.panelWhere.BackColor = System.Drawing.Color.DimGray;
+            this.panelWhere.Controls.Add(this.comboBoxFilters);
+            this.panelWhere.Controls.Add(this.label1);
+            this.panelWhere.Controls.Add(this.buttonWhere);
+            this.panelWhere.Location = new System.Drawing.Point(3, 57);
+            this.panelWhere.MaximumSize = new System.Drawing.Size(228, 104);
+            this.panelWhere.MinimumSize = new System.Drawing.Size(228, 48);
+            this.panelWhere.Name = "panelWhere";
+            this.panelWhere.Size = new System.Drawing.Size(228, 48);
+            this.panelWhere.TabIndex = 2;
+            this.panelWhere.Tag = false;
+            // 
+            // comboBoxFilters
+            // 
+            this.comboBoxFilters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxFilters.FormattingEnabled = true;
+            this.comboBoxFilters.Location = new System.Drawing.Point(57, 66);
+            this.comboBoxFilters.Name = "comboBoxFilters";
+            this.comboBoxFilters.Size = new System.Drawing.Size(132, 24);
+            this.comboBoxFilters.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(10, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Filter :";
+            // 
+            // buttonWhere
+            // 
+            this.buttonWhere.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonWhere.FlatAppearance.BorderSize = 0;
+            this.buttonWhere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWhere.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonWhere.ForeColor = System.Drawing.Color.White;
+            this.buttonWhere.Location = new System.Drawing.Point(0, 0);
+            this.buttonWhere.Name = "buttonWhere";
+            this.buttonWhere.Size = new System.Drawing.Size(228, 48);
+            this.buttonWhere.TabIndex = 2;
+            this.buttonWhere.Text = "                     Where";
+            this.buttonWhere.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonWhere.UseVisualStyleBackColor = false;
+            this.buttonWhere.Click += new System.EventHandler(this.buttonWhere_Click);
+            // 
+            // panelOrderBy
+            // 
+            this.panelOrderBy.BackColor = System.Drawing.Color.DimGray;
+            this.panelOrderBy.Controls.Add(this.radioButtonDescen);
+            this.panelOrderBy.Controls.Add(this.radioButtonAscend);
+            this.panelOrderBy.Controls.Add(this.buttonOrderBy);
+            this.panelOrderBy.Location = new System.Drawing.Point(3, 111);
+            this.panelOrderBy.MaximumSize = new System.Drawing.Size(228, 116);
+            this.panelOrderBy.MinimumSize = new System.Drawing.Size(228, 48);
+            this.panelOrderBy.Name = "panelOrderBy";
+            this.panelOrderBy.Size = new System.Drawing.Size(228, 48);
+            this.panelOrderBy.TabIndex = 3;
+            this.panelOrderBy.Tag = false;
+            // 
+            // radioButtonDescen
+            // 
+            this.radioButtonDescen.AutoSize = true;
+            this.radioButtonDescen.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonDescen.ForeColor = System.Drawing.Color.White;
+            this.radioButtonDescen.Location = new System.Drawing.Point(28, 86);
+            this.radioButtonDescen.Name = "radioButtonDescen";
+            this.radioButtonDescen.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButtonDescen.Size = new System.Drawing.Size(101, 21);
+            this.radioButtonDescen.TabIndex = 4;
+            this.radioButtonDescen.TabStop = true;
+            this.radioButtonDescen.Text = "descending";
+            this.radioButtonDescen.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAscend
+            // 
+            this.radioButtonAscend.AutoSize = true;
+            this.radioButtonAscend.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonAscend.ForeColor = System.Drawing.Color.White;
+            this.radioButtonAscend.Location = new System.Drawing.Point(36, 59);
+            this.radioButtonAscend.Name = "radioButtonAscend";
+            this.radioButtonAscend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButtonAscend.Size = new System.Drawing.Size(93, 21);
+            this.radioButtonAscend.TabIndex = 3;
+            this.radioButtonAscend.TabStop = true;
+            this.radioButtonAscend.Text = "ascending";
+            this.radioButtonAscend.UseVisualStyleBackColor = true;
+            // 
+            // buttonOrderBy
+            // 
+            this.buttonOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonOrderBy.FlatAppearance.BorderSize = 0;
+            this.buttonOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrderBy.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOrderBy.ForeColor = System.Drawing.Color.White;
+            this.buttonOrderBy.Location = new System.Drawing.Point(0, 0);
+            this.buttonOrderBy.Name = "buttonOrderBy";
+            this.buttonOrderBy.Size = new System.Drawing.Size(228, 48);
+            this.buttonOrderBy.TabIndex = 2;
+            this.buttonOrderBy.Text = "                     OrderBy";
+            this.buttonOrderBy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOrderBy.UseVisualStyleBackColor = false;
+            this.buttonOrderBy.Click += new System.EventHandler(this.buttonOrderBy_Click);
             // 
             // currentStudentFlowPanel
             // 
@@ -246,147 +387,6 @@
             this.bunifuSeparator1.TabIndex = 7;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
-            // 
-            // flowPanelSearchSettings
-            // 
-            this.flowPanelSearchSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.flowPanelSearchSettings.Controls.Add(this.searchSettingsButton);
-            this.flowPanelSearchSettings.Controls.Add(this.panelWhere);
-            this.flowPanelSearchSettings.Controls.Add(this.panelOrderBy);
-            this.flowPanelSearchSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowPanelSearchSettings.Location = new System.Drawing.Point(3, 3);
-            this.flowPanelSearchSettings.MaximumSize = new System.Drawing.Size(228, 329);
-            this.flowPanelSearchSettings.MinimumSize = new System.Drawing.Size(0, 64);
-            this.flowPanelSearchSettings.Name = "flowPanelSearchSettings";
-            this.flowPanelSearchSettings.Size = new System.Drawing.Size(204, 64);
-            this.flowPanelSearchSettings.TabIndex = 8;
-            this.flowPanelSearchSettings.Tag = false;
-            // 
-            // searchSettingsButton
-            // 
-            this.searchSettingsButton.AutoSize = true;
-            this.searchSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.searchSettingsButton.FlatAppearance.BorderSize = 0;
-            this.searchSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchSettingsButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchSettingsButton.ForeColor = System.Drawing.Color.White;
-            this.searchSettingsButton.Location = new System.Drawing.Point(3, 3);
-            this.searchSettingsButton.Name = "searchSettingsButton";
-            this.searchSettingsButton.Size = new System.Drawing.Size(201, 58);
-            this.searchSettingsButton.TabIndex = 1;
-            this.searchSettingsButton.Text = "Search settings :";
-            this.searchSettingsButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.searchSettingsButton.UseVisualStyleBackColor = false;
-            this.searchSettingsButton.Click += new System.EventHandler(this.searchSettingsButton_Click);
-            // 
-            // panelWhere
-            // 
-            this.panelWhere.BackColor = System.Drawing.Color.DimGray;
-            this.panelWhere.Controls.Add(this.comboBoxFilters);
-            this.panelWhere.Controls.Add(this.label1);
-            this.panelWhere.Controls.Add(this.buttonWhere);
-            this.panelWhere.Location = new System.Drawing.Point(3, 67);
-            this.panelWhere.MaximumSize = new System.Drawing.Size(225, 119);
-            this.panelWhere.MinimumSize = new System.Drawing.Size(0, 58);
-            this.panelWhere.Name = "panelWhere";
-            this.panelWhere.Size = new System.Drawing.Size(201, 58);
-            this.panelWhere.TabIndex = 2;
-            this.panelWhere.Tag = false;
-            // 
-            // comboBoxFilters
-            // 
-            this.comboBoxFilters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxFilters.FormattingEnabled = true;
-            this.comboBoxFilters.Location = new System.Drawing.Point(57, 80);
-            this.comboBoxFilters.Name = "comboBoxFilters";
-            this.comboBoxFilters.Size = new System.Drawing.Size(132, 24);
-            this.comboBoxFilters.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Filter :";
-            // 
-            // buttonWhere
-            // 
-            this.buttonWhere.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonWhere.FlatAppearance.BorderSize = 0;
-            this.buttonWhere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWhere.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonWhere.ForeColor = System.Drawing.Color.White;
-            this.buttonWhere.Location = new System.Drawing.Point(0, 0);
-            this.buttonWhere.Name = "buttonWhere";
-            this.buttonWhere.Size = new System.Drawing.Size(228, 58);
-            this.buttonWhere.TabIndex = 2;
-            this.buttonWhere.Text = "                     Where";
-            this.buttonWhere.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonWhere.UseVisualStyleBackColor = false;
-            this.buttonWhere.Click += new System.EventHandler(this.buttonWhere_Click);
-            // 
-            // panelOrderBy
-            // 
-            this.panelOrderBy.BackColor = System.Drawing.Color.DimGray;
-            this.panelOrderBy.Controls.Add(this.radioButtonDescen);
-            this.panelOrderBy.Controls.Add(this.radioButtonAscend);
-            this.panelOrderBy.Controls.Add(this.buttonOrderBy);
-            this.panelOrderBy.Location = new System.Drawing.Point(3, 131);
-            this.panelOrderBy.MaximumSize = new System.Drawing.Size(228, 136);
-            this.panelOrderBy.MinimumSize = new System.Drawing.Size(0, 58);
-            this.panelOrderBy.Name = "panelOrderBy";
-            this.panelOrderBy.Size = new System.Drawing.Size(201, 58);
-            this.panelOrderBy.TabIndex = 3;
-            this.panelOrderBy.Tag = false;
-            // 
-            // radioButtonDescen
-            // 
-            this.radioButtonDescen.AutoSize = true;
-            this.radioButtonDescen.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonDescen.ForeColor = System.Drawing.Color.White;
-            this.radioButtonDescen.Location = new System.Drawing.Point(28, 103);
-            this.radioButtonDescen.Name = "radioButtonDescen";
-            this.radioButtonDescen.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButtonDescen.Size = new System.Drawing.Size(101, 21);
-            this.radioButtonDescen.TabIndex = 4;
-            this.radioButtonDescen.TabStop = true;
-            this.radioButtonDescen.Text = "descending";
-            this.radioButtonDescen.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonAscend
-            // 
-            this.radioButtonAscend.AutoSize = true;
-            this.radioButtonAscend.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonAscend.ForeColor = System.Drawing.Color.White;
-            this.radioButtonAscend.Location = new System.Drawing.Point(36, 73);
-            this.radioButtonAscend.Name = "radioButtonAscend";
-            this.radioButtonAscend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButtonAscend.Size = new System.Drawing.Size(93, 21);
-            this.radioButtonAscend.TabIndex = 3;
-            this.radioButtonAscend.TabStop = true;
-            this.radioButtonAscend.Text = "ascending";
-            this.radioButtonAscend.UseVisualStyleBackColor = true;
-            // 
-            // buttonOrderBy
-            // 
-            this.buttonOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonOrderBy.FlatAppearance.BorderSize = 0;
-            this.buttonOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOrderBy.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOrderBy.ForeColor = System.Drawing.Color.White;
-            this.buttonOrderBy.Location = new System.Drawing.Point(0, 0);
-            this.buttonOrderBy.Name = "buttonOrderBy";
-            this.buttonOrderBy.Size = new System.Drawing.Size(228, 58);
-            this.buttonOrderBy.TabIndex = 2;
-            this.buttonOrderBy.Text = "                     OrderBy";
-            this.buttonOrderBy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOrderBy.UseVisualStyleBackColor = false;
-            this.buttonOrderBy.Click += new System.EventHandler(this.buttonOrderBy_Click);
             // 
             // AddGroupBoard
             // 

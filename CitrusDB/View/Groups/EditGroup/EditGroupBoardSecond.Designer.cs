@@ -103,10 +103,11 @@
             this.searchTextBox.Location = new System.Drawing.Point(22, 32);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(191, 23);
+            this.searchTextBox.Size = new System.Drawing.Size(191, 24);
             this.searchTextBox.TabIndex = 0;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.Text = "Search..";
+            this.searchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchTextBox_MouseClick);
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // flowPanelSearchSettings
@@ -384,7 +385,7 @@
             this.nameGroupTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameGroupTextBox.Multiline = true;
             this.nameGroupTextBox.Name = "nameGroupTextBox";
-            this.nameGroupTextBox.Size = new System.Drawing.Size(125, 22);
+            this.nameGroupTextBox.Size = new System.Drawing.Size(125, 23);
             this.nameGroupTextBox.TabIndex = 1;
             // 
             // label2

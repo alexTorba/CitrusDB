@@ -69,7 +69,7 @@
             this.searchGroupTextBox.Location = new System.Drawing.Point(51, 43);
             this.searchGroupTextBox.Multiline = true;
             this.searchGroupTextBox.Name = "searchGroupTextBox";
-            this.searchGroupTextBox.Size = new System.Drawing.Size(191, 23);
+            this.searchGroupTextBox.Size = new System.Drawing.Size(191, 24);
             this.searchGroupTextBox.TabIndex = 1;
             this.searchGroupTextBox.TextChanged += new System.EventHandler(this.searchGroupTextBox_TextChanged);
             // 

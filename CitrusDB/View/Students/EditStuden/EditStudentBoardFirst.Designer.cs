@@ -120,7 +120,7 @@
             this.searchTextBox.Location = new System.Drawing.Point(25, 32);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(191, 23);
+            this.searchTextBox.Size = new System.Drawing.Size(191, 24);
             this.searchTextBox.TabIndex = 1;
             this.searchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchTextBox_MouseClick);
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);

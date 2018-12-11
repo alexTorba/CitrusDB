@@ -183,5 +183,12 @@ namespace CitrusDB.View.Groups.EditGroup
             mainForm.TimerTiks += panelOrderBy.TicksGrowsHeight;
         }
 
+        private void searchTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
+        }
+
     }
 }

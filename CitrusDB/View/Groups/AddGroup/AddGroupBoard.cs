@@ -206,5 +206,6 @@ namespace CitrusDB.View.Groups.AddGroup
             mainForm.ClearEventHandlers();
             mainForm.TimerTiks += panelOrderBy.TicksGrowsHeight;
         }
+
     }
 }
