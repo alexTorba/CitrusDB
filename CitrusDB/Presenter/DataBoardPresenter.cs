@@ -122,15 +122,24 @@ namespace CitrusDB.Presenter
         {
             Type type = dataBoard.GetDataSource.GetType().UnderlyingSystemType.GetElementType();
 
-            GetMethod("OrderData", type).Invoke(this, new object[] { e.SelectedHeader });
+            GetMethod("OrderData", type).Invoke(this, new object[] { e.SelectedHeader, e.isAscending });
         }
 
-        private void OrderData<TEntity>(string filter)
+        private void OrderData<TEntity>(string filter, bool isAscending)
             where TEntity : class, IEntity
         {
-            dataBoard.GetDataSource = ((ICollection<TEntity>)dataBoard.GetDataSource)
-                                            .OrderBy(filter)
-                                            .ToArray();
+            if (isAscending)
+            {
+                dataBoard.GetDataSource = ((ICollection<TEntity>)dataBoard.GetDataSource)
+                                                .OrderBy(filter)
+                                                .ToArray();
+            }
+            else
+            {
+                dataBoard.GetDataSource = ((ICollection<TEntity>)dataBoard.GetDataSource)
+                                                .OrderByDescending(filter)
+                                                .ToArray();
+            }
         }
 
         private void DataBoard_DeleteEntity(object sender, EventArgs e)

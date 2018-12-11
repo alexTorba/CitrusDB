@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CitrusDB.Model.UsersEventArgs;
+using System;
 using System.Drawing;
 using static System.Windows.Forms.Control;
 
@@ -21,7 +22,7 @@ namespace CitrusDB.View.Groups
 
         event EventHandler LoadGroupBoard;
         event EventHandler ChangeAddedStudentPanelControl;
-        event EventHandler CurrentStudentSearchTextBoxChanges;
+        event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
         event EventHandler UpdateView;
     }
 }

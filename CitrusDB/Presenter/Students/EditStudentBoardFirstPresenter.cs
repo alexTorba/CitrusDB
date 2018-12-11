@@ -72,22 +72,20 @@ namespace CitrusDB.Presenter.Students
             }
         }
 
-        private void EditStudentBoardFirst_StudentSearchTextBoxChanges(object sender, EventArgs e)
+        private void EditStudentBoardFirst_StudentSearchTextBoxChanges(string condition, string searchCriteria, EventArgs e)
         {
             currentTask?.CancelTask();
 
-            currentTask = new TaskInfo(SearchStudent, sender);
+            currentTask = new TaskInfo(SearchStudent, condition, searchCriteria);
         }
 
         #endregion
 
-        private async void SearchStudent(object sender, CancellationToken token)
+        private async void SearchStudent(string condition, string searchCriteria, CancellationToken token)
         {
             try
             {
-                // addGroupBoard.DisableCurrentStudentPanel();
-
-                Student[] result = GetStudentsWithConditions((sender as TextBox).Text);
+                Student[] result = GetStudentsWithConditions(condition, searchCriteria);
                 await FillControlCollection(result, token);
             }
             catch (OperationCanceledException canceledEx)
@@ -99,22 +97,18 @@ namespace CitrusDB.Presenter.Students
             {
                 throw new Exception(ex.Message);
             }
-            finally
-            {
-                //addGroupBoard.EnableCurrentStudentPanel();
-            }
 
             Console.WriteLine($"SUCCESSFUL" + Environment.NewLine);
         }
 
-        private Student[] GetStudentsWithConditions(string condition)
+        private Student[] GetStudentsWithConditions(string condition, string searchCriteria)
         {
             if (condition == string.Empty)
                 return EFGenericRepository.Get<Student>().ToArray();
 
-            return EFGenericRepository.Get<Student>(s => s.FirstName.ToUpperInvariant()
-                                                         .Contains(condition.ToUpperInvariant()))
-                                                         .ToArray();
+            return EFGenericRepository.Get<Student>()
+                                            .Where(searchCriteria, condition)
+                                            .ToArray();
         }
 
         /// <summary>
@@ -170,7 +164,6 @@ namespace CitrusDB.Presenter.Students
                 token
                 );
         }
-
 
     }
 }

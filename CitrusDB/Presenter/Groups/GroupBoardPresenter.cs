@@ -103,11 +103,11 @@ namespace CitrusDB.Presenter.Groups
             FillInitControlCollection(students, new CancellationToken());
         }
 
-        private void GroupBoard_CurrentStudentSearchTextBoxChanges(object sender, EventArgs e)
+        private void GroupBoard_CurrentStudentSearchTextBoxChanges(string condition, string searchCriteria, EventArgs e)
         {
             currentTask?.CancelTask();
 
-            currentTask = new TaskInfo(SearchStudent, sender);
+            currentTask = new TaskInfo(SearchStudent, condition, searchCriteria);
         }
 
         private void GroupBoard_ChangeAddedStudentPanelControl(object sender, EventArgs e)
@@ -118,13 +118,13 @@ namespace CitrusDB.Presenter.Groups
 
         #endregion
 
-        private async void SearchStudent(object sender, CancellationToken token)
+        private async void SearchStudent(string condition, string searchCriteria, CancellationToken token)
         {
             try
             {
                 groupBoard.DisableCurrentStudentPanel();
 
-                Student[] result = await GetStudentWithExceptedAddedStudent((sender as TextBox).Text, token);
+                Student[] result = await GetStudentWithExceptedAddedStudent(condition, searchCriteria, token);
 
                 await FillControlCollection(result, token);
             }
@@ -150,7 +150,7 @@ namespace CitrusDB.Presenter.Groups
         /// </summary>
         /// <param name="condition">Условие, по которому будет формироваться выборка студентов.</param>
         /// <returns></returns>
-        public virtual async Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
+        public virtual async Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, string searchCriteria, CancellationToken token)
         {
             return await Task.Factory.StartNew(() =>
             {
@@ -158,8 +158,7 @@ namespace CitrusDB.Presenter.Groups
 
                 if (condition != string.Empty)
                     students = students
-                               .Where(s => s.FirstName.ToUpperInvariant()
-                               .Contains(condition.ToUpperInvariant()));
+                               .Where(searchCriteria,condition);
 
 
                 if (groupBoard.AddedStudentControlCollection.Count == 0)

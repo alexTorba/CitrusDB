@@ -90,7 +90,7 @@ namespace CitrusDB.Presenter.Groups
                 CancellationToken.None);
         }
 
-        public async override Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, CancellationToken token)
+        public async override Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, string searchCriteria, CancellationToken token)
         {
             return await Task.Factory.StartNew(() =>
             {
@@ -103,8 +103,7 @@ namespace CitrusDB.Presenter.Groups
 
                 if (condition != string.Empty)
                     students = students
-                               .Where(s => s.FirstName.ToUpperInvariant()
-                               .Contains(condition.ToUpperInvariant()));
+                               .Where(searchCriteria, condition);
 
 
                 if (groupBoard.AddedStudentControlCollection.Count == 0)

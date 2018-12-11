@@ -232,7 +232,7 @@ namespace CitrusDB.View.DataBoard
             if (conditionSorting == null)
                 return;
 
-            HeaderMouseClick?.Invoke(dataGrid, new HeaderPropertyEventArgs(conditionSorting));
+            HeaderMouseClick?.Invoke(dataGrid, new HeaderPropertyEventArgs(conditionSorting, radioButtonAscend.Checked));
         }
 
         private void radioButtonGroup_CheckedChanged(object sender, EventArgs e)

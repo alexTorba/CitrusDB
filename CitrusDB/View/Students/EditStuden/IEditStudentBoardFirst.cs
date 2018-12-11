@@ -1,4 +1,5 @@
 ﻿using CitrusDB.Model.Entity;
+using CitrusDB.Model.UsersEventArgs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace CitrusDB.View.Students.EditStuden
 
         event EventHandler LoadEditStudentBoardFirst;
         event EventHandler UpdateView;
-        event EventHandler StudentSearchTextBoxChanges;
+        event SearchingEventHandler StudentSearchTextBoxChanges;
 
     }
 }

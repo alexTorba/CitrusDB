@@ -79,7 +79,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupInfo
         private void studentsDataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             HeaderMouseClick?.Invoke(sender, 
-                new HeaderPropertyEventArgs(studentsDataGrid.Columns[e.ColumnIndex].DataPropertyName));
+                new HeaderPropertyEventArgs(studentsDataGrid.Columns[e.ColumnIndex].DataPropertyName, true));
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)

@@ -12,6 +12,8 @@ using CitrusDB.View.UsersElements;
 using CitrusDB.View.UsersElements.Dialogs;
 using CitrusDB.View.UsersElements.FormLoading;
 using System.Threading;
+using CitrusDB.Model.UsersEventArgs;
+using CitrusDB.Model.Extensions;
 
 namespace CitrusDB.View.Groups.AddGroup
 {
@@ -67,7 +69,7 @@ namespace CitrusDB.View.Groups.AddGroup
         public event EventHandler ChangeAddedStudentPanelControl;
         public event EventHandler ClearClick;
         public event EventHandler SaveClick;
-        public event EventHandler CurrentStudentSearchTextBoxChanges;
+        public event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
         public event EventHandler UpdateView;
 
         #endregion
@@ -80,6 +82,17 @@ namespace CitrusDB.View.Groups.AddGroup
             LoadGroupBoard?.Invoke(sender, e);
 
             countOfStudentsLabel.Text = addedStudentFlowPanel.Controls.Count.ToString();
+
+            comboBoxFilters.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
         }
 
         private void addedStudentFlowPanel_ControlAdded(object sender, ControlEventArgs e)
@@ -116,7 +129,7 @@ namespace CitrusDB.View.Groups.AddGroup
         {
             mainForm.SetStatusValue = "Searching students..";
 
-            CurrentStudentSearchTextBoxChanges.Invoke(sender, e);
+            CurrentStudentSearchTextBoxChanges.Invoke((sender as TextBox).Text, comboBoxFilters.SelectedItem.ToString(), null);
 
             mainForm.SetInitStatus();
         }
@@ -170,5 +183,28 @@ namespace CitrusDB.View.Groups.AddGroup
 
         #endregion
 
+        private void searchSettingsButton_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += flowPanelSearchSettings.TicksGrowsHeightQuiсkly;
+        }
+
+        private void buttonWhere_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += panelWhere.TicksGrowsHeight;
+        }
+
+        private void buttonOrderBy_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += panelOrderBy.TicksGrowsHeight;
+        }
     }
 }

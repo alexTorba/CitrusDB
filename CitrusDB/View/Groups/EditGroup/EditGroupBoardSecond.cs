@@ -1,19 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
+using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.View.UsersElements.Dialogs;
 
 namespace CitrusDB.View.Groups.EditGroup
 {
     public partial class EditGroupBoardSecond : UserControl, IEditGroupBoardSecond
     {
-
+        MainForm mainForm;
         public EditGroupBoardSecond()
         {
             InitializeComponent();
+        }
+
+        public void InitFileds(MainForm mainForm)
+        {
+            this.mainForm = mainForm;
+
+            comboBoxFilters.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
         }
 
         #region IEditGroupBoardSecond
@@ -46,7 +64,7 @@ namespace CitrusDB.View.Groups.EditGroup
         public event EventHandler CancelClick;
         public event EventHandler LoadGroupBoard;
         public event EventHandler ChangeAddedStudentPanelControl;
-        public event EventHandler CurrentStudentSearchTextBoxChanges;
+        public event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
         public event EventHandler UpdateView;
         public event EventHandler SetEditingGroup;
 
@@ -114,7 +132,7 @@ namespace CitrusDB.View.Groups.EditGroup
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            CurrentStudentSearchTextBoxChanges?.Invoke(sender, e);
+            CurrentStudentSearchTextBoxChanges?.Invoke((sender as TextBox).Text,comboBoxFilters.SelectedItem.ToString(), null);
         }
 
         #endregion
@@ -130,5 +148,30 @@ namespace CitrusDB.View.Groups.EditGroup
             if (pictureBox.Image != null)
                 photoLabel.Visible = false;
         }
+
+        private void searchSettingsButton_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += flowPanelSearchSettings.TicksGrowsHeightQuiсkly;
+        }
+
+        private void buttonWhere_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += panelWhere.TicksGrowsHeight;
+        }
+
+        private void buttonOrderBy_Click(object sender, EventArgs e)
+        {
+            mainForm.timer.Start();
+
+            mainForm.ClearEventHandlers();
+            mainForm.TimerTiks += panelOrderBy.TicksGrowsHeight;
+        }
+
     }
 }

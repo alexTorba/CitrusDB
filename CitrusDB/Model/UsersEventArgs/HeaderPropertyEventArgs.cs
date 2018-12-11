@@ -11,10 +11,11 @@ namespace CitrusDB.Model.UsersEventArgs
     public class HeaderPropertyEventArgs : EventArgs
     {
         public string SelectedHeader { get; }
-
-        public HeaderPropertyEventArgs(string selectedHeader)
+        public bool isAscending { get; }
+        public HeaderPropertyEventArgs(string selectedHeader, bool isAscending)
         {
             SelectedHeader = selectedHeader;
+            this.isAscending = isAscending;
         }
 
     }
