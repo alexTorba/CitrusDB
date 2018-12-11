@@ -105,6 +105,7 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(191, 23);
             this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TabStop = false;
             this.searchTextBox.Text = "Search..";
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
@@ -247,7 +248,7 @@
             // 
             // panelAddGroupSpace
             // 
-            this.panelAddGroupSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.panelAddGroupSpace.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelAddGroupSpace.Controls.Add(this.bunifuSeparator1);
             this.panelAddGroupSpace.Controls.Add(this.cancelButton);
             this.panelAddGroupSpace.Controls.Add(this.acceptButton);
@@ -324,7 +325,7 @@
             // 
             this.countOfStudentsLabel.AutoSize = true;
             this.countOfStudentsLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F);
-            this.countOfStudentsLabel.Location = new System.Drawing.Point(178, 67);
+            this.countOfStudentsLabel.Location = new System.Drawing.Point(78, 63);
             this.countOfStudentsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.countOfStudentsLabel.Name = "countOfStudentsLabel";
             this.countOfStudentsLabel.Size = new System.Drawing.Size(0, 19);
@@ -356,12 +357,14 @@
             // addedStudentFlowPanel
             // 
             this.addedStudentFlowPanel.AutoScroll = true;
-            this.addedStudentFlowPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.addedStudentFlowPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.addedStudentFlowPanel.Location = new System.Drawing.Point(13, 170);
             this.addedStudentFlowPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addedStudentFlowPanel.Name = "addedStudentFlowPanel";
             this.addedStudentFlowPanel.Size = new System.Drawing.Size(276, 397);
             this.addedStudentFlowPanel.TabIndex = 4;
+            this.addedStudentFlowPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.addedStudentFlowPanel_ControlAdded);
+            this.addedStudentFlowPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.addedStudentFlowPanel_ControlRemoved);
             // 
             // label3
             // 
@@ -398,7 +401,7 @@
             // currentStudentsFlowPanel
             // 
             this.currentStudentsFlowPanel.AutoScroll = true;
-            this.currentStudentsFlowPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.currentStudentsFlowPanel.BackColor = System.Drawing.SystemColors.Control;
             this.currentStudentsFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentStudentsFlowPanel.Location = new System.Drawing.Point(241, 0);
             this.currentStudentsFlowPanel.Name = "currentStudentsFlowPanel";

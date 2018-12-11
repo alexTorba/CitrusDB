@@ -35,8 +35,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.unityPanel = new System.Windows.Forms.Panel();
-            this.studentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowPanelSearchSettings = new System.Windows.Forms.FlowLayoutPanel();
             this.searchSettingsButton = new System.Windows.Forms.Button();
             this.panelWhere = new System.Windows.Forms.Panel();
@@ -47,14 +45,16 @@
             this.radioButtonDescen = new System.Windows.Forms.RadioButton();
             this.radioButtonAscend = new System.Windows.Forms.RadioButton();
             this.buttonOrderBy = new System.Windows.Forms.Button();
+            this.unityPanel = new System.Windows.Forms.Panel();
+            this.studentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.generPanelOptions.SuspendLayout();
             this.panelGroup.SuspendLayout();
             this.flowGroupOptions.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.unityPanel.SuspendLayout();
             this.flowPanelSearchSettings.SuspendLayout();
             this.panelWhere.SuspendLayout();
             this.panelOrderBy.SuspendLayout();
+            this.unityPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generPanelOptions
@@ -62,21 +62,21 @@
             this.generPanelOptions.Controls.Add(this.collapsedButton);
             this.generPanelOptions.Controls.Add(this.panelGroup);
             this.generPanelOptions.Dock = System.Windows.Forms.DockStyle.Right;
-            this.generPanelOptions.Location = new System.Drawing.Point(646, 0);
+            this.generPanelOptions.Location = new System.Drawing.Point(858, 0);
             this.generPanelOptions.Margin = new System.Windows.Forms.Padding(4);
             this.generPanelOptions.MaximumSize = new System.Drawing.Size(282, 644);
             this.generPanelOptions.MinimumSize = new System.Drawing.Size(70, 644);
             this.generPanelOptions.Name = "generPanelOptions";
-            this.generPanelOptions.Size = new System.Drawing.Size(282, 644);
+            this.generPanelOptions.Size = new System.Drawing.Size(70, 644);
             this.generPanelOptions.TabIndex = 7;
-            this.generPanelOptions.Tag = true;
+            this.generPanelOptions.Tag = false;
             // 
             // collapsedButton
             // 
             this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.collapsedButton.FlatAppearance.BorderSize = 0;
             this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.right;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
             this.collapsedButton.Location = new System.Drawing.Point(5, 317);
             this.collapsedButton.Margin = new System.Windows.Forms.Padding(4);
             this.collapsedButton.Name = "collapsedButton";
@@ -135,26 +135,6 @@
             this.label1.Size = new System.Drawing.Size(74, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Search";
-            // 
-            // unityPanel
-            // 
-            this.unityPanel.Controls.Add(this.studentFlowLayoutPanel);
-            this.unityPanel.Controls.Add(this.generPanelOptions);
-            this.unityPanel.Location = new System.Drawing.Point(0, 0);
-            this.unityPanel.Name = "unityPanel";
-            this.unityPanel.Size = new System.Drawing.Size(928, 644);
-            this.unityPanel.TabIndex = 8;
-            // 
-            // studentFlowLayoutPanel
-            // 
-            this.studentFlowLayoutPanel.AutoScroll = true;
-            this.studentFlowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.studentFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.studentFlowLayoutPanel.MaximumSize = new System.Drawing.Size(856, 644);
-            this.studentFlowLayoutPanel.MinimumSize = new System.Drawing.Size(639, 644);
-            this.studentFlowLayoutPanel.Name = "studentFlowLayoutPanel";
-            this.studentFlowLayoutPanel.Size = new System.Drawing.Size(639, 644);
-            this.studentFlowLayoutPanel.TabIndex = 8;
             // 
             // flowPanelSearchSettings
             // 
@@ -293,6 +273,26 @@
             this.buttonOrderBy.UseVisualStyleBackColor = false;
             this.buttonOrderBy.Click += new System.EventHandler(this.buttonOrderBy_Click);
             // 
+            // unityPanel
+            // 
+            this.unityPanel.Controls.Add(this.studentFlowLayoutPanel);
+            this.unityPanel.Controls.Add(this.generPanelOptions);
+            this.unityPanel.Location = new System.Drawing.Point(0, 0);
+            this.unityPanel.Name = "unityPanel";
+            this.unityPanel.Size = new System.Drawing.Size(928, 644);
+            this.unityPanel.TabIndex = 8;
+            // 
+            // studentFlowLayoutPanel
+            // 
+            this.studentFlowLayoutPanel.AutoScroll = true;
+            this.studentFlowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.studentFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.studentFlowLayoutPanel.MaximumSize = new System.Drawing.Size(856, 644);
+            this.studentFlowLayoutPanel.MinimumSize = new System.Drawing.Size(639, 644);
+            this.studentFlowLayoutPanel.Name = "studentFlowLayoutPanel";
+            this.studentFlowLayoutPanel.Size = new System.Drawing.Size(856, 644);
+            this.studentFlowLayoutPanel.TabIndex = 8;
+            // 
             // EditStudentBoardFirst
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -305,12 +305,12 @@
             this.flowGroupOptions.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.unityPanel.ResumeLayout(false);
             this.flowPanelSearchSettings.ResumeLayout(false);
             this.panelWhere.ResumeLayout(false);
             this.panelWhere.PerformLayout();
             this.panelOrderBy.ResumeLayout(false);
             this.panelOrderBy.PerformLayout();
+            this.unityPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

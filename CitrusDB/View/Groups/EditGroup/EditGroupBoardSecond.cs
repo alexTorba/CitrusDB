@@ -135,6 +135,16 @@ namespace CitrusDB.View.Groups.EditGroup
             CurrentStudentSearchTextBoxChanges?.Invoke((sender as TextBox).Text,comboBoxFilters.SelectedItem.ToString(), null);
         }
 
+        private void addedStudentFlowPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            ChangeAddedStudentPanelControl?.Invoke(sender, EventArgs.Empty);
+        }
+
+        private void addedStudentFlowPanel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            ChangeAddedStudentPanelControl?.Invoke(sender, EventArgs.Empty);
+        }
+
         #endregion
 
         private void photoPictureBox_Click(object sender, EventArgs e)
