@@ -99,18 +99,29 @@ namespace CitrusDB.Model.Extensions
 
         private static IEnumerable<T> WhereTreeExpression<T>(this IEnumerable<T> sequance, string searchCriteria, string filter)
         {
-            // x=>x.propertyName
+            // new x=>x.propertyName.ToUpperInvariant().Contains(filter.ToUpperInvariant())
             ParameterExpression parameterExpression = Expression.Parameter(typeof(T));
+            ConstantExpression propfilter = Expression.Constant(filter);
             MemberExpression property = Expression.Property(parameterExpression, searchCriteria);
-            Delegate lambda = Expression.Lambda(property, parameterExpression).Compile();
 
-            var where = typeof(Enumerable)
-                .GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .Where(m => m.GetParameters().Length == 2 && m.Name == "Where")
-                .FirstOrDefault()
-                .MakeGenericMethod(typeof(T), property.Type);
+            MethodInfo methodToString = typeof(object).GetMethod("ToString");
+            MethodInfo methodToUpperInvariant = typeof(string).GetMethod("ToUpperInvariant");
+            MethodInfo methodContains = typeof(string).GetMethod("Contains", new[] { typeof(string) });
 
-            return (IEnumerable<T>)where.Invoke(null, new object[] { sequance, lambda });
+            //x.propertyName.ToString().ToUpperInvariant()
+            Expression propertyToString = Expression.Call(property, methodToString);
+            Expression propertyToStringToUpper = Expression.Call(propertyToString, methodToUpperInvariant);
+
+            //filter.ToUpperInvariant()
+            Expression filterToUpper = Expression.Call(propfilter, methodToUpperInvariant);
+
+            // new x=>x.propertyName.ToUpperInvariant().Contains(filter.ToUpperInvariant())
+            Expression body = Expression.Call(propertyToStringToUpper, methodContains, filterToUpper);
+
+            Func<T, bool> lambda =
+                Expression.Lambda<Func<T, bool>>(body, parameterExpression).Compile();
+
+            return sequance.Where(lambda);
         }
 
         public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> sequance, string propertyName)

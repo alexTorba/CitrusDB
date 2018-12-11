@@ -31,6 +31,7 @@ namespace CitrusDB.View.DataBoard
         }
 
         public SelectedEntity SelectedEntity { get; set; }
+        public Type TypeOfSelectedEntity { get; private set; }
 
         public void UpdateView()
         {
@@ -238,13 +239,19 @@ namespace CitrusDB.View.DataBoard
         private void radioButtonGroup_CheckedChanged(object sender, EventArgs e)
         {
             if ((sender as RadioButton).Checked == true)
+            {
                 SelectedEntity = SelectedEntity.Group;
+                TypeOfSelectedEntity = typeof(Group);
+            }
         }
 
         private void radioButtonStudent_CheckedChanged(object sender, EventArgs e)
         {
             if ((sender as RadioButton).Checked == true)
+            {
                 SelectedEntity = SelectedEntity.Student;
+                TypeOfSelectedEntity = typeof(Student);
+            }
         }
 
         private void searchTextBox_MouseClick(object sender, MouseEventArgs e)

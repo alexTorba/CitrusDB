@@ -21,6 +21,7 @@ namespace CitrusDB.View.DataBoard
         event SearchingEventHandler SearchBoxTextChanged;
         event GetEntityBySelectedViewHandler GetEntityBySelectedView;
         SelectedEntity SelectedEntity { get; set; }
+        Type TypeOfSelectedEntity { get;}
 
         void UpdateView();
         void DisablingGrid();

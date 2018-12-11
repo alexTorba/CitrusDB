@@ -15,6 +15,7 @@ using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.View.Students;
 using CitrusDB.View.Groups.GroupsView.GroupViews;
 using System.Runtime.ExceptionServices;
+using System.Reflection;
 
 namespace CitrusDB.Presenter
 {
@@ -66,18 +67,23 @@ namespace CitrusDB.Presenter
                 ((AfterSearchingEventArgs)e)?.conditionSorting);
         }
 
-        private async void SearchEntities(string conditionFilter, string searchCriteria, Action<string> sorting, string conditionSorting, CancellationToken token)
+        private void SearchEntities(string conditionFilter, string searchCriteria, Action<string> sorting, string conditionSorting, CancellationToken token)
+        {
+            Type resultType = dataBoard.GetDataSource.GetType().UnderlyingSystemType.GetElementType();
+
+            GetMethod("FillDataSource", resultType)
+                .Invoke(this, new object[] { searchCriteria, conditionFilter, sorting, conditionSorting, token });
+        }
+
+        private async void FillDataSource<TResult>(string searchCriteria, string conditionFilter, Action<string> sorting, string conditionSorting, CancellationToken token)
+            where TResult : class, IEntity
         {
             try
             {
-                if (dataBoard.SelectedEntity == SelectedEntity.Student)
-                {
-                    dataBoard.GetDataSource = await GetViews<Student, StudentView>(searchCriteria, conditionFilter, token);
-                }
-                else if (dataBoard.SelectedEntity == SelectedEntity.Group)
-                {
-                    dataBoard.GetDataSource = await GetViews<Group, GroupView>(searchCriteria, conditionFilter, token);
-                }
+                var task = GetMethod("GetViews", dataBoard.TypeOfSelectedEntity, typeof(TResult))
+                    .Invoke(null, new object[] { searchCriteria, conditionFilter, token });
+
+                dataBoard.GetDataSource = await (Task<TResult[]>)task;
             }
             catch (OperationCanceledException canceledEx)
             {
@@ -92,10 +98,20 @@ namespace CitrusDB.Presenter
             Console.WriteLine("SUCCESSFULLY");
         }
 
-        private async Task<TResult[]> GetViews<TEntity, TResult>(string searchCriteria, string conditionFilter, CancellationToken token)
+        private MethodInfo GetMethod(string name, params Type[] types)
+        {
+            var method = GetType()
+               .GetMethod(name, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
+               .MakeGenericMethod(types);
+
+            return method;
+        }
+
+        private static async Task<TResult[]> GetViews<TEntity, TResult>(string searchCriteria, string conditionFilter, CancellationToken token)
             where TEntity : class, IEntity
             where TResult : class, IEntity
         {
+
             return await Task.Factory.StartNew(() =>
             {
                 return EFGenericRepository.Get<TEntity>(searchCriteria, conditionFilter).GetViews<TEntity, TResult>().ToArray();
@@ -104,15 +120,17 @@ namespace CitrusDB.Presenter
 
         private void DataBoard_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)
         {
-            if (dataBoard.SelectedEntity == SelectedEntity.Student)
-                dataBoard.GetDataSource = ((ICollection<StudentView>)dataBoard.GetDataSource)
-                                            .OrderBy(e.SelectedHeader)
-                                            .ToList();
+            Type type = dataBoard.GetDataSource.GetType().UnderlyingSystemType.GetElementType();
 
-            else if (dataBoard.SelectedEntity == SelectedEntity.Group)
-                dataBoard.GetDataSource = ((ICollection<GroupView>)dataBoard.GetDataSource)
-                                            .OrderBy(e.SelectedHeader)
-                                            .ToList();
+            GetMethod("OrderData", type).Invoke(this, new object[] { e.SelectedHeader });
+        }
+
+        private void OrderData<TEntity>(string filter)
+            where TEntity : class, IEntity
+        {
+            dataBoard.GetDataSource = ((ICollection<TEntity>)dataBoard.GetDataSource)
+                                            .OrderBy(filter)
+                                            .ToArray();
         }
 
         private void DataBoard_DeleteEntity(object sender, EventArgs e)
