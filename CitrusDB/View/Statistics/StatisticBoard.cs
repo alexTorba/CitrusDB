@@ -11,6 +11,7 @@ using CitrusDB.Model.Entity.History;
 using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.Model.Extensions;
 using CitrusDB.Properties;
+using System.Threading.Tasks;
 
 namespace CitrusDB.View.Statistics
 {
@@ -24,6 +25,8 @@ namespace CitrusDB.View.Statistics
             InitializeComponent();
 
             SetChartAreasSettings();
+
+            this.pictureBoxLoadingAnimation.Enabled = false;
         }
 
         #region IStatisticBoard
@@ -37,10 +40,14 @@ namespace CitrusDB.View.Statistics
 
         public async void UpdatingView()
         {
+            pictureBoxLoadingAnimation.Enabled = true;
+
             await UpdateView?.Invoke(null, EventArgs.Empty);
             studentButton_Click(null, EventArgs.Empty);
             chart.Update();
             chart.UpdateAnnotations();
+
+            pictureBoxLoadingAnimation.Enabled = false;
         }
 
         #endregion

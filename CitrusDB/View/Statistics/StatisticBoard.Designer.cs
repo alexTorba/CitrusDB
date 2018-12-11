@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticBoard));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.studentButton = new System.Windows.Forms.Button();
             this.groupButton = new System.Windows.Forms.Button();
@@ -56,12 +57,14 @@
             this.logContainerPanel = new System.Windows.Forms.Panel();
             this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.chartContainerPanel = new System.Windows.Forms.Panel();
+            this.pictureBoxLoadingAnimation = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.optionsPanel.SuspendLayout();
             this.logPanel.SuspendLayout();
             this.logContainerPanel.SuspendLayout();
             this.chartContainerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoadingAnimation)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -110,22 +113,23 @@
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.BorderlineColor = System.Drawing.SystemColors.Control;
             this.chart.BorderSkin.PageColor = System.Drawing.SystemColors.Control;
-            chartArea2.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(0, 23);
             this.chart.Name = "chart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
             this.chart.Size = new System.Drawing.Size(692, 442);
             this.chart.TabIndex = 2;
             this.chart.Text = "chart1";
             // 
             // optionsPanel
             // 
+            this.optionsPanel.BackColor = System.Drawing.Color.White;
             this.optionsPanel.Controls.Add(this.bunifuSeparator3);
             this.optionsPanel.Controls.Add(this.bunifuSeparator2);
             this.optionsPanel.Controls.Add(this.deletedTodatValue);
@@ -140,6 +144,7 @@
             this.optionsPanel.Controls.Add(this.generalStudentsValue);
             this.optionsPanel.Controls.Add(this.label1);
             this.optionsPanel.Controls.Add(this.generalStudentsLabel);
+            this.optionsPanel.Controls.Add(this.pictureBoxLoadingAnimation);
             this.optionsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.optionsPanel.Location = new System.Drawing.Point(0, 0);
             this.optionsPanel.Name = "optionsPanel";
@@ -151,7 +156,7 @@
             this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator3.LineThickness = 1;
-            this.bunifuSeparator3.Location = new System.Drawing.Point(362, 0);
+            this.bunifuSeparator3.Location = new System.Drawing.Point(467, 0);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
             this.bunifuSeparator3.Size = new System.Drawing.Size(1, 176);
             this.bunifuSeparator3.TabIndex = 13;
@@ -174,7 +179,7 @@
             // 
             this.deletedTodatValue.AutoSize = true;
             this.deletedTodatValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deletedTodatValue.Location = new System.Drawing.Point(627, 118);
+            this.deletedTodatValue.Location = new System.Drawing.Point(683, 119);
             this.deletedTodatValue.Name = "deletedTodatValue";
             this.deletedTodatValue.Size = new System.Drawing.Size(26, 21);
             this.deletedTodatValue.TabIndex = 11;
@@ -184,7 +189,7 @@
             // 
             this.updatedTodayValue.AutoSize = true;
             this.updatedTodayValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.updatedTodayValue.Location = new System.Drawing.Point(627, 90);
+            this.updatedTodayValue.Location = new System.Drawing.Point(683, 91);
             this.updatedTodayValue.Name = "updatedTodayValue";
             this.updatedTodayValue.Size = new System.Drawing.Size(26, 21);
             this.updatedTodayValue.TabIndex = 10;
@@ -194,7 +199,7 @@
             // 
             this.addedTodayValue.AutoSize = true;
             this.addedTodayValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addedTodayValue.Location = new System.Drawing.Point(627, 62);
+            this.addedTodayValue.Location = new System.Drawing.Point(683, 63);
             this.addedTodayValue.Name = "addedTodayValue";
             this.addedTodayValue.Size = new System.Drawing.Size(26, 21);
             this.addedTodayValue.TabIndex = 9;
@@ -204,7 +209,7 @@
             // 
             this.deletedTodayLabel.AutoSize = true;
             this.deletedTodayLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deletedTodayLabel.Location = new System.Drawing.Point(469, 118);
+            this.deletedTodayLabel.Location = new System.Drawing.Point(525, 119);
             this.deletedTodayLabel.Name = "deletedTodayLabel";
             this.deletedTodayLabel.Size = new System.Drawing.Size(73, 21);
             this.deletedTodayLabel.TabIndex = 8;
@@ -214,7 +219,7 @@
             // 
             this.updatedTodayLabel.AutoSize = true;
             this.updatedTodayLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.updatedTodayLabel.Location = new System.Drawing.Point(469, 90);
+            this.updatedTodayLabel.Location = new System.Drawing.Point(525, 91);
             this.updatedTodayLabel.Name = "updatedTodayLabel";
             this.updatedTodayLabel.Size = new System.Drawing.Size(82, 21);
             this.updatedTodayLabel.TabIndex = 7;
@@ -224,7 +229,7 @@
             // 
             this.addedTodayLabel.AutoSize = true;
             this.addedTodayLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addedTodayLabel.Location = new System.Drawing.Point(469, 62);
+            this.addedTodayLabel.Location = new System.Drawing.Point(525, 63);
             this.addedTodayLabel.Name = "addedTodayLabel";
             this.addedTodayLabel.Size = new System.Drawing.Size(66, 21);
             this.addedTodayLabel.TabIndex = 6;
@@ -235,7 +240,7 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(463, 50);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(519, 51);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(200, 1);
             this.bunifuSeparator1.TabIndex = 5;
@@ -246,7 +251,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(529, 23);
+            this.label2.Location = new System.Drawing.Point(585, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 24);
             this.label2.TabIndex = 4;
@@ -256,7 +261,7 @@
             // 
             this.generalGroupsValue.AutoSize = true;
             this.generalGroupsValue.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.generalGroupsValue.Location = new System.Drawing.Point(243, 99);
+            this.generalGroupsValue.Location = new System.Drawing.Point(391, 102);
             this.generalGroupsValue.Name = "generalGroupsValue";
             this.generalGroupsValue.Size = new System.Drawing.Size(28, 22);
             this.generalGroupsValue.TabIndex = 3;
@@ -266,7 +271,7 @@
             // 
             this.generalStudentsValue.AutoSize = true;
             this.generalStudentsValue.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.generalStudentsValue.Location = new System.Drawing.Point(243, 44);
+            this.generalStudentsValue.Location = new System.Drawing.Point(391, 47);
             this.generalStudentsValue.Name = "generalStudentsValue";
             this.generalStudentsValue.Size = new System.Drawing.Size(28, 22);
             this.generalStudentsValue.TabIndex = 2;
@@ -276,7 +281,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(42, 99);
+            this.label1.Location = new System.Drawing.Point(190, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 22);
             this.label1.TabIndex = 1;
@@ -286,7 +291,7 @@
             // 
             this.generalStudentsLabel.AutoSize = true;
             this.generalStudentsLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.generalStudentsLabel.Location = new System.Drawing.Point(42, 44);
+            this.generalStudentsLabel.Location = new System.Drawing.Point(190, 47);
             this.generalStudentsLabel.Name = "generalStudentsLabel";
             this.generalStudentsLabel.Size = new System.Drawing.Size(195, 22);
             this.generalStudentsLabel.TabIndex = 0;
@@ -361,6 +366,16 @@
             this.chartContainerPanel.Size = new System.Drawing.Size(704, 473);
             this.chartContainerPanel.TabIndex = 6;
             // 
+            // pictureBoxLoadingAnimation
+            // 
+            this.pictureBoxLoadingAnimation.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLoadingAnimation.Image")));
+            this.pictureBoxLoadingAnimation.Location = new System.Drawing.Point(-22, -84);
+            this.pictureBoxLoadingAnimation.Name = "pictureBoxLoadingAnimation";
+            this.pictureBoxLoadingAnimation.Size = new System.Drawing.Size(229, 335);
+            this.pictureBoxLoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLoadingAnimation.TabIndex = 14;
+            this.pictureBoxLoadingAnimation.TabStop = false;
+            // 
             // StatisticBoard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -379,6 +394,7 @@
             this.logPanel.PerformLayout();
             this.logContainerPanel.ResumeLayout(false);
             this.chartContainerPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoadingAnimation)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,5 +425,6 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel chartContainerPanel;
+        private System.Windows.Forms.PictureBox pictureBoxLoadingAnimation;
     }
 }
