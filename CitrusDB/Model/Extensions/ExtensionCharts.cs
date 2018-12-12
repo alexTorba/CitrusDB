@@ -21,7 +21,13 @@ namespace CitrusDB.Model.Extensions
             foreach (DateModel date in dateModels)
                 series.Points.AddXY(date.Time, date.Count);
 
-            chart.Series.Add(series);
+            //todo: ??
+            //chart.Series.Add(series);
+            if (chart.Series.FindByName(series.Name) != null)
+                chart.Series[series.Name] = series;
+            else
+                chart.Series.Add(series);
+
             chart.Series[name].XValueType = ChartValueType.DateTime;
         }
 

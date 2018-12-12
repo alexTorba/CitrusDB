@@ -12,6 +12,7 @@ using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.Model.Extensions;
 using CitrusDB.Properties;
 using System.Threading.Tasks;
+using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.Statistics
 {
@@ -19,6 +20,10 @@ namespace CitrusDB.View.Statistics
     {
         MainForm mainForm;
         StringBuilder builder = new StringBuilder();
+
+        int initMinDate = -5;
+        int initMaxDate = 1;
+        SelectedEntity selectedEntity;
 
         public StatisticBoard()
         {
@@ -65,11 +70,12 @@ namespace CitrusDB.View.Statistics
             mainForm.TimerTiks += logContainerPanel.TicksGrowsWidthQuiсkly;
 
             (sender as Button)?.ChangeImageButton(logContainerPanel, Resources.left, Resources.right);
-
         }
 
         private void studentButton_Click(object sender, EventArgs e)
         {
+            selectedEntity = SelectedEntity.Student;
+
             chart.Series.Clear();
             logTextBox.Text = "";
 
@@ -80,6 +86,8 @@ namespace CitrusDB.View.Statistics
 
         private void groupButton_Click(object sender, EventArgs e)
         {
+            selectedEntity = SelectedEntity.Group;
+
             chart.Series.Clear();
             logTextBox.Text = "";
 
@@ -95,8 +103,8 @@ namespace CitrusDB.View.Statistics
             chart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Days;
             chart.ChartAreas[0].AxisX.IntervalOffset = 1;
 
-            chart.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddDays(-5).ToOADate();
-            chart.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddDays(1).ToOADate();
+            chart.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddDays(initMinDate).ToOADate();
+            chart.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddDays(initMaxDate).ToOADate();
         }
 
         private void SetChart(string nameOfEntity, IList<IEntityHistory> entityHistory)
@@ -164,6 +172,28 @@ namespace CitrusDB.View.Statistics
             }
 
             logTextBox.Text = builder.ToString();
+        }
+
+        private void laterButton_Click(object sender, EventArgs e)
+        {
+            chart.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddDays(++initMinDate).ToOADate();
+            chart.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddDays(++initMaxDate).ToOADate();
+
+            if (selectedEntity == SelectedEntity.Student)
+                SetChart("Student", (IList<IEntityHistory>)StudentsHistory);
+            else if (selectedEntity == SelectedEntity.Group)
+                SetChart("Group", (IList<IEntityHistory>)GroupsHistory);
+        }
+
+        private void earlierButton_Click(object sender, EventArgs e)
+        {
+            chart.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddDays(--initMinDate).ToOADate();
+            chart.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddDays(--initMaxDate).ToOADate();
+
+            if (selectedEntity == SelectedEntity.Student)
+                SetChart("Student", (IList<IEntityHistory>)StudentsHistory);
+            else if (selectedEntity == SelectedEntity.Group)
+                SetChart("Group", (IList<IEntityHistory>)GroupsHistory);
         }
 
     }
