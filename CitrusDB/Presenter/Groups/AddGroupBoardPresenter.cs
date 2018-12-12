@@ -20,7 +20,7 @@ namespace CitrusDB.Presenter.Groups
     {
         readonly IAddGroupBoard addGroupBoard;
 
-        public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView currentStudentView, IStudentView addedStudentView) 
+        public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView currentStudentView, IStudentView addedStudentView)
             : base(addGroupBoard, currentStudentView, addedStudentView)
         {
             this.addGroupBoard = addGroupBoard;
@@ -36,8 +36,13 @@ namespace CitrusDB.Presenter.Groups
 
         #region Event Handlers
 
-        private void AddGroupBoard_SaveClick(object sender, EventArgs e)
+        private bool AddGroupBoard_SaveClick()
         {
+            if (string.IsNullOrWhiteSpace(addGroupBoard.GetNameOfGroup) ||
+                addGroupBoard.GetGroupPhoto == null ||
+                addGroupBoard.AddedStudentControlCollection.Count == 0)
+                return false;
+
             List<Student> students = new List<Student>();
 
             foreach (IStudentView studentView in addGroupBoard.AddedStudentControlCollection)
@@ -55,6 +60,8 @@ namespace CitrusDB.Presenter.Groups
 
             addGroupBoard.ClearView();
             addGroupBoard.AddedStudentControlCollection.Clear();
+
+            return true;
         }
 
         private void AddGroupBoard_ClearClick(object sender, EventArgs e)

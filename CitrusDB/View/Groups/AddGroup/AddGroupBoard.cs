@@ -68,7 +68,7 @@ namespace CitrusDB.View.Groups.AddGroup
         public event EventHandler LoadGroupBoard;
         public event EventHandler ChangeAddedStudentPanelControl;
         public event EventHandler ClearClick;
-        public event EventHandler SaveClick;
+        public event Func<bool> SaveClick;
         public event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
         public event EventHandler UpdateView;
 
@@ -78,7 +78,7 @@ namespace CitrusDB.View.Groups.AddGroup
 
         private void AddGroupBoard_Load(object sender, EventArgs e)
         {
-            
+
             LoadGroupBoard?.Invoke(sender, e);
 
             countOfStudentsLabel.Text = addedStudentFlowPanel.Controls.Count.ToString();
@@ -116,13 +116,15 @@ namespace CitrusDB.View.Groups.AddGroup
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            mainForm.SetStatusValue = "Saving group..";
-
-            SaveClick?.Invoke(sender, e);
-
-            new SuccessfulDialog("Group added successfully !").Show();
-
-            mainForm.SetInitStatus();
+            if (SaveClick != null)
+            {
+                if (SaveClick.Invoke())
+                {
+                    mainForm.SetStatusValue = "Saving group..";
+                    new SuccessfulDialog("Group added successfully !").Show();
+                    mainForm.SetInitStatus();
+                }
+            }
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
@@ -141,7 +143,7 @@ namespace CitrusDB.View.Groups.AddGroup
             UpdateView?.Invoke(null, EventArgs.Empty);
             currentStudentFlowPanel.Refresh();
             mainForm.SetInitStatus();
-        }        
+        }
 
         #endregion
 

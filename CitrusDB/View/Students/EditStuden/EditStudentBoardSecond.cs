@@ -250,11 +250,13 @@ namespace CitrusDB.View.Students.EditStuden
             {
                 groupsFlowPanel.Enabled = true;
                 searchPanel.Enabled = true;
+                acceptButton.Enabled = true;
             }
             else
             {
                 groupsFlowPanel.Enabled = false;
                 searchPanel.Enabled = false;
+                acceptButton.Enabled = false;
             }
         }
 
