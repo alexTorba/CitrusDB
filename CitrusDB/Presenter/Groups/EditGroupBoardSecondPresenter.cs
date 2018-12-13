@@ -74,7 +74,6 @@ namespace CitrusDB.Presenter.Groups
             }
 
             return false;
-
         }
 
         private void GroupBoardSecond_CancelClick(object sender, EventArgs e)

@@ -55,7 +55,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupInfo
         }
 
         public event EventHandler LoadForm;
-        public event HeaderGridMouseClickHandler HeaderMouseClick;
+        public event OrderByHandler HeaderMouseClick;
         public event EventHandler SearchTextChanged;
 
         #endregion
@@ -79,7 +79,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupInfo
         private void studentsDataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             HeaderMouseClick?.Invoke(sender, 
-                new HeaderPropertyEventArgs(studentsDataGrid.Columns[e.ColumnIndex].DataPropertyName, true));
+                new OrderByEventArgs(studentsDataGrid.Columns[e.ColumnIndex].DataPropertyName, true));
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)

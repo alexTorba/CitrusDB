@@ -53,7 +53,7 @@ namespace CitrusDB.View.DataBoard
         public event EventHandler LoadDataBoard;
         public event EventHandler GroupTableLoad;
         public event EventHandler DeleteEntity;
-        public event HeaderGridMouseClickHandler HeaderMouseClick;
+        public event OrderByHandler HeaderMouseClick;
         public event SearchingEventHandler SearchBoxTextChanged;
         public event EventHandler ChangeEntity;
         public event GetEntityBySelectedViewHandler GetEntityBySelectedView;
@@ -232,7 +232,7 @@ namespace CitrusDB.View.DataBoard
             if (conditionSorting == null)
                 return;
 
-            HeaderMouseClick?.Invoke(dataGrid, new HeaderPropertyEventArgs(conditionSorting, radioButtonAscend.Checked));
+            HeaderMouseClick?.Invoke(dataGrid, new OrderByEventArgs(conditionSorting, radioButtonAscend.Checked));
         }
 
         private void radioButtonGroup_CheckedChanged(object sender, EventArgs e)

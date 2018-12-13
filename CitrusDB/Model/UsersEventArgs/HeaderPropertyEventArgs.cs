@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace CitrusDB.Model.UsersEventArgs
 {
-    public delegate void HeaderGridMouseClickHandler(object sender, HeaderPropertyEventArgs e);
+    public delegate void OrderByHandler(object sender, OrderByEventArgs e);
 
-    public class HeaderPropertyEventArgs : EventArgs
+    public class OrderByEventArgs : EventArgs
     {
-        public string SelectedHeader { get; }
-        public bool isAscending { get; }
-        public HeaderPropertyEventArgs(string selectedHeader, bool isAscending)
+        public string OrderCriteria { get; }
+        public bool IsAscending { get; }
+
+        public OrderByEventArgs(string orderCriteria, bool isAscending)
         {
-            SelectedHeader = selectedHeader;
-            this.isAscending = isAscending;
+            OrderCriteria = orderCriteria;
+            this.IsAscending = isAscending;
         }
 
     }

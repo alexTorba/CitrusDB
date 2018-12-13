@@ -18,7 +18,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupInfo
         void EnablingGrid();
 
         event EventHandler SearchTextChanged;
-        event HeaderGridMouseClickHandler HeaderMouseClick;
+        event OrderByHandler HeaderMouseClick;
         event EventHandler LoadForm;
     }
 }

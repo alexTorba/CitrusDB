@@ -25,6 +25,17 @@ namespace CitrusDB.View.Groups.AddGroup
         public AddGroupBoard()
         {
             InitializeComponent();
+
+            comboBoxOrderBy.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
         }
 
         public void InitGroupBoard(MainForm mainForm)
@@ -71,6 +82,7 @@ namespace CitrusDB.View.Groups.AddGroup
         public event Func<bool> SaveClick;
         public event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
         public event EventHandler UpdateView;
+        public event OrderByHandler OrderBy;
 
         #endregion
 
@@ -78,12 +90,29 @@ namespace CitrusDB.View.Groups.AddGroup
 
         private void AddGroupBoard_Load(object sender, EventArgs e)
         {
-
             LoadGroupBoard?.Invoke(sender, e);
 
             countOfStudentsLabel.Text = addedStudentFlowPanel.Controls.Count.ToString();
 
-            comboBoxFilters.DataSource = new List<string>
+            InitComboBox();
+
+            radioButtonAscend.Checked = true;
+        }
+
+        private void InitComboBox()
+        {
+            comboBoxWhere.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
+
+            comboBoxOrderBy.DataSource = new List<string>
             {
                 "FirstName",
                 "LastName",
@@ -131,7 +160,7 @@ namespace CitrusDB.View.Groups.AddGroup
         {
             mainForm.SetStatusValue = "Searching students..";
 
-            CurrentStudentSearchTextBoxChanges.Invoke((sender as TextBox).Text, comboBoxFilters.SelectedItem.ToString(), null);
+            CurrentStudentSearchTextBoxChanges.Invoke((sender as TextBox).Text, comboBoxWhere.SelectedItem.ToString(), null);
 
             mainForm.SetInitStatus();
         }
@@ -207,6 +236,11 @@ namespace CitrusDB.View.Groups.AddGroup
 
             mainForm.ClearEventHandlers();
             mainForm.TimerTiks += panelOrderBy.TicksGrowsHeight;
+        }
+
+        private void orderByButton_Click(object sender, EventArgs e)
+        {
+            OrderBy?.Invoke(sender, new OrderByEventArgs(comboBoxOrderBy.SelectedItem.ToString(), radioButtonAscend.Checked));
         }
 
     }

@@ -22,7 +22,9 @@ namespace CitrusDB.View.Groups
 
         event EventHandler LoadGroupBoard;
         event EventHandler ChangeAddedStudentPanelControl;
-        event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
         event EventHandler UpdateView;
+
+        event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
+        event OrderByHandler OrderBy;
     }
 }

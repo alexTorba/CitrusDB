@@ -21,17 +21,6 @@ namespace CitrusDB.View.Groups.EditGroup
         public void InitFileds(MainForm mainForm)
         {
             this.mainForm = mainForm;
-
-            comboBoxFilters.DataSource = new List<string>
-            {
-                "FirstName",
-                "LastName",
-                "MiddleName",
-                "Height",
-                "Weight",
-                "Сitizenship",
-                "KnowledgeOfLanguage"
-            };
         }
 
         #region IEditGroupBoardSecond
@@ -67,6 +56,7 @@ namespace CitrusDB.View.Groups.EditGroup
         public event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
         public event EventHandler UpdateView;
         public event EventHandler SetEditingGroup;
+        public event OrderByHandler OrderBy;
 
         public void ClearView()
         {
@@ -128,11 +118,16 @@ namespace CitrusDB.View.Groups.EditGroup
         private void EditGroupBoardSecond_Load(object sender, EventArgs e)
         {
             LoadGroupBoard?.Invoke(sender, e);
+
+            InitComboBox();
+
+            radioButtonAscend.Checked = true;
         }
+
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            CurrentStudentSearchTextBoxChanges?.Invoke((sender as TextBox).Text,comboBoxFilters.SelectedItem.ToString(), null);
+            CurrentStudentSearchTextBoxChanges?.Invoke((sender as TextBox).Text,comboBoxWhere.SelectedItem.ToString(), null);
         }
 
         private void addedStudentFlowPanel_ControlAdded(object sender, ControlEventArgs e)
@@ -145,7 +140,37 @@ namespace CitrusDB.View.Groups.EditGroup
             ChangeAddedStudentPanelControl?.Invoke(sender, EventArgs.Empty);
         }
 
+        private void orderByButton_Click(object sender, EventArgs e)
+        {
+            OrderBy?.Invoke(sender, new OrderByEventArgs(comboBoxOrderBy.SelectedItem.ToString(), radioButtonAscend.Checked));
+        }
+
         #endregion
+
+        private void InitComboBox()
+        {
+            comboBoxOrderBy.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
+
+            comboBoxWhere.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
+        }
 
         private void photoPictureBox_Click(object sender, EventArgs e)
         {

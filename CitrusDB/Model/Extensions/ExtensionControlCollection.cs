@@ -5,10 +5,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using static System.Windows.Forms.Control;
-
 using CitrusDB.Model.Entity;
+using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.View;
+
+using static System.Windows.Forms.Control;
 
 namespace CitrusDB.Model.Extensions
 {
@@ -206,7 +207,6 @@ namespace CitrusDB.Model.Extensions
             }, token);
         }
 
-
         public static async Task FillControlCollectionForSearch<T, R>(
             this ControlCollection controlCollection,
             IList<T> entities,
@@ -231,6 +231,31 @@ namespace CitrusDB.Model.Extensions
             return controlCollection.Cast<IEntityControlView<T>>().FirstOrDefault(c => c.Id == id) != null
                 ? true
                 : false;
+        }
+
+        public async static Task<IList<TResult>> TransformControlsToEntitiesAsync<TResult>(this ControlCollection controlCollection, CancellationToken token)
+            where TResult : class, IEntity
+        {
+            return await Task.Run(() =>
+            {
+                List<TResult> entities = new List<TResult>(controlCollection.Count);
+
+                foreach (var control in controlCollection?.Cast<IEntityControlView<TResult>>())
+                    entities.Add(EFGenericRepository.Find<TResult>(control.Id));
+
+                return entities;
+            }, token);
+        }
+
+        public static IList<TResult> TransformControlsToEntities<TResult>(this ControlCollection controlCollection)
+            where TResult : class, IEntity
+        {
+            List<TResult> entities = new List<TResult>(controlCollection.Count);
+
+            foreach (var control in controlCollection?.Cast<IEntityControlView<TResult>>())
+                entities.Add(EFGenericRepository.Find<TResult>(control.Id));
+
+            return entities;
         }
 
     }

@@ -10,6 +10,7 @@ using CitrusDB.Model;
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
+using CitrusDB.Model.UsersEventArgs;
 using CitrusDB.View.Groups;
 using CitrusDB.View.Students;
 
@@ -37,12 +38,29 @@ namespace CitrusDB.Presenter.Groups
             groupBoard.CurrentStudentSearchTextBoxChanges += GroupBoard_CurrentStudentSearchTextBoxChanges;
             groupBoard.LoadGroupBoard += GroupBoard_LoadAddGroupBoard;
             groupBoard.UpdateView += GroupBoard_UpdateView;
+            groupBoard.OrderBy += GroupBoard_OrderBy;
 
             currentStudentView.Click += AddStudentButton_Click;
             addedStudentView.Click += CancelButton_Click;
         }
 
         #region Event Handlers
+
+        private async void GroupBoard_OrderBy(object sender, OrderByEventArgs e)
+        {
+            var students = await groupBoard
+                                    .CurrentStudentControlCollection
+                                    .TransformControlsToEntitiesAsync<Student>(CancellationToken.None);
+
+            if (e.IsAscending)
+                students = students.OrderBy(e.OrderCriteria).ToArray();
+            else
+                students = students.OrderByDescending(e.OrderCriteria).ToArray();
+
+            groupBoard.CurrentStudentControlCollection.Clear();
+
+            await FillControlCollection(students, CancellationToken.None);
+        }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
@@ -158,7 +176,7 @@ namespace CitrusDB.Presenter.Groups
 
                 if (condition != string.Empty)
                     students = students
-                               .Where(searchCriteria,condition);
+                               .Where(searchCriteria, condition);
 
 
                 if (groupBoard.AddedStudentControlCollection.Count == 0)

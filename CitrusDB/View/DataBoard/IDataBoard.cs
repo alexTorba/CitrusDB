@@ -15,7 +15,7 @@ namespace CitrusDB.View.DataBoard
     {
         event EventHandler LoadDataBoard;
         event EventHandler GroupTableLoad;
-        event HeaderGridMouseClickHandler HeaderMouseClick;
+        event OrderByHandler HeaderMouseClick;
         event EventHandler ChangeEntity;
         event EventHandler DeleteEntity;
         event SearchingEventHandler SearchBoxTextChanged;

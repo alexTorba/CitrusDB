@@ -79,10 +79,10 @@ namespace CitrusDB.Presenter.Groups
             }, token);
         }
 
-        private void GroupInfoForm_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)
+        private void GroupInfoForm_HeaderMouseClick(object sender, OrderByEventArgs e)
         {
             groupInfoForm.Students = ((ICollection<StudentView>)groupInfoForm.Students)
-                                                .OrderBy(e.SelectedHeader)
+                                                .OrderBy(e.OrderCriteria)
                                                 .ToList();
         }
 

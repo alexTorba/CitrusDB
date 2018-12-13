@@ -118,11 +118,11 @@ namespace CitrusDB.Presenter
             }, token);
         }
 
-        private void DataBoard_HeaderMouseClick(object sender, HeaderPropertyEventArgs e)
+        private void DataBoard_HeaderMouseClick(object sender, OrderByEventArgs e)
         {
             Type type = dataBoard.GetDataSource.GetType().UnderlyingSystemType.GetElementType();
 
-            GetMethod("OrderData", type).Invoke(this, new object[] { e.SelectedHeader, e.isAscending });
+            GetMethod("OrderData", type).Invoke(this, new object[] { e.OrderCriteria, e.IsAscending });
         }
 
         private void OrderData<TEntity>(string filter, bool isAscending)
