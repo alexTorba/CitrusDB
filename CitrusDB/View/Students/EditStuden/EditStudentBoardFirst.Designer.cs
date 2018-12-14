@@ -29,28 +29,32 @@
         private void InitializeComponent()
         {
             this.generPanelOptions = new System.Windows.Forms.Panel();
-            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.panelGroup = new System.Windows.Forms.Panel();
             this.flowGroupOptions = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSearch = new System.Windows.Forms.Panel();
+            this.orderByButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowPanelSearchSettings = new System.Windows.Forms.FlowLayoutPanel();
             this.searchSettingsButton = new System.Windows.Forms.Button();
             this.panelWhere = new System.Windows.Forms.Panel();
-            this.comboBoxFilters = new System.Windows.Forms.ComboBox();
+            this.comboBoxWhere = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonWhere = new System.Windows.Forms.Button();
             this.panelOrderBy = new System.Windows.Forms.Panel();
+            this.bunifuSeparatorOrderBy = new Bunifu.Framework.UI.BunifuSeparator();
+            this.comboBoxOrderBy = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.radioButtonDescen = new System.Windows.Forms.RadioButton();
             this.radioButtonAscend = new System.Windows.Forms.RadioButton();
             this.buttonOrderBy = new System.Windows.Forms.Button();
             this.unityPanel = new System.Windows.Forms.Panel();
             this.studentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.generPanelOptions.SuspendLayout();
             this.panelGroup.SuspendLayout();
             this.flowGroupOptions.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelSearch.SuspendLayout();
             this.flowPanelSearchSettings.SuspendLayout();
             this.panelWhere.SuspendLayout();
             this.panelOrderBy.SuspendLayout();
@@ -71,20 +75,6 @@
             this.generPanelOptions.TabIndex = 7;
             this.generPanelOptions.Tag = false;
             // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
-            this.collapsedButton.Location = new System.Drawing.Point(5, 317);
-            this.collapsedButton.Margin = new System.Windows.Forms.Padding(4);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(43, 45);
-            this.collapsedButton.TabIndex = 7;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
-            // 
             // panelGroup
             // 
             this.panelGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
@@ -97,7 +87,7 @@
             // 
             // flowGroupOptions
             // 
-            this.flowGroupOptions.Controls.Add(this.panel1);
+            this.flowGroupOptions.Controls.Add(this.panelSearch);
             this.flowGroupOptions.Controls.Add(this.flowPanelSearchSettings);
             this.flowGroupOptions.Location = new System.Drawing.Point(0, 8);
             this.flowGroupOptions.Margin = new System.Windows.Forms.Padding(4);
@@ -105,19 +95,36 @@
             this.flowGroupOptions.Size = new System.Drawing.Size(259, 562);
             this.flowGroupOptions.TabIndex = 0;
             // 
-            // panel1
+            // panelSearch
             // 
-            this.panel1.Controls.Add(this.searchTextBox);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(240, 76);
-            this.panel1.TabIndex = 0;
+            this.panelSearch.Controls.Add(this.orderByButton);
+            this.panelSearch.Controls.Add(this.searchTextBox);
+            this.panelSearch.Controls.Add(this.label1);
+            this.panelSearch.Location = new System.Drawing.Point(3, 3);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(240, 102);
+            this.panelSearch.TabIndex = 0;
+            // 
+            // orderByButton
+            // 
+            this.orderByButton.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.orderByButton.FlatAppearance.BorderSize = 0;
+            this.orderByButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderByButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderByButton.ForeColor = System.Drawing.Color.White;
+            this.orderByButton.Location = new System.Drawing.Point(24, 67);
+            this.orderByButton.Margin = new System.Windows.Forms.Padding(2);
+            this.orderByButton.Name = "orderByButton";
+            this.orderByButton.Size = new System.Drawing.Size(192, 24);
+            this.orderByButton.TabIndex = 26;
+            this.orderByButton.Text = "OrderBy";
+            this.orderByButton.UseVisualStyleBackColor = false;
+            this.orderByButton.Click += new System.EventHandler(this.orderByButton_Click);
             // 
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.searchTextBox.Location = new System.Drawing.Point(25, 32);
+            this.searchTextBox.Location = new System.Drawing.Point(25, 30);
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(191, 24);
@@ -130,7 +137,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(84, 6);
+            this.label1.Location = new System.Drawing.Point(84, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 22);
             this.label1.TabIndex = 0;
@@ -142,8 +149,8 @@
             this.flowPanelSearchSettings.Controls.Add(this.searchSettingsButton);
             this.flowPanelSearchSettings.Controls.Add(this.panelWhere);
             this.flowPanelSearchSettings.Controls.Add(this.panelOrderBy);
-            this.flowPanelSearchSettings.Location = new System.Drawing.Point(3, 85);
-            this.flowPanelSearchSettings.MaximumSize = new System.Drawing.Size(228, 329);
+            this.flowPanelSearchSettings.Location = new System.Drawing.Point(3, 111);
+            this.flowPanelSearchSettings.MaximumSize = new System.Drawing.Size(228, 383);
             this.flowPanelSearchSettings.MinimumSize = new System.Drawing.Size(228, 64);
             this.flowPanelSearchSettings.Name = "flowPanelSearchSettings";
             this.flowPanelSearchSettings.Size = new System.Drawing.Size(228, 64);
@@ -169,7 +176,7 @@
             // panelWhere
             // 
             this.panelWhere.BackColor = System.Drawing.Color.DimGray;
-            this.panelWhere.Controls.Add(this.comboBoxFilters);
+            this.panelWhere.Controls.Add(this.comboBoxWhere);
             this.panelWhere.Controls.Add(this.label3);
             this.panelWhere.Controls.Add(this.buttonWhere);
             this.panelWhere.Location = new System.Drawing.Point(3, 67);
@@ -180,15 +187,15 @@
             this.panelWhere.TabIndex = 2;
             this.panelWhere.Tag = false;
             // 
-            // comboBoxFilters
+            // comboBoxWhere
             // 
-            this.comboBoxFilters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBoxFilters.FormattingEnabled = true;
-            this.comboBoxFilters.Location = new System.Drawing.Point(68, 77);
-            this.comboBoxFilters.Name = "comboBoxFilters";
-            this.comboBoxFilters.Size = new System.Drawing.Size(146, 24);
-            this.comboBoxFilters.TabIndex = 4;
+            this.comboBoxWhere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxWhere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.comboBoxWhere.FormattingEnabled = true;
+            this.comboBoxWhere.Location = new System.Drawing.Point(68, 77);
+            this.comboBoxWhere.Name = "comboBoxWhere";
+            this.comboBoxWhere.Size = new System.Drawing.Size(146, 24);
+            this.comboBoxWhere.TabIndex = 4;
             // 
             // label3
             // 
@@ -219,23 +226,59 @@
             // panelOrderBy
             // 
             this.panelOrderBy.BackColor = System.Drawing.Color.DimGray;
+            this.panelOrderBy.Controls.Add(this.bunifuSeparatorOrderBy);
+            this.panelOrderBy.Controls.Add(this.comboBoxOrderBy);
+            this.panelOrderBy.Controls.Add(this.label6);
             this.panelOrderBy.Controls.Add(this.radioButtonDescen);
             this.panelOrderBy.Controls.Add(this.radioButtonAscend);
             this.panelOrderBy.Controls.Add(this.buttonOrderBy);
             this.panelOrderBy.Location = new System.Drawing.Point(3, 131);
-            this.panelOrderBy.MaximumSize = new System.Drawing.Size(228, 136);
+            this.panelOrderBy.MaximumSize = new System.Drawing.Size(228, 185);
             this.panelOrderBy.MinimumSize = new System.Drawing.Size(228, 58);
             this.panelOrderBy.Name = "panelOrderBy";
             this.panelOrderBy.Size = new System.Drawing.Size(228, 58);
             this.panelOrderBy.TabIndex = 3;
             this.panelOrderBy.Tag = false;
             // 
+            // bunifuSeparatorOrderBy
+            // 
+            this.bunifuSeparatorOrderBy.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparatorOrderBy.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bunifuSeparatorOrderBy.LineThickness = 1;
+            this.bunifuSeparatorOrderBy.Location = new System.Drawing.Point(0, 114);
+            this.bunifuSeparatorOrderBy.Name = "bunifuSeparatorOrderBy";
+            this.bunifuSeparatorOrderBy.Size = new System.Drawing.Size(228, 1);
+            this.bunifuSeparatorOrderBy.TabIndex = 13;
+            this.bunifuSeparatorOrderBy.Transparency = 255;
+            this.bunifuSeparatorOrderBy.Vertical = false;
+            // 
+            // comboBoxOrderBy
+            // 
+            this.comboBoxOrderBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOrderBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxOrderBy.FormattingEnabled = true;
+            this.comboBoxOrderBy.Location = new System.Drawing.Point(65, 74);
+            this.comboBoxOrderBy.Name = "comboBoxOrderBy";
+            this.comboBoxOrderBy.Size = new System.Drawing.Size(132, 24);
+            this.comboBoxOrderBy.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(18, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Filter :";
+            // 
             // radioButtonDescen
             // 
             this.radioButtonDescen.AutoSize = true;
             this.radioButtonDescen.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonDescen.ForeColor = System.Drawing.Color.White;
-            this.radioButtonDescen.Location = new System.Drawing.Point(32, 101);
+            this.radioButtonDescen.Location = new System.Drawing.Point(32, 155);
             this.radioButtonDescen.Name = "radioButtonDescen";
             this.radioButtonDescen.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radioButtonDescen.Size = new System.Drawing.Size(101, 21);
@@ -249,7 +292,7 @@
             this.radioButtonAscend.AutoSize = true;
             this.radioButtonAscend.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonAscend.ForeColor = System.Drawing.Color.White;
-            this.radioButtonAscend.Location = new System.Drawing.Point(40, 69);
+            this.radioButtonAscend.Location = new System.Drawing.Point(40, 124);
             this.radioButtonAscend.Name = "radioButtonAscend";
             this.radioButtonAscend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radioButtonAscend.Size = new System.Drawing.Size(93, 21);
@@ -293,6 +336,20 @@
             this.studentFlowLayoutPanel.Size = new System.Drawing.Size(856, 644);
             this.studentFlowLayoutPanel.TabIndex = 8;
             // 
+            // collapsedButton
+            // 
+            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
+            this.collapsedButton.Location = new System.Drawing.Point(5, 317);
+            this.collapsedButton.Margin = new System.Windows.Forms.Padding(4);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(43, 45);
+            this.collapsedButton.TabIndex = 7;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
+            // 
             // EditStudentBoardFirst
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -303,8 +360,8 @@
             this.generPanelOptions.ResumeLayout(false);
             this.panelGroup.ResumeLayout(false);
             this.flowGroupOptions.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelSearch.ResumeLayout(false);
+            this.panelSearch.PerformLayout();
             this.flowPanelSearchSettings.ResumeLayout(false);
             this.panelWhere.ResumeLayout(false);
             this.panelWhere.PerformLayout();
@@ -322,18 +379,22 @@
         private System.Windows.Forms.FlowLayoutPanel flowGroupOptions;
         private System.Windows.Forms.Panel unityPanel;
         private System.Windows.Forms.FlowLayoutPanel studentFlowLayoutPanel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowPanelSearchSettings;
         private System.Windows.Forms.Button searchSettingsButton;
         private System.Windows.Forms.Panel panelWhere;
-        private System.Windows.Forms.ComboBox comboBoxFilters;
+        private System.Windows.Forms.ComboBox comboBoxWhere;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonWhere;
         private System.Windows.Forms.Panel panelOrderBy;
         private System.Windows.Forms.RadioButton radioButtonDescen;
         private System.Windows.Forms.RadioButton radioButtonAscend;
         private System.Windows.Forms.Button buttonOrderBy;
+        private System.Windows.Forms.Button orderByButton;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparatorOrderBy;
+        private System.Windows.Forms.ComboBox comboBoxOrderBy;
+        private System.Windows.Forms.Label label6;
     }
 }

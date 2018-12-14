@@ -12,6 +12,7 @@ using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.View.Students.EditStuden;
 using CitrusDB.View.Students;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.Presenter.Students
 {
@@ -36,8 +37,25 @@ namespace CitrusDB.Presenter.Students
             editStudentBoardFirst.LoadEditStudentBoardFirst += EditStudentBoardFirst_LoadEditStudentBoardFirst;
             editStudentBoardFirst.UpdateView += EditStudentBoardFirst_UpdateView;
             editStudentBoardFirst.StudentSearchTextBoxChanges += EditStudentBoardFirst_StudentSearchTextBoxChanges;
+            editStudentBoardFirst.OrderBy += EditStudentBoardFirst_OrderBy;
 
             editStudentView.Click += EditStudentView_Click;
+        }
+
+        private async void EditStudentBoardFirst_OrderBy(object sender, OrderByEventArgs e)
+        {
+            IList<Student> students = await editStudentBoardFirst
+                  .StudentControlCollection
+                  .TransformControlsToEntitiesAsync<Student>(CancellationToken.None);
+
+            if (e.IsAscending)
+                students = students.OrderBy(e.OrderCriteria).ToArray();
+            else
+                students = students.OrderByDescending(e.OrderCriteria).ToArray();
+
+            editStudentBoardFirst.StudentControlCollection.Clear();
+
+            await FillControlCollection(students, CancellationToken.None);
         }
 
         #region EventHandlers

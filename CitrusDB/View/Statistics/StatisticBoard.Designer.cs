@@ -56,10 +56,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.logContainerPanel = new System.Windows.Forms.Panel();
+            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.chartContainerPanel = new System.Windows.Forms.Panel();
             this.earlierButton = new System.Windows.Forms.Button();
             this.laterButton = new System.Windows.Forms.Button();
-            this.collapsedButton = new CitrusDB.View.UsersElements.CirclusButton();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.optionsPanel.SuspendLayout();
@@ -356,6 +356,19 @@
             this.logContainerPanel.TabIndex = 5;
             this.logContainerPanel.Tag = false;
             // 
+            // collapsedButton
+            // 
+            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.collapsedButton.FlatAppearance.BorderSize = 0;
+            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
+            this.collapsedButton.Location = new System.Drawing.Point(0, 211);
+            this.collapsedButton.Name = "collapsedButton";
+            this.collapsedButton.Size = new System.Drawing.Size(34, 34);
+            this.collapsedButton.TabIndex = 29;
+            this.collapsedButton.UseVisualStyleBackColor = false;
+            this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
+            // 
             // chartContainerPanel
             // 
             this.chartContainerPanel.Controls.Add(this.earlierButton);
@@ -398,19 +411,6 @@
             this.laterButton.Text = "Later";
             this.laterButton.UseVisualStyleBackColor = false;
             this.laterButton.Click += new System.EventHandler(this.laterButton_Click);
-            // 
-            // collapsedButton
-            // 
-            this.collapsedButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.collapsedButton.FlatAppearance.BorderSize = 0;
-            this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
-            this.collapsedButton.Location = new System.Drawing.Point(0, 211);
-            this.collapsedButton.Name = "collapsedButton";
-            this.collapsedButton.Size = new System.Drawing.Size(34, 34);
-            this.collapsedButton.TabIndex = 29;
-            this.collapsedButton.UseVisualStyleBackColor = false;
-            this.collapsedButton.Click += new System.EventHandler(this.collapsedButton_Click);
             // 
             // StatisticBoard
             // 

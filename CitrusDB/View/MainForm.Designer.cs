@@ -538,6 +538,7 @@ namespace CitrusDB.View
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1105, 702);
             this.Controls.Add(this.statisticBoard);
             this.Controls.Add(this.editGroupBoard);

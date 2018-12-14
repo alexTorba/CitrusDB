@@ -30,6 +30,7 @@
         {
             this.optionFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.searchingPanel = new System.Windows.Forms.Panel();
+            this.orderByButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.flowPanelSearchSettings = new System.Windows.Forms.FlowLayoutPanel();
@@ -39,6 +40,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.buttonWhere = new System.Windows.Forms.Button();
             this.panelOrderBy = new System.Windows.Forms.Panel();
+            this.bunifuSeparatorOrderBy = new Bunifu.Framework.UI.BunifuSeparator();
+            this.comboBoxOrderBy = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.radioButtonDescen = new System.Windows.Forms.RadioButton();
             this.radioButtonAscend = new System.Windows.Forms.RadioButton();
             this.buttonOrderBy = new System.Windows.Forms.Button();
@@ -55,10 +59,6 @@
             this.nameGroupTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.currentStudentsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.orderByButton = new System.Windows.Forms.Button();
-            this.bunifuSeparatorOrderBy = new Bunifu.Framework.UI.BunifuSeparator();
-            this.comboBoxOrderBy = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.optionFlowPanel.SuspendLayout();
             this.searchingPanel.SuspendLayout();
             this.flowPanelSearchSettings.SuspendLayout();
@@ -90,6 +90,22 @@
             this.searchingPanel.Name = "searchingPanel";
             this.searchingPanel.Size = new System.Drawing.Size(237, 109);
             this.searchingPanel.TabIndex = 1;
+            // 
+            // orderByButton
+            // 
+            this.orderByButton.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.orderByButton.FlatAppearance.BorderSize = 0;
+            this.orderByButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderByButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderByButton.ForeColor = System.Drawing.Color.White;
+            this.orderByButton.Location = new System.Drawing.Point(21, 72);
+            this.orderByButton.Margin = new System.Windows.Forms.Padding(2);
+            this.orderByButton.Name = "orderByButton";
+            this.orderByButton.Size = new System.Drawing.Size(192, 24);
+            this.orderByButton.TabIndex = 25;
+            this.orderByButton.Text = "OrderBy";
+            this.orderByButton.UseVisualStyleBackColor = false;
+            this.orderByButton.Click += new System.EventHandler(this.orderByButton_Click);
             // 
             // label1
             // 
@@ -211,6 +227,39 @@
             this.panelOrderBy.Size = new System.Drawing.Size(228, 58);
             this.panelOrderBy.TabIndex = 3;
             this.panelOrderBy.Tag = false;
+            // 
+            // bunifuSeparatorOrderBy
+            // 
+            this.bunifuSeparatorOrderBy.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparatorOrderBy.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bunifuSeparatorOrderBy.LineThickness = 1;
+            this.bunifuSeparatorOrderBy.Location = new System.Drawing.Point(0, 118);
+            this.bunifuSeparatorOrderBy.Name = "bunifuSeparatorOrderBy";
+            this.bunifuSeparatorOrderBy.Size = new System.Drawing.Size(228, 1);
+            this.bunifuSeparatorOrderBy.TabIndex = 10;
+            this.bunifuSeparatorOrderBy.Transparency = 255;
+            this.bunifuSeparatorOrderBy.Vertical = false;
+            // 
+            // comboBoxOrderBy
+            // 
+            this.comboBoxOrderBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOrderBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxOrderBy.FormattingEnabled = true;
+            this.comboBoxOrderBy.Location = new System.Drawing.Point(65, 77);
+            this.comboBoxOrderBy.Name = "comboBoxOrderBy";
+            this.comboBoxOrderBy.Size = new System.Drawing.Size(132, 24);
+            this.comboBoxOrderBy.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(18, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Filter :";
             // 
             // radioButtonDescen
             // 
@@ -416,55 +465,6 @@
             this.currentStudentsFlowPanel.Name = "currentStudentsFlowPanel";
             this.currentStudentsFlowPanel.Size = new System.Drawing.Size(231, 644);
             this.currentStudentsFlowPanel.TabIndex = 9;
-            // 
-            // orderByButton
-            // 
-            this.orderByButton.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.orderByButton.FlatAppearance.BorderSize = 0;
-            this.orderByButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.orderByButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.orderByButton.ForeColor = System.Drawing.Color.White;
-            this.orderByButton.Location = new System.Drawing.Point(21, 72);
-            this.orderByButton.Margin = new System.Windows.Forms.Padding(2);
-            this.orderByButton.Name = "orderByButton";
-            this.orderByButton.Size = new System.Drawing.Size(192, 24);
-            this.orderByButton.TabIndex = 25;
-            this.orderByButton.Text = "OrderBy";
-            this.orderByButton.UseVisualStyleBackColor = false;
-            this.orderByButton.Click += new System.EventHandler(this.orderByButton_Click);
-            // 
-            // bunifuSeparatorOrderBy
-            // 
-            this.bunifuSeparatorOrderBy.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparatorOrderBy.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bunifuSeparatorOrderBy.LineThickness = 1;
-            this.bunifuSeparatorOrderBy.Location = new System.Drawing.Point(0, 118);
-            this.bunifuSeparatorOrderBy.Name = "bunifuSeparatorOrderBy";
-            this.bunifuSeparatorOrderBy.Size = new System.Drawing.Size(228, 1);
-            this.bunifuSeparatorOrderBy.TabIndex = 10;
-            this.bunifuSeparatorOrderBy.Transparency = 255;
-            this.bunifuSeparatorOrderBy.Vertical = false;
-            // 
-            // comboBoxOrderBy
-            // 
-            this.comboBoxOrderBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxOrderBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxOrderBy.FormattingEnabled = true;
-            this.comboBoxOrderBy.Location = new System.Drawing.Point(65, 77);
-            this.comboBoxOrderBy.Name = "comboBoxOrderBy";
-            this.comboBoxOrderBy.Size = new System.Drawing.Size(132, 24);
-            this.comboBoxOrderBy.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(18, 78);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Filter :";
             // 
             // EditGroupBoardSecond
             // 

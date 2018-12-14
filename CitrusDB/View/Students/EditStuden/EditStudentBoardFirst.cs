@@ -46,6 +46,7 @@ namespace CitrusDB.View.Students.EditStuden
         public event EventHandler UpdateView;
         public event SearchingEventHandler StudentSearchTextBoxChanges;
         public event EventHandler LoadSecondForm;
+        public event OrderByHandler OrderBy;
 
         #endregion
 
@@ -60,7 +61,7 @@ namespace CitrusDB.View.Students.EditStuden
         {
             LoadEditStudentBoardFirst?.Invoke(sender, e);
 
-            comboBoxFilters.DataSource = new List<string>
+            comboBoxWhere.DataSource = new List<string>
             {
                 "FirstName",
                 "LastName",
@@ -70,11 +71,28 @@ namespace CitrusDB.View.Students.EditStuden
                 "Сitizenship",
                 "KnowledgeOfLanguage"
             };
+            comboBoxOrderBy.DataSource = new List<string>
+            {
+                "FirstName",
+                "LastName",
+                "MiddleName",
+                "Height",
+                "Weight",
+                "Сitizenship",
+                "KnowledgeOfLanguage"
+            };
+
+            radioButtonAscend.Checked = true;
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            StudentSearchTextBoxChanges?.Invoke((sender as TextBox).Text,comboBoxFilters.SelectedItem.ToString(), null);
+            StudentSearchTextBoxChanges?.Invoke((sender as TextBox).Text, comboBoxWhere.SelectedItem.ToString(), null);
+        }
+
+        private void orderByButton_Click(object sender, EventArgs e)
+        {
+            OrderBy?.Invoke(sender, new OrderByEventArgs(comboBoxOrderBy.SelectedItem.ToString(), radioButtonAscend.Checked));
         }
 
         #endregion
@@ -83,7 +101,6 @@ namespace CitrusDB.View.Students.EditStuden
         {
             this.mainForm = mainForm;
         }
-
 
         private void collapsedButton_Click(object sender, EventArgs e)
         {
@@ -151,5 +168,6 @@ namespace CitrusDB.View.Students.EditStuden
             mainForm.ClearEventHandlers();
             mainForm.TimerTiks += panelOrderBy.TicksGrowsHeight;
         }
+
     }
 }
