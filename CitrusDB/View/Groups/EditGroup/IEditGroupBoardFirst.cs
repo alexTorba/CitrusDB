@@ -1,4 +1,5 @@
 ﻿using CitrusDB.Model.Entity;
+using CitrusDB.Model.UsersEventArgs;
 using System;
 using static System.Windows.Forms.Control;
 
@@ -16,5 +17,6 @@ namespace CitrusDB.View.Groups.EditGroup
         event EventHandler UpdateView;
         event EventHandler EditGroupButtonClick;
         event EventHandler LoadEditGroupBoardFirst;
+        event OrderByHandler OrderBy;
     }
 }

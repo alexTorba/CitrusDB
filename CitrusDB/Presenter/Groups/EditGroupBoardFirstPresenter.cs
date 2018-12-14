@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Data.Entity;
 using CitrusDB.Model;
+using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.Presenter.Groups
 {
@@ -37,11 +38,28 @@ namespace CitrusDB.Presenter.Groups
             editGroupBoardFirst.EditGroupButtonClick += EditGroupBoardFirst_EditGroupButtonClick;
             editGroupBoardFirst.UpdateView += EditGroupBoardFirst_UpdateView;
             editGroupBoardFirst.SearchBoxTextChanged += EditGroupBoardFirst_SearchBoxTextChanged;
+            editGroupBoardFirst.OrderBy += EditGroupBoardFirst_OrderBy;
 
             groupView.ClearOtherBoard += GroupView_ClearOtherBoard;
         }
 
         #region Event Handlers
+
+        private async void EditGroupBoardFirst_OrderBy(object sender, OrderByEventArgs e)
+        {
+            IList<Group> groups = await editGroupBoardFirst
+                                        .GroupCollection
+                                        .TransformControlsToEntitiesAsync<Group>(CancellationToken.None);
+
+            if (e.IsAscending)
+                groups = groups.OrderBy(e.OrderCriteria).ToArray();
+            else
+                groups = groups.OrderByDescending(e.OrderCriteria).ToArray();
+
+            editGroupBoardFirst.GroupCollection.Clear();
+
+            editGroupBoardFirst.GroupCollection.AddControls(groups, groupView, CancellationToken.None);
+        }
 
         private void EditGroupBoardFirst_SearchBoxTextChanged(object sender, EventArgs e)
         {

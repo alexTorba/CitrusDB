@@ -64,9 +64,8 @@ namespace CitrusDB.View.Groups.EditGroup
             this.mainForm = mainForm;
 
             editGroupBoardSecond.InitFileds(this.mainForm);
+            editGroupBoardFirst.InitField(this.mainForm);
         }
-
-        
 
     }
 }
