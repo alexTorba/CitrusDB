@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
+using CitrusDB.View.Groups.GroupsView.GroupInfo;
 
 namespace CitrusDB.View.Groups.GroupsView.GroupViews
 {
@@ -16,13 +17,13 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
             SetMouseClickHandler();
 
-            initColor = Parent?.BackColor ?? colorSeparator1.LineColor;
-            selectedColor = Color.LimeGreen;
+            InitColor = Parent?.BackColor ?? colorSeparator1.LineColor;
+            SelectedColor = Color.LimeGreen;
         }
 
         public GroupViewBoard(Color selectedColor) : this()
         {
-            this.selectedColor = selectedColor;
+            this.SelectedColor = selectedColor;
         }
 
         #region IGroupView
@@ -39,8 +40,8 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         public bool IsSelected { get; set; }
 
-        public Color selectedColor { get; set; }
-        public Color initColor { get; set; }
+        public Color SelectedColor { get; set; }
+        public Color InitColor { get; set; }
 
         public object Clone()
         {
@@ -51,8 +52,8 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
                 CountOfStudent = countLabel?.Text == "" ? 0 : countLabel != null ? int.Parse(countLabel.Text) : 0,
             };
             groupView.ClearOtherBoard += ClearOtherBoard;
-            groupView.selectedColor = selectedColor;
-            groupView.initColor = initColor;
+            groupView.SelectedColor = SelectedColor;
+            groupView.InitColor = InitColor;
 
             return groupView;
         }
@@ -76,10 +77,10 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         public void ChangeColorToBase()
         {
-            colorSeparator1.LineColor = initColor;
-            colorSeparator2.LineColor = initColor;
-            colorSeparator3.LineColor = initColor;
-            colorSeparator4.LineColor = initColor;
+            colorSeparator1.LineColor = InitColor;
+            colorSeparator2.LineColor = InitColor;
+            colorSeparator3.LineColor = InitColor;
+            colorSeparator4.LineColor = InitColor;
 
             IsSelected = false;
         }
@@ -103,10 +104,10 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
 
         private void MouseClickHandler(object sender, EventArgs e)
         {
-            if (colorSeparator1.LineColor == initColor)
+            if (colorSeparator1.LineColor == InitColor)
             {
                 ResetOtherBoard();
-                ChangeColor(selectedColor);
+                ChangeColor(SelectedColor);
                 IsSelected = true;
             }
             else
@@ -120,7 +121,7 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
         {
             ResetOtherBoard();
 
-            ChangeColor(selectedColor);
+            ChangeColor(SelectedColor);
             IsSelected = true;
         }
 
@@ -130,6 +131,16 @@ namespace CitrusDB.View.Groups.GroupsView.GroupViews
             colorSeparator2.LineColor = color;
             colorSeparator3.LineColor = color;
             colorSeparator4.LineColor = color;
+        }
+
+        private void selectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MouseClickHandler(null, EventArgs.Empty);
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GroupInfoForm(Id).ShowDialog();
         }
 
     }

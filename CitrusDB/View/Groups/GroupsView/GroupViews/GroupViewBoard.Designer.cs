@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.countLabel = new System.Windows.Forms.Label();
@@ -40,7 +41,11 @@
             this.colorSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
             this.colorSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.colorSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.photoGroupPictureBox)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -130,7 +135,7 @@
             // 
             this.colorSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator2.LineThickness = 27;
+            this.colorSeparator2.LineThickness = 46;
             this.colorSeparator2.Location = new System.Drawing.Point(-1, -2);
             this.colorSeparator2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.colorSeparator2.Name = "colorSeparator2";
@@ -143,7 +148,7 @@
             // 
             this.colorSeparator4.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator4.LineThickness = 31;
+            this.colorSeparator4.LineThickness = 54;
             this.colorSeparator4.Location = new System.Drawing.Point(-1, 90);
             this.colorSeparator4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.colorSeparator4.Name = "colorSeparator4";
@@ -156,7 +161,7 @@
             // 
             this.colorSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator1.LineThickness = 16;
+            this.colorSeparator1.LineThickness = 22;
             this.colorSeparator1.Location = new System.Drawing.Point(286, 7);
             this.colorSeparator1.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.colorSeparator1.Name = "colorSeparator1";
@@ -169,7 +174,7 @@
             // 
             this.colorSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.colorSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator3.LineThickness = 16;
+            this.colorSeparator3.LineThickness = 22;
             this.colorSeparator3.Location = new System.Drawing.Point(-1, -2);
             this.colorSeparator3.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
             this.colorSeparator3.Name = "colorSeparator3";
@@ -178,11 +183,39 @@
             this.colorSeparator3.Transparency = 255;
             this.colorSeparator3.Vertical = true;
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.contextMenuStrip.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectToolStripMenuItem,
+            this.infoToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            // 
+            // selectToolStripMenuItem
+            // 
+            this.selectToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
+            this.selectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectToolStripMenuItem.Text = "Select";
+            this.selectToolStripMenuItem.Click += new System.EventHandler(this.selectToolStripMenuItem_Click);
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            // 
             // GroupViewBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.colorSeparator4);
             this.Controls.Add(this.colorSeparator1);
             this.Controls.Add(this.colorSeparator3);
@@ -200,6 +233,7 @@
             this.Name = "GroupViewBoard";
             this.Size = new System.Drawing.Size(295, 99);
             ((System.ComponentModel.ISupportInitialize)(this.photoGroupPictureBox)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +253,8 @@
         private Bunifu.Framework.UI.BunifuSeparator colorSeparator4;
         private Bunifu.Framework.UI.BunifuSeparator colorSeparator1;
         private Bunifu.Framework.UI.BunifuSeparator colorSeparator3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
     }
 }
