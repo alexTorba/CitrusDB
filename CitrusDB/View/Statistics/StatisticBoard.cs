@@ -46,12 +46,14 @@ namespace CitrusDB.View.Statistics
         public async void UpdatingView()
         {
             pictureBoxLoadingAnimation.Enabled = true;
+            updatingLabel.Visible = true;
 
             await UpdateView?.Invoke(null, EventArgs.Empty);
             studentButton_Click(null, EventArgs.Empty);
             chart.Update();
             chart.UpdateAnnotations();
 
+            updatingLabel.Visible = false;
             pictureBoxLoadingAnimation.Enabled = false;
         }
 

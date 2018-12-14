@@ -70,6 +70,7 @@ namespace CitrusDB.View
             this.addStudentBoard = new CitrusDB.View.Students.AddStudent.AddStudentBoard();
             this.dataBoard = new CitrusDB.View.DataBoard.DataBoard();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aboutUsBoard = new CitrusDB.View.AboutUs.AboutUsBoard();
             this.dragPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGroupAdd.SuspendLayout();
@@ -535,11 +536,21 @@ namespace CitrusDB.View
             // 
             this.studentBindingSource.DataSource = typeof(CitrusDB.Model.Entity.Student);
             // 
+            // aboutUsBoard
+            // 
+            this.aboutUsBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aboutUsBoard.Location = new System.Drawing.Point(188, 31);
+            this.aboutUsBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.aboutUsBoard.Name = "aboutUsBoard";
+            this.aboutUsBoard.Size = new System.Drawing.Size(917, 644);
+            this.aboutUsBoard.TabIndex = 21;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1105, 702);
+            this.Controls.Add(this.aboutUsBoard);
             this.Controls.Add(this.statisticBoard);
             this.Controls.Add(this.editGroupBoard);
             this.Controls.Add(this.editStudentBoard);
@@ -556,7 +567,7 @@ namespace CitrusDB.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.dragPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -614,6 +625,7 @@ namespace CitrusDB.View
         public EditStudentBoard editStudentBoard;
         public Groups.EditGroup.EditGroupBoard editGroupBoard;
         public Statistics.StatisticBoard statisticBoard;
+        private AboutUs.AboutUsBoard aboutUsBoard;
     }
 }
 

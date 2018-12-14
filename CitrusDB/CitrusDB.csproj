@@ -161,6 +161,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\AboutUs\AboutUsBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AboutUs\AboutUsBoard.Designer.cs">
+      <DependentUpon>AboutUsBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Groups\EditGroup\EditGroupBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     <EmbeddedResource Include="Migrations\201812061610458_added_history.resx">
       <DependentUpon>201812061610458_added_history.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AboutUs\AboutUsBoard.resx">
+      <DependentUpon>AboutUsBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Groups\EditGroup\EditGroupBoard.resx">
       <DependentUpon>EditGroupBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -452,6 +461,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_Sphere_15px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mandarin-Gear-logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Facebook_42px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Instagram_42px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Telegram_App_42px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Twitter_42px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

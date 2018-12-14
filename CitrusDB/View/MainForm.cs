@@ -60,7 +60,7 @@ namespace CitrusDB.View
 
         #region Forwarding Events
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             LoadMainForm?.Invoke(sender, e);
 
@@ -132,6 +132,7 @@ namespace CitrusDB.View
         private void buttonAboutUs_Click(object sender, EventArgs e)
         {
             ReplaceBacklightPanel(sender, e);
+            aboutUsBoard.BringToFront();
         }
 
         private void panelGroupAdd_MouseClick(object sender, MouseEventArgs e)

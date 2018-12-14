@@ -37,6 +37,7 @@
             this.groupButton = new System.Windows.Forms.Button();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.optionsPanel = new System.Windows.Forms.Panel();
+            this.updatingLabel = new System.Windows.Forms.Label();
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.deletedTodatValue = new System.Windows.Forms.Label();
@@ -132,6 +133,7 @@
             // optionsPanel
             // 
             this.optionsPanel.BackColor = System.Drawing.Color.White;
+            this.optionsPanel.Controls.Add(this.updatingLabel);
             this.optionsPanel.Controls.Add(this.bunifuSeparator3);
             this.optionsPanel.Controls.Add(this.bunifuSeparator2);
             this.optionsPanel.Controls.Add(this.deletedTodatValue);
@@ -152,6 +154,16 @@
             this.optionsPanel.Name = "optionsPanel";
             this.optionsPanel.Size = new System.Drawing.Size(773, 177);
             this.optionsPanel.TabIndex = 3;
+            // 
+            // updatingLabel
+            // 
+            this.updatingLabel.AutoSize = true;
+            this.updatingLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.updatingLabel.Location = new System.Drawing.Point(28, 132);
+            this.updatingLabel.Name = "updatingLabel";
+            this.updatingLabel.Size = new System.Drawing.Size(112, 17);
+            this.updatingLabel.TabIndex = 15;
+            this.updatingLabel.Text = "Updating data..";
             // 
             // bunifuSeparator3
             // 
@@ -302,7 +314,7 @@
             // pictureBoxLoadingAnimation
             // 
             this.pictureBoxLoadingAnimation.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLoadingAnimation.Image")));
-            this.pictureBoxLoadingAnimation.Location = new System.Drawing.Point(-37, -84);
+            this.pictureBoxLoadingAnimation.Location = new System.Drawing.Point(-34, -84);
             this.pictureBoxLoadingAnimation.Name = "pictureBoxLoadingAnimation";
             this.pictureBoxLoadingAnimation.Size = new System.Drawing.Size(229, 335);
             this.pictureBoxLoadingAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -464,5 +476,6 @@
         private System.Windows.Forms.PictureBox pictureBoxLoadingAnimation;
         private System.Windows.Forms.Button earlierButton;
         private System.Windows.Forms.Button laterButton;
+        private System.Windows.Forms.Label updatingLabel;
     }
 }
