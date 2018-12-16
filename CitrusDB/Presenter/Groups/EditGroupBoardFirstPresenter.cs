@@ -58,7 +58,12 @@ namespace CitrusDB.Presenter.Groups
 
             editGroupBoardFirst.GroupCollection.Clear();
 
-            editGroupBoardFirst.GroupCollection.AddControls(groups, groupView, CancellationToken.None);
+            await editGroupBoardFirst.GroupCollection.AddControls(groups, groupView, CancellationToken.None);
+
+            editGroupBoardFirst.GroupCollection
+                    .Cast<IGroupView>()
+                    .FirstOrDefault(g => g.Id == editGroupBoardFirst.GroupId)
+                    ?.SelectView();
         }
 
         private void EditGroupBoardFirst_SearchBoxTextChanged(object sender, EventArgs e)
@@ -173,7 +178,7 @@ namespace CitrusDB.Presenter.Groups
                 .ToArray();
             });
 
-            editGroupBoardFirst.GroupCollection.AddControls(groups, groupView, token);
+           await editGroupBoardFirst.GroupCollection.AddControls(groups, groupView, token);
         }
 
         private async Task DeleteControlsFromControlCollection(IList<Group> groups, CancellationToken token)

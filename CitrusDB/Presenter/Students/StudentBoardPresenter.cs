@@ -219,7 +219,7 @@ namespace CitrusDB.Presenter.Students
                 .ToArray();
             });
 
-            studentBoard.GroupsCollection.AddControls(groups, groupView, token);
+            await studentBoard.GroupsCollection.AddControls(groups, groupView, token);
         }
 
         private async Task DeleteControlsFromControlCollection(IList<Group> groups, CancellationToken token)

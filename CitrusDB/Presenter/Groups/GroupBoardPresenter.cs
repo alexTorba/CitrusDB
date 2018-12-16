@@ -118,7 +118,7 @@ namespace CitrusDB.Presenter.Groups
         {
             IList<Student> students = EFGenericRepository.Get<Student>(s => s.Group == null).ToArray();
 
-            FillInitControlCollection(students, new CancellationToken());
+            FillInitControlCollection(students, CancellationToken.None);
         }
 
         private void GroupBoard_CurrentStudentSearchTextBoxChanges(string condition, string searchCriteria, EventArgs e)
@@ -205,13 +205,12 @@ namespace CitrusDB.Presenter.Groups
                  .FillControlCollectionForSearch(students, currentStudentView, token);
         }
 
-        private void FillInitControlCollection(IList<Student> students, CancellationToken token)
+        private async void FillInitControlCollection(IList<Student> students, CancellationToken token)
         {
             if (students.Count == 0)
                 return;
 
-            groupBoard.CurrentStudentControlCollection.AddControls(students, currentStudentView, token);
-
+            await groupBoard.CurrentStudentControlCollection.AddControls(students, currentStudentView, token);
         }
 
         #region Updating

@@ -162,7 +162,7 @@ namespace CitrusDB.Presenter.Students
                 .ToArray();
             });
 
-            editStudentBoardFirst.StudentControlCollection.AddControls(students, editStudentView, token);
+           await editStudentBoardFirst.StudentControlCollection.AddControls(students, editStudentView, token);
         }
 
         private async Task DeleteControlsFromControlCollection(IEnumerable<Student> students, CancellationToken token)

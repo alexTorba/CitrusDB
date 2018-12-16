@@ -35,7 +35,7 @@ namespace CitrusDB.Presenter.Groups
 
         #region Event Handlers
 
-        private void GroupBoardSecond_SetEditingGroup(object sender, EventArgs e)
+        private async void GroupBoardSecond_SetEditingGroup(object sender, EventArgs e)
         {
             groupBoardSecond.CurrentStudentControlCollection.DeleteControls(
                 groupBoardSecond.CurrentGroup.Students,
@@ -43,12 +43,11 @@ namespace CitrusDB.Presenter.Groups
 
             groupBoardSecond.AddedStudentControlCollection.Clear();
 
-            groupBoardSecond
+            await groupBoardSecond
                 .AddedStudentControlCollection
                 .AddControls(groupBoardSecond.CurrentGroup.Students,
                 addedStudentView,
                 CancellationToken.None);
-
         }
 
         private bool GroupBoardSecond_AcceptClick()
@@ -81,9 +80,9 @@ namespace CitrusDB.Presenter.Groups
 
         }
 
-        public override void GroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
+        public override async void GroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
         {
-            groupBoardSecond.CurrentStudentControlCollection.AddControls(
+            await groupBoardSecond.CurrentStudentControlCollection.AddControls(
                 EFGenericRepository.Get<Student>(s => s.Group == null).ToArray(),
                 currentStudentView,
                 CancellationToken.None);

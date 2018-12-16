@@ -36,7 +36,6 @@ namespace CitrusDB.Model.Extensions
 
             await Task.Factory.StartNew(() =>
             {
-                //???
                 foreach (var entity in changedEntities)
                 {
                     var control = controlCollection
@@ -74,7 +73,6 @@ namespace CitrusDB.Model.Extensions
 
             await Task.Factory.StartNew(() =>
             {
-                //???
                 foreach (var entity in changedEntities)
                 {
                     var control = controlCollection
@@ -99,7 +97,7 @@ namespace CitrusDB.Model.Extensions
         /// <param name="entityControlView">Сontrol in which entities will be transformed</param>
         /// <param name="token">Cancalation token</param>
         /// <returns></returns>
-        public static async void AddControls<T, R>(
+        public static async Task AddControls<T, R>(
             this ControlCollection controlCollection,
             IList<T> newEntity,
             R entityControlView,
