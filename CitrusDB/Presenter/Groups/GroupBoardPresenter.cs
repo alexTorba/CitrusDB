@@ -62,10 +62,10 @@ namespace CitrusDB.Presenter.Groups
             await FillControlCollection(students, CancellationToken.None);
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        protected void CancelButton_Click(object sender, EventArgs e)
         {
             //получаем addedStudentView на котором было вызвано событие button_Click
-            IStudentView addedStudentView = (IStudentView)((Control)sender).Parent;
+            IStudentView addedStudentView = sender as IStudentView ?? (IStudentView)((Control)sender).Parent; 
 
             IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
             studentView.FillView(EFGenericRepository.Find<Student>(addedStudentView.Id));

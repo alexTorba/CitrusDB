@@ -11,6 +11,7 @@ using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
 using System.Threading;
+using CitrusDB.View.Students.StudentsView.AddedStudentView;
 
 namespace CitrusDB.Presenter.Groups
 {
@@ -77,7 +78,14 @@ namespace CitrusDB.Presenter.Groups
 
         private void GroupBoardSecond_CancelClick(object sender, EventArgs e)
         {
-
+            //todo ??
+            foreach (var addedStudentView in groupBoardSecond.AddedStudentControlCollection.Cast<AddedStudentViewBoard>().ToArray())
+            {
+                if (EFGenericRepository.Find<Student>(addedStudentView.Id).Group == null)
+                {
+                    CancelButton_Click(addedStudentView, EventArgs.Empty);
+                }
+            }
         }
 
         public override async void GroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
