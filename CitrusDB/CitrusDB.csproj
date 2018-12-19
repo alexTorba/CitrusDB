@@ -477,5 +477,13 @@
   <ItemGroup>
     <None Include="Resources\icons8_Twitter_42px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ezgif.com-gif-maker.gif" />
+    <None Include="Resources\orange.gif" />
+    <None Include="Resources\SparsePrestigiousBedlingtonterrier-size_restricted.gif" />
+    <None Include="Resources\lastsucDialog1.gif" />
+    <None Include="Resources\ezgif.com-gif-maker1.gif" />
+    <Content Include="Resources\lastsucDialog.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

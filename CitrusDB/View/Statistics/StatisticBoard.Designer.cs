@@ -31,7 +31,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticBoard));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.studentButton = new System.Windows.Forms.Button();
             this.groupButton = new System.Windows.Forms.Button();
@@ -313,7 +312,7 @@
             // 
             // pictureBoxLoadingAnimation
             // 
-            this.pictureBoxLoadingAnimation.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLoadingAnimation.Image")));
+            this.pictureBoxLoadingAnimation.Image = global::CitrusDB.Properties.Resources.ezgif_com_gif_maker;
             this.pictureBoxLoadingAnimation.Location = new System.Drawing.Point(-34, -84);
             this.pictureBoxLoadingAnimation.Name = "pictureBoxLoadingAnimation";
             this.pictureBoxLoadingAnimation.Size = new System.Drawing.Size(229, 335);

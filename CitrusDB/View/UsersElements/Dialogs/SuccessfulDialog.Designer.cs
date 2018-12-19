@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuccessfulDialog));
             this.iconPictureBox = new System.Windows.Forms.PictureBox();
             this.bunifuDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuElipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -40,9 +39,9 @@
             // 
             // iconPictureBox
             // 
-            this.iconPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("iconPictureBox.Image")));
+            this.iconPictureBox.Image = global::CitrusDB.Properties.Resources.lastsucDialog;
             this.iconPictureBox.Location = new System.Drawing.Point(-61, -38);
-            this.iconPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox.Name = "iconPictureBox";
             this.iconPictureBox.Size = new System.Drawing.Size(386, 219);
             this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -75,7 +74,7 @@
             this.messageTextBox.ForeColor = System.Drawing.Color.White;
             this.messageTextBox.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.messageTextBox.Location = new System.Drawing.Point(28, 124);
-            this.messageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.messageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.messageTextBox.Multiline = true;
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.ReadOnly = true;
@@ -93,7 +92,7 @@
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.iconPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SuccessfulDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuccessfulDialog";
