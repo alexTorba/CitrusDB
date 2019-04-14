@@ -1,90 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using CitrusDB.Model;
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
-using CitrusDB.View.Groups;
 using CitrusDB.View.Groups.AddGroup;
 using CitrusDB.View.Students;
 
 namespace CitrusDB.Presenter.Groups
 {
-    class AddGroupBoardPresenter : GroupBoardPresenter
+  class AddGroupBoardPresenter : GroupBoardPresenter
+  {
+    private readonly IAddGroupBoard _addGroupBoard;
+
+    public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView currentStudentView, IStudentView addedStudentView)
+        : base(addGroupBoard, currentStudentView, addedStudentView)
     {
-        readonly IAddGroupBoard addGroupBoard;
+      this._addGroupBoard = addGroupBoard;
 
-        public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView currentStudentView, IStudentView addedStudentView)
-            : base(addGroupBoard, currentStudentView, addedStudentView)
-        {
-            this.addGroupBoard = addGroupBoard;
-
-            SetHandlers();
-        }
-
-        private void SetHandlers()
-        {
-            addGroupBoard.ClearClick += AddGroupBoard_ClearClick;
-            addGroupBoard.SaveClick += AddGroupBoard_SaveClick;
-        }
-
-        #region Event Handlers
-
-        private bool AddGroupBoard_SaveClick()
-        {
-            if (string.IsNullOrWhiteSpace(addGroupBoard.GetNameOfGroup) ||
-                addGroupBoard.GetGroupPhoto == null ||
-                addGroupBoard.AddedStudentControlCollection.Count == 0)
-                return false;
-
-            List<Student> students = new List<Student>();
-
-            foreach (IStudentView studentView in addGroupBoard.AddedStudentControlCollection)
-                students.Add(EFGenericRepository.Find<Student>(studentView.Id));
-
-            Group group = new Group
-            {
-                Id = new Random(Guid.NewGuid().GetHashCode()).Next(),
-                Name = addGroupBoard.GetNameOfGroup,
-                Students = students,
-                Photo = addGroupBoard.GetGroupPhoto.ConvertImageToByteArr()
-            };
-
-            EFGenericRepository.Create(group);
-
-            addGroupBoard.ClearView();
-            addGroupBoard.AddedStudentControlCollection.Clear();
-
-            return true;
-        }
-
-        private void AddGroupBoard_ClearClick(object sender, EventArgs e)
-        {
-            addGroupBoard.ClearView();
-
-            if (addGroupBoard.AddedStudentControlCollection.Count != 0)
-            {
-                foreach (var obj in addGroupBoard.AddedStudentControlCollection)
-                {
-                    Control control = obj as Control;
-
-                    IStudentView studentView = (IStudentView)this.currentStudentView.Clone();
-                    studentView.FillView(EFGenericRepository.Find<Student>(
-                        ((IStudentView)control).Id));
-
-                    addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
-                }
-                addGroupBoard.AddedStudentControlCollection.Clear();
-            }
-        }
-
-        #endregion
-
+      SetHandlers();
     }
+
+    private void SetHandlers()
+    {
+      _addGroupBoard.ClearClick += AddGroupBoard_ClearClick;
+      _addGroupBoard.SaveClick += AddGroupBoard_SaveClick;
+    }
+
+    #region Event Handlers
+
+    private bool AddGroupBoard_SaveClick()
+    {
+      if (string.IsNullOrWhiteSpace(_addGroupBoard.GetNameOfGroup) ||
+          _addGroupBoard.GetGroupPhoto == null ||
+          _addGroupBoard.AddedStudentControlCollection.Count == 0)
+        return false;
+
+      var students = new List<Student>();
+
+      foreach (IStudentView studentView in _addGroupBoard.AddedStudentControlCollection)
+        students.Add(EFGenericRepository.Find<Student>(studentView.Id));
+
+      var group = new Group
+      {
+        Id = new Random(Guid.NewGuid().GetHashCode()).Next(),
+        Name = _addGroupBoard.GetNameOfGroup,
+        Students = students,
+        Photo = _addGroupBoard.GetGroupPhoto.ConvertImageToByteArr()
+      };
+
+      EFGenericRepository.Create(group);
+
+      _addGroupBoard.ClearView();
+      _addGroupBoard.AddedStudentControlCollection.Clear();
+
+      return true;
+    }
+
+    private void AddGroupBoard_ClearClick(object sender, EventArgs e)
+    {
+      _addGroupBoard.ClearView();
+
+      if (_addGroupBoard.AddedStudentControlCollection.Count != 0)
+      {
+        foreach (var obj in _addGroupBoard.AddedStudentControlCollection)
+        {
+          var control = obj as Control;
+
+          var studentView = (IStudentView)this.currentStudentView.Clone();
+          studentView.FillView(EFGenericRepository.Find<Student>(
+              ((IStudentView)control).Id));
+
+          _addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
+        }
+        _addGroupBoard.AddedStudentControlCollection.Clear();
+      }
+    }
+
+    #endregion
+  }
 }

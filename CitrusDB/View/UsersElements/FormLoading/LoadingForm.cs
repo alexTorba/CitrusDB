@@ -9,32 +9,31 @@ using System.Windows.Forms;
 
 namespace CitrusDB.View.UsersElements.FormLoading
 {
-    public class LoadingForm
+  public class LoadingForm
+  {
+    private readonly ILoadingForm _loadingForm;
+
+    public LoadingForm(ILoadingForm loadingForm)
     {
-        readonly ILoadingForm loadingForm;
-
-        public LoadingForm(ILoadingForm loadingForm)
-        {
-            this.loadingForm = loadingForm;
-        }
-
-        public async void Show()
-        {
-            await Task.Run(() => loadingForm.ShowForm());
-        }
-
-        public void Close()
-        {
-            if (!loadingForm.isCompleted)
-            {
-                ((Form)loadingForm).Invoke((MethodInvoker)delegate
-                {
-                    loadingForm.isCompleted = true;
-                    loadingForm.CloseForm();
-                    ((Form)loadingForm).Dispose();
-                });
-            }
-        }
-
+      _loadingForm = loadingForm;
     }
+
+    public async void Show()
+    {
+      await Task.Run(() => _loadingForm.ShowForm());
+    }
+
+    public void Close()
+    {
+      if (!_loadingForm.isCompleted)
+      {
+        ((Form)_loadingForm).Invoke((MethodInvoker)delegate
+        {
+          _loadingForm.isCompleted = true;
+          _loadingForm.CloseForm();
+          ((Form)_loadingForm).Dispose();
+        });
+      }
+    }
+  }
 }

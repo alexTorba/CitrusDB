@@ -7,40 +7,38 @@ using CitrusDB.View.Students.StudentsView.StudentInfo;
 
 namespace CitrusDB.Presenter.Students
 {
+  class StudentInfoFormPresenter
+  {
+    private readonly IStudentInfoForm _studentInfoForm;
 
-    class StudentInfoFormPresenter
+    public StudentInfoFormPresenter(IStudentInfoForm studentInfoForm)
     {
-        readonly IStudentInfoForm studentInfoForm;
+      _studentInfoForm = studentInfoForm;
 
-        public StudentInfoFormPresenter(IStudentInfoForm studentInfoForm)
-        {
-            this.studentInfoForm = studentInfoForm;
-
-            this.studentInfoForm.FormLoad += StudentInfoForm_FormLoad;
-        }
-
-        private void StudentInfoForm_FormLoad(object sender, EventArgs e)
-        {
-            var student = EFGenericRepository.Find<Student>(studentInfoForm.Id);
-
-            FillView(student);
-        }
-
-        private void FillView(Student student)
-        {
-            studentInfoForm.FirstName = student.FirstName;
-            studentInfoForm.LastName = student.LastName;
-            studentInfoForm.MiddleName = student.MiddleName;
-            studentInfoForm.Weight = student.Weight.ToString();
-            studentInfoForm.Height = student.Height.ToString();
-            studentInfoForm.Сitizenship = student.Сitizenship;
-            studentInfoForm.KnowledgeOfLanguage = student.KnowledgeOfLanguage;
-            studentInfoForm.DateOfBirth = student.DateOfBirth;
-            studentInfoForm.Group = student.Group == null ? null : EFGenericRepository.Find<Group>(student.Group.Id);
-
-            studentInfoForm.FirstPhoto = student.FirstPhoto.ConvertByteArrToImage();
-            studentInfoForm.SecondPhoto = student.SecondPhoto.ConvertByteArrToImage();
-        }
-
+      _studentInfoForm.FormLoad += StudentInfoForm_FormLoad;
     }
+
+    private void StudentInfoForm_FormLoad(object sender, EventArgs e)
+    {
+      var student = EFGenericRepository.Find<Student>(_studentInfoForm.Id);
+
+      FillView(student);
+    }
+
+    private void FillView(Student student)
+    {
+      _studentInfoForm.FirstName = student.FirstName;
+      _studentInfoForm.LastName = student.LastName;
+      _studentInfoForm.MiddleName = student.MiddleName;
+      _studentInfoForm.Weight = student.Weight.ToString();
+      _studentInfoForm.Height = student.Height.ToString();
+      _studentInfoForm.Сitizenship = student.Сitizenship;
+      _studentInfoForm.KnowledgeOfLanguage = student.KnowledgeOfLanguage;
+      _studentInfoForm.DateOfBirth = student.DateOfBirth;
+      _studentInfoForm.Group = student.Group == null ? null : EFGenericRepository.Find<Group>(student.Group.Id);
+
+      _studentInfoForm.FirstPhoto = student.FirstPhoto.ConvertByteArrToImage();
+      _studentInfoForm.SecondPhoto = student.SecondPhoto.ConvertByteArrToImage();
+    }
+  }
 }

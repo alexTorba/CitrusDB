@@ -3,21 +3,19 @@ using System.Drawing;
 using CitrusDB.Model.Entity;
 
 namespace CitrusDB.View.Groups.GroupsView.GroupViews
-{ 
-    public interface IGroupView : IEntityControlView<Group>
-    {
+{
+  public interface IGroupView : IEntityControlView<Group>
+  {
+    string GroupName { get; }
+    int CountOfStudent { get; set; }
+    bool IsSelected { get; set; }
+    Color SelectedColor { get; set; }
+    Color InitColor { get; set; }
 
-        string GroupName { get; }
-        int CountOfStudent { get; set; }
-        bool IsSelected { get; set; }
-        Color SelectedColor { get; set; }
-        Color InitColor { get; set; }
+    void ChangeColorToBase();
+    void SelectView();
+    void ResetOtherBoard();
 
-        void ChangeColorToBase();
-        void SelectView();
-        void ResetOtherBoard();
-
-        event EventHandler ClearOtherBoard;
-
-    }
+    event EventHandler ClearOtherBoard;
+  }
 }

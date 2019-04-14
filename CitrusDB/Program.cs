@@ -14,51 +14,50 @@ using CitrusDB.View.UsersElements.FormLoading;
 
 namespace CitrusDB
 {
-    static class Program
+  static class Program
+  {
+    /// <summary>
+    /// Главная точка входа для приложения.
+    /// </summary>
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
 
-            MainForm mainForm = new MainForm(new LoadingMainForm());
-            mainForm.InitBoard();
+      var mainForm = new MainForm(new LoadingMainForm());
+      mainForm.InitBoard();
 
-            var mainPresenter = new MainFormPresenter(mainForm);
+      var mainPresenter = new MainFormPresenter(mainForm);
 
-            var addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard, new GroupViewBoard());
+      var addStudentBoardPresenter = new AddStudentBoardPresenter(mainForm.addStudentBoard, new GroupViewBoard());
 
-            var dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
+      var dataBoardPresenter = new DataBoardPresenter(mainForm.dataBoard);
 
-            var addGroupBoardPresenter = new AddGroupBoardPresenter(
-                mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
+      var addGroupBoardPresenter = new AddGroupBoardPresenter(
+          mainForm.addGroupBoard, new StudentViewBoard(), new AddedStudentViewBoard());
 
-            var editStudentBoardFirstPresenter =
-                new EditStudentBoardFirstPresenter(mainForm.editStudentBoard.editStudentBoardFirst, new EditStudentViewBoard());
+      var editStudentBoardFirstPresenter =
+          new EditStudentBoardFirstPresenter(mainForm.editStudentBoard.editStudentBoardFirst, new EditStudentViewBoard());
 
-            var editStudentBoardSecondPresenter =
-                new EditStudentBoardSecondPresenter(mainForm.editStudentBoard.editStudentBoardSecond, new GroupViewBoard());
+      var editStudentBoardSecondPresenter =
+          new EditStudentBoardSecondPresenter(mainForm.editStudentBoard.editStudentBoardSecond, new GroupViewBoard());
 
-            var editGroupBoardFirstPresenter =
-                new EditGroupBoardFirstPresenter(
-                    mainForm.editGroupBoard.editGroupBoardFirst, 
-                new GroupViewBoard(Color.RoyalBlue));
+      var editGroupBoardFirstPresenter =
+          new EditGroupBoardFirstPresenter(
+              mainForm.editGroupBoard.editGroupBoardFirst,
+          new GroupViewBoard(Color.RoyalBlue));
 
-            var editGroupBoardSecondPresenter =
-                new EditGroupBoardSecondPresenter(
-                    mainForm.editGroupBoard.editGroupBoardSecond,
-                    new StudentViewBoard(), new AddedStudentViewBoard());
+      var editGroupBoardSecondPresenter =
+          new EditGroupBoardSecondPresenter(
+              mainForm.editGroupBoard.editGroupBoardSecond,
+              new StudentViewBoard(), new AddedStudentViewBoard());
 
-            var statisticBoardPresenter =
-                new StatisticBoardPresenter(mainForm.statisticBoard);
+      var statisticBoardPresenter =
+          new StatisticBoardPresenter(mainForm.statisticBoard);
 
-            Application.Run(mainForm);
-            Console.ReadKey();
-        }
-
+      Application.Run(mainForm);
+      Console.ReadKey();
     }
+  }
 }

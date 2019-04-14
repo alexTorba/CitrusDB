@@ -5,25 +5,25 @@ using CitrusDB.Model.DataBaseLogic;
 
 namespace CitrusDB.Presenter
 {
-    class MainFormPresenter
+  class MainFormPresenter
+  {
+    private readonly IMainForm _mainForm;
+
+    public MainFormPresenter(IMainForm mainForm)
     {
-        readonly IMainForm mainForm;
+      _mainForm = mainForm;
 
-        public MainFormPresenter(IMainForm mainForm)
-        {
-            this.mainForm = mainForm;
-
-            this.mainForm.LoadMainForm += MainFormView_LoadMainForm;
-            this.mainForm.ClosingMainForm += MainForm_ClosingMainForm;
-        }
-
-        private void MainForm_ClosingMainForm(object sender, EventArgs e)
-        {
-            EFGenericRepository.SaveChanges();
-        }
-
-        private void MainFormView_LoadMainForm(object sender, EventArgs e)
-        {
-        }
+      _mainForm.LoadMainForm += MainFormView_LoadMainForm;
+      _mainForm.ClosingMainForm += MainForm_ClosingMainForm;
     }
+
+    private void MainForm_ClosingMainForm(object sender, EventArgs e)
+    {
+      EFGenericRepository.SaveChanges();
+    }
+
+    private void MainFormView_LoadMainForm(object sender, EventArgs e)
+    {
+    }
+  }
 }

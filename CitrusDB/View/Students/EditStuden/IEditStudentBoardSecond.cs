@@ -4,13 +4,13 @@ using CitrusDB.Model.UsersEventArgs;
 
 namespace CitrusDB.View.Students.EditStuden
 {
-    interface IEditStudentBoardSecond : IStudentBoard
-    {
-        Student CurrentStudent { get; }
+  interface IEditStudentBoardSecond : IStudentBoard
+  {
+    Student CurrentStudent { get; }
 
-        event Func<bool> AcceptButton;
-        event EventHandler CancelButton;
+    event Func<bool> AcceptButton;
+    event EventHandler CancelButton;
 
-        event EntityTransferHandler SetInitGroup;        
-    }
+    event EntityTransferHandler SetInitGroup;
+  }
 }

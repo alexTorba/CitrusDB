@@ -10,95 +10,93 @@ using CitrusDB.View.Groups.GroupsView.GroupViews;
 
 namespace CitrusDB.Presenter.Students
 {
-    class EditStudentBoardSecondPresenter : StudentBoardPresenter
+  class EditStudentBoardSecondPresenter : StudentBoardPresenter
+  {
+    private readonly IEditStudentBoardSecond _studentBoardSecond;
+
+    public EditStudentBoardSecondPresenter(IEditStudentBoardSecond studentBoard, IGroupView groupView)
+        : base(studentBoard, groupView)
     {
+      _studentBoardSecond = studentBoard;
 
-        readonly IEditStudentBoardSecond studentBoardSecond;
-
-        public EditStudentBoardSecondPresenter(IEditStudentBoardSecond studentBoard, IGroupView groupView)
-            : base(studentBoard, groupView)
-        {
-            studentBoardSecond = studentBoard;
-
-            SetHandlers();
-        }
-
-        private void SetHandlers()
-        {
-            studentBoardSecond.AcceptButton += StudentBoardSecond_AcceptButton;
-            studentBoardSecond.CancelButton += StudentBoardSecond_CancelButton;
-            studentBoardSecond.SetInitGroup += StudentBoardSecond_SetInitGroup;
-        }
-
-        #region IEditStudentBoardSecond
-
-        private void StudentBoardSecond_SetInitGroup(object sender, EntityTransferEventArgs e)
-        {
-            if (studentBoardSecond.GroupsCollection.Count == 0)
-            {
-                return;
-            }
-            else
-            {
-                ((IGroupView)studentBoardSecond.GroupsCollection[0]).ResetOtherBoard();
-
-                if (e.entity != null)
-                {
-                    var group = studentBoardSecond.GroupsCollection
-                                        .Cast<IGroupView>()
-                                        .FirstOrDefault(g => g.Id == e.entity.Id);
-
-                    group?.SelectView();
-                }
-            }
-        }
-
-        private void StudentBoardSecond_CancelButton(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
-
-        private bool StudentBoardSecond_AcceptButton()
-        {
-            var selectedGroup = studentBoardSecond.GroupsCollection
-                .Cast<IGroupView>()
-                .FirstOrDefault(gv => gv.IsSelected == true);
-
-            Student editStudent = new Student
-            {
-                Id = studentBoardSecond.CurrentStudent.Id,
-                FirstName = studentBoardSecond.GetFirstName,
-                LastName = studentBoardSecond.GetLastName,
-                MiddleName = studentBoardSecond.GetMiddleName,
-                DateOfBirth = studentBoardSecond.DateOfBirth,
-                Height = studentBoardSecond.GetGrowth,
-                Weight = studentBoardSecond.GetWeight,
-                Сitizenship = studentBoardSecond.GetCitizenship,
-                KnowledgeOfLanguage = studentBoardSecond.GetKnowledgeOfLanguage,
-
-                FirstPhoto = studentBoardSecond.GetFirstPhoto.SetPhoto(studentBoardSecond.CurrentStudent.FirstPhoto),
-
-                SecondPhoto = studentBoardSecond.GetSecondPhoto.SetPhoto(studentBoardSecond.CurrentStudent.SecondPhoto),
-
-                Group = selectedGroup == null
-                                     ? null
-                                     : EFGenericRepository.Find<Group>(selectedGroup.Id)
-            };
-
-            bool isEquality = new StudentsEqualityComarer()
-                .Equals(editStudent, studentBoardSecond.CurrentStudent);
-
-            if (!isEquality)
-            {
-                studentBoardSecond.CurrentStudent.SetCopy(editStudent);
-                EFGenericRepository.Update(studentBoardSecond.CurrentStudent);
-                return true;
-            }
-
-            return false;
-        }
-
-        #endregion
-
+      SetHandlers();
     }
+
+    private void SetHandlers()
+    {
+      _studentBoardSecond.AcceptButton += StudentBoardSecond_AcceptButton;
+      _studentBoardSecond.CancelButton += StudentBoardSecond_CancelButton;
+      _studentBoardSecond.SetInitGroup += StudentBoardSecond_SetInitGroup;
+    }
+
+    #region IEditStudentBoardSecond
+
+    private void StudentBoardSecond_SetInitGroup(object sender, EntityTransferEventArgs e)
+    {
+      if (_studentBoardSecond.GroupsCollection.Count == 0)
+      {
+        return;
+      }
+      else
+      {
+        ((IGroupView)_studentBoardSecond.GroupsCollection[0]).ResetOtherBoard();
+
+        if (e.entity != null)
+        {
+          var group = _studentBoardSecond.GroupsCollection
+                              .Cast<IGroupView>()
+                              .FirstOrDefault(g => g.Id == e.entity.Id);
+
+          group?.SelectView();
+        }
+      }
+    }
+
+    private void StudentBoardSecond_CancelButton(object sender, EventArgs e)
+    {
+      //throw new NotImplementedException();
+    }
+
+    private bool StudentBoardSecond_AcceptButton()
+    {
+      var selectedGroup = _studentBoardSecond.GroupsCollection
+          .Cast<IGroupView>()
+          .FirstOrDefault(gv => gv.IsSelected == true);
+
+      var editStudent = new Student
+      {
+        Id = _studentBoardSecond.CurrentStudent.Id,
+        FirstName = _studentBoardSecond.GetFirstName,
+        LastName = _studentBoardSecond.GetLastName,
+        MiddleName = _studentBoardSecond.GetMiddleName,
+        DateOfBirth = _studentBoardSecond.DateOfBirth,
+        Height = _studentBoardSecond.GetGrowth,
+        Weight = _studentBoardSecond.GetWeight,
+        Сitizenship = _studentBoardSecond.GetCitizenship,
+        KnowledgeOfLanguage = _studentBoardSecond.GetKnowledgeOfLanguage,
+
+        FirstPhoto = _studentBoardSecond.GetFirstPhoto.SetPhoto(_studentBoardSecond.CurrentStudent.FirstPhoto),
+
+        SecondPhoto = _studentBoardSecond.GetSecondPhoto.SetPhoto(_studentBoardSecond.CurrentStudent.SecondPhoto),
+
+        Group = selectedGroup == null
+                               ? null
+                               : EFGenericRepository.Find<Group>(selectedGroup.Id)
+      };
+
+      var isEquality = new StudentsEqualityComarer()
+          .Equals(editStudent, _studentBoardSecond.CurrentStudent);
+
+      if (!isEquality)
+      {
+        _studentBoardSecond.CurrentStudent.SetCopy(editStudent);
+        EFGenericRepository.Update(_studentBoardSecond.CurrentStudent);
+        return true;
+      }
+
+      return false;
+    }
+
+    #endregion
+  }
 }

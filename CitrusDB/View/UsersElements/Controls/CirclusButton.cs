@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CitrusDB.View.UsersElements
 {
-    public class CirclusButton : Button
+  public class CirclusButton : Button
+  {
+    protected override void OnPaint(PaintEventArgs pevent)
     {
-        protected override void OnPaint(PaintEventArgs pevent)
-        {
-            GraphicsPath graphics = new GraphicsPath();
-            graphics.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height);
-            this.Region = new Region(graphics);
-            base.OnPaint(pevent);
-        }
+      GraphicsPath graphics = new GraphicsPath();
+      graphics.AddEllipse(0, 0, ClientSize.Width, ClientSize.Height);
+      Region = new Region(graphics);
+      base.OnPaint(pevent);
     }
+  }
 }

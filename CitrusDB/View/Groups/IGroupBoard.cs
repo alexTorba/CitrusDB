@@ -5,26 +5,26 @@ using static System.Windows.Forms.Control;
 
 namespace CitrusDB.View.Groups
 {
-    interface IGroupBoard
-    {
-        string CountOfAddedStudent { get; set; }
-        string GetNameOfGroup { get; }
-        Image GetGroupPhoto { get; }
+  interface IGroupBoard
+  {
+    string CountOfAddedStudent { get; set; }
+    string GetNameOfGroup { get; }
+    Image GetGroupPhoto { get; }
 
-        ControlCollection CurrentStudentControlCollection { get; }
-        ControlCollection AddedStudentControlCollection { get; }
+    ControlCollection CurrentStudentControlCollection { get; }
+    ControlCollection AddedStudentControlCollection { get; }
 
-        void ClearView();
-        void DisableCurrentStudentPanel();
-        void EnableCurrentStudentPanel();
-        void DisableAddedStudentPanel();
-        void EnableAddedStudentPanel();
+    void ClearView();
+    void DisableCurrentStudentPanel();
+    void EnableCurrentStudentPanel();
+    void DisableAddedStudentPanel();
+    void EnableAddedStudentPanel();
 
-        event EventHandler LoadGroupBoard;
-        event EventHandler ChangeAddedStudentPanelControl;
-        event EventHandler UpdateView;
+    event EventHandler LoadGroupBoard;
+    event EventHandler ChangeAddedStudentPanelControl;
+    event EventHandler UpdateView;
 
-        event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
-        event OrderByHandler OrderBy;
-    }
+    event SearchingEventHandler CurrentStudentSearchTextBoxChanges;
+    event OrderByHandler OrderBy;
+  }
 }
