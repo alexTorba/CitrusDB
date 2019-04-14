@@ -421,6 +421,7 @@
     <EmbeddedResource Include="View\UsersElements\FormLoading\LoadingMainForm.resx">
       <DependentUpon>LoadingMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Group.datasource" />
     <None Include="Properties\DataSources\Student.datasource" />

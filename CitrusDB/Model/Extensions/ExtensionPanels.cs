@@ -1,102 +1,96 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CitrusDB.Model.Extensions
 {
-    public static  class ExtensionPanels
+  public static class ExtensionPanels
+  {
+    public static void TicksGrowsHeight(this Panel panel, Timer timer, object sender, EventArgs e)
     {
-
-        public static void TicksGrowsHeight(this Panel panel, Timer timer, object sender, EventArgs e)
+      if (!(bool)panel.Tag)
+      {
+        panel.Height += 10;
+        if (panel.MaximumSize.Height == panel.Height)
         {
-            if (!(bool)panel.Tag)
-            {
-                panel.Height += 10;
-                if (panel.MaximumSize.Height == panel.Height)
-                {
-                    timer.Stop();
-                    panel.Tag = true;
-                }
-            }
-            else
-            {
-                panel.Height -= 10;
-                if (panel.MinimumSize.Height == panel.Height)
-                {
-                    timer.Stop();
-                    panel.Tag = false;
-                }
-            }
+          timer.Stop();
+          panel.Tag = true;
         }
-
-        public static void TicksGrowsHeightQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
+      }
+      else
+      {
+        panel.Height -= 10;
+        if (panel.MinimumSize.Height == panel.Height)
         {
-            if (!(bool)panel.Tag)
-            {
-                panel.Height += 10;
-                if (panel.MaximumSize.Height == panel.Height)
-                {
-                    timer.Stop();
-                    panel.Tag = true;
-                }
-            }
-            else
-            {
-                panel.Height -= 20;
-                if (panel.MinimumSize.Height == panel.Height)
-                {
-                    timer.Stop();
-                    panel.Tag = false;
-                }
-            }
+          timer.Stop();
+          panel.Tag = false;
         }
-
-        public static void TicksGrowsWidth(this Panel panel, Timer timer, object sender, EventArgs e)
-        {
-            if (!(bool)panel.Tag)
-            {
-                panel.Width += 10;
-                if (panel.MaximumSize.Width == panel.Width)
-                {
-                    timer.Stop();
-                    panel.Tag = true;
-                }
-            }
-            else
-            {
-                panel.Width -= 10;
-                if (panel.MinimumSize.Width == panel.Width)
-                {
-                    timer.Stop();
-                    panel.Tag = false;
-                }
-            }
-        }
-
-        public static void TicksGrowsWidthQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
-        {
-            if (!(bool)panel.Tag)
-            {
-                panel.Width += 19;
-                if (panel.MaximumSize.Width == panel.Width)
-                {
-                    timer.Stop();
-                    panel.Tag = true;
-                }
-            }
-            else
-            {
-                panel.Width -= 26;
-                if (panel.MinimumSize.Width == panel.Width)
-                {
-                    timer.Stop();
-                    panel.Tag = false;
-                }
-            }
-        }
-
+      }
     }
+
+    public static void TicksGrowsHeightQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
+    {
+      if (!(bool)panel.Tag)
+      {
+        panel.Height += 10;
+        if (panel.MaximumSize.Height == panel.Height)
+        {
+          timer.Stop();
+          panel.Tag = true;
+        }
+      }
+      else
+      {
+        panel.Height -= 20;
+        if (panel.MinimumSize.Height == panel.Height)
+        {
+          timer.Stop();
+          panel.Tag = false;
+        }
+      }
+    }
+
+    public static void TicksGrowsWidth(this Panel panel, Timer timer, object sender, EventArgs e)
+    {
+      if (!(bool)panel.Tag)
+      {
+        panel.Width += 10;
+        if (panel.MaximumSize.Width == panel.Width)
+        {
+          timer.Stop();
+          panel.Tag = true;
+        }
+      }
+      else
+      {
+        panel.Width -= 10;
+        if (panel.MinimumSize.Width == panel.Width)
+        {
+          timer.Stop();
+          panel.Tag = false;
+        }
+      }
+    }
+
+    public static void TicksGrowsWidthQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
+    {
+      if (!(bool)panel.Tag)
+      {
+        panel.Width += 19;
+        if (panel.MaximumSize.Width == panel.Width)
+        {
+          timer.Stop();
+          panel.Tag = true;
+        }
+      }
+      else
+      {
+        panel.Width -= 26;
+        if (panel.MinimumSize.Width == panel.Width)
+        {
+          timer.Stop();
+          panel.Tag = false;
+        }
+      }
+    }
+  }
 }

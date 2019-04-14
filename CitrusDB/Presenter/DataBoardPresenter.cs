@@ -41,7 +41,7 @@ namespace CitrusDB.Presenter
 
     private IEntity DataBoard_GetEntityBySelectedView(object sender, EntityTransferEventArgs e)
     {
-      var selectedView = e.entity;
+      var selectedView = e.Entity;
 
       if (selectedView is StudentView studentView)
       {
@@ -60,8 +60,8 @@ namespace CitrusDB.Presenter
 
       _currentTask = new TaskInfo(SearchEntities,
           condition, searchCriteria,
-          ((AfterSearchingEventArgs)e)?.sorting,
-          ((AfterSearchingEventArgs)e)?.conditionSorting);
+          ((AfterSearchingEventArgs)e)?.Sorting,
+          ((AfterSearchingEventArgs)e)?.ConditionSorting);
     }
 
     private void SearchEntities(string conditionFilter, string searchCriteria, Action<string> sorting, string conditionSorting, CancellationToken token)

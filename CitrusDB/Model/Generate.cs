@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CitrusDB.Model
 {
-    static class Generate
-    {
-        static Random rand = new Random((int)DateTime.Now.Ticks);
+  static class Generate
+  {
+    private static readonly Random rand = new Random((int)DateTime.Now.Ticks);
 
-        static string[] firstNames = { "Abner", "Adam", "Adelbert",
+    private static readonly string[] firstNames = { "Abner", "Adam", "Adelbert",
                                   "Alexander ", "Andrew ", "Benjamin",
                                   "Bruce", "Christian", "Christopher",
                                   "David", "Dennis","Edgar",
@@ -31,7 +28,7 @@ namespace CitrusDB.Model
                                   "Jimmy","Mason","Maxwell"
         };
 
-        static string[] lastNames = { "Wayne", "Smith","Guerrero",
+    private static readonly string[] lastNames = { "Wayne", "Smith","Guerrero",
                                  "Ernesto","Xiao","Hungary",
                                  "Johson","Williams","Miller",
                                  "Davis","Clark","Walker",
@@ -47,7 +44,7 @@ namespace CitrusDB.Model
                                  "Gentry","Ritter","Mahoney"
         };
 
-        static string[] middleNames = { "Dawn", "Fawn","Aryn",
+    private static readonly string[] middleNames = { "Dawn", "Fawn","Aryn",
                                  "Jacklyn","Jae","Jaidyn",
                                  "Kathryn","Krystan","Lee",
                                  "Ice Cube", "Snoop Dogg", "Ice-T",
@@ -66,7 +63,7 @@ namespace CitrusDB.Model
                                  "Destroyer","Hitter","Exterminator"
         };
 
-        static string[] citizenships = {"Afghanistan", "Albania", "Argentina",
+    private static readonly string[] citizenships = {"Afghanistan", "Albania", "Argentina",
                                      "Armenia", "Australia", "Bulgaria	",
                                      "Canada", "China", "Colombia",
                                      "Congo","Cuba","Egypt",
@@ -83,7 +80,7 @@ namespace CitrusDB.Model
                                      "Ukraine","Turkmenistan","Tunisia",
                                      "Togo","Timor-Leste","Switzerland" };
 
-        static string[] knowledgeOfLanguages = {"English",  "Spanish, English", "Arabic, English",
+    private static readonly string[] knowledgeOfLanguages = {"English",  "Spanish, English", "Arabic, English",
                                              "German","Arabic, German","German, English",
                                              "Polish, German","German, Russian","Russian, English",
                                              "Ukraine, Polish","Polish, English","Polish, Russian",
@@ -91,68 +88,68 @@ namespace CitrusDB.Model
                                              "France, Ukraine","English, France","Spanish",
                                              "France, Russian","English, Spanish","France, Russian, Ukraine" };
 
-        static (string p1, string p2)[] photos =
-        {
-            (@"..\..\..\photo\1ф.jpg", @"..\..\..\photo\1п.jpg"),
-            (@"..\..\..\photo\2ф.jpg", @"..\..\..\photo\2п.jpg"),
-            (@"..\..\..\photo\3ф.jpg", @"..\..\..\photo\3п.jpg"),
-            (@"..\..\..\photo\4ф.jpg", @"..\..\..\photo\4п.jpg"),
-            (@"..\..\..\photo\5ф.jpg", @"..\..\..\photo\5п.jpg"),
-            (@"..\..\..\photo\6ф.jpg", @"..\..\..\photo\6п.jpg"),
-            (@"..\..\..\photo\7ф.jpg", @"..\..\..\photo\7п.jpg"),
-            (@"..\..\..\photo\8ф.jpg", @"..\..\..\photo\8п.jpg"),
-            (@"..\..\..\photo\9ф.jpg", @"..\..\..\photo\9п.jpg"),
-            (@"..\..\..\photo\10ф.jpg", @"..\..\..\photo\10п.jpg"),
-            (@"..\..\..\photo\11ф.jpg", @"..\..\..\photo\11п.jpg"),
-            (@"..\..\..\photo\12ф.jpg", @"..\..\..\photo\12п.jpg"),
-            (@"..\..\..\photo\13ф.jpg", @"..\..\..\photo\13п.jpg"),
-            (@"..\..\..\photo\14ф.jpg", @"..\..\..\photo\14п.jpg"),
-            (@"..\..\..\photo\15ф.jpg", @"..\..\..\photo\15п.jpg")
-        };
+    private static readonly (string p1, string p2)[] photos =
+    {
+       (@"..\..\..\photo\1ф.jpg", @"..\..\..\photo\1п.jpg"),
+       (@"..\..\..\photo\2ф.jpg", @"..\..\..\photo\2п.jpg"),
+       (@"..\..\..\photo\3ф.jpg", @"..\..\..\photo\3п.jpg"),
+       (@"..\..\..\photo\4ф.jpg", @"..\..\..\photo\4п.jpg"),
+       (@"..\..\..\photo\5ф.jpg", @"..\..\..\photo\5п.jpg"),
+       (@"..\..\..\photo\6ф.jpg", @"..\..\..\photo\6п.jpg"),
+       (@"..\..\..\photo\7ф.jpg", @"..\..\..\photo\7п.jpg"),
+       (@"..\..\..\photo\8ф.jpg", @"..\..\..\photo\8п.jpg"),
+       (@"..\..\..\photo\9ф.jpg", @"..\..\..\photo\9п.jpg"),
+       (@"..\..\..\photo\10ф.jpg", @"..\..\..\photo\10п.jpg"),
+       (@"..\..\..\photo\11ф.jpg", @"..\..\..\photo\11п.jpg"),
+       (@"..\..\..\photo\12ф.jpg", @"..\..\..\photo\12п.jpg"),
+       (@"..\..\..\photo\13ф.jpg", @"..\..\..\photo\13п.jpg"),
+       (@"..\..\..\photo\14ф.jpg", @"..\..\..\photo\14п.jpg"),
+       (@"..\..\..\photo\15ф.jpg", @"..\..\..\photo\15п.jpg")
+    };
 
-        static public (string p1, string p2) GetPhotos()
-        {
-            return photos[rand.Next(0, photos.Length - 1)];
-        }
-
-        static public string GetFirstNameTextBox()
-        {
-            return firstNames[rand.Next(0, firstNames.Length - 1)];
-        }
-
-        static public string GetLastNameTextBox()
-        {
-            return lastNames[rand.Next(0, lastNames.Length - 1)];
-        }
-
-        static public string GetMiddleNameTextBox()
-        {
-            return middleNames[rand.Next(0, middleNames.Length - 1)];
-        }
-
-        static public string GetCitizenshipTextBox()
-        {
-            return citizenships[rand.Next(0, citizenships.Length - 1)];
-        }
-
-        static public string GetKnowledgeOfLanguageTextBox()
-        {
-            return knowledgeOfLanguages[rand.Next(0, knowledgeOfLanguages.Length - 1)];
-        }
-        static public string GetDateOfBirth()
-        {
-            return $"{rand.Next(1,31)}.{rand.Next(1,12)}.{rand.Next(1960, 2018)}";
-        }
-
-        public static DateTime GenerateDateTime()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(Convert.ToString(rand.Next(1, 29)) + ".");
-            stringBuilder.Append(Convert.ToString(rand.Next(1, 12)) + ".");
-            stringBuilder.Append(Convert.ToString(rand.Next(1950, 1995)));
-
-            return DateTime.Parse(stringBuilder.ToString());
-        }
-
+    public static (string p1, string p2) GetPhotos()
+    {
+      return photos[rand.Next(0, photos.Length - 1)];
     }
+
+    public static string GetFirstNameTextBox()
+    {
+      return firstNames[rand.Next(0, firstNames.Length - 1)];
+    }
+
+    public static string GetLastNameTextBox()
+    {
+      return lastNames[rand.Next(0, lastNames.Length - 1)];
+    }
+
+    public static string GetMiddleNameTextBox()
+    {
+      return middleNames[rand.Next(0, middleNames.Length - 1)];
+    }
+
+    public static string GetCitizenshipTextBox()
+    {
+      return citizenships[rand.Next(0, citizenships.Length - 1)];
+    }
+
+    public static string GetKnowledgeOfLanguageTextBox()
+    {
+      return knowledgeOfLanguages[rand.Next(0, knowledgeOfLanguages.Length - 1)];
+    }
+
+    public static string GetDateOfBirth()
+    {
+      return $"{rand.Next(1, 31)}.{rand.Next(1, 12)}.{rand.Next(1960, 2018)}";
+    }
+
+    public static DateTime GenerateDateTime()
+    {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append(Convert.ToString(rand.Next(1, 29)) + ".");
+      stringBuilder.Append(Convert.ToString(rand.Next(1, 12)) + ".");
+      stringBuilder.Append(Convert.ToString(rand.Next(1950, 1995)));
+
+      return DateTime.Parse(stringBuilder.ToString());
+    }
+  }
 }

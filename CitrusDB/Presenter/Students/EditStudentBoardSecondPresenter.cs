@@ -41,11 +41,11 @@ namespace CitrusDB.Presenter.Students
       {
         ((IGroupView)_studentBoardSecond.GroupsCollection[0]).ResetOtherBoard();
 
-        if (e.entity != null)
+        if (e.Entity != null)
         {
           var group = _studentBoardSecond.GroupsCollection
                               .Cast<IGroupView>()
-                              .FirstOrDefault(g => g.Id == e.entity.Id);
+                              .FirstOrDefault(g => g.Id == e.Entity.Id);
 
           group?.SelectView();
         }

@@ -6,28 +6,26 @@ using CitrusDB.View.Statistics;
 
 namespace CitrusDB.Model.Extensions
 {
-    public static class ExtensionCharts
+  public static class ExtensionCharts
+  {
+    public static void CreateSeries(this Chart chart, string name, Color color, IList<DateModel> dateModels)
     {
+      var series = new Series
+      {
+        ChartType = SeriesChartType.Line,
+        Color = color,
+        Name = name
+      };
 
-        public static void CreateSeries(this Chart chart, string name, Color color, IList<DateModel> dateModels)
-        {
-            var series = new Series
-            {
-                ChartType = SeriesChartType.Line,
-                Color = color,
-                Name = name
-            };
+      foreach (var date in dateModels)
+        series.Points.AddXY(date.Time, date.Count);
 
-            foreach (DateModel date in dateModels)
-                series.Points.AddXY(date.Time, date.Count);
+      if (chart.Series.FindByName(series.Name) != null)
+        chart.Series[series.Name] = series;
+      else
+        chart.Series.Add(series);
 
-            if (chart.Series.FindByName(series.Name) != null)
-                chart.Series[series.Name] = series;
-            else
-                chart.Series.Add(series);
-
-            chart.Series[name].XValueType = ChartValueType.DateTime;
-        }
-
+      chart.Series[name].XValueType = ChartValueType.DateTime;
     }
+  }
 }
