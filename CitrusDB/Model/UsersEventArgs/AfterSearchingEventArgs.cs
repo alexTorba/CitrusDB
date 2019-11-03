@@ -11,7 +11,7 @@ namespace CitrusDB.Model.UsersEventArgs
 
     public AfterSearchingEventArgs(Action<string> sorting, string conditionSorting)
     {
-      Sorting = sorting ?? null;
+      Sorting = sorting;
       ConditionSorting = conditionSorting;
     }
   }

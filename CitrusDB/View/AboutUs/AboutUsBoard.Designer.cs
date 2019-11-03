@@ -22,9 +22,9 @@
 
     #region Код, автоматически созданный конструктором компонентов
 
-    /// <summary> 
-    /// Требуемый метод для поддержки конструктора — не изменяйте 
-    /// содержимое этого метода с помощью редактора кода.
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent()
     {
@@ -35,7 +35,7 @@
       this.buttonInsta = new System.Windows.Forms.Button();
       this.buttonFaceBook = new System.Windows.Forms.Button();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // textBox1
@@ -43,7 +43,8 @@
       this.textBox1.BackColor = System.Drawing.SystemColors.Control;
       this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.textBox1.Enabled = false;
-      this.textBox1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.textBox1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Italic,
+        System.Drawing.GraphicsUnit.Point, ((byte) (204)));
       this.textBox1.Location = new System.Drawing.Point(39, 62);
       this.textBox1.Multiline = true;
       this.textBox1.Name = "textBox1";
@@ -52,14 +53,15 @@
       this.textBox1.TabIndex = 0;
       this.textBox1.TabStop = false;
       this.textBox1.Text = "\"This program was designed to facilitate the work of the personnel department. Wi" +
-"th its help, you can easily and conveniently manage information about students a" +
-"nd staff of the university.\"";
+                           "th its help, you can easily and conveniently manage information about students a" +
+                           "nd staff of the university.\"";
       // 
       // textBox2
       // 
       this.textBox2.BackColor = System.Drawing.SystemColors.Control;
       this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.textBox2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.textBox2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular,
+        System.Drawing.GraphicsUnit.Point, ((byte) (204)));
       this.textBox2.Location = new System.Drawing.Point(39, 592);
       this.textBox2.Multiline = true;
       this.textBox2.Name = "textBox2";
@@ -113,7 +115,6 @@
       // 
       // pictureBox1
       // 
-      this.pictureBox1.Image = global::CitrusDB.Properties.Resources.Mandarin_Gear_logo;
       this.pictureBox1.Location = new System.Drawing.Point(607, 174);
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.Size = new System.Drawing.Size(285, 228);
@@ -134,10 +135,9 @@
       this.Controls.Add(this.textBox1);
       this.Name = "AboutUsBoard";
       this.Size = new System.Drawing.Size(928, 650);
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
-
     }
 
     #endregion

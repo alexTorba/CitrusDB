@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-
 using CitrusDB.Model;
 using CitrusDB.Model.Extensions;
 using CitrusDB.Model.DataBaseLogic;
@@ -44,8 +43,8 @@ namespace CitrusDB.Presenter.Students
     private async void EditStudentBoardFirst_OrderBy(object sender, OrderByEventArgs e)
     {
       var students = await _editStudentBoardFirst
-            .StudentControlCollection
-            .TransformControlsToEntitiesAsync<Student>(CancellationToken.None);
+        .StudentControlCollection
+        .TransformControlsToEntitiesAsync<Student>(CancellationToken.None);
 
       if (e.IsAscending)
         students = students.OrderBy(e.OrderCriteria).ToArray();
@@ -68,12 +67,12 @@ namespace CitrusDB.Presenter.Students
         CancellationToken.None);
 
       await DeleteControlsFromControlCollection(
-          EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted),
-          CancellationToken.None);
+        EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Deleted),
+        CancellationToken.None);
 
       await UpdateControlsFromControlCollection(
-          EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).ToArray(),
-          CancellationToken.None);
+        EFGenericRepository.GetEntitiesWithState<Student>(EntityState.Modified).ToArray(),
+        CancellationToken.None);
 
       _editStudentBoardFirst.EnablingControlCollection();
     }
@@ -85,7 +84,7 @@ namespace CitrusDB.Presenter.Students
 
       for (int i = 0; i < students.Length; i++)
       {
-        _editStudentBoardFirst.StudentControlCollection.Add((Control)studentControls[i].FillView(students[i]));
+        _editStudentBoardFirst.StudentControlCollection.Add((Control) studentControls[i].FillView(students[i]));
       }
     }
 
@@ -124,8 +123,8 @@ namespace CitrusDB.Presenter.Students
         return EFGenericRepository.Get<Student>().ToArray();
 
       return EFGenericRepository.Get<Student>()
-                                      .Where(searchCriteria, condition)
-                                      .ToArray();
+        .Where(searchCriteria, condition)
+        .ToArray();
     }
 
     /// <summary>
@@ -136,13 +135,14 @@ namespace CitrusDB.Presenter.Students
     private async Task FillControlCollection(IList<Student> students, CancellationToken token)
     {
       await _editStudentBoardFirst
-           .StudentControlCollection
-           .FillControlCollectionForSearch(students, _editStudentView, token);
+        .StudentControlCollection
+        .FillControlCollectionForSearch(students, _editStudentView, token);
     }
 
     private void EditStudentView_Click(object sender, EventArgs e)
     {
-      _editStudentBoardFirst.EditStudent = EFGenericRepository.Find<Student>(((IStudentView)((Control)sender).Parent).Id);
+      _editStudentBoardFirst.EditStudent =
+        EFGenericRepository.Find<Student>(((IStudentView) ((Control) sender).Parent).Id);
 
       _editStudentBoardFirst.LoadingSecondForm();
     }
@@ -157,9 +157,9 @@ namespace CitrusDB.Presenter.Students
 
         // except exist student in both ControlCollections
         students = students
-        .Where(s => !_editStudentBoardFirst.StudentControlCollection.IsContaintControl<Student>(s.Id))
-        .ToArray();
-      });
+          .Where(s => !_editStudentBoardFirst.StudentControlCollection.IsContainControl<Student>(s.Id))
+          .ToArray();
+      }, token);
 
       await _editStudentBoardFirst.StudentControlCollection.AddControls(students, _editStudentView, token);
     }
@@ -167,7 +167,7 @@ namespace CitrusDB.Presenter.Students
     private async Task DeleteControlsFromControlCollection(IEnumerable<Student> students, CancellationToken token)
     {
       await _editStudentBoardFirst.StudentControlCollection
-          .DeleteControls(students, EFGenericRepository.Get<Student>(), token);
+        .DeleteControls(students, EFGenericRepository.Get<Student>(), token);
     }
 
     private async Task UpdateControlsFromControlCollection(IList<Student> students, CancellationToken token)
@@ -175,11 +175,7 @@ namespace CitrusDB.Presenter.Students
       if (students.Count == 0)
         return;
 
-      await _editStudentBoardFirst.StudentControlCollection.UpdateControls(
-          students,
-          _editStudentView,
-          token
-          );
+      await _editStudentBoardFirst.StudentControlCollection.UpdateControls(students, _editStudentView, token);
     }
   }
 }

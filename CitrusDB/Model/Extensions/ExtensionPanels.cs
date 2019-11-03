@@ -27,7 +27,7 @@ namespace CitrusDB.Model.Extensions
       }
     }
 
-    public static void TicksGrowsHeightQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
+    public static void TicksGrowsHeightQuickly(this Panel panel, Timer timer, object sender, EventArgs e)
     {
       if (!(bool)panel.Tag)
       {
@@ -71,7 +71,7 @@ namespace CitrusDB.Model.Extensions
       }
     }
 
-    public static void TicksGrowsWidthQuiсkly(this Panel panel, Timer timer, object sender, EventArgs e)
+    public static void TicksGrowsWidthQuickly(this Panel panel, Timer timer, object sender, EventArgs e)
     {
       if (!(bool)panel.Tag)
       {

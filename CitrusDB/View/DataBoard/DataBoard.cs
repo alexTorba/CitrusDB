@@ -258,7 +258,7 @@ namespace CitrusDB.View.DataBoard
       _mainForm.timer.Start();
 
       _mainForm.ClearEventHandlers();
-      _mainForm.TimerTiks += flowPanelSearchSettings.TicksGrowsHeightQuiсkly;
+      _mainForm.TimerTiks += flowPanelSearchSettings.TicksGrowsHeightQuickly;
     }
 
     private void buttonWhere_Click(object sender, EventArgs e)

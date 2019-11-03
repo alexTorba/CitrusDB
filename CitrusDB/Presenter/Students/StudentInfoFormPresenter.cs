@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Globalization;
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
@@ -30,8 +30,8 @@ namespace CitrusDB.Presenter.Students
       _studentInfoForm.FirstName = student.FirstName;
       _studentInfoForm.LastName = student.LastName;
       _studentInfoForm.MiddleName = student.MiddleName;
-      _studentInfoForm.Weight = student.Weight.ToString();
-      _studentInfoForm.Height = student.Height.ToString();
+      _studentInfoForm.Weight = student.Weight.ToString(CultureInfo.InvariantCulture);
+      _studentInfoForm.Height = student.Height.ToString(CultureInfo.InvariantCulture);
       _studentInfoForm.Сitizenship = student.Сitizenship;
       _studentInfoForm.KnowledgeOfLanguage = student.KnowledgeOfLanguage;
       _studentInfoForm.DateOfBirth = student.DateOfBirth;

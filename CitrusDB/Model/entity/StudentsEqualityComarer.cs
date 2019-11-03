@@ -14,9 +14,9 @@ namespace CitrusDB.Model.Entity
           x.Weight == y.Weight &&
           x.Сitizenship == y.Сitizenship &&
           x.KnowledgeOfLanguage == y.KnowledgeOfLanguage &&
-           EqualityComparer<byte[]>.Default.Equals(x.FirstPhoto, y.FirstPhoto) &&
-           EqualityComparer<byte[]>.Default.Equals(x.SecondPhoto, y.SecondPhoto) &&
-           x.Group?.Id == y.Group?.Id)
+          EqualityComparer<byte[]>.Default.Equals(x.FirstPhoto, y.FirstPhoto) &&
+          EqualityComparer<byte[]>.Default.Equals(x.SecondPhoto, y.SecondPhoto) &&
+          x.Group?.Id == y.Group?.Id)
         return true;
 
       return false;

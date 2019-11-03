@@ -34,7 +34,7 @@ namespace CitrusDB.Presenter.Students
 
     #region IAddStudentBoard
 
-    private void AddStudentBoard_GenerateButton(object sender, EventArgs e)
+    private void AddStudentBoard_GenerateButton(object sender, EventArgs e) 
     {
       AddStudentBoard_ClearButton(null, EventArgs.Empty);
 

@@ -1,8 +1,7 @@
+using System.Data.Entity.Migrations;
+
 namespace CitrusDB.Migrations
 {
-  using System;
-  using System.Data.Entity.Migrations;
-
   public partial class InitialCreate : DbMigration
   {
     public override void Up()
@@ -14,7 +13,7 @@ namespace CitrusDB.Migrations
             Id = c.Int(nullable: false, identity: true),
             Name = c.String(),
           })
-          .PrimaryKey(t => t.Id);
+        .PrimaryKey(t => t.Id);
 
       CreateTable(
           "dbo.Students",
@@ -33,16 +32,15 @@ namespace CitrusDB.Migrations
             SecondPhoto = c.Binary(),
             GroupId = c.Int(),
           })
-          .PrimaryKey(t => t.Id)
-          .ForeignKey("dbo.Groups", t => t.GroupId)
-          .Index(t => t.GroupId);
-
+        .PrimaryKey(t => t.Id)
+        .ForeignKey("dbo.Groups", t => t.GroupId)
+        .Index(t => t.GroupId);
     }
 
     public override void Down()
     {
       DropForeignKey("dbo.Students", "GroupId", "dbo.Groups");
-      DropIndex("dbo.Students", new[] { "GroupId" });
+      DropIndex("dbo.Students", new[] {"GroupId"});
       DropTable("dbo.Students");
       DropTable("dbo.Groups");
     }

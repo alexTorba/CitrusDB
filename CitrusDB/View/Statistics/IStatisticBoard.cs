@@ -13,6 +13,6 @@ namespace CitrusDB.View.Statistics
     string CountOfGroup { get; set; }
 
     void UpdatingView();
-    event EventHnadlerAsync UpdateView;
+    event EventHandlerAsync UpdateView;
   }
 }

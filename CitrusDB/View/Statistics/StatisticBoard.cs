@@ -41,7 +41,7 @@ namespace CitrusDB.View.Statistics
     public string CountOfStudent { get => generalStudentsValue.Text; set => generalStudentsValue.Text = value; }
     public string CountOfGroup { get => generalGroupsValue.Text; set => generalGroupsValue.Text = value; }
 
-    public event EventHnadlerAsync UpdateView;
+    public event EventHandlerAsync UpdateView;
 
     public async void UpdatingView()
     {
@@ -69,7 +69,7 @@ namespace CitrusDB.View.Statistics
       _mainForm.timer.Start();
 
       _mainForm.ClearEventHandlers();
-      _mainForm.TimerTiks += logContainerPanel.TicksGrowsWidthQuiсkly;
+      _mainForm.TimerTiks += logContainerPanel.TicksGrowsWidthQuickly;
 
       (sender as Button)?.ChangeImageButton(logContainerPanel, Resources.left, Resources.right);
     }

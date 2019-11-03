@@ -10,9 +10,9 @@ namespace CitrusDB.Model.Extensions
   {
     public static T[] CreateListViews<T>(this T view, int count) where T : ICloneable
     {
-      T[] arr = new T[count];
+      var arr = new T[count];
 
-      for (int i = 0; i < count; i++)
+      for (var i = 0; i < count; i++)
         arr[i] = (T)view.Clone();
 
       return arr;
@@ -34,9 +34,8 @@ namespace CitrusDB.Model.Extensions
         case TextBox textBox:
           {
             var label = textBox.Parent.Controls
-                .OfType<Label>()
-                .Where(l => l.Name == textBox.Tag.ToString())
-                .FirstOrDefault();
+              .OfType<Label>()
+              .FirstOrDefault(l => l.Name == textBox.Tag.ToString());
 
             if ((label?.Text.Contains("*") ?? false) || textBox.Text.Length == 0)
               return true;
@@ -57,8 +56,6 @@ namespace CitrusDB.Model.Extensions
 
             break;
           }
-        default:
-          break;
       }
 
       return false;
@@ -67,9 +64,8 @@ namespace CitrusDB.Model.Extensions
     public static void AddMistakeToLinkedLabel<T>(this T control) where T : Control
     {
       var label = control.Parent.Controls
-          .OfType<Label>()
-          .Where(l => l.Name == control.Tag.ToString())
-          .First();
+        .OfType<Label>()
+        .First(l => l.Name == control.Tag.ToString());
 
       if (!label.Text.Contains("*"))
       {
@@ -83,9 +79,8 @@ namespace CitrusDB.Model.Extensions
     public static void RemoveMistakeToLinkedLabel<T>(this T control) where T : Control
     {
       var label = control.Parent.Controls
-          .OfType<Label>()
-          .Where(l => l.Name == control.Tag?.ToString())
-          .FirstOrDefault();
+        .OfType<Label>()
+        .FirstOrDefault(l => l.Name == control.Tag?.ToString());
 
       if (label?.Text.Contains("*") ?? false)
       {
@@ -103,10 +98,9 @@ namespace CitrusDB.Model.Extensions
       }
       else
       {
-        control.Text = (string)typeof(Generate).
-        GetMethods(BindingFlags.Public | BindingFlags.Static)
-        .Where(m => m.Name.ToUpperInvariant().Contains(control.Name.ToUpperInvariant()))
-        .FirstOrDefault()?
+        control.Text = (string)typeof(Generate)
+          .GetMethods(BindingFlags.Public | BindingFlags.Static)
+          .FirstOrDefault(m => m.Name.ToUpperInvariant().Contains(control.Name.ToUpperInvariant()))?
         .Invoke(null, null);
       }
     }

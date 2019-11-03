@@ -13,10 +13,11 @@ namespace CitrusDB.Presenter.Groups
   {
     private readonly IAddGroupBoard _addGroupBoard;
 
-    public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView currentStudentView, IStudentView addedStudentView)
-        : base(addGroupBoard, currentStudentView, addedStudentView)
+    public AddGroupBoardPresenter(IAddGroupBoard addGroupBoard, IStudentView currentStudentView,
+      IStudentView addedStudentView)
+      : base(addGroupBoard, currentStudentView, addedStudentView)
     {
-      this._addGroupBoard = addGroupBoard;
+      _addGroupBoard = addGroupBoard;
 
       SetHandlers();
     }
@@ -67,12 +68,13 @@ namespace CitrusDB.Presenter.Groups
         {
           var control = obj as Control;
 
-          var studentView = (IStudentView)this.currentStudentView.Clone();
+          var studentView = (IStudentView) currentStudentView.Clone();
           studentView.FillView(EFGenericRepository.Find<Student>(
-              ((IStudentView)control).Id));
+            ((IStudentView) control).Id));
 
-          _addGroupBoard.CurrentStudentControlCollection.Add((Control)studentView);
+          _addGroupBoard.CurrentStudentControlCollection.Add((Control) studentView);
         }
+
         _addGroupBoard.AddedStudentControlCollection.Clear();
       }
     }

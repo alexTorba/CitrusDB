@@ -40,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>D:\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -452,39 +452,13 @@
     <None Include="Resources\down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_Edit_25px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_Help_35px_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_Sphere_20px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_Sphere_15px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Mandarin-Gear-logo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_Facebook_42px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_Instagram_42px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_Telegram_App_42px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_Twitter_42px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Resources\ezgif.com-gif-maker.gif" />
+    <Content Include="Resources\icons8-help-35.png" />
+    <Content Include="Resources\Mandarin-Gear-logo1.png" />
     <None Include="Resources\orange.gif" />
     <None Include="Resources\SparsePrestigiousBedlingtonterrier-size_restricted.gif" />
     <None Include="Resources\lastsucDialog1.gif" />
-    <None Include="Resources\ezgif.com-gif-maker1.gif" />
-    <Content Include="Resources\lastsucDialog.gif" />
+    <Content Include="Resources\icons8_Twitter_42px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

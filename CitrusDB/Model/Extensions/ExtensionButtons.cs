@@ -7,9 +7,7 @@ namespace CitrusDB.Model.Extensions
   {
     public static void ChangeImageButton(this Button button, Panel panel, Bitmap collapsed, Bitmap unfolded)
     {
-      if ((bool)panel.Tag == false)
-        button.Image = unfolded;
-      else button.Image = collapsed;
+      button.Image = (bool) panel.Tag == false ? unfolded : collapsed;
     }
   }
 }

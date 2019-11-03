@@ -226,8 +226,8 @@ namespace CitrusDB.Presenter.Groups
 
         // except exist student in both ControlCollections
         students = students
-        .Where(s => !groupBoard.CurrentStudentControlCollection.IsContaintControl<Student>(s.Id) &&
-        !groupBoard.AddedStudentControlCollection.IsContaintControl<Student>(s.Id))
+        .Where(s => !groupBoard.CurrentStudentControlCollection.IsContainControl<Student>(s.Id) &&
+        !groupBoard.AddedStudentControlCollection.IsContainControl<Student>(s.Id))
         .ToArray();
 
         controls = students.CreateControlCollection(currentStudentView, token);

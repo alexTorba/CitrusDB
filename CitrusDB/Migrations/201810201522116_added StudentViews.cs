@@ -1,6 +1,5 @@
 namespace CitrusDB.Migrations
 {
-  using System;
   using System.Data.Entity.Migrations;
 
   public partial class addedStudentViews : DbMigration
@@ -17,7 +16,7 @@ namespace CitrusDB.Migrations
             MiddleName = c.String(),
             Group = c.String(),
           })
-          .PrimaryKey(t => t.Id);
+        .PrimaryKey(t => t.Id);
 
       AddColumn("dbo.Groups", "Photo", c => c.Binary());
     }

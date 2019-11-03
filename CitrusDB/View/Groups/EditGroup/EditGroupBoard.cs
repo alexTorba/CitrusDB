@@ -32,7 +32,7 @@ namespace CitrusDB.View.Groups.EditGroup
       if (_mainForm != null)
       {
         _mainForm.ClearEventHandlers();
-        _mainForm.TimerTiks += panelEditGroupBoardSecond.TicksGrowsWidthQuiсkly;
+        _mainForm.TimerTiks += panelEditGroupBoardSecond.TicksGrowsWidthQuickly;
 
         _mainForm.timer.Start();
       }
@@ -47,7 +47,7 @@ namespace CitrusDB.View.Groups.EditGroup
         editGroupBoardFirst.isSecondBoardOpened = true;
 
         _mainForm.ClearEventHandlers();
-        _mainForm.TimerTiks += panelEditGroupBoardSecond.TicksGrowsWidthQuiсkly;
+        _mainForm.TimerTiks += panelEditGroupBoardSecond.TicksGrowsWidthQuickly;
 
         _mainForm.timer.Start();
       }

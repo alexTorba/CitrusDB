@@ -1,6 +1,5 @@
 namespace CitrusDB.Migrations
 {
-  using System;
   using System.Data.Entity.Migrations;
 
   public partial class added_GroupView : DbMigration
@@ -16,8 +15,7 @@ namespace CitrusDB.Migrations
             Name = c.String(),
             Students = c.Int(nullable: false),
           })
-          .PrimaryKey(t => t.Id);
-
+        .PrimaryKey(t => t.Id);
     }
 
     public override void Down()

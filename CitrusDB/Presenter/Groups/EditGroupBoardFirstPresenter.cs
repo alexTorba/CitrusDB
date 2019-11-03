@@ -172,7 +172,7 @@ namespace CitrusDB.Presenter.Groups
 
         // except exist group in ControlCollections
         groups = groups
-        .Where(s => !_editGroupBoardFirst.GroupCollection.IsContaintControl<Group>(s.Id))
+        .Where(s => !_editGroupBoardFirst.GroupCollection.IsContainControl<Group>(s.Id))
         .ToArray();
       });
 

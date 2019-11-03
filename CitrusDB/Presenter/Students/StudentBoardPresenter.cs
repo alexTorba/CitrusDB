@@ -17,7 +17,7 @@ namespace CitrusDB.Presenter.Students
 {
   abstract class StudentBoardPresenter
   {
-    protected TaskInfo currentTask = null;
+    private TaskInfo currentTask;
     protected readonly Validate validate = new Validate();
     private readonly IStudentBoard _studentBoard;
     private readonly IGroupView _groupView;
@@ -212,9 +212,9 @@ namespace CitrusDB.Presenter.Students
 
         // except exist group in ControlCollections
         groups = groups
-        .Where(s => !_studentBoard.GroupsCollection.IsContaintControl<Group>(s.Id))
+        .Where(s => !_studentBoard.GroupsCollection.IsContainControl<Group>(s.Id))
         .ToArray();
-      });
+      }, token);
 
       await _studentBoard.GroupsCollection.AddControls(groups, _groupView, token);
     }

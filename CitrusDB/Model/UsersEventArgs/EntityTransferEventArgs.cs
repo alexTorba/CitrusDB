@@ -8,7 +8,7 @@ namespace CitrusDB.Model.UsersEventArgs
 
   public delegate IEntity GetEntityBySelectedViewHandler(object sender, EntityTransferEventArgs e);
 
-  public delegate Task EventHnadlerAsync(object sender, EventArgs e);
+  public delegate Task EventHandlerAsync(object sender, EventArgs e);
 
   public class EntityTransferEventArgs : EventArgs
   {

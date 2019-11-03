@@ -17,7 +17,8 @@ namespace CitrusDB.Model.Extensions
 
     public static Image ConvertByteArrToImage(this byte[] arr)
     {
-      if (arr == null) return null;
+      if (arr == null) 
+        return null;
 
       using (var stream = new MemoryStream(arr))
       {

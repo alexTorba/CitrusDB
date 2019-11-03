@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\ALEX\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ALEX\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_CitrusDB.-1137273117.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ALEX\RiderProjects\CitrusDB" t="IncludeFlat">
+      <e p="CitrusDB" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CitrusDB.csproj" t="IncludeRecursive" />
+        <e p="ClassDiagram1.cd" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="201810040830148_InitialCreate.cs" t="Include" />
+          <e p="201810040830148_InitialCreate.Designer.cs" t="Include" />
+          <e p="201810040830148_InitialCreate.resx" t="Include" />
+          <e p="201810201522116_added StudentViews.cs" t="Include" />
+          <e p="201810201522116_added StudentViews.Designer.cs" t="Include" />
+          <e p="201810201522116_added StudentViews.resx" t="Include" />
+          <e p="201810211336074_added_GroupView.cs" t="Include" />
+          <e p="201810211336074_added_GroupView.Designer.cs" t="Include" />
+          <e p="201810211336074_added_GroupView.resx" t="Include" />
+          <e p="201811071332300_changed_views.cs" t="Include" />
+          <e p="201811071332300_changed_views.Designer.cs" t="Include" />
+          <e p="201811071332300_changed_views.resx" t="Include" />
+          <e p="201811071744097_change standart CRUD to stored procedure logic.cs" t="Include" />
+          <e p="201811071744097_change standart CRUD to stored procedure logic.Designer.cs" t="Include" />
+          <e p="201811071744097_change standart CRUD to stored procedure logic.resx" t="Include" />
+          <e p="201811071802157_added_StoredProc_GetScopeIdentity.cs" t="Include" />
+          <e p="201811071802157_added_StoredProc_GetScopeIdentity.Designer.cs" t="Include" />
+          <e p="201811071802157_added_StoredProc_GetScopeIdentity.resx" t="Include" />
+          <e p="201811091837294_add_IEntity.cs" t="Include" />
+          <e p="201811091837294_add_IEntity.Designer.cs" t="Include" />
+          <e p="201811091837294_add_IEntity.resx" t="Include" />
+          <e p="201812061610458_added_history.cs" t="Include" />
+          <e p="201812061610458_added_history.Designer.cs" t="Include" />
+          <e p="201812061610458_added_history.resx" t="Include" />
+          <e p="Configuration.cs" t="Include" />
+        </e>
+        <e p="Model" t="Include">
+          <e p="DataBaseLogic" t="Include">
+            <e p="CitrusDbContext.cs" t="Include" />
+            <e p="EFGenericRepository.cs" t="Include" />
+            <e p="InitDB.cs" t="Include" />
+          </e>
+          <e p="Entity" t="Include">
+            <e p="EntityEqualityComarer.cs" t="Include" />
+            <e p="Group.cs" t="Include" />
+            <e p="GroupView.cs" t="Include" />
+            <e p="History" t="Include">
+              <e p="GroupsHistory.cs" t="Include" />
+              <e p="IEntityHistory.cs" t="Include" />
+              <e p="StudentsHistory.cs" t="Include" />
+            </e>
+            <e p="IEntity.cs" t="Include" />
+            <e p="SelectedEntity.cs" t="Include" />
+            <e p="Student.cs" t="Include" />
+            <e p="StudentsEqualityComarer.cs" t="Include" />
+            <e p="StudentView.cs" t="Include" />
+          </e>
+          <e p="Extensions" t="Include">
+            <e p="ExtensionButtons.cs" t="Include" />
+            <e p="ExtensionCharts.cs" t="Include" />
+            <e p="ExtensionControlCollection.cs" t="Include" />
+            <e p="ExtensionControls.cs" t="Include" />
+            <e p="ExtensionImages.cs" t="Include" />
+            <e p="ExtensionLinq.cs" t="Include" />
+            <e p="ExtensionPanels.cs" t="Include" />
+          </e>
+          <e p="Generate.cs" t="Include" />
+          <e p="TaskInfo.cs" t="Include" />
+          <e p="UsersEventArgs" t="Include">
+            <e p="AfterSearchingEventArgs.cs" t="Include" />
+            <e p="EntityTransferEventArgs.cs" t="Include" />
+            <e p="HeaderPropertyEventArgs.cs" t="Include" />
+          </e>
+          <e p="Validate.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Presenter" t="Include">
+          <e p="DataBoardPresenter.cs" t="Include" />
+          <e p="Groups" t="Include">
+            <e p="AddGroupBoardPresenter.cs" t="Include" />
+            <e p="EditGroupBoardFirstPresenter.cs" t="Include" />
+            <e p="EditGroupBoardSecondPresenter.cs" t="Include" />
+            <e p="GroupBoardPresenter.cs" t="Include" />
+            <e p="GroupInfoFormPresenter.cs" t="Include" />
+          </e>
+          <e p="MainFormPresenter.cs" t="Include" />
+          <e p="StatisticBoardPresenter.cs" t="Include" />
+          <e p="Students" t="Include">
+            <e p="AddStudentBoardPresenter.cs" t="Include" />
+            <e p="EditStudentBoardFirstPresenter.cs" t="Include" />
+            <e p="EditStudentBoardSecondPresenter.cs" t="Include" />
+            <e p="StudentBoardPresenter.cs" t="Include" />
+            <e p="StudentInfoFormPresenter.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="DataSources" t="Include">
+            <e p="Group.datasource" t="Include" />
+            <e p="Student.datasource" t="Include" />
+            <e p="StudentDB.datasource" t="Include" />
+          </e>
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="down.png" t="Include" />
+          <e p="ezgif.com-gif-maker.gif" t="Include" />
+          <e p="icons8-help-35.png" t="Include" />
+          <e p="icons8_Twitter_42px.png" t="Include" />
+          <e p="lastsucDialog1.gif" t="Include" />
+          <e p="left.png" t="Include" />
+          <e p="Mandarin-Gear-logo1.png" t="Include" />
+          <e p="orange.gif" t="Include" />
+          <e p="right.png" t="Include" />
+          <e p="SparsePrestigiousBedlingtonterrier-size_restricted.gif" t="Include" />
+          <e p="up.png" t="Include" />
+        </e>
+        <e p="View" t="Include">
+          <e p="AboutUs" t="Include">
+            <e p="AboutUsBoard.cs" t="Include" />
+            <e p="AboutUsBoard.Designer.cs" t="Include" />
+            <e p="AboutUsBoard.resx" t="Include" />
+          </e>
+          <e p="DataBoard" t="Include">
+            <e p="DataBoard.cs" t="Include" />
+            <e p="DataBoard.Designer.cs" t="Include" />
+            <e p="DataBoard.resx" t="Include" />
+            <e p="EntityArgs.cs" t="Include" />
+            <e p="IDataBoard.cs" t="Include" />
+          </e>
+          <e p="Groups" t="Include">
+            <e p="AddGroup" t="Include">
+              <e p="AddGroupBoard.cs" t="Include" />
+              <e p="AddGroupBoard.Designer.cs" t="Include" />
+              <e p="AddGroupBoard.resx" t="Include" />
+              <e p="IAddGroupBoard.cs" t="Include" />
+            </e>
+            <e p="EditGroup" t="Include">
+              <e p="EditGroupBoard.cs" t="Include" />
+              <e p="EditGroupBoard.Designer.cs" t="Include" />
+              <e p="EditGroupBoard.resx" t="Include" />
+              <e p="EditGroupBoardFirst.cs" t="Include" />
+              <e p="EditGroupBoardFirst.Designer.cs" t="Include" />
+              <e p="EditGroupBoardFirst.resx" t="Include" />
+              <e p="EditGroupBoardSecond.cs" t="Include" />
+              <e p="EditGroupBoardSecond.Designer.cs" t="Include" />
+              <e p="EditGroupBoardSecond.resx" t="Include" />
+              <e p="IEditGroupBoardFirst.cs" t="Include" />
+              <e p="IEditGroupBoardSecond.cs" t="Include" />
+            </e>
+            <e p="GroupsView" t="Include">
+              <e p="GroupInfo" t="Include">
+                <e p="GroupInfoForm.cs" t="Include" />
+                <e p="GroupInfoForm.Designer.cs" t="Include" />
+                <e p="GroupInfoForm.resx" t="Include" />
+                <e p="IGroupInfoForm.cs" t="Include" />
+              </e>
+              <e p="GroupViews" t="Include">
+                <e p="GroupViewBoard.cs" t="Include" />
+                <e p="GroupViewBoard.Designer.cs" t="Include" />
+                <e p="GroupViewBoard.resx" t="Include" />
+                <e p="IGroupView.cs" t="Include" />
+              </e>
+            </e>
+            <e p="IGroupBoard.cs" t="Include" />
+          </e>
+          <e p="IEntityControlView.cs" t="Include" />
+          <e p="IMainForm.cs" t="Include" />
+          <e p="MainForm.cs" t="Include" />
+          <e p="MainForm.Designer.cs" t="Include" />
+          <e p="MainForm.resx" t="Include" />
+          <e p="Statistics" t="Include">
+            <e p="DateModel.cs" t="Include" />
+            <e p="IStatisticBoard.cs" t="Include" />
+            <e p="StatisticBoard.cs" t="Include" />
+            <e p="StatisticBoard.Designer.cs" t="Include" />
+            <e p="StatisticBoard.resx" t="Include" />
+          </e>
+          <e p="Students" t="Include">
+            <e p="AddStudent" t="Include">
+              <e p="AddStudentBoard.cs" t="Include" />
+              <e p="AddStudentBoard.Designer.cs" t="Include" />
+              <e p="AddStudentBoard.resx" t="Include" />
+              <e p="IAddStudentBoard.cs" t="Include" />
+            </e>
+            <e p="EditStuden" t="Include">
+              <e p="EditStudentBoard.cs" t="Include" />
+              <e p="EditStudentBoard.Designer.cs" t="Include" />
+              <e p="EditStudentBoard.resx" t="Include" />
+              <e p="EditStudentBoardFirst.cs" t="Include" />
+              <e p="EditStudentBoardFirst.Designer.cs" t="Include" />
+              <e p="EditStudentBoardFirst.resx" t="Include" />
+              <e p="EditStudentBoardSecond.cs" t="Include" />
+              <e p="EditStudentBoardSecond.Designer.cs" t="Include" />
+              <e p="EditStudentBoardSecond.resx" t="Include" />
+              <e p="IEditStudentBoardFirst.cs" t="Include" />
+              <e p="IEditStudentBoardSecond.cs" t="Include" />
+            </e>
+            <e p="IStudentBoard.cs" t="Include" />
+            <e p="StudentsView" t="Include">
+              <e p="AddedStudentView" t="Include">
+                <e p="AddedStudentViewBoard.cs" t="Include" />
+                <e p="AddedStudentViewBoard.Designer.cs" t="Include" />
+                <e p="AddedStudentViewBoard.resx" t="Include" />
+              </e>
+              <e p="EditStudentView" t="Include">
+                <e p="EditStudentViewBoard.cs" t="Include" />
+                <e p="EditStudentViewBoard.Designer.cs" t="Include" />
+                <e p="EditStudentViewBoard.resx" t="Include" />
+              </e>
+              <e p="IStudentView.cs" t="Include" />
+              <e p="StudentInfo" t="Include">
+                <e p="IStudentInfoForm.cs" t="Include" />
+                <e p="StudentInfoForm.cs" t="Include" />
+                <e p="StudentInfoForm.Designer.cs" t="Include" />
+                <e p="StudentInfoForm.resx" t="Include" />
+              </e>
+              <e p="StudentView" t="Include">
+                <e p="StudentViewBoard.cs" t="Include" />
+                <e p="StudentViewBoard.Designer.cs" t="Include" />
+                <e p="StudentViewBoard.resx" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="UsersElements" t="Include">
+            <e p="Controls" t="Include">
+              <e p="CirclusButton.cs" t="Include" />
+              <e p="PromptToolTip.cs" t="Include" />
+              <e p="PromptToolTip.Designer.cs" t="Include" />
+            </e>
+            <e p="Dialogs" t="Include">
+              <e p="DeleteDialog.cs" t="Include" />
+              <e p="DeleteDialog.Designer.cs" t="Include" />
+              <e p="DeleteDialog.resx" t="Include" />
+              <e p="SuccessfulDialog.cs" t="Include" />
+              <e p="SuccessfulDialog.Designer.cs" t="Include" />
+              <e p="SuccessfulDialog.resx" t="Include" />
+            </e>
+            <e p="FormLoading" t="Include">
+              <e p="ILoadingForm.cs" t="Include" />
+              <e p="LoadingForm.cs" t="Include" />
+              <e p="LoadingMainForm.cs" t="Include" />
+              <e p="LoadingMainForm.Designer.cs" t="Include" />
+              <e p="LoadingMainForm.resx" t="Include" />
+              <e p="LoadingStatisticBoard.cs" t="Include" />
+              <e p="LoadingStatisticBoard.Designer.cs" t="Include" />
+              <e p="LoadingStatisticBoard.resx" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="CitrusDB.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

@@ -37,7 +37,7 @@ namespace CitrusDB.View.Students.EditStuden
       if (_mainForm != null)
       {
         _mainForm.ClearEventHandlers();
-        _mainForm.TimerTiks += editStudentSecondContainerPanel.TicksGrowsWidthQuiсkly;
+        _mainForm.TimerTiks += editStudentSecondContainerPanel.TicksGrowsWidthQuickly;
 
         _mainForm.timer.Start();
       }
@@ -52,7 +52,7 @@ namespace CitrusDB.View.Students.EditStuden
         editStudentBoardFirst.isSecondFormOpened = true;
 
         _mainForm.ClearEventHandlers();
-        _mainForm.TimerTiks += editStudentSecondContainerPanel.TicksGrowsWidthQuiсkly;
+        _mainForm.TimerTiks += editStudentSecondContainerPanel.TicksGrowsWidthQuickly;
 
         _mainForm.timer.Start();
       }

@@ -105,20 +105,17 @@ namespace CitrusDB.Presenter.Groups
           students = students.Union(currentStudent);
 
         if (condition != string.Empty)
-          students = students
-                           .Where(searchCriteria, condition);
+          students = students.Where(searchCriteria, condition);
 
 
         if (groupBoard.AddedStudentControlCollection.Count == 0)
           return students.ToArray();
-        else
-        {
-          var addedStudents = groupBoard.AddedStudentControlCollection
-                                   .Cast<IStudentView>()
-                                   .Select(s => EFGenericRepository.Find<Student>(s.Id));
+        
+        var addedStudents = groupBoard.AddedStudentControlCollection
+          .Cast<IStudentView>()
+          .Select(s => EFGenericRepository.Find<Student>(s.Id));
 
-          return students.Except(addedStudents).ToArray();
-        }
+        return students.Except(addedStudents).ToArray();
       }, token);
     }
 
