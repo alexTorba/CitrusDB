@@ -118,7 +118,7 @@ namespace CitrusDB.View.Students.EditStuden
         weightComboBox.Text = CurrentStudent.Weight.ToString();
         knowledgeOfLanguageTextbox.Text = CurrentStudent.KnowledgeOfLanguage;
 
-        SetInitGroup?.Invoke(this, new EntityTransferEventArgs(CurrentStudent.Group));
+        // SetInitGroup?.Invoke(this, new EntityTransferEventArgs(CurrentStudent.Group));
       }
 
       HidePhotoLabels();

@@ -141,7 +141,8 @@ namespace CitrusDB.Model.Extensions
     }
 
     public static IEnumerable<R> GetViews<T, R>(this IEnumerable<T> sequence)
-      where T : class, IEntity where R : class
+      where T : class, IEntity 
+      where R : class
     {
       switch (sequence)
       {
@@ -153,8 +154,7 @@ namespace CitrusDB.Model.Extensions
               Id = s.Id,
               FirstName = s.FirstName,
               LastName = s.LastName,
-              MiddleName = s.MiddleName,
-              Group = s.Group
+              MiddleName = s.MiddleName
             });
         }
 
@@ -189,8 +189,7 @@ namespace CitrusDB.Model.Extensions
                 Id = s.Id,
                 FirstName = s.FirstName,
                 LastName = s.LastName,
-                MiddleName = s.MiddleName,
-                Group = s.Group
+                MiddleName = s.MiddleName
               });
           }
 
@@ -224,8 +223,7 @@ namespace CitrusDB.Model.Extensions
             Id = student.Id,
             FirstName = student.FirstName,
             LastName = student.LastName,
-            MiddleName = student.MiddleName,
-            Group = student.Group
+            MiddleName = student.MiddleName
           };
           return (R) (object) result;
         }
@@ -260,8 +258,7 @@ namespace CitrusDB.Model.Extensions
             Id = student.Id,
             FirstName = student.FirstName,
             LastName = student.LastName,
-            MiddleName = student.MiddleName,
-            Group = student.Group
+            MiddleName = student.MiddleName
           };
           return (R) (object) result;
         }

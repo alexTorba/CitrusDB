@@ -17,12 +17,12 @@ namespace CitrusDB.Presenter.Students
 {
   abstract class StudentBoardPresenter
   {
-    private TaskInfo currentTask;
-    protected readonly Validate validate = new Validate();
+    private TaskInfo _currentTask;
+    protected readonly Validate Validate = new Validate();
     private readonly IStudentBoard _studentBoard;
     private readonly IGroupView _groupView;
 
-    public StudentBoardPresenter(IStudentBoard studentBoard, IGroupView groupView)
+    protected StudentBoardPresenter(IStudentBoard studentBoard, IGroupView groupView)
     {
       _studentBoard = studentBoard;
       _groupView = groupView;
@@ -100,9 +100,9 @@ namespace CitrusDB.Presenter.Students
 
     private void StudentBoard_SearchBox_TextChange(object sender, EventArgs e)
     {
-      currentTask?.CancelTask();
+      _currentTask?.CancelTask();
 
-      currentTask = new TaskInfo(SearchGroup, sender);
+      _currentTask = new TaskInfo(SearchGroup, sender);
     }
 
     protected void StudentBoard_PhotoLoaded(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace CitrusDB.Presenter.Students
     {
       if (sender is MonthCalendar monthCalendar)
       {
-        validate.SetState(monthCalendar.SelectionRange.ToString() == monthCalendar.Tag.ToString(), true);
+        Validate.SetState(monthCalendar.SelectionRange.ToString() == monthCalendar.Tag.ToString(), true);
       }
     }
 
@@ -133,7 +133,7 @@ namespace CitrusDB.Presenter.Students
       var groups = (IList<Group>)EFGenericRepository.Get<Group>().ToList();
       var listGroupViews = _groupView.CreateListViews(groups.Count);
 
-      for (int i = 0; i < listGroupViews.Length; i++)
+      for (var i = 0; i < listGroupViews.Length; i++)
       {
         var groupView = (IGroupView)listGroupViews[i].FillView(groups[i]);
 
@@ -144,7 +144,7 @@ namespace CitrusDB.Presenter.Students
     protected void StudentBoard_ControlEnter(object sender, EventArgs e)
     {
       if (sender is Control control)
-        validate.SetState(control.HaveMistake());
+        Validate.SetState(control.HaveMistake());
     }
 
     private void StudentBoard_ComboBoxTextUpdate(object sender, EventArgs e)
@@ -177,7 +177,6 @@ namespace CitrusDB.Presenter.Students
       catch (OperationCanceledException canceledEx)
       {
         Console.WriteLine(canceledEx.Message);
-        return;
       }
       catch (Exception ex)
       {
@@ -237,24 +236,20 @@ namespace CitrusDB.Presenter.Students
 
     private void ControlIsConfirmed(Control control)
     {
-      if (control != null)
-      {
-        _studentBoard.ProgressBarValue =
-                    validate.FillingProgressBarLogic(_studentBoard.ProgressBarValue, 10);
-
-        control.RemoveMistakeToLinkedLabel();
-      }
+      if (control == null) 
+        return;
+      
+      _studentBoard.ProgressBarValue = Validate.FillingProgressBarLogic(_studentBoard.ProgressBarValue, 10);
+      control.RemoveMistakeToLinkedLabel();
     }
 
     private void ControlHaveMistake(Control control)
     {
-      if (control != null)
-      {
-        _studentBoard.ProgressBarValue =
-                    validate.DecreaseProgressBarLogic(_studentBoard.ProgressBarValue, 10);
-
-        control.AddMistakeToLinkedLabel();
-      }
+      if (control == null) 
+        return;
+      
+      _studentBoard.ProgressBarValue = Validate.DecreaseProgressBarLogic(_studentBoard.ProgressBarValue, 10);
+      control.AddMistakeToLinkedLabel();
     }
   }
 }

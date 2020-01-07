@@ -44,18 +44,22 @@
           </e>
           <e p="Entity" t="Include">
             <e p="EntityEqualityComarer.cs" t="Include" />
-            <e p="Group.cs" t="Include" />
-            <e p="GroupView.cs" t="Include" />
+            <e p="Group" t="Include">
+              <e p="Group.cs" t="Include" />
+              <e p="GroupView.cs" t="Include" />
+            </e>
             <e p="History" t="Include">
               <e p="GroupsHistory.cs" t="Include" />
               <e p="IEntityHistory.cs" t="Include" />
               <e p="StudentsHistory.cs" t="Include" />
             </e>
             <e p="IEntity.cs" t="Include" />
-            <e p="SelectedEntity.cs" t="Include" />
-            <e p="Student.cs" t="Include" />
-            <e p="StudentsEqualityComarer.cs" t="Include" />
-            <e p="StudentView.cs" t="Include" />
+            <e p="Student" t="Include">
+              <e p="SelectedEntity.cs" t="Include" />
+              <e p="Student.cs" t="Include" />
+              <e p="StudentsEqualityComparer.cs" t="Include" />
+              <e p="StudentView.cs" t="Include" />
+            </e>
           </e>
           <e p="Extensions" t="Include">
             <e p="ExtensionButtons.cs" t="Include" />
@@ -67,6 +71,34 @@
             <e p="ExtensionPanels.cs" t="Include" />
           </e>
           <e p="Generate.cs" t="Include" />
+          <e p="JsonLogic" t="Include">
+            <e p="JsonFormatter.cs" t="Include" />
+          </e>
+          <e p="NetworkLogic" t="Include">
+            <e p="CommandLogic" t="Include">
+              <e p="CommandFactory.cs" t="Include" />
+              <e p="Common" t="Include">
+                <e p="CommandBase.cs" t="Include" />
+                <e p="CommandType.cs" t="Include" />
+                <e p="ICommand.cs" t="Include" />
+                <e p="ICommandObject.cs" t="Include" />
+              </e>
+              <e p="Student" t="Include">
+                <e p="GetStudentCommand.cs" t="Include" />
+              </e>
+            </e>
+            <e p="DtoData" t="Include">
+              <e p="Request" t="Include">
+                <e p="BaseRequestDto.cs" t="Include" />
+                <e p="RequestDto.cs" t="Include" />
+              </e>
+              <e p="Respond" t="Include">
+                <e p="BaseRespondDto.cs" t="Include" />
+                <e p="RespondDto.cs" t="Include" />
+              </e>
+            </e>
+            <e p="NetworkManager.cs" t="Include" />
+          </e>
           <e p="TaskInfo.cs" t="Include" />
           <e p="UsersEventArgs" t="Include">
             <e p="AfterSearchingEventArgs.cs" t="Include" />

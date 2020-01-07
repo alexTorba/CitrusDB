@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.Extensions;
 
@@ -9,6 +8,9 @@ namespace CitrusDB.View.Students.EditStuden
   public partial class EditStudentBoard : UserControl
   {
     private MainForm _mainForm;
+    private Panel editStudentSecondContainerPanel;
+    public EditStudentBoardFirst editStudentBoardFirst;
+    public EditStudentBoardSecond editStudentBoardSecond;
 
     public EditStudentBoard()
     {

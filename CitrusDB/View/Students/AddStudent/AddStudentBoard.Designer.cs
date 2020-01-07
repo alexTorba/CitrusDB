@@ -24,14 +24,15 @@ namespace CitrusDB.View.Students.AddStudent
 
         #region Код, автоматически созданный конструктором компонентов
 
-        /// <summary> 
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStudentBoard));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(AddStudentBoard));
             this.firstNameTextbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.firstNameLabel = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lastNameTextbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
@@ -69,15 +70,16 @@ namespace CitrusDB.View.Students.AddStudent
             this.promptToolTip = new CitrusDB.View.UsersElements.Controls.PromptToolTip(this.components);
             this.flowLayoutPanelAddBoard.SuspendLayout();
             this.swingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBoxSecondPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBoxFirstPhoto)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // firstNameTextbox
             // 
             this.firstNameTextbox.BorderColor = System.Drawing.Color.SeaGreen;
-            this.firstNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.2F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.firstNameTextbox.Location = new System.Drawing.Point(26, 47);
             this.firstNameTextbox.Multiline = true;
             this.firstNameTextbox.Name = "firstNameTextbox";
@@ -88,7 +90,8 @@ namespace CitrusDB.View.Students.AddStudent
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.firstNameLabel.Location = new System.Drawing.Point(26, 24);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(85, 20);
@@ -145,97 +148,15 @@ namespace CitrusDB.View.Students.AddStudent
             this.growsComboBox.FormattingEnabled = true;
             this.growsComboBox.IntegralHeight = false;
             this.growsComboBox.ItemHeight = 17;
-            this.growsComboBox.Items.AddRange(new object[] {
-            "140",
-            "141",
-            "142",
-            "143",
-            "144",
-            "145",
-            "146",
-            "147",
-            "148",
-            "149",
-            "150",
-            "151",
-            "152",
-            "153",
-            "154",
-            "155",
-            "156",
-            "157",
-            "158",
-            "159",
-            "160",
-            "161",
-            "162",
-            "163",
-            "164",
-            "165",
-            "166",
-            "167",
-            "168",
-            "169",
-            "170",
-            "171",
-            "172",
-            "173",
-            "174",
-            "175",
-            "176",
-            "177",
-            "178",
-            "179",
-            "180",
-            "181",
-            "182",
-            "183",
-            "184",
-            "185",
-            "186",
-            "187",
-            "188",
-            "189",
-            "190",
-            "191",
-            "192",
-            "193",
-            "194",
-            "195",
-            "196",
-            "197",
-            "198",
-            "199",
-            "200",
-            "201",
-            "202",
-            "203",
-            "204",
-            "205",
-            "206",
-            "207",
-            "208",
-            "209",
-            "210",
-            "211",
-            "212",
-            "213",
-            "214",
-            "215",
-            "216",
-            "217",
-            "218",
-            "219",
-            "220",
-            "221",
-            "222",
-            "223",
-            "224",
-            "225",
-            "226",
-            "227",
-            "228",
-            "229"});
+            this.growsComboBox.Items.AddRange(new object[]
+            {
+                "140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "154",
+                "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "165", "166", "167", "168", "169",
+                "170", "171", "172", "173", "174", "175", "176", "177", "178", "179", "180", "181", "182", "183", "184",
+                "185", "186", "187", "188", "189", "190", "191", "192", "193", "194", "195", "196", "197", "198", "199",
+                "200", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214",
+                "215", "216", "217", "218", "219", "220", "221", "222", "223", "224", "225", "226", "227", "228", "229"
+            });
             this.growsComboBox.Location = new System.Drawing.Point(244, 313);
             this.growsComboBox.Name = "growsComboBox";
             this.growsComboBox.Size = new System.Drawing.Size(121, 25);
@@ -248,147 +169,18 @@ namespace CitrusDB.View.Students.AddStudent
             this.weightComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.weightComboBox.FormattingEnabled = true;
             this.weightComboBox.IntegralHeight = false;
-            this.weightComboBox.Items.AddRange(new object[] {
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60",
-            "61",
-            "62",
-            "63",
-            "64",
-            "65",
-            "66",
-            "67",
-            "68",
-            "69",
-            "70",
-            "71",
-            "72",
-            "73",
-            "74",
-            "75",
-            "76",
-            "77",
-            "78",
-            "79",
-            "80",
-            "81",
-            "82",
-            "83",
-            "84",
-            "85",
-            "86",
-            "87",
-            "88",
-            "89",
-            "90",
-            "91",
-            "92",
-            "93",
-            "94",
-            "95",
-            "96",
-            "97",
-            "98",
-            "99",
-            "100",
-            "101",
-            "102",
-            "103",
-            "104",
-            "105",
-            "106",
-            "107",
-            "108",
-            "109",
-            "110",
-            "111",
-            "112",
-            "113",
-            "114",
-            "115",
-            "116",
-            "117",
-            "118",
-            "119",
-            "120",
-            "121",
-            "122",
-            "123",
-            "124",
-            "125",
-            "126",
-            "127",
-            "128",
-            "129",
-            "130",
-            "131",
-            "132",
-            "133",
-            "134",
-            "135",
-            "136",
-            "137",
-            "138",
-            "139",
-            "140",
-            "141",
-            "142",
-            "143",
-            "144",
-            "145",
-            "146",
-            "147",
-            "148",
-            "149",
-            "150",
-            "151",
-            "152",
-            "153",
-            "154",
-            "155",
-            "156",
-            "157",
-            "158",
-            "159",
-            "160",
-            "161",
-            "162",
-            "163",
-            "164",
-            "165",
-            "166",
-            "167",
-            "168",
-            "169",
-            "170",
-            "171",
-            "172",
-            "173",
-            "174",
-            "175",
-            "176",
-            "177",
-            "178",
-            "179"});
+            this.weightComboBox.Items.AddRange(new object[]
+            {
+                "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56",
+                "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73",
+                "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90",
+                "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106",
+                "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121",
+                "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136",
+                "137", "138", "139", "140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151",
+                "152", "153", "154", "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "165", "166",
+                "167", "168", "169", "170", "171", "172", "173", "174", "175", "176", "177", "178", "179"
+            });
             this.weightComboBox.Location = new System.Drawing.Point(244, 411);
             this.weightComboBox.Name = "weightComboBox";
             this.weightComboBox.Size = new System.Drawing.Size(121, 25);
@@ -557,7 +349,8 @@ namespace CitrusDB.View.Students.AddStudent
             this.promptButton.BackColor = System.Drawing.Color.Gold;
             this.promptButton.FlatAppearance.BorderSize = 0;
             this.promptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.promptButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.promptButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.promptButton.Image = global::CitrusDB.Properties.Resources.icons8_Help_35px_1;
             this.promptButton.Location = new System.Drawing.Point(246, 3);
             this.promptButton.Name = "promptButton";
@@ -581,7 +374,8 @@ namespace CitrusDB.View.Students.AddStudent
             // 
             this.photo2Label.AutoSize = true;
             this.photo2Label.Enabled = false;
-            this.photo2Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.photo2Label.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.photo2Label.Location = new System.Drawing.Point(452, 287);
             this.photo2Label.Name = "photo2Label";
             this.photo2Label.Size = new System.Drawing.Size(59, 19);
@@ -603,14 +397,19 @@ namespace CitrusDB.View.Students.AddStudent
             // 
             // progressBar
             // 
-            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.animated = true;
             this.progressBar.animationIterval = 1;
             this.progressBar.animationSpeed = 25;
             this.progressBar.BackColor = System.Drawing.SystemColors.Control;
-            this.progressBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressBar.BackgroundImage")));
-            this.progressBar.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.progressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.progressBar.BackgroundImage =
+                ((System.Drawing.Image) (resources.GetObject("progressBar.BackgroundImage")));
+            this.progressBar.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.progressBar.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (31)))), ((int) (((byte) (31)))),
+                ((int) (((byte) (31)))));
             this.progressBar.LabelVisible = true;
             this.progressBar.LineProgressThickness = 8;
             this.progressBar.LineThickness = 5;
@@ -619,7 +418,8 @@ namespace CitrusDB.View.Students.AddStudent
             this.progressBar.MaxValue = 100;
             this.progressBar.Name = "progressBar";
             this.progressBar.ProgressBackColor = System.Drawing.Color.Gainsboro;
-            this.progressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(145)))), ((int)(((byte)(34)))));
+            this.progressBar.ProgressColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))),
+                ((int) (((byte) (145)))), ((int) (((byte) (34)))));
             this.progressBar.Size = new System.Drawing.Size(162, 162);
             this.progressBar.TabIndex = 8;
             this.progressBar.Value = 0;
@@ -650,8 +450,9 @@ namespace CitrusDB.View.Students.AddStudent
             // bunifuSeparator1
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuSeparator1.LineThickness = 15;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))),
+                ((int) (((byte) (64)))), ((int) (((byte) (64)))));
+            this.bunifuSeparator1.LineThickness = 17;
             this.bunifuSeparator1.Location = new System.Drawing.Point(582, 0);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
@@ -664,7 +465,8 @@ namespace CitrusDB.View.Students.AddStudent
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(5, 10);
             this.textBox1.Multiline = true;
@@ -700,17 +502,21 @@ namespace CitrusDB.View.Students.AddStudent
             // 
             this.monthCalendar.Location = new System.Drawing.Point(23, 313);
             this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(1990, 12, 27, 0, 0, 0, 0), new System.DateTime(1991, 1, 2, 0, 0, 0, 0));
+            this.monthCalendar.SelectionRange = new System.Windows.Forms.SelectionRange(
+                new System.DateTime(1990, 12, 27, 0, 0, 0, 0), new System.DateTime(1991, 1, 2, 0, 0, 0, 0));
             this.monthCalendar.TabIndex = 32;
             this.monthCalendar.Tag = "27.12.1990; 02.01.1991";
-            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
-            this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
+            this.monthCalendar.DateChanged +=
+                new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateChanged);
+            this.monthCalendar.DateSelected +=
+                new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             this.monthCalendar.Enter += new System.EventHandler(this.monthCalendar_Enter);
             // 
             // promptToolTip
             // 
             this.promptToolTip.AutoPopDelay = 5000;
-            this.promptToolTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.promptToolTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.promptToolTip.InitialDelay = 250;
             this.promptToolTip.IsBalloon = true;
             this.promptToolTip.OwnerDraw = true;
@@ -746,18 +552,18 @@ namespace CitrusDB.View.Students.AddStudent
             this.Controls.Add(this.lastNameTextbox);
             this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.firstNameTextbox);
+            this.Enabled = false;
             this.Name = "AddStudentBoard";
             this.Size = new System.Drawing.Size(914, 644);
             this.Load += new System.EventHandler(this.AddStudentBoard_Load);
             this.flowLayoutPanelAddBoard.ResumeLayout(false);
             this.swingPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondPhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirstPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBoxSecondPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBoxFirstPhoto)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -788,14 +594,14 @@ namespace CitrusDB.View.Students.AddStudent
         private Bunifu.Framework.UI.BunifuCustomLabel photo1Label;
         private Bunifu.Framework.UI.BunifuCustomLabel photo2Label;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private CirclusButton collapsedButton;
         private System.Windows.Forms.FlowLayoutPanel groupsFlowPanel;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.TextBox searchGroupTextBox;
         private System.Windows.Forms.MonthCalendar monthCalendar;
-        private CirclusButton promptButton;
-        private UsersElements.Controls.PromptToolTip promptToolTip;
+        private CitrusDB.View.UsersElements.Controls.PromptToolTip promptToolTip;
+        private CitrusDB.View.UsersElements.CirclusButton promptButton;
+        private CitrusDB.View.UsersElements.CirclusButton collapsedButton;
     }
 }

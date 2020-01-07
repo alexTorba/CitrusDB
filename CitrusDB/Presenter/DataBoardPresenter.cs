@@ -147,9 +147,6 @@ namespace CitrusDB.Presenter
         {
           var studentToDelete = EFGenericRepository.Find<Student>(studentView.Id);
 
-          if (studentToDelete.Group != null)
-            EFGenericRepository.Update(studentToDelete.Group);
-
           EFGenericRepository.Delete(studentToDelete);
           break;
         }

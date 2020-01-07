@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-
 using CitrusDB.Model.Entity;
 using CitrusDB.Model.DataBaseLogic;
 using CitrusDB.View.Students.AddStudent;
@@ -14,8 +13,8 @@ namespace CitrusDB.Presenter.Students
 {
   class AddStudentBoardPresenter : StudentBoardPresenter
   {
-    private IAddStudentBoard _addStudentBoard;
-    private IGroupView _groupView;
+    private readonly IAddStudentBoard _addStudentBoard;
+    private readonly IGroupView _groupView;
 
     public AddStudentBoardPresenter(IAddStudentBoard studentBoard, IGroupView groupView) : base(studentBoard, groupView)
     {
@@ -34,45 +33,48 @@ namespace CitrusDB.Presenter.Students
 
     #region IAddStudentBoard
 
-    private void AddStudentBoard_GenerateButton(object sender, EventArgs e) 
+    private void AddStudentBoard_GenerateButton(object sender, EventArgs e)
     {
       AddStudentBoard_ClearButton(null, EventArgs.Empty);
 
-      (string p1, string p2) = Generate.GetPhotos();
+      var (p1, p2) = Generate.GetPhotos();
 
       foreach (Control control in _addStudentBoard.GetBoardControls)
       {
-        if (control is TextBox textBox)
+        switch (control)
         {
-          StudentBoard_ControlEnter(textBox, EventArgs.Empty);
-          textBox.FillControl();
-        }
-        else if (control is ComboBox comboBox)
-        {
-          StudentBoard_ControlEnter(comboBox, EventArgs.Empty);
-          comboBox.FillControl();
-          StudentBoard_ComboBoxSelectionChange(comboBox, EventArgs.Empty);
-        }
-        else if (control is PictureBox pictureBox)
-        {
-          StudentBoard_ControlEnter(pictureBox, EventArgs.Empty);
+          case TextBox textBox:
+            StudentBoard_ControlEnter(textBox, EventArgs.Empty);
+            textBox.FillControl();
+            break;
+          case ComboBox comboBox:
+            StudentBoard_ControlEnter(comboBox, EventArgs.Empty);
+            comboBox.FillControl();
+            StudentBoard_ComboBoxSelectionChange(comboBox, EventArgs.Empty);
+            break;
+          case PictureBox pictureBox:
+          {
+            StudentBoard_ControlEnter(pictureBox, EventArgs.Empty);
 
-          if (pictureBox.Name == "pictureBoxFirstPhoto")
-            pictureBox.Load(p1);
-          else
-            pictureBox.Load(p2);
+            if (pictureBox.Name == "pictureBoxFirstPhoto")
+              pictureBox.Load(p1);
+            else
+              pictureBox.Load(p2);
 
-          StudentBoard_PhotoLoaded(pictureBox, EventArgs.Empty);
-          _addStudentBoard.HidePhotoLabels();
-        }
-        else if (control is MonthCalendar monthCalendar)
-        {
-          var time = Generate.GenerateDateTime();
-          monthCalendar.SelectionRange = new SelectionRange(time, time);
-          _addStudentBoard.SetInitDate();
-          monthCalendar.Select();
+            StudentBoard_PhotoLoaded(pictureBox, EventArgs.Empty);
+            _addStudentBoard.HidePhotoLabels();
+            break;
+          }
+          case MonthCalendar monthCalendar:
+          {
+            var time = Generate.GenerateDateTime();
+            monthCalendar.SelectionRange = new SelectionRange(time, time);
+            _addStudentBoard.SetInitDate();
+            monthCalendar.Select();
 
-          StudentBoard_MonthCalendarDateSelected(monthCalendar, EventArgs.Empty);
+            StudentBoard_MonthCalendarDateSelected(monthCalendar, EventArgs.Empty);
+            break;
+          }
         }
       }
     }
@@ -80,12 +82,8 @@ namespace CitrusDB.Presenter.Students
     private async void AddStudentBoard_SaveButton(object sender, EventArgs e)
     {
       var selectedGroupView = _addStudentBoard.GroupsCollection
-          .Cast<IGroupView>()
-          .FirstOrDefault(gv => gv.IsSelected == true);
-
-      var selectedGroup = selectedGroupView == null
-                              ? null
-                              : EFGenericRepository.Find<Group>(selectedGroupView.Id);
+        .Cast<IGroupView>()
+        .FirstOrDefault(gv => gv.IsSelected);
 
       var student = new Student
       {
@@ -101,16 +99,18 @@ namespace CitrusDB.Presenter.Students
         Weight = _addStudentBoard.GetWeight,
         KnowledgeOfLanguage = _addStudentBoard.GetKnowledgeOfLanguage.Trim(),
 
-        Group = selectedGroup
+        GroupId = selectedGroupView?.Id
       };
 
       EFGenericRepository.Create(student);
 
-      if (selectedGroup != null)
-      {
-        await _addStudentBoard.GroupsCollection.UpdateControls(new Group[] { selectedGroup }, _groupView, CancellationToken.None);
-        EFGenericRepository.Update(selectedGroup);
-      }
+      // todo: ? (now without group)
+      // if (selectedGroup != null)
+      // {
+      //   await _addStudentBoard.GroupsCollection.UpdateControls(new[] {selectedGroup}, _groupView,
+      //     CancellationToken.None);
+      //   EFGenericRepository.Update(selectedGroup);
+      // }
     }
 
     private void AddStudentBoard_ClearButton(object sender, EventArgs e)
@@ -121,7 +121,7 @@ namespace CitrusDB.Presenter.Students
 
       GroupView_ClearOtherBoard(null, EventArgs.Empty);
 
-      validate.Reset();
+      Validate.Reset();
 
       _addStudentBoard.ResetControls();
     }

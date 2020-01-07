@@ -79,22 +79,18 @@ namespace CitrusDB.Presenter.Students
 
         SecondPhoto = _studentBoardSecond.GetSecondPhoto.SetPhoto(_studentBoardSecond.CurrentStudent.SecondPhoto),
 
-        Group = selectedGroup == null
-                               ? null
-                               : EFGenericRepository.Find<Group>(selectedGroup.Id)
+        GroupId = selectedGroup?.Id
       };
 
-      var isEquality = new StudentsEqualityComarer()
+      var isEquality = new StudentsEqualityComparer()
           .Equals(editStudent, _studentBoardSecond.CurrentStudent);
 
-      if (!isEquality)
-      {
-        _studentBoardSecond.CurrentStudent.SetCopy(editStudent);
-        EFGenericRepository.Update(_studentBoardSecond.CurrentStudent);
-        return true;
-      }
-
-      return false;
+      if (isEquality) 
+        return false;
+      
+      _studentBoardSecond.CurrentStudent.SetCopy(editStudent);
+      EFGenericRepository.Update(_studentBoardSecond.CurrentStudent);
+      return true;
     }
 
     #endregion

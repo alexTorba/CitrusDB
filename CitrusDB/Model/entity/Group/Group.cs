@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace CitrusDB.Model.Entity
 {
   public class Group : IEntity, IComparable<Group>, IEqualityComparer<Group>
   {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public byte[] Photo { get; set; }
+    [JsonProperty("i")] public int Id { get; set; }
+    [JsonProperty("n")] public string Name { get; set; }
+    [JsonProperty("p")] public byte[] Photo { get; set; }
 
-    public IList<Student> Students { get; set; }
+    [JsonProperty("s")] public IList<Student> Students { get; set; }
 
     public Group()
     {
@@ -37,13 +38,10 @@ namespace CitrusDB.Model.Entity
 
     public bool Equals(Group x, Group y)
     {
-      if (x.Id == y.Id &&
-         x.Name == y.Name &&
-         EqualityComparer<byte[]>.Default.Equals(x.Photo, y.Photo) &&
-         x.Students.SequenceEqual(y.Students, new StudentsEqualityComarer()))
-        return true;
-
-      return false;
+      return x.Id == y.Id &&
+             x.Name == y.Name &&
+             EqualityComparer<byte[]>.Default.Equals(x.Photo, y.Photo) &&
+             x.Students.SequenceEqual(y.Students, new StudentsEqualityComparer());
     }
 
     public int GetHashCode(Group obj)

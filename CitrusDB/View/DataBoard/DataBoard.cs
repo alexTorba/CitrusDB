@@ -34,9 +34,10 @@ namespace CitrusDB.View.DataBoard
 
     public void UpdateView()
     {
-      if (radioButtonGroup.Checked == true)
+      if (radioButtonGroup.Checked)
         GroupTableLoad?.Invoke(null, EventArgs.Empty);
-      else LoadDataBoard?.Invoke(null, EventArgs.Empty);
+      else 
+        LoadDataBoard?.Invoke(null, EventArgs.Empty);
     }
 
     public void DisablingGrid()

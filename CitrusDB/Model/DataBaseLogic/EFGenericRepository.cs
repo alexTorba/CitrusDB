@@ -18,9 +18,9 @@ namespace CitrusDB.Model.DataBaseLogic
     static EFGenericRepository()
     {
       _context = new CitrusDbContext();
-      ((CitrusDbContext)_context).Students.Include(s => s.Group).Load();
+      // ((CitrusDbContext)_context).Students.Include(s => s.Group).Load();
 
-      _context.Database.Log = s => Console.WriteLine(s);
+      _context.Database.Log = Console.WriteLine;
     }
 
     public static void SetDetached<TEntity>(TEntity entity) where TEntity : class, IEntity
@@ -196,10 +196,10 @@ namespace CitrusDB.Model.DataBaseLogic
                             .AsEnumerable()
                             .Where(predicate)
                             .Where(t => _context.Entry(t).State == entityState).ToList();
-      else
-        return _context.Set<TEntity>().Local
-                            .Where(predicate)
-                            .Where(t => _context.Entry(t).State == entityState).ToList();
+      
+      return _context.Set<TEntity>().Local
+        .Where(predicate)
+        .Where(t => _context.Entry(t).State == entityState).ToList();
     }
 
     public static IEnumerable<TEntity> GetWithInclude<TEntity>
@@ -207,7 +207,7 @@ namespace CitrusDB.Model.DataBaseLogic
         params Expression<Func<TEntity, object>>[] includeProperties)
         where TEntity : class
     {
-      return Include(includeProperties).Where(predicate);
+      return Include(includeProperties).AsEnumerable().Where(predicate);
     }
 
     public static IEnumerable<TEntity> GetWithInclude<TEntity>
@@ -219,7 +219,7 @@ namespace CitrusDB.Model.DataBaseLogic
     private static IQueryable<TEntity> Include<TEntity>
         (params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : class
     {
-      IQueryable<TEntity> query = _context.Set<TEntity>().AsQueryable();
+      var query = _context.Set<TEntity>().AsQueryable();
 
       return includeProperties
           .Aggregate(query,

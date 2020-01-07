@@ -2,36 +2,36 @@
 {
   class Validate
   {
-    private bool _lockerForPB;
-    private bool _backLockerPB;
+    private bool _lockerForPb;
+    private bool _backLockerPb;
 
     public Validate()
     {
-      _lockerForPB = false;
-      _backLockerPB = false;
+      _lockerForPb = false;
+      _backLockerPb = false;
     }
 
     public int DecreaseProgressBarLogic(int value, int points)
     {
-      if (_backLockerPB == true)
+      if (_backLockerPb)
       {
         if (value != 0)
           value -= points;
 
-        _lockerForPB = true;
-        _backLockerPB = false;
+        _lockerForPb = true;
+        _backLockerPb = false;
       }
       return value;
     }
 
     public int FillingProgressBarLogic(int value, int points)
     {
-      if (_lockerForPB == true)
+      if (_lockerForPb)
       {
         value += points;
 
-        _lockerForPB = false;
-        _backLockerPB = true;
+        _lockerForPb = false;
+        _backLockerPb = true;
       }
       return value;
     }
@@ -40,13 +40,13 @@
     {
       if (haveMistake)
       {
-        _lockerForPB = true;
-        _backLockerPB = false;
+        _lockerForPb = true;
+        _backLockerPb = false;
       }
       else
       {
-        _lockerForPB = false;
-        _backLockerPB = true;
+        _lockerForPb = false;
+        _backLockerPb = true;
       }
     }
 
@@ -54,16 +54,16 @@
     {
       if (haveMistake)
       {
-        _lockerForPB = true;
-        _backLockerPB = false;
+        _lockerForPb = true;
+        _backLockerPb = false;
       }
       else if (isSingle) Reset();
     }
 
     public void Reset()
     {
-      _lockerForPB = false;
-      _backLockerPB = false;
+      _lockerForPb = false;
+      _backLockerPb = false;
     }
   }
 }

@@ -12,8 +12,50 @@ namespace CitrusDB.View
 
   public partial class MainForm : Form, IMainForm
   {
-    private readonly LoadingForm _loadingForm;
+    #region fields
 
+    public Panel dragPanel;
+    public PictureBox pictureBox1;
+    public Label label1;
+    public Button buttonExit;
+    public Button button1;
+    public Button rollUpButton;
+    public Button buttonData;
+    public Panel backlightPanel;
+    public Button buttonAboutUs;
+    public Button buttonSettings;
+    public Button buttonStatistics;
+    public Button buttonAdd;
+    public Panel panelGroupAdd;
+    public PictureBox pictureBox2;
+    public Button buttonGroup;
+    public Button buttonStudent;
+    public PictureBox pictureBox3;
+    public Panel panel1;
+    public FlowLayoutPanel flowLayoutPanel1;
+    public BindingSource studentBindingSource;
+    public Bunifu.Framework.UI.BunifuDragControl dragControl;
+    public Panel editPanel;
+    public Button editButton;
+    public PictureBox pictureBox4;
+    public PictureBox pictureBox5;
+    public Button editStudentButton;
+    public Button editGroupButton;
+    public Panel panel2;
+    public Timer timer;
+    public CitrusDB.View.DataBoard.DataBoard dataBoard;
+    public Students.AddStudent.AddStudentBoard addStudentBoard;
+    public Groups.AddGroup.AddGroupBoard addGroupBoard;
+    public Students.EditStuden.EditStudentBoard editStudentBoard;
+    public Groups.EditGroup.EditGroupBoard editGroupBoard;
+    public Statistics.StatisticBoard statisticBoard;
+    public AboutUs.AboutUsBoard aboutUsBoard;
+    public TextBox statusTextBox;
+    
+    #endregion
+
+    private readonly LoadingForm _loadingForm;
+    
     public event TimerHandler TimerTiks;
 
     #region IMainForm

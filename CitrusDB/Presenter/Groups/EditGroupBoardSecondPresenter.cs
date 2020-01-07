@@ -16,8 +16,9 @@ namespace CitrusDB.Presenter.Groups
   {
     private readonly IEditGroupBoardSecond _groupBoardSecond;
 
-    public EditGroupBoardSecondPresenter(IEditGroupBoardSecond groupBoardSecond, IStudentView currentStudentView, IStudentView addedStudentView)
-        : base(groupBoardSecond, currentStudentView, addedStudentView)
+    public EditGroupBoardSecondPresenter(IEditGroupBoardSecond groupBoardSecond, IStudentView currentStudentView,
+      IStudentView addedStudentView)
+      : base(groupBoardSecond, currentStudentView, addedStudentView)
     {
       _groupBoardSecond = groupBoardSecond;
 
@@ -36,14 +37,14 @@ namespace CitrusDB.Presenter.Groups
     private async void GroupBoardSecond_SetEditingGroup(object sender, EventArgs e)
     {
       _groupBoardSecond.CurrentStudentControlCollection.DeleteControls(
-          _groupBoardSecond.CurrentGroup.Students,
-          CancellationToken.None);
+        _groupBoardSecond.CurrentGroup.Students,
+        CancellationToken.None);
 
       _groupBoardSecond.AddedStudentControlCollection.Clear();
 
       await _groupBoardSecond
-          .AddedStudentControlCollection
-          .AddControls(_groupBoardSecond.CurrentGroup.Students,
+        .AddedStudentControlCollection
+        .AddControls(_groupBoardSecond.CurrentGroup.Students,
           addedStudentView,
           CancellationToken.None);
     }
@@ -76,9 +77,10 @@ namespace CitrusDB.Presenter.Groups
     private void GroupBoardSecond_CancelClick(object sender, EventArgs e)
     {
       //todo ??
-      foreach (var addedStudentView in _groupBoardSecond.AddedStudentControlCollection.Cast<AddedStudentViewBoard>().ToArray())
+      foreach (var addedStudentView in _groupBoardSecond.AddedStudentControlCollection.Cast<AddedStudentViewBoard>()
+        .ToArray())
       {
-        if (EFGenericRepository.Find<Student>(addedStudentView.Id).Group == null)
+        if (EFGenericRepository.Find<Student>(addedStudentView.Id).GroupId == null)
         {
           CancelButton_Click(addedStudentView, EventArgs.Empty);
         }
@@ -88,16 +90,17 @@ namespace CitrusDB.Presenter.Groups
     public override async void GroupBoard_LoadAddGroupBoard(object sender, EventArgs e)
     {
       await _groupBoardSecond.CurrentStudentControlCollection.AddControls(
-          EFGenericRepository.Get<Student>(s => s.Group == null).ToArray(),
-          currentStudentView,
-          CancellationToken.None);
+        EFGenericRepository.Get<Student>(s => s.GroupId == null).ToArray(),
+        currentStudentView,
+        CancellationToken.None);
     }
 
-    public async override Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, string searchCriteria, CancellationToken token)
+    public override async Task<Student[]> GetStudentWithExceptedAddedStudent(string condition, string searchCriteria,
+      CancellationToken token)
     {
       return await Task.Factory.StartNew(() =>
       {
-        var students = (IEnumerable<Student>)EFGenericRepository.Get<Student>(s => s.Group == null).ToArray();
+        var students = (IEnumerable<Student>) EFGenericRepository.Get<Student>(s => s.GroupId == null).ToArray();
 
         var existGroup = EFGenericRepository.Get<Group>(g => g.Name == groupBoard.GetNameOfGroup).FirstOrDefault();
         var currentStudent = existGroup?.Students;
@@ -107,10 +110,9 @@ namespace CitrusDB.Presenter.Groups
         if (condition != string.Empty)
           students = students.Where(searchCriteria, condition);
 
-
         if (groupBoard.AddedStudentControlCollection.Count == 0)
           return students.ToArray();
-        
+
         var addedStudents = groupBoard.AddedStudentControlCollection
           .Cast<IStudentView>()
           .Select(s => EFGenericRepository.Find<Student>(s.Id));

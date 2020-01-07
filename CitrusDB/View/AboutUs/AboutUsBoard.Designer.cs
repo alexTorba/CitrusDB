@@ -133,6 +133,7 @@
       this.Controls.Add(this.textBox2);
       this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.textBox1);
+      this.Enabled = false;
       this.Name = "AboutUsBoard";
       this.Size = new System.Drawing.Size(928, 650);
       ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();

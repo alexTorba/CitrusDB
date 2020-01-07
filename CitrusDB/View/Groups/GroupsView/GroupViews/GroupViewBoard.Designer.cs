@@ -22,9 +22,9 @@
 
         #region Код, автоматически созданный конструктором компонентов
 
-        /// <summary> 
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -44,14 +44,15 @@
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.photoGroupPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.photoGroupPictureBox)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.label1.Location = new System.Drawing.Point(123, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 19);
@@ -79,7 +80,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.label4.Location = new System.Drawing.Point(123, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 19);
@@ -89,7 +91,9 @@
             // lastAddedStudentLabel
             // 
             this.lastAddedStudentLabel.AutoSize = true;
-            this.lastAddedStudentLabel.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lastAddedStudentLabel.Font = new System.Drawing.Font("Century Gothic", 9F,
+                ((System.Drawing.FontStyle) ((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))),
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.lastAddedStudentLabel.Location = new System.Drawing.Point(220, 69);
             this.lastAddedStudentLabel.Name = "lastAddedStudentLabel";
             this.lastAddedStudentLabel.Size = new System.Drawing.Size(0, 16);
@@ -98,7 +102,8 @@
             // lastAddedTextLabel
             // 
             this.lastAddedTextLabel.AutoSize = true;
-            this.lastAddedTextLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lastAddedTextLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.lastAddedTextLabel.Location = new System.Drawing.Point(123, 69);
             this.lastAddedTextLabel.Name = "lastAddedTextLabel";
             this.lastAddedTextLabel.Size = new System.Drawing.Size(71, 16);
@@ -109,7 +114,8 @@
             // bunifuSeparator1
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (105)))),
+                ((int) (((byte) (105)))), ((int) (((byte) (105)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(126, 59);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -134,8 +140,9 @@
             // colorSeparator2
             // 
             this.colorSeparator2.BackColor = System.Drawing.Color.Transparent;
-            this.colorSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator2.LineThickness = 46;
+            this.colorSeparator2.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (100)))),
+                ((int) (((byte) (100)))), ((int) (((byte) (100)))));
+            this.colorSeparator2.LineThickness = 60;
             this.colorSeparator2.Location = new System.Drawing.Point(-1, -2);
             this.colorSeparator2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.colorSeparator2.Name = "colorSeparator2";
@@ -147,8 +154,9 @@
             // colorSeparator4
             // 
             this.colorSeparator4.BackColor = System.Drawing.Color.Transparent;
-            this.colorSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator4.LineThickness = 54;
+            this.colorSeparator4.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (100)))),
+                ((int) (((byte) (100)))), ((int) (((byte) (100)))));
+            this.colorSeparator4.LineThickness = 71;
             this.colorSeparator4.Location = new System.Drawing.Point(-1, 90);
             this.colorSeparator4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.colorSeparator4.Name = "colorSeparator4";
@@ -160,8 +168,9 @@
             // colorSeparator1
             // 
             this.colorSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.colorSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator1.LineThickness = 22;
+            this.colorSeparator1.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (100)))),
+                ((int) (((byte) (100)))), ((int) (((byte) (100)))));
+            this.colorSeparator1.LineThickness = 26;
             this.colorSeparator1.Location = new System.Drawing.Point(286, 7);
             this.colorSeparator1.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.colorSeparator1.Name = "colorSeparator1";
@@ -173,8 +182,9 @@
             // colorSeparator3
             // 
             this.colorSeparator3.BackColor = System.Drawing.Color.Transparent;
-            this.colorSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.colorSeparator3.LineThickness = 22;
+            this.colorSeparator3.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (100)))),
+                ((int) (((byte) (100)))), ((int) (((byte) (100)))));
+            this.colorSeparator3.LineThickness = 26;
             this.colorSeparator3.Location = new System.Drawing.Point(-1, -2);
             this.colorSeparator3.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
             this.colorSeparator3.Name = "colorSeparator3";
@@ -185,20 +195,21 @@
             // 
             // contextMenuStrip
             // 
-            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.contextMenuStrip.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (31)))),
+                ((int) (((byte) (31)))), ((int) (((byte) (31)))));
+            this.contextMenuStrip.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectToolStripMenuItem,
-            this.infoToolStripMenuItem});
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[]
+                {this.selectToolStripMenuItem, this.infoToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(116, 48);
             // 
             // selectToolStripMenuItem
             // 
             this.selectToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
-            this.selectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.selectToolStripMenuItem.Text = "Select";
             this.selectToolStripMenuItem.Click += new System.EventHandler(this.selectToolStripMenuItem_Click);
             // 
@@ -206,7 +217,7 @@
             // 
             this.infoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
@@ -228,15 +239,16 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.photoGroupPictureBox);
-            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Enabled = false;
+            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Name = "GroupViewBoard";
             this.Size = new System.Drawing.Size(295, 99);
-            ((System.ComponentModel.ISupportInitialize)(this.photoGroupPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.photoGroupPictureBox)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

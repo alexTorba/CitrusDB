@@ -22,9 +22,9 @@
 
         #region Код, автоматически созданный конструктором компонентов
 
-        /// <summary> 
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -77,7 +77,8 @@
             // 
             // collapsedButton
             // 
-            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.collapsedButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (31)))),
+                ((int) (((byte) (31)))), ((int) (((byte) (31)))));
             this.collapsedButton.FlatAppearance.BorderSize = 0;
             this.collapsedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.collapsedButton.Image = global::CitrusDB.Properties.Resources.left;
@@ -91,7 +92,8 @@
             // 
             // panelGroup
             // 
-            this.panelGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panelGroup.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (31)))), ((int) (((byte) (31)))),
+                ((int) (((byte) (31)))));
             this.panelGroup.Controls.Add(this.flowGroupOptions);
             this.panelGroup.Location = new System.Drawing.Point(28, 0);
             this.panelGroup.Margin = new System.Windows.Forms.Padding(4);
@@ -124,7 +126,8 @@
             this.orderByButton.BackColor = System.Drawing.Color.DarkSlateGray;
             this.orderByButton.FlatAppearance.BorderSize = 0;
             this.orderByButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.orderByButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderByButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.orderByButton.ForeColor = System.Drawing.Color.White;
             this.orderByButton.Location = new System.Drawing.Point(24, 67);
             this.orderByButton.Margin = new System.Windows.Forms.Padding(2);
@@ -159,7 +162,8 @@
             // 
             // flowPanelSearchSettings
             // 
-            this.flowPanelSearchSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.flowPanelSearchSettings.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (31)))),
+                ((int) (((byte) (31)))), ((int) (((byte) (31)))));
             this.flowPanelSearchSettings.Controls.Add(this.searchSettingsButton);
             this.flowPanelSearchSettings.Controls.Add(this.panelWhere);
             this.flowPanelSearchSettings.Controls.Add(this.panelOrderBy);
@@ -173,10 +177,12 @@
             // 
             // searchSettingsButton
             // 
-            this.searchSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.searchSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (44)))),
+                ((int) (((byte) (44)))), ((int) (((byte) (44)))));
             this.searchSettingsButton.FlatAppearance.BorderSize = 0;
             this.searchSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchSettingsButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchSettingsButton.Font = new System.Drawing.Font("Century Gothic", 10.2F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.searchSettingsButton.ForeColor = System.Drawing.Color.White;
             this.searchSettingsButton.Location = new System.Drawing.Point(3, 3);
             this.searchSettingsButton.Name = "searchSettingsButton";
@@ -214,7 +220,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(10, 82);
             this.label3.Name = "label3";
@@ -224,10 +231,12 @@
             // 
             // buttonWhere
             // 
-            this.buttonWhere.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonWhere.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))), ((int) (((byte) (64)))),
+                ((int) (((byte) (64)))));
             this.buttonWhere.FlatAppearance.BorderSize = 0;
             this.buttonWhere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWhere.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonWhere.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.buttonWhere.ForeColor = System.Drawing.Color.White;
             this.buttonWhere.Location = new System.Drawing.Point(0, 0);
             this.buttonWhere.Name = "buttonWhere";
@@ -257,7 +266,8 @@
             // bunifuSeparatorOrderBy
             // 
             this.bunifuSeparatorOrderBy.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparatorOrderBy.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bunifuSeparatorOrderBy.LineColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))),
+                ((int) (((byte) (0)))), ((int) (((byte) (0)))));
             this.bunifuSeparatorOrderBy.LineThickness = 1;
             this.bunifuSeparatorOrderBy.Location = new System.Drawing.Point(0, 114);
             this.bunifuSeparatorOrderBy.Name = "bunifuSeparatorOrderBy";
@@ -269,7 +279,8 @@
             // comboBoxOrderBy
             // 
             this.comboBoxOrderBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxOrderBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxOrderBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.comboBoxOrderBy.FormattingEnabled = true;
             this.comboBoxOrderBy.Location = new System.Drawing.Point(65, 74);
             this.comboBoxOrderBy.Name = "comboBoxOrderBy";
@@ -279,7 +290,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(18, 75);
             this.label6.Name = "label6";
@@ -290,7 +302,8 @@
             // radioButtonDescen
             // 
             this.radioButtonDescen.AutoSize = true;
-            this.radioButtonDescen.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonDescen.Font = new System.Drawing.Font("Century Gothic", 9.75F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.radioButtonDescen.ForeColor = System.Drawing.Color.White;
             this.radioButtonDescen.Location = new System.Drawing.Point(32, 155);
             this.radioButtonDescen.Name = "radioButtonDescen";
@@ -304,7 +317,8 @@
             // radioButtonAscend
             // 
             this.radioButtonAscend.AutoSize = true;
-            this.radioButtonAscend.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonAscend.Font = new System.Drawing.Font("Century Gothic", 9.75F,
+                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.radioButtonAscend.ForeColor = System.Drawing.Color.White;
             this.radioButtonAscend.Location = new System.Drawing.Point(40, 124);
             this.radioButtonAscend.Name = "radioButtonAscend";
@@ -317,10 +331,12 @@
             // 
             // buttonOrderBy
             // 
-            this.buttonOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonOrderBy.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (64)))),
+                ((int) (((byte) (64)))), ((int) (((byte) (64)))));
             this.buttonOrderBy.FlatAppearance.BorderSize = 0;
             this.buttonOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOrderBy.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOrderBy.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.buttonOrderBy.ForeColor = System.Drawing.Color.White;
             this.buttonOrderBy.Location = new System.Drawing.Point(0, 0);
             this.buttonOrderBy.Name = "buttonOrderBy";
@@ -354,6 +370,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.unityPanel);
+            this.Enabled = false;
             this.Name = "EditStudentBoardFirst";
             this.Size = new System.Drawing.Size(914, 644);
             this.Load += new System.EventHandler(this.editStudentBoardFirst_Load);
@@ -369,12 +386,10 @@
             this.panelOrderBy.PerformLayout();
             this.unityPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
         private System.Windows.Forms.Panel generPanelOptions;
-        private UsersElements.CirclusButton collapsedButton;
         private System.Windows.Forms.Panel panelGroup;
         private System.Windows.Forms.FlowLayoutPanel flowGroupOptions;
         private System.Windows.Forms.Panel unityPanel;
@@ -396,5 +411,6 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparatorOrderBy;
         private System.Windows.Forms.ComboBox comboBoxOrderBy;
         private System.Windows.Forms.Label label6;
+        private CitrusDB.View.UsersElements.CirclusButton collapsedButton;
     }
 }

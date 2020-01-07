@@ -83,7 +83,7 @@ namespace CitrusDB.View.Students.StudentsView.StudentInfo
         _firstPhotoLock = false;
         _secondPhotoLock = true;
       }
-      else if (_secondPhotoLock == true)
+      else if (_secondPhotoLock)
       {
         photoPictureBox.Image = _secondPhoto;
         _firstPhotoLock = true;
